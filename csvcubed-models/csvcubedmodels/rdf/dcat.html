@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubedmodels.rdf.dcat &#8212; csvcubedmodels  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for csvcubedmodels.rdf.dcat</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">DCAT</span>
+<span class="sd">----</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">rdflib</span> <span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">URIRef</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Annotated</span> <span class="k">as</span> <span class="n">Ann</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+
+<span class="kn">from</span> <span class="nn">.triple</span> <span class="kn">import</span> <span class="n">Triple</span><span class="p">,</span> <span class="n">PropertyStatus</span>
+<span class="kn">from</span> <span class="nn">.resource</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NewMetadataResource</span><span class="p">,</span>
+    <span class="n">map_str_to_en_literal</span><span class="p">,</span>
+    <span class="n">map_resource_to_uri</span><span class="p">,</span>
+    <span class="n">Resource</span> <span class="k">as</span> <span class="n">RdfResource</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">csvcubedmodels.rdf.namespaces</span> <span class="kn">import</span> <span class="n">DCAT</span><span class="p">,</span> <span class="n">DCTERMS</span><span class="p">,</span> <span class="n">XSD</span><span class="p">,</span> <span class="n">PROV</span><span class="p">,</span> <span class="n">ODRL2</span><span class="p">,</span> <span class="n">FOAF</span>
+
+
+<div class="viewcode-block" id="Resource"><a class="viewcode-back" href="../../../csvcubedmodels.rdf.html#csvcubedmodels.rdf.dcat.Resource">[docs]</a><span class="k">class</span> <span class="nc">Resource</span><span class="p">(</span><span class="n">NewMetadataResource</span><span class="p">):</span>
+
+    <span class="n">access_rights</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">accessRights</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">contact_point</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">contactPoint</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>  <span class="c1"># Todo: VCARD</span>
+    <span class="n">creator</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">creator</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">map_str_to_en_literal</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">title</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">map_str_to_en_literal</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">issued</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">datetime</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">issued</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">Literal</span><span class="p">)</span>
+    <span class="p">]</span>  <span class="c1"># date/time</span>
+    <span class="n">modified</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">datetime</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">modified</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">Literal</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">language</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">Literal</span><span class="p">)]</span>
+    <span class="n">publisher</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">publisher</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">identifier</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">identifier</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">Literal</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">themes</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">theme</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>  <span class="c1"># skos:Concept</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>  <span class="c1"># skos:Concept</span>
+    <span class="n">relation</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">relation</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)]</span>
+    <span class="n">qualified_relation</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">qualifiedRelation</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">keywords</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">keyword</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">map_str_to_en_literal</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">landing_page</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">landingPage</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">qualified_attribution</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">PROV</span><span class="o">.</span><span class="n">qualifiedAttribution</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">license</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">license</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">rights</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">rights</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">has_policy</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Triple</span><span class="p">(</span><span class="n">ODRL2</span><span class="o">.</span><span class="n">hasPolicy</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">is_referenced_by</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">isReferencedBy</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">NewMetadataResource</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rdf_types</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">Resource</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">themes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keywords</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">landing_page</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Dataset"><a class="viewcode-back" href="../../../csvcubedmodels.rdf.html#csvcubedmodels.rdf.dcat.Dataset">[docs]</a><span class="k">class</span> <span class="nc">Dataset</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+
+    <span class="n">accrual_periodicity</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">accrualPeriodicity</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">spatial</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">spatial</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)]</span>
+    <span class="n">spatial_resolution_in_meters</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">float</span><span class="p">,</span>
+        <span class="n">Triple</span><span class="p">(</span>
+            <span class="n">DCAT</span><span class="o">.</span><span class="n">spatialResolutionInMeters</span><span class="p">,</span>
+            <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">optional</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="n">Literal</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">XSD</span><span class="o">.</span><span class="n">decimal</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">temporal</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">temporal</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)]</span>
+    <span class="n">temporal_resolution</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span>
+        <span class="n">Triple</span><span class="p">(</span>
+            <span class="n">DCAT</span><span class="o">.</span><span class="n">temporalResolution</span><span class="p">,</span>
+            <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">optional</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="n">Literal</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">XSD</span><span class="o">.</span><span class="n">duration</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">]</span>
+    <span class="sd">&quot;&quot;&quot;https://github.com/RDFLib/rdflib/pull/808&quot;&quot;&quot;</span>
+    <span class="n">was_generated_by</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">PROV</span><span class="o">.</span><span class="n">wasGeneratedBy</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">optional</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">Resource</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rdf_types</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CatalogRecord"><a class="viewcode-back" href="../../../csvcubedmodels.rdf.html#csvcubedmodels.rdf.dcat.CatalogRecord">[docs]</a><span class="k">class</span> <span class="nc">CatalogRecord</span><span class="p">(</span><span class="n">NewMetadataResource</span><span class="p">):</span>
+
+    <span class="n">title</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">mandatory</span><span class="p">,</span> <span class="n">map_str_to_en_literal</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">map_str_to_en_literal</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">issued</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="n">datetime</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">issued</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">mandatory</span><span class="p">,</span> <span class="n">Literal</span><span class="p">)]</span>
+    <span class="n">modified</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">datetime</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">modified</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">Literal</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">primary_topic</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">RdfResource</span><span class="p">[</span><span class="n">Resource</span><span class="p">],</span>
+        <span class="n">Triple</span><span class="p">(</span><span class="n">FOAF</span><span class="o">.</span><span class="n">primaryTopic</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">mandatory</span><span class="p">,</span> <span class="n">map_resource_to_uri</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">conforms_to</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">conformsTo</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">NewMetadataResource</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rdf_types</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">CatalogRecord</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Catalog"><a class="viewcode-back" href="../../../csvcubedmodels.rdf.html#csvcubedmodels.rdf.dcat.Catalog">[docs]</a><span class="k">class</span> <span class="nc">Catalog</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="n">homepage</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">FOAF</span><span class="o">.</span><span class="n">homepage</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)]</span>
+    <span class="n">theme_taxonomy</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">themeTaxonomy</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">optional</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">has_part</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCTERMS</span><span class="o">.</span><span class="n">hasPart</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">optional</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)]</span>
+    <span class="n">dataset</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)]</span>
+    <span class="n">service</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">service</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)]</span>
+    <span class="n">catalog</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">catalog</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">optional</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">)]</span>
+    <span class="n">records</span><span class="p">:</span> <span class="n">Ann</span><span class="p">[</span>
+        <span class="n">Set</span><span class="p">[</span><span class="n">RdfResource</span><span class="p">[</span><span class="n">CatalogRecord</span><span class="p">]],</span>
+        <span class="n">Triple</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">record</span><span class="p">,</span> <span class="n">PropertyStatus</span><span class="o">.</span><span class="n">recommended</span><span class="p">,</span> <span class="n">map_resource_to_uri</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">Dataset</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rdf_types</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">DCAT</span><span class="o">.</span><span class="n">Catalog</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">records</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">csvcubedmodels</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../csvcubedmodels.html">csvcubedmodels package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

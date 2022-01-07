@@ -1,0 +1,31 @@
+csvcubedpmd package
+===================
+
+.. automodule:: csvcubedpmd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 10
+
+   csvcubedpmd.config
+   csvcubedpmd.csvwcli
+   csvcubedpmd.dcatcli
+   csvcubedpmd.models
+   csvcubedpmd.urireplacement
+   csvcubedpmd.utils
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedpmd.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

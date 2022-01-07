@@ -1,0 +1,41 @@
+csvcubed.models package
+=======================
+
+.. automodule:: csvcubed.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 10
+
+   csvcubed.models.cube
+   csvcubed.models.rdf
+
+Submodules
+----------
+
+
+.. automodule:: csvcubed.models.pydanticmodel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubed.models.uriidentifiable
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubed.models.validationerror
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

@@ -1,0 +1,18 @@
+csvcubedpmd.urireplacement package
+==================================
+
+.. automodule:: csvcubedpmd.urireplacement
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedpmd.urireplacement.urireplacement
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

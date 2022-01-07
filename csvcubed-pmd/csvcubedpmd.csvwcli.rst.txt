@@ -1,0 +1,25 @@
+csvcubedpmd.csvwcli package
+===========================
+
+.. automodule:: csvcubedpmd.csvwcli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedpmd.csvwcli.findwhere
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedpmd.csvwcli.pull
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

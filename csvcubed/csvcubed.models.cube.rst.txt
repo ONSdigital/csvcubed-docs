@@ -1,0 +1,47 @@
+csvcubed.models.cube package
+============================
+
+.. automodule:: csvcubed.models.cube
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 10
+
+   csvcubed.models.cube.qb
+
+Submodules
+----------
+
+
+.. automodule:: csvcubed.models.cube.catalog
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubed.models.cube.columns
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubed.models.cube.cube
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubed.models.cube.validationerrors
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

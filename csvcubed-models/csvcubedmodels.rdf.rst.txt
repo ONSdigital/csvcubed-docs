@@ -1,0 +1,74 @@
+csvcubedmodels.rdf package
+==========================
+
+.. automodule:: csvcubedmodels.rdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedmodels.rdf.datatypes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedmodels.rdf.dcat
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedmodels.rdf.namespaces
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedmodels.rdf.qb
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedmodels.rdf.rdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedmodels.rdf.rdfs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedmodels.rdf.resource
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedmodels.rdf.skos
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedmodels.rdf.triple
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

@@ -1,0 +1,27 @@
+csvcubedmodels package
+======================
+
+.. automodule:: csvcubedmodels
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 10
+
+   csvcubedmodels.rdf
+   csvcubedmodels.utils
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedmodels.dataclassbase
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

@@ -1,0 +1,18 @@
+csvcubedpmd.config package
+==========================
+
+.. automodule:: csvcubedpmd.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedpmd.config.pmdconfig
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

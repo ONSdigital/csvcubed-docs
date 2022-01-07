@@ -1,0 +1,53 @@
+csvcubeddevtools.behaviour package
+==================================
+
+.. automodule:: csvcubeddevtools.behaviour
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubeddevtools.behaviour.csv2rdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubeddevtools.behaviour.csvlint
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubeddevtools.behaviour.file
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubeddevtools.behaviour.rdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubeddevtools.behaviour.sparqltests
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubeddevtools.behaviour.temporarydirectory
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

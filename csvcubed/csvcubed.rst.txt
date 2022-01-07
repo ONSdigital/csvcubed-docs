@@ -1,0 +1,29 @@
+csvcubed package
+================
+
+.. automodule:: csvcubed
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 10
+
+   csvcubed.models
+   csvcubed.readers
+   csvcubed.utils
+   csvcubed.writers
+
+Submodules
+----------
+
+
+.. automodule:: csvcubed.inputs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
