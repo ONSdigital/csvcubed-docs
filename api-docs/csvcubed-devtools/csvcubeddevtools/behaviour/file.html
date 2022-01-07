@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubeddevtools.behaviour.file &#8212; csvcubeddevtools  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for csvcubeddevtools.behaviour.file</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">File Steps</span>
+<span class="sd">----------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">behave</span> <span class="kn">import</span> <span class="n">then</span><span class="p">,</span> <span class="n">Given</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">difflib</span> <span class="kn">import</span> <span class="n">Differ</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
+
+<span class="kn">from</span> <span class="nn">.temporarydirectory</span> <span class="kn">import</span> <span class="n">get_context_temp_dir_path</span>
+<span class="kn">from</span> <span class="nn">csvcubeddevtools.helpers.file</span> <span class="kn">import</span> <span class="n">get_test_cases_dir</span>
+
+
+<span class="nd">@Given</span><span class="p">(</span><span class="s1">&#39;the existing test-case file &quot;</span><span class="si">{file}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">step_impl</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="n">test_cases_dir</span> <span class="o">=</span> <span class="n">get_test_cases_dir</span><span class="p">()</span>
+    <span class="n">test_case_file</span> <span class="o">=</span> <span class="n">test_cases_dir</span> <span class="o">/</span> <span class="n">file</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">test_case_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find test-case file </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">temp_dir</span> <span class="o">=</span> <span class="n">get_context_temp_dir_path</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="n">output_file_path</span> <span class="o">=</span> <span class="n">temp_dir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">test_case_file</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">test_cases_dir</span><span class="p">))</span>
+
+    <span class="n">_ensure_directory_hierarchy_exists</span><span class="p">(</span><span class="n">output_file_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">test_case_file</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="_ensure_directory_hierarchy_exists"><a class="viewcode-back" href="../../../csvcubeddevtools.behaviour.html#csvcubeddevtools.behaviour.file._ensure_directory_hierarchy_exists">[docs]</a><span class="k">def</span> <span class="nf">_ensure_directory_hierarchy_exists</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">directory</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">_ensure_directory_hierarchy_exists</span><span class="p">(</span><span class="n">directory</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span></div>
+
+
+<span class="nd">@Given</span><span class="p">(</span><span class="s1">&#39;the existing test-case files &quot;</span><span class="si">{files_glob}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">step_impl</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">files_glob</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">test_cases_dir</span> <span class="o">=</span> <span class="n">get_test_cases_dir</span><span class="p">()</span>
+
+    <span class="n">matching_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">test_cases_dir</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;**/</span><span class="si">{</span><span class="n">files_glob</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matching_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find test-case file(s) </span><span class="si">{</span><span class="n">files_glob</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">temp_dir</span> <span class="o">=</span> <span class="n">get_context_temp_dir_path</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">matching_files</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">temp_dir</span> <span class="o">/</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="nd">@then</span><span class="p">(</span><span class="s1">&#39;the file at &quot;</span><span class="si">{file}</span><span class="s1">&quot; should not exist&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">step_impl</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="n">temp_dir</span> <span class="o">=</span> <span class="n">get_context_temp_dir_path</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="n">temp_dir</span> <span class="o">/</span> <span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+
+
+<span class="nd">@then</span><span class="p">(</span><span class="s1">&#39;the file at &quot;</span><span class="si">{file}</span><span class="s1">&quot; should contain&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">step_impl</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="n">temp_dir</span> <span class="o">=</span> <span class="n">get_context_temp_dir_path</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">temp_dir</span> <span class="o">/</span> <span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">file_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">expected_contents</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">differ</span> <span class="o">=</span> <span class="n">Differ</span><span class="p">()</span>
+    <span class="n">comparison_result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">differ</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">expected_contents</span><span class="p">,</span> <span class="n">file_contents</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">comparison_result</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_contents</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">comparison_result</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="step_impl"><a class="viewcode-back" href="../../../csvcubeddevtools.behaviour.html#csvcubeddevtools.behaviour.file.step_impl">[docs]</a><span class="nd">@then</span><span class="p">(</span><span class="s1">&#39;the file at &quot;</span><span class="si">{file}</span><span class="s1">&quot; should exist&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">step_impl</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+    <span class="n">temp_dir</span> <span class="o">=</span> <span class="n">get_context_temp_dir_path</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">temp_dir</span> <span class="o">/</span> <span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">(),</span> <span class="n">file</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">csvcubeddevtools</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../csvcubeddevtools.html">csvcubeddevtools package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

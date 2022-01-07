@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubed.models.cube.qb.components.codelist &#8212; csvcubed  documentation</title>
+    <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for csvcubed.models.cube.qb.components.codelist</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Code Lists</span>
+<span class="sd">----------</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">TypeVar</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">root_validator</span>
+
+<span class="kn">from</span> <span class="nn">csvcubed.models.uriidentifiable</span> <span class="kn">import</span> <span class="n">UriIdentifiable</span>
+<span class="kn">from</span> <span class="nn">csvcubed.readers.skoscodelistreader</span> <span class="kn">import</span> <span class="n">extract_code_list_concept_scheme_info</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.pandas</span> <span class="kn">import</span> <span class="n">ensure_no_uri_safe_collision</span>
+<span class="kn">from</span> <span class="nn">.arbitraryrdf</span> <span class="kn">import</span> <span class="n">ArbitraryRdf</span><span class="p">,</span> <span class="n">RdfSerialisationHint</span><span class="p">,</span> <span class="n">TripleFragmentBase</span>
+<span class="kn">from</span> <span class="nn">.datastructuredefinition</span> <span class="kn">import</span> <span class="n">QbDataStructureDefinition</span>
+<span class="kn">from</span> <span class="nn">csvcubed.models.cube.qb.catalog</span> <span class="kn">import</span> <span class="n">CatalogMetadata</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.uri</span> <span class="kn">import</span> <span class="n">uri_safe</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.validators.uri</span> <span class="kn">import</span> <span class="n">validate_uri</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.validators.file</span> <span class="kn">import</span> <span class="n">validate_file_exists</span>
+<span class="kn">from</span> <span class="nn">csvcubed.inputs</span> <span class="kn">import</span> <span class="n">PandasDataTypes</span><span class="p">,</span> <span class="n">pandas_input_to_columnar_str</span>
+<span class="kn">from</span> <span class="nn">csvcubed.models.validationerror</span> <span class="kn">import</span> <span class="n">ValidationError</span>
+
+
+<div class="viewcode-block" id="QbCodeList"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.QbCodeList">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">QbCodeList</span><span class="p">(</span><span class="n">QbDataStructureDefinition</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="ExistingQbCodeList"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.ExistingQbCodeList">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">ExistingQbCodeList</span><span class="p">(</span><span class="n">QbCodeList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Contains metadata necessary to link a dimension to an existing skos:ConceptScheme.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">concept_scheme_uri</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="n">_concept_scheme_uri_validator</span> <span class="o">=</span> <span class="n">validate_uri</span><span class="p">(</span><span class="s2">&quot;concept_scheme_uri&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NewQbConcept"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbConcept">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">eq</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unsafe_hash</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">NewQbConcept</span><span class="p">(</span><span class="n">UriIdentifiable</span><span class="p">):</span>
+
+    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">parent_code</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">sort_order</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">uri_safe_identifier_override</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<div class="viewcode-block" id="NewQbConcept.get_identifier"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbConcept.get_identifier">[docs]</a>    <span class="k">def</span> <span class="nf">get_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span></div>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">uri_safe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">NewQbConcept</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">code</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="fm">__hash__</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ExistingQbConcept"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.ExistingQbConcept">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">ExistingQbConcept</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Represents a QbConcept which is already defined at the given URI.&quot;&quot;&quot;</span>
+
+    <span class="n">existing_concept_uri</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="n">_existing_concept_uri_validator</span> <span class="o">=</span> <span class="n">validate_uri</span><span class="p">(</span><span class="s2">&quot;existing_concept_uri&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DuplicatedQbConcept"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.DuplicatedQbConcept">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">DuplicatedQbConcept</span><span class="p">(</span><span class="n">NewQbConcept</span><span class="p">,</span> <span class="n">ExistingQbConcept</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a QbConcept which duplicates an :class:`ExistingQbConcept` with overriding label, notation, etc.</span>
+
+<span class="sd">    To be used in a :class:`CompositeQbCodeList`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="NewQbCodeListInCsvW"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbCodeListInCsvW">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">NewQbCodeListInCsvW</span><span class="p">(</span><span class="n">QbCodeList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Contains the reference to an existing skos:ConceptScheme defined in a CSV-W.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">schema_metadata_file_path</span><span class="p">:</span> <span class="n">Path</span>
+    <span class="n">csv_file_relative_path_or_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">concept_scheme_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">concept_template_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">_schema_metadata_file_path_validator</span> <span class="o">=</span> <span class="n">validate_file_exists</span><span class="p">(</span>
+        <span class="s2">&quot;schema_metadata_file_path&quot;</span>
+    <span class="p">)</span>
+
+<div class="viewcode-block" id="NewQbCodeListInCsvW._csvw_contains_sufficient_information_validator"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbCodeListInCsvW._csvw_contains_sufficient_information_validator">[docs]</a>    <span class="nd">@root_validator</span><span class="p">(</span><span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_csvw_contains_sufficient_information_validator</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">csv_path</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;csv_file_relative_path_or_uri&quot;</span><span class="p">)</span>
+        <span class="n">cs_uri</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;concept_scheme_uri&quot;</span><span class="p">)</span>
+        <span class="n">c_template_uri</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;concept_template_uri&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">csv_path</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">cs_uri</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">c_template_uri</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">schema_metadata_file_path</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="s2">&quot;schema_metadata_file_path&quot;</span><span class="p">]</span>
+            <span class="c1"># The below should throw an exception if there is any problem with the CSV-W.</span>
+            <span class="n">extract_code_list_concept_scheme_info</span><span class="p">(</span><span class="n">schema_metadata_file_path</span><span class="p">)</span>
+
+            <span class="c1"># if there&#39;s no exception but the values aren&#39;t set, something weird has happened.</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;&#39;csv_file_relative_path_or_uri&#39;, &#39;concept_scheme_uri&#39; or &#39;concept_template_uri&#39; values are missing, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;however the CSV-W seems to contain the relevant information.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span></div>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="p">(</span>
+                <span class="n">csv_url</span><span class="p">,</span>
+                <span class="n">cs_uri</span><span class="p">,</span>
+                <span class="n">concept_template_uri</span><span class="p">,</span>
+            <span class="p">)</span> <span class="o">=</span> <span class="n">extract_code_list_concept_scheme_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schema_metadata_file_path</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">csv_file_relative_path_or_uri</span> <span class="o">=</span> <span class="n">csv_url</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">concept_scheme_uri</span> <span class="o">=</span> <span class="n">cs_uri</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">concept_template_uri</span> <span class="o">=</span> <span class="n">concept_template_uri</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="c1"># Validation errors will be highlighted later in custom validation function.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">csv_file_relative_path_or_uri</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">concept_scheme_uri</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">concept_template_uri</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span></div>
+
+
+<span class="n">TNewQbConcept</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;TNewQbConcept&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">NewQbConcept</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="NewQbCodeList"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbCodeList">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">NewQbCodeList</span><span class="p">(</span><span class="n">QbCodeList</span><span class="p">,</span> <span class="n">ArbitraryRdf</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">TNewQbConcept</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Contains the metadata necessary to create a new skos:ConceptScheme which is local to a dataset.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">metadata</span><span class="p">:</span> <span class="n">CatalogMetadata</span>
+    <span class="n">concepts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TNewQbConcept</span><span class="p">]</span>
+    <span class="n">arbitrary_rdf</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TripleFragmentBase</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<div class="viewcode-block" id="NewQbCodeList.from_data"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbCodeList.from_data">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_data</span><span class="p">(</span><span class="n">metadata</span><span class="p">:</span> <span class="n">CatalogMetadata</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">PandasDataTypes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;NewQbCodeList&quot;</span><span class="p">:</span>
+        <span class="n">columnar_data</span> <span class="o">=</span> <span class="n">pandas_input_to_columnar_str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">concepts</span> <span class="o">=</span> <span class="p">[</span><span class="n">NewQbConcept</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">columnar_data</span><span class="p">))]</span>
+        <span class="k">return</span> <span class="n">NewQbCodeList</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">concepts</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NewQbCodeList.get_permitted_rdf_fragment_hints"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbCodeList.get_permitted_rdf_fragment_hints">[docs]</a>    <span class="k">def</span> <span class="nf">get_permitted_rdf_fragment_hints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">RdfSerialisationHint</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">CatalogDataset</span><span class="p">,</span>
+            <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">ConceptScheme</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="NewQbCodeList.get_default_node_serialisation_hint"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbCodeList.get_default_node_serialisation_hint">[docs]</a>    <span class="k">def</span> <span class="nf">get_default_node_serialisation_hint</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RdfSerialisationHint</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">ConceptScheme</span></div>
+
+<div class="viewcode-block" id="NewQbCodeList.validate_data"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.NewQbCodeList.validate_data">[docs]</a>    <span class="k">def</span> <span class="nf">validate_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">PandasDataTypes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ValidationError</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate the data held in the codelists, assuming case insensitivity</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">errors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Series</span><span class="p">):</span>
+            <span class="n">errors</span> <span class="o">+=</span> <span class="n">ensure_no_uri_safe_collision</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">series_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">errors</span> <span class="o">+=</span> <span class="n">ensure_no_uri_safe_collision</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">series_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">errors</span></div></div>
+
+
+<div class="viewcode-block" id="CompositeQbCodeList"><a class="viewcode-back" href="../../../../../../csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.codelist.CompositeQbCodeList">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">CompositeQbCodeList</span><span class="p">(</span><span class="n">NewQbCodeList</span><span class="p">[</span><span class="n">DuplicatedQbConcept</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;Represents a :class:`NewQbCodeList` made from a set of :class:`DuplicatedQbConcept` instances.&quot;&quot;&quot;</span>
+
+    <span class="n">variant_of_uris</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../../../index.html">csvcubed</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../csvcubed.html">csvcubed package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

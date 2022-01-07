@@ -1,0 +1,18 @@
+csvcubed.readers package
+========================
+
+.. automodule:: csvcubed.readers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubed.readers.skoscodelistreader
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

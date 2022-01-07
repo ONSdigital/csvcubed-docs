@@ -1,0 +1,17 @@
+csvcubeddevtools package
+========================
+
+.. automodule:: csvcubeddevtools
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 10
+
+   csvcubeddevtools.behaviour
+   csvcubeddevtools.helpers

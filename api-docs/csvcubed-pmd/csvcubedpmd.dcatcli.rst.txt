@@ -1,0 +1,18 @@
+csvcubedpmd.dcatcli package
+===========================
+
+.. automodule:: csvcubedpmd.dcatcli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedpmd.dcatcli.pmdify
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

@@ -1,0 +1,1056 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubed.writers.qbwriter &#8212; csvcubed  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for csvcubed.writers.qbwriter</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">CSV-qb Writer</span>
+<span class="sd">-------------</span>
+
+<span class="sd">Output writer for CSV-qb</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Set</span>
+<span class="kn">from</span> <span class="nn">csvcubedmodels</span> <span class="kn">import</span> <span class="n">rdf</span>
+<span class="kn">from</span> <span class="nn">csvcubedmodels.rdf</span> <span class="kn">import</span> <span class="n">skos</span><span class="p">,</span> <span class="n">rdfs</span>
+<span class="kn">from</span> <span class="nn">csvcubedmodels.rdf.resource</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ExistingResourceWithLiteral</span><span class="p">,</span>
+    <span class="n">Resource</span><span class="p">,</span>
+    <span class="n">ExistingResource</span><span class="p">,</span>
+    <span class="n">maybe_existing_resource</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">csvcubed.models.cube</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.uri</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_last_uri_part</span><span class="p">,</span>
+    <span class="n">csvw_column_name_safe</span><span class="p">,</span>
+    <span class="n">get_data_type_uri_from_str</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.csvw</span> <span class="kn">import</span> <span class="n">get_dependent_local_files</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.qb.cube</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_columns_of_dsd_type</span><span class="p">,</span>
+    <span class="n">QbColumnarDsdType</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.dict</span> <span class="kn">import</span> <span class="n">rdf_resource_to_json_ld</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.qb.standardise</span> <span class="kn">import</span> <span class="n">convert_data_values_to_uri_safe_values</span>
+<span class="kn">from</span> <span class="nn">csvcubed.utils.file</span> <span class="kn">import</span> <span class="n">copy_files_to_directory_with_structure</span>
+<span class="kn">from</span> <span class="nn">.skoscodelistwriter</span> <span class="kn">import</span> <span class="n">SkosCodeListWriter</span><span class="p">,</span> <span class="n">CODE_LIST_NOTATION_COLUMN_NAME</span>
+<span class="kn">from</span> <span class="nn">.writerbase</span> <span class="kn">import</span> <span class="n">WriterBase</span>
+<span class="kn">from</span> <span class="nn">..models.rdf.newattributevalueresource</span> <span class="kn">import</span> <span class="n">NewAttributeValueResource</span>
+<span class="kn">from</span> <span class="nn">..models.rdf.newunitresource</span> <span class="kn">import</span> <span class="n">NewUnitResource</span>
+<span class="kn">from</span> <span class="nn">..models.cube.qb.components.arbitraryrdf</span> <span class="kn">import</span> <span class="n">RdfSerialisationHint</span>
+<span class="kn">from</span> <span class="nn">csvcubed.models.rdf.qbdatasetincatalog</span> <span class="kn">import</span> <span class="n">QbDataSetInCatalog</span>
+<span class="kn">from</span> <span class="nn">..utils.qb.validation.observations</span> <span class="kn">import</span> <span class="n">get_observation_status_columns</span>
+
+<span class="n">DATASET_RELATIVE_PATH</span> <span class="o">=</span> <span class="s2">&quot;dataset&quot;</span>
+
+<span class="n">VIRT_UNIT_COLUMN_NAME</span> <span class="o">=</span> <span class="s2">&quot;virt_unit&quot;</span>
+
+
+<div class="viewcode-block" id="QbWriter"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">QbWriter</span><span class="p">(</span><span class="n">WriterBase</span><span class="p">):</span>
+    <span class="n">cube</span><span class="p">:</span> <span class="n">QbCube</span>
+    <span class="n">csv_file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">raise_missing_uri_safe_value_exceptions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">csv_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+
+<div class="viewcode-block" id="QbWriter.write"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+        <span class="c1"># Map all labels to their corresponding URI-safe-values, where possible.</span>
+        <span class="c1"># Also converts all appropriate columns to the pandas categorical format.</span>
+        <span class="n">convert_data_values_to_uri_safe_values</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">raise_missing_uri_safe_value_exceptions</span>
+        <span class="p">)</span>
+
+        <span class="n">tables</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">csv_file_name</span><span class="p">,</span>
+                <span class="s2">&quot;tableSchema&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_csvw_columns_for_cube</span><span class="p">(),</span>
+                    <span class="s2">&quot;foreignKeys&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_foreign_keys_for_cube</span><span class="p">(),</span>
+                    <span class="s2">&quot;primaryKey&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_primary_key_columns</span><span class="p">(),</span>
+                    <span class="s2">&quot;aboutUrl&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_about_url</span><span class="p">(),</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+
+        <span class="n">tables</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_table_references_needed_for_foreign_keys</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_output_new_code_list_csvws</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span>
+
+        <span class="n">csvw_metadata</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;@context&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.w3.org/ns/csvw&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="n">DATASET_RELATIVE_PATH</span><span class="p">),</span>
+            <span class="s2">&quot;tables&quot;</span><span class="p">:</span> <span class="n">tables</span><span class="p">,</span>
+            <span class="s2">&quot;rdfs:seeAlso&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_additional_rdf_metadata</span><span class="p">(),</span>
+        <span class="p">}</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_folder</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_file_name</span><span class="si">}</span><span class="s2">-metadata.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">csvw_metadata</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_folder</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">csv_file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_additional_rdf_metadata"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_additional_rdf_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">_get_additional_rdf_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the additional RDF metadata to be serialised in the CSV-W.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">see_also</span> <span class="o">=</span> <span class="n">rdf_resource_to_json_ld</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_generate_qb_dataset_dsd_definitions</span><span class="p">())</span>
+
+        <span class="k">for</span> <span class="n">attribute_value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_attribute_value_resources</span><span class="p">():</span>
+            <span class="n">see_also</span> <span class="o">+=</span> <span class="n">rdf_resource_to_json_ld</span><span class="p">(</span><span class="n">attribute_value</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_unit_resources</span><span class="p">():</span>
+            <span class="n">see_also</span> <span class="o">+=</span> <span class="n">rdf_resource_to_json_ld</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">see_also</span></div>
+
+<div class="viewcode-block" id="QbWriter._doc_rel_uri"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._doc_rel_uri">[docs]</a>    <span class="k">def</span> <span class="nf">_doc_rel_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uri_fragment</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        URIs declared in the `columns` section of the CSV-W are relative to the CSV&#39;s location.</span>
+<span class="sd">        URIs declared in the JSON-LD metadata section of the CSV-W are relative to the metadata file&#39;s location.</span>
+
+<span class="sd">        This function makes both point to the same base location - the CSV file&#39;s location. This ensures that we</span>
+<span class="sd">        can talk about the same resources in the `columns` section and the JSON-LD metadata section.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_file_name</span><span class="si">}</span><span class="s2">#</span><span class="si">{</span><span class="n">uri_fragment</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+<div class="viewcode-block" id="QbWriter._output_new_code_list_csvws"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._output_new_code_list_csvws">[docs]</a>    <span class="k">def</span> <span class="nf">_output_new_code_list_csvws</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">get_columns_of_dsd_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">NewQbDimension</span><span class="p">):</span>
+            <span class="n">code_list</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">code_list</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeList</span><span class="p">):</span>
+                <span class="n">code_list_writer</span> <span class="o">=</span> <span class="n">SkosCodeListWriter</span><span class="p">(</span><span class="n">code_list</span><span class="p">)</span>
+                <span class="n">code_list_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeListInCsvW</span><span class="p">):</span>
+                <span class="c1"># find the CSV-W codelist and all dependent relative files and copy them into the output_folder</span>
+                <span class="n">dependent_files</span> <span class="o">=</span> <span class="n">get_dependent_local_files</span><span class="p">(</span>
+                    <span class="n">code_list</span><span class="o">.</span><span class="n">schema_metadata_file_path</span>
+                <span class="p">)</span>
+                <span class="n">files_relative_to</span> <span class="o">=</span> <span class="n">code_list</span><span class="o">.</span><span class="n">schema_metadata_file_path</span><span class="o">.</span><span class="n">parent</span>
+                <span class="n">copy_files_to_directory_with_structure</span><span class="p">(</span>
+                    <span class="p">[</span><span class="n">code_list</span><span class="o">.</span><span class="n">schema_metadata_file_path</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">dependent_files</span><span class="p">),</span>
+                    <span class="n">files_relative_to</span><span class="p">,</span>
+                    <span class="n">output_folder</span><span class="p">,</span>
+                <span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._generate_csvw_columns_for_cube"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._generate_csvw_columns_for_cube">[docs]</a>    <span class="k">def</span> <span class="nf">_generate_csvw_columns_for_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_generate_csvqb_column</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+        <span class="n">virtual_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_virtual_columns_for_cube</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">columns</span> <span class="o">+</span> <span class="n">virtual_columns</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_columns_for_foreign_keys"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_columns_for_foreign_keys">[docs]</a>    <span class="k">def</span> <span class="nf">_get_columns_for_foreign_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">QbColumn</span><span class="p">[</span><span class="n">NewQbDimension</span><span class="p">]]:</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">get_columns_of_dsd_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">NewQbDimension</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">code_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
+                <span class="n">col</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">code_list</span><span class="p">,</span> <span class="p">(</span><span class="n">NewQbCodeList</span><span class="p">,</span> <span class="n">NewQbCodeListInCsvW</span><span class="p">)</span>
+            <span class="p">):</span>
+                <span class="n">columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">columns</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_table_references_needed_for_foreign_keys"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_table_references_needed_for_foreign_keys">[docs]</a>    <span class="k">def</span> <span class="nf">_get_table_references_needed_for_foreign_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="n">tables</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_columns_for_foreign_keys</span><span class="p">():</span>
+            <span class="n">code_list</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">code_list</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeList</span><span class="p">):</span>
+                <span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">code_list</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;tableSchema&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">code_list</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">.table.json&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;suppressOutput&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeListInCsvW</span><span class="p">):</span>
+                <span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">code_list</span><span class="o">.</span><span class="n">csv_file_relative_path_or_uri</span><span class="p">,</span>
+                        <span class="s2">&quot;tableSchema&quot;</span><span class="p">:</span> <span class="s2">&quot;https://gss-cogs.github.io/family-schemas/codelist-schema.json&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;suppressOutput&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unmatched codelist type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">code_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">tables</span></div>
+
+<div class="viewcode-block" id="QbWriter._generate_foreign_keys_for_cube"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._generate_foreign_keys_for_cube">[docs]</a>    <span class="k">def</span> <span class="nf">_generate_foreign_keys_for_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="n">foreign_keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_columns_for_foreign_keys</span><span class="p">():</span>
+            <span class="n">code_list</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">code_list</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeList</span><span class="p">):</span>
+                <span class="n">foreign_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;columnReference&quot;</span><span class="p">:</span> <span class="n">csvw_column_name_safe</span><span class="p">(</span>
+                            <span class="n">col</span><span class="o">.</span><span class="n">uri_safe_identifier</span>
+                        <span class="p">),</span>
+                        <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;resource&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">code_list</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;columnReference&quot;</span><span class="p">:</span> <span class="n">CODE_LIST_NOTATION_COLUMN_NAME</span><span class="p">,</span>
+                        <span class="p">},</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeListInCsvW</span><span class="p">):</span>
+                <span class="n">foreign_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;columnReference&quot;</span><span class="p">:</span> <span class="n">csvw_column_name_safe</span><span class="p">(</span>
+                            <span class="n">col</span><span class="o">.</span><span class="n">uri_safe_identifier</span>
+                        <span class="p">),</span>
+                        <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;resource&quot;</span><span class="p">:</span> <span class="n">code_list</span><span class="o">.</span><span class="n">csv_file_relative_path_or_uri</span><span class="p">,</span>
+                            <span class="s2">&quot;columnReference&quot;</span><span class="p">:</span> <span class="n">CODE_LIST_NOTATION_COLUMN_NAME</span><span class="p">,</span>
+                        <span class="p">},</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unmatched codelist type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">code_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">foreign_keys</span></div>
+
+<div class="viewcode-block" id="QbWriter._generate_virtual_columns_for_cube"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._generate_virtual_columns_for_cube">[docs]</a>    <span class="k">def</span> <span class="nf">_generate_virtual_columns_for_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+        <span class="n">virtual_columns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">QbColumn</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbObservationValue</span><span class="p">):</span>
+                    <span class="n">virtual_columns</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_virtual_columns_for_obs_val</span><span class="p">(</span>
+                        <span class="n">column</span><span class="o">.</span><span class="n">component</span>
+                    <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">virtual_columns</span></div>
+
+<div class="viewcode-block" id="QbWriter._generate_virtual_columns_for_obs_val"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._generate_virtual_columns_for_obs_val">[docs]</a>    <span class="k">def</span> <span class="nf">_generate_virtual_columns_for_obs_val</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">obs_val</span><span class="p">:</span> <span class="n">QbObservationValue</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+        <span class="n">virtual_columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;virt_type&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;virtual&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;propertyUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;rdf:type&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;valueUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://purl.org/linked-data/cube#Observation&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;virt_dataset&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;virtual&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;propertyUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://purl.org/linked-data/cube#dataSet&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;valueUrl&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="n">DATASET_RELATIVE_PATH</span><span class="p">),</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+        <span class="n">unit</span> <span class="o">=</span> <span class="n">obs_val</span><span class="o">.</span><span class="n">unit</span>
+        <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">virtual_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">VIRT_UNIT_COLUMN_NAME</span><span class="p">,</span>
+                    <span class="s2">&quot;virtual&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;propertyUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;valueUrl&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_unit_uri</span><span class="p">(</span><span class="n">unit</span><span class="p">),</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obs_val</span><span class="p">,</span> <span class="n">QbSingleMeasureObservationValue</span><span class="p">):</span>
+            <span class="n">virtual_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;virt_measure&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;virtual&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;propertyUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://purl.org/linked-data/cube#measureType&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;valueUrl&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_measure_uri</span><span class="p">(</span><span class="n">obs_val</span><span class="o">.</span><span class="n">measure</span><span class="p">),</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">virtual_columns</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_qb_dataset_with_catalog_metadata"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_qb_dataset_with_catalog_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">_get_qb_dataset_with_catalog_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QbDataSetInCatalog</span><span class="p">:</span>
+        <span class="n">qb_dataset_with_metadata</span> <span class="o">=</span> <span class="n">QbDataSetInCatalog</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="n">DATASET_RELATIVE_PATH</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">configure_dcat_dataset</span><span class="p">(</span><span class="n">qb_dataset_with_metadata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">qb_dataset_with_metadata</span></div>
+
+<div class="viewcode-block" id="QbWriter._generate_qb_dataset_dsd_definitions"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._generate_qb_dataset_dsd_definitions">[docs]</a>    <span class="k">def</span> <span class="nf">_generate_qb_dataset_dsd_definitions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QbDataSetInCatalog</span><span class="p">:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_dataset_with_catalog_metadata</span><span class="p">()</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">structure</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">DataStructureDefinition</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="s2">&quot;structure&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">component_oridinal</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">QbColumn</span><span class="p">):</span>
+                <span class="n">component_specs_for_col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_component_specs_for_col</span><span class="p">(</span>
+                    <span class="n">column</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="p">,</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span>
+                <span class="p">)</span>
+                <span class="n">component_properties_for_col</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">p</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">component_specs_for_col</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">componentProperties</span>
+                <span class="p">]</span>
+                <span class="n">dataset</span><span class="o">.</span><span class="n">structure</span><span class="o">.</span><span class="n">componentProperties</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span>
+                    <span class="n">component_properties_for_col</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">component_specs_for_col</span><span class="p">:</span>
+                    <span class="n">component</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="n">component_oridinal</span>
+                    <span class="n">component_oridinal</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="n">dataset</span><span class="o">.</span><span class="n">structure</span><span class="o">.</span><span class="n">components</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span><span class="n">component_specs_for_col</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dataset</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_qb_component_specs_for_col"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_qb_component_specs_for_col">[docs]</a>    <span class="k">def</span> <span class="nf">_get_qb_component_specs_for_col</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column_name_uri_safe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">component</span><span class="p">:</span> <span class="n">QbDataStructureDefinition</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">ComponentSpecification</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">QbDimension</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_dimension_specification</span><span class="p">(</span><span class="n">column_name_uri_safe</span><span class="p">,</span> <span class="n">component</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">QbAttribute</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_attribute_specification</span><span class="p">(</span><span class="n">column_name_uri_safe</span><span class="p">,</span> <span class="n">component</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">QbMultiUnits</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_units_column_specification</span><span class="p">(</span><span class="n">column_name_uri_safe</span><span class="p">)]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">QbMultiMeasureDimension</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_measure_dimension_specifications</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">QbObservationValue</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_obs_val_specifications</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled component type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">component</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_obs_val_data_type"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_obs_val_data_type">[docs]</a>    <span class="k">def</span> <span class="nf">_get_obs_val_data_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">observation_value_columns</span> <span class="o">=</span> <span class="n">get_columns_of_dsd_type</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">QbObservationValue</span>
+        <span class="p">)</span>
+        <span class="c1"># Given the data shapes we accept as input, there should always be one (and only one) Observation Value</span>
+        <span class="c1"># column in a cube.</span>
+        <span class="n">observation_value_column</span> <span class="o">=</span> <span class="n">observation_value_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">data_type</span> <span class="o">=</span> <span class="n">observation_value_column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">data_type</span>
+        <span class="k">return</span> <span class="n">get_data_type_uri_from_str</span><span class="p">(</span><span class="n">data_type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_qb_units_column_specification"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_qb_units_column_specification">[docs]</a>    <span class="k">def</span> <span class="nf">_get_qb_units_column_specification</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column_name_uri_safe</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">AttributeComponentSpecification</span><span class="p">:</span>
+        <span class="n">component</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">AttributeComponentSpecification</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;component/</span><span class="si">{</span><span class="n">column_name_uri_safe</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">componentRequired</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span>
+            <span class="s2">&quot;http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure&quot;</span>
+        <span class="p">)</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">componentProperties</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">component</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_qb_obs_val_specifications"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_qb_obs_val_specifications">[docs]</a>    <span class="k">def</span> <span class="nf">_get_qb_obs_val_specifications</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">observation_value</span><span class="p">:</span> <span class="n">QbObservationValue</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">ComponentSpecification</span><span class="p">]:</span>
+        <span class="n">specs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">ComponentSpecification</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="c1"># We always output the measure-dimension style of the QB spec.</span>
+            <span class="c1"># so each observation need to have a dimension specifying the measure type.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_measure_type_dimension_component_spec</span><span class="p">()</span>
+        <span class="p">]</span>
+
+        <span class="n">unit</span> <span class="o">=</span> <span class="n">observation_value</span><span class="o">.</span><span class="n">unit</span>
+        <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">specs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_units_column_specification</span><span class="p">(</span><span class="s2">&quot;unit&quot;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">observation_value</span><span class="p">,</span> <span class="n">QbSingleMeasureObservationValue</span><span class="p">):</span>
+            <span class="n">specs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_measure_component_specification</span><span class="p">(</span><span class="n">observation_value</span><span class="o">.</span><span class="n">measure</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">observation_value</span><span class="p">,</span> <span class="n">QbMultiMeasureObservationValue</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unmatched Observation value component of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">observation_value</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">specs</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_measure_type_dimension_component_spec"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_measure_type_dimension_component_spec">[docs]</a>    <span class="k">def</span> <span class="nf">_get_measure_type_dimension_component_spec</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">DimensionComponentSpecification</span><span class="p">:</span>
+        <span class="n">measure_dimension_spec</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">DimensionComponentSpecification</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="s2">&quot;component/measure-type&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">measure_dimension_spec</span><span class="o">.</span><span class="n">dimension</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span>
+            <span class="s2">&quot;http://purl.org/linked-data/cube#measureType&quot;</span>
+        <span class="p">)</span>
+        <span class="n">measure_dimension_spec</span><span class="o">.</span><span class="n">componentProperties</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">measure_dimension_spec</span><span class="o">.</span><span class="n">dimension</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">measure_dimension_spec</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_unit_uri_safe_identifier"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_unit_uri_safe_identifier">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_unit_uri_safe_identifier</span><span class="p">(</span><span class="n">unit</span><span class="p">:</span> <span class="n">QbUnit</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">ExistingQbUnit</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">get_last_uri_part</span><span class="p">(</span><span class="n">unit</span><span class="o">.</span><span class="n">unit_uri</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">NewQbUnit</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">unit</span><span class="o">.</span><span class="n">uri_safe_identifier</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled unit type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_qb_measure_dimension_specifications"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_qb_measure_dimension_specifications">[docs]</a>    <span class="k">def</span> <span class="nf">_get_qb_measure_dimension_specifications</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_dimension</span><span class="p">:</span> <span class="n">QbMultiMeasureDimension</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">MeasureComponentSpecification</span><span class="p">]:</span>
+        <span class="n">measure_specs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">MeasureComponentSpecification</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">measure</span> <span class="ow">in</span> <span class="n">measure_dimension</span><span class="o">.</span><span class="n">measures</span><span class="p">:</span>
+            <span class="n">measure_specs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_qb_measure_component_specification</span><span class="p">(</span><span class="n">measure</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">measure_specs</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_qb_measure_component_specification"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_qb_measure_component_specification">[docs]</a>    <span class="k">def</span> <span class="nf">_get_qb_measure_component_specification</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">measure</span><span class="p">:</span> <span class="n">QbMeasure</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">MeasureComponentSpecification</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">measure</span><span class="p">,</span> <span class="n">ExistingQbMeasure</span><span class="p">):</span>
+            <span class="n">component_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;component/</span><span class="si">{</span><span class="n">get_last_uri_part</span><span class="p">(</span><span class="n">measure</span><span class="o">.</span><span class="n">measure_uri</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="n">component</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">MeasureComponentSpecification</span><span class="p">(</span><span class="n">component_uri</span><span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">measure</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span><span class="n">measure</span><span class="o">.</span><span class="n">measure_uri</span><span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">componentProperties</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">measure</span><span class="p">)</span>
+
+            <span class="n">measure</span><span class="o">.</span><span class="n">copy_arbitrary_triple_fragments_to_resources</span><span class="p">(</span>
+                <span class="p">{</span><span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Component</span><span class="p">:</span> <span class="n">component</span><span class="p">}</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">component</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">measure</span><span class="p">,</span> <span class="n">NewQbMeasure</span><span class="p">):</span>
+            <span class="n">component</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">MeasureComponentSpecification</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;component/</span><span class="si">{</span><span class="n">measure</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">measure</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">MeasureProperty</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;measure/</span><span class="si">{</span><span class="n">measure</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">label</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">description</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">subPropertyOf</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span>
+                <span class="n">measure</span><span class="o">.</span><span class="n">parent_measure_uri</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span><span class="n">measure</span><span class="o">.</span><span class="n">source_uri</span><span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_obs_val_data_type</span><span class="p">())</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">componentProperties</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">measure</span><span class="p">)</span>
+
+            <span class="n">measure</span><span class="o">.</span><span class="n">copy_arbitrary_triple_fragments_to_resources</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Component</span><span class="p">:</span> <span class="n">component</span><span class="p">,</span>
+                    <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Property</span><span class="p">:</span> <span class="n">component</span><span class="o">.</span><span class="n">measure</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">component</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled measure type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">measure</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_qb_dimension_specification"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_qb_dimension_specification">[docs]</a>    <span class="k">def</span> <span class="nf">_get_qb_dimension_specification</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column_name_uri_safe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dimension</span><span class="p">:</span> <span class="n">QbDimension</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">DimensionComponentSpecification</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dimension</span><span class="p">,</span> <span class="n">ExistingQbDimension</span><span class="p">):</span>
+            <span class="n">component</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">DimensionComponentSpecification</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;component/</span><span class="si">{</span><span class="n">column_name_uri_safe</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">dimension</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span><span class="n">dimension</span><span class="o">.</span><span class="n">dimension_uri</span><span class="p">)</span>
+            <span class="n">dimension</span><span class="o">.</span><span class="n">copy_arbitrary_triple_fragments_to_resources</span><span class="p">(</span>
+                <span class="p">{</span><span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Component</span><span class="p">:</span> <span class="n">component</span><span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dimension</span><span class="p">,</span> <span class="n">NewQbDimension</span><span class="p">):</span>
+            <span class="n">component</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">DimensionComponentSpecification</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;component/</span><span class="si">{</span><span class="n">dimension</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">dimension</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">DimensionProperty</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dimension/</span><span class="si">{</span><span class="n">dimension</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">dimension</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">dimension</span><span class="o">.</span><span class="n">label</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">dimension</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">dimension</span><span class="o">.</span><span class="n">description</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">dimension</span><span class="o">.</span><span class="n">subPropertyOf</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span>
+                <span class="n">dimension</span><span class="o">.</span><span class="n">parent_dimension_uri</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">dimension</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span><span class="n">dimension</span><span class="o">.</span><span class="n">source_uri</span><span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">dimension</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="n">rdfs</span><span class="o">.</span><span class="n">Class</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;class/</span><span class="si">{</span><span class="n">dimension</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+
+            <span class="n">dimension</span><span class="o">.</span><span class="n">copy_arbitrary_triple_fragments_to_resources</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Component</span><span class="p">:</span> <span class="n">component</span><span class="p">,</span>
+                    <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Property</span><span class="p">:</span> <span class="n">component</span><span class="o">.</span><span class="n">dimension</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">dimension</span><span class="o">.</span><span class="n">code_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">dimension</span><span class="o">.</span><span class="n">code_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_code_list_resource</span><span class="p">(</span>
+                    <span class="n">dimension</span><span class="o">.</span><span class="n">code_list</span>
+                <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled dimension component type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">dimension</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="n">component</span><span class="o">.</span><span class="n">componentProperties</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">dimension</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">component</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_code_list_resource"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_code_list_resource">[docs]</a>    <span class="k">def</span> <span class="nf">_get_code_list_resource</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">code_list</span><span class="p">:</span> <span class="n">QbCodeList</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Resource</span><span class="p">[</span><span class="n">skos</span><span class="o">.</span><span class="n">ConceptScheme</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">ExistingQbCodeList</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">ExistingResource</span><span class="p">(</span><span class="n">code_list</span><span class="o">.</span><span class="n">concept_scheme_uri</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeList</span><span class="p">):</span>
+            <span class="c1"># The resource is created elsewhere. There is a separate CSV-W definition for the code-list</span>
+            <span class="k">return</span> <span class="n">ExistingResource</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_new_code_list_scheme_uri</span><span class="p">(</span><span class="n">code_list</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeListInCsvW</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">ExistingResource</span><span class="p">(</span><span class="n">code_list</span><span class="o">.</span><span class="n">concept_scheme_uri</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled codelist type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">code_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_qb_attribute_specification"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_qb_attribute_specification">[docs]</a>    <span class="k">def</span> <span class="nf">_get_qb_attribute_specification</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column_name_uri_safe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="n">QbAttribute</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">AttributeComponentSpecification</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">ExistingQbAttribute</span><span class="p">):</span>
+            <span class="n">component</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">AttributeComponentSpecification</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;component/</span><span class="si">{</span><span class="n">column_name_uri_safe</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">QbAttributeLiteral</span><span class="p">):</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="n">ExistingResourceWithLiteral</span><span class="p">(</span>
+                    <span class="n">attribute</span><span class="o">.</span><span class="n">attribute_uri</span>
+                <span class="p">)</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span>
+                    <span class="n">get_data_type_uri_from_str</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="n">data_type</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="n">attribute_uri</span><span class="p">)</span>
+
+            <span class="n">attribute</span><span class="o">.</span><span class="n">copy_arbitrary_triple_fragments_to_resources</span><span class="p">(</span>
+                <span class="p">{</span><span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Component</span><span class="p">:</span> <span class="n">component</span><span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">NewQbAttribute</span><span class="p">):</span>
+            <span class="n">component</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">AttributeComponentSpecification</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;component/</span><span class="si">{</span><span class="n">attribute</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">qb</span><span class="o">.</span><span class="n">AttributeProperty</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;attribute/</span><span class="si">{</span><span class="n">attribute</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">label</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">description</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">subPropertyOf</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span>
+                <span class="n">attribute</span><span class="o">.</span><span class="n">parent_attribute_uri</span>
+            <span class="p">)</span>
+            <span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="n">source_uri</span><span class="p">)</span>
+            <span class="c1"># todo: Find some way to link the codelist we have to the</span>
+            <span class="c1">#  ComponentProperty?</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">QbAttributeLiteral</span><span class="p">):</span>
+                <span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span>
+                    <span class="n">get_data_type_uri_from_str</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="n">data_type</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="n">attribute</span><span class="o">.</span><span class="n">copy_arbitrary_triple_fragments_to_resources</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Component</span><span class="p">:</span> <span class="n">component</span><span class="p">,</span>
+                    <span class="n">RdfSerialisationHint</span><span class="o">.</span><span class="n">Property</span><span class="p">:</span> <span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled attribute component type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="n">component</span><span class="o">.</span><span class="n">componentRequired</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">is_required</span>
+        <span class="n">component</span><span class="o">.</span><span class="n">componentProperties</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">component</span><span class="o">.</span><span class="n">attribute</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">component</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_new_attribute_value_resources"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_new_attribute_value_resources">[docs]</a>    <span class="k">def</span> <span class="nf">_get_new_attribute_value_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">NewAttributeValueResource</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: RDF resource models to define New Attribute Values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_attribute_value_resources</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">NewAttributeValueResource</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">attribute_columns</span> <span class="o">=</span> <span class="n">get_columns_of_dsd_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">QbAttribute</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">attribute_columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">NewQbAttribute</span><span class="p">):</span>
+                <span class="n">column_identifier</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">uri_safe_identifier</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">column_identifier</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">uri_safe_identifier</span>
+
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">new_attribute_values</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+                <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">NewQbAttributeValue</span><span class="p">)</span>
+
+                <span class="n">attribute_value_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;attribute/</span><span class="si">{</span><span class="n">column_identifier</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="n">new_attribute_value_resource</span> <span class="o">=</span> <span class="n">NewAttributeValueResource</span><span class="p">(</span>
+                    <span class="n">attribute_value_uri</span>
+                <span class="p">)</span>
+                <span class="n">new_attribute_value_resource</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">label</span>
+                <span class="n">new_attribute_value_resource</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">description</span>
+                <span class="n">new_attribute_value_resource</span><span class="o">.</span><span class="n">source_uri</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span>
+                    <span class="n">value</span><span class="o">.</span><span class="n">source_uri</span>
+                <span class="p">)</span>
+                <span class="n">new_attribute_value_resource</span><span class="o">.</span><span class="n">parent_attribute_value_uri</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">maybe_existing_resource</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">parent_attribute_value_uri</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">new_attribute_value_resources</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_attribute_value_resource</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">new_attribute_value_resources</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_new_unit_resources"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_new_unit_resources">[docs]</a>    <span class="k">def</span> <span class="nf">_get_new_unit_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">NewUnitResource</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: RDF Resources to defined new units</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">units</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">QbUnit</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">u</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">get_columns_of_dsd_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">QbMultiUnits</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">col</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">units</span>  <span class="c1"># type: ignore</span>
+        <span class="p">}</span>
+
+        <span class="n">units</span> <span class="o">|=</span> <span class="p">{</span>
+            <span class="n">col</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">unit</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">get_columns_of_dsd_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">QbObservationValue</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">}</span>
+
+        <span class="k">def</span> <span class="nf">get_new_base_units</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="n">QbUnit</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">QbUnit</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="nb">isinstance</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">NewQbUnit</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="n">u</span><span class="o">.</span><span class="n">base_unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">base_unit</span><span class="p">,</span> <span class="n">NewQbUnit</span><span class="p">)</span>
+            <span class="p">):</span>
+                <span class="n">new_base_units</span> <span class="o">=</span> <span class="n">get_new_base_units</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">base_unit</span><span class="p">)</span>
+                <span class="n">new_base_units</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">base_unit</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">new_base_units</span>
+
+            <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="n">units</span> <span class="o">|=</span> <span class="p">{</span><span class="n">base_unit</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">units</span> <span class="k">for</span> <span class="n">base_unit</span> <span class="ow">in</span> <span class="n">get_new_base_units</span><span class="p">(</span><span class="n">u</span><span class="p">)}</span>
+
+        <span class="n">new_units</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">NewQbUnit</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">units</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">NewQbUnit</span><span class="p">)}</span>
+
+        <span class="n">new_unit_resources</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">NewUnitResource</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">new_units</span><span class="p">:</span>
+            <span class="n">unit_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_unit_uri</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+            <span class="n">new_unit_resource</span> <span class="o">=</span> <span class="n">NewUnitResource</span><span class="p">(</span><span class="n">unit_uri</span><span class="p">)</span>
+            <span class="n">new_unit_resource</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">unit</span><span class="o">.</span><span class="n">label</span>
+            <span class="n">new_unit_resource</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">unit</span><span class="o">.</span><span class="n">description</span>
+            <span class="n">new_unit_resource</span><span class="o">.</span><span class="n">source_uri</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span><span class="n">unit</span><span class="o">.</span><span class="n">source_uri</span><span class="p">)</span>
+
+            <span class="n">maybe_unit_uri</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="kc">None</span> <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">base_unit</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_unit_uri</span><span class="p">(</span><span class="n">unit</span><span class="o">.</span><span class="n">base_unit</span><span class="p">)</span>
+            <span class="p">)</span>
+
+            <span class="n">new_unit_resource</span><span class="o">.</span><span class="n">base_unit_uri</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span><span class="n">maybe_unit_uri</span><span class="p">)</span>
+            <span class="n">new_unit_resource</span><span class="o">.</span><span class="n">base_unit_scaling_factor</span> <span class="o">=</span> <span class="n">unit</span><span class="o">.</span><span class="n">base_unit_scaling_factor</span>
+
+            <span class="n">new_unit_resource</span><span class="o">.</span><span class="n">has_qudt_quantity_kind</span> <span class="o">=</span> <span class="n">maybe_existing_resource</span><span class="p">(</span>
+                <span class="n">unit</span><span class="o">.</span><span class="n">qudt_quantity_kind_uri</span>
+            <span class="p">)</span>
+            <span class="n">new_unit_resource</span><span class="o">.</span><span class="n">qudt_conversion_multiplier</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">unit</span><span class="o">.</span><span class="n">si_base_unit_conversion_multiplier</span>
+            <span class="p">)</span>
+
+            <span class="n">new_unit_resources</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_unit_resource</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">new_unit_resources</span></div>
+
+<div class="viewcode-block" id="QbWriter._generate_csvqb_column"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._generate_csvqb_column">[docs]</a>    <span class="k">def</span> <span class="nf">_generate_csvqb_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">CsvColumn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">csvw_col</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;titles&quot;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">csv_column_title</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">csvw_column_name_safe</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="p">),</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">SuppressedCsvColumn</span><span class="p">):</span>
+            <span class="n">csvw_col</span><span class="p">[</span><span class="s2">&quot;suppressOutput&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">QbColumn</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_define_csvw_column_for_qb_column</span><span class="p">(</span><span class="n">csvw_col</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unhandled column type (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">column</span><span class="p">)</span><span class="si">}</span><span class="s2">) with title &#39;</span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">csv_column_title</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">csvw_col</span></div>
+
+<div class="viewcode-block" id="QbWriter._define_csvw_column_for_qb_column"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._define_csvw_column_for_qb_column">[docs]</a>    <span class="k">def</span> <span class="nf">_define_csvw_column_for_qb_column</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">csvw_col</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">QbColumn</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="p">(</span>
+            <span class="n">property_url</span><span class="p">,</span>
+            <span class="n">default_value_url</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_property_value_uris_for_column</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">property_url</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">csvw_col</span><span class="p">[</span><span class="s2">&quot;propertyUrl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">property_url</span>
+
+        <span class="k">if</span> <span class="n">column</span><span class="o">.</span><span class="n">csv_column_uri_template</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># User-specified value overrides our default guess.</span>
+            <span class="n">csvw_col</span><span class="p">[</span><span class="s2">&quot;valueUrl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">csv_column_uri_template</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbAttributeLiteral</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="n">default_value_url</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">csvw_col</span><span class="p">[</span><span class="s2">&quot;valueUrl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_value_url</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbObservationValue</span><span class="p">):</span>
+            <span class="n">csvw_col</span><span class="p">[</span><span class="s2">&quot;datatype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">data_type</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbAttributeLiteral</span><span class="p">):</span>
+            <span class="n">csvw_col</span><span class="p">[</span><span class="s2">&quot;datatype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">data_type</span>
+
+        <span class="n">csvw_col</span><span class="p">[</span><span class="s2">&quot;required&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbDimension</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbMultiUnits</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbMultiMeasureDimension</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="p">(</span>
+                <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbAttribute</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">is_required</span>
+            <span class="p">)</span>
+            <span class="ow">or</span> <span class="p">(</span>
+                <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbObservationValue</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">get_observation_status_columns</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span>
+                <span class="c1"># We cannot mark an observation value column as `required` if there are `obsStatus` columns defined</span>
+                <span class="c1"># since we permit missing observation values where an `obsStatus` explains the reason.</span>
+            <span class="p">)</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_default_property_value_uris_for_multi_units"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_default_property_value_uris_for_multi_units">[docs]</a>    <span class="k">def</span> <span class="nf">_get_default_property_value_uris_for_multi_units</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">QbColumn</span><span class="p">,</span> <span class="n">multi_units</span><span class="p">:</span> <span class="n">QbMultiUnits</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="n">column_template_fragment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_uri_template_fragment</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="n">all_units_new</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">NewQbUnit</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">multi_units</span><span class="o">.</span><span class="n">units</span><span class="p">])</span>
+        <span class="n">all_units_existing</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span>
+            <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">ExistingQbUnit</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">multi_units</span><span class="o">.</span><span class="n">units</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="n">unit_value_uri</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="k">if</span> <span class="n">all_units_new</span><span class="p">:</span>
+            <span class="n">unit_value_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unit/</span><span class="si">{</span><span class="n">column_template_fragment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">all_units_existing</span><span class="p">:</span>
+            <span class="n">unit_value_uri</span> <span class="o">=</span> <span class="n">column_template_fragment</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># todo: Come up with a solution for this!</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot handle a mix of new units and existing defined units.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure&quot;</span><span class="p">,</span>
+            <span class="n">unit_value_uri</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_default_property_value_uris_for_multi_measure"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_default_property_value_uris_for_multi_measure">[docs]</a>    <span class="k">def</span> <span class="nf">_get_default_property_value_uris_for_multi_measure</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">QbColumn</span><span class="p">[</span><span class="n">QbMultiMeasureDimension</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="n">measure_value_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_measure_dimension_column_measure_template_uri</span><span class="p">(</span>
+            <span class="n">column</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="s2">&quot;http://purl.org/linked-data/cube#measureType&quot;</span><span class="p">,</span> <span class="n">measure_value_uri</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_measure_dimension_column_measure_template_uri"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_measure_dimension_column_measure_template_uri">[docs]</a>    <span class="k">def</span> <span class="nf">_get_measure_dimension_column_measure_template_uri</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">QbColumn</span><span class="p">[</span><span class="n">QbMultiMeasureDimension</span><span class="p">]</span>
+    <span class="p">):</span>
+        <span class="n">all_measures_new</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span>
+            <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">NewQbMeasure</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">measures</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">all_measures_existing</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span>
+            <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">ExistingQbMeasure</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">measures</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="n">column_template_fragment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_uri_template_fragment</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">all_measures_new</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;measure/</span><span class="si">{</span><span class="n">column_template_fragment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">all_measures_existing</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">column</span><span class="o">.</span><span class="n">csv_column_uri_template</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;A URI value template must be defined when a measures column reuses existing measures.&quot;</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="n">column</span><span class="o">.</span><span class="n">csv_column_uri_template</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># todo: Come up with a solution for this!</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot handle a mix of new measures and existing defined measures.&quot;</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_default_property_value_uris_for_column"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_default_property_value_uris_for_column">[docs]</a>    <span class="k">def</span> <span class="nf">_get_default_property_value_uris_for_column</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">QbColumn</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbDimension</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_property_value_uris_for_dimension</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbAttribute</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_property_value_uris_for_attribute</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbMultiUnits</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_property_value_uris_for_multi_units</span><span class="p">(</span>
+                <span class="n">column</span><span class="p">,</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbMultiMeasureDimension</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_property_value_uris_for_multi_measure</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbObservationValue</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_property_value_uris_for_observation_value</span><span class="p">(</span>
+                <span class="n">column</span><span class="o">.</span><span class="n">component</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled component type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">component</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_default_property_value_uris_for_observation_value"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_default_property_value_uris_for_observation_value">[docs]</a>    <span class="k">def</span> <span class="nf">_get_default_property_value_uris_for_observation_value</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">observation_value</span><span class="p">:</span> <span class="n">QbObservationValue</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">observation_value</span><span class="p">,</span> <span class="n">QbSingleMeasureObservationValue</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_measure_uri</span><span class="p">(</span><span class="n">observation_value</span><span class="o">.</span><span class="n">measure</span><span class="p">),</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">observation_value</span><span class="p">,</span> <span class="n">QbMultiMeasureObservationValue</span><span class="p">):</span>
+            <span class="n">multi_measure_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_single_column_of_type</span><span class="p">(</span>
+                <span class="n">QbMultiMeasureDimension</span>
+            <span class="p">)</span>
+            <span class="n">measure_uri_template</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_measure_dimension_column_measure_template_uri</span><span class="p">(</span>
+                    <span class="n">multi_measure_dimension</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">measure_uri_template</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unmatched Observation Value type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">observation_value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_single_column_of_type"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_single_column_of_type">[docs]</a>    <span class="k">def</span> <span class="nf">_get_single_column_of_type</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">QbColumnarDsdType</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QbColumn</span><span class="p">[</span><span class="n">QbColumnarDsdType</span><span class="p">]:</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">get_columns_of_dsd_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span><span class="si">}</span><span class="s2"> columns with component type </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2"> in cube. Expected 1.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_default_property_value_uris_for_dimension"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_default_property_value_uris_for_dimension">[docs]</a>    <span class="k">def</span> <span class="nf">_get_default_property_value_uris_for_dimension</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">QbColumn</span><span class="p">[</span><span class="n">QbDimension</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="n">dimension</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dimension</span><span class="p">,</span> <span class="n">ExistingQbDimension</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="n">dimension</span><span class="o">.</span><span class="n">dimension_uri</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_uri_template_fragment</span><span class="p">(</span><span class="n">column</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dimension</span><span class="p">,</span> <span class="n">NewQbDimension</span><span class="p">):</span>
+            <span class="n">local_dimension_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;dimension/</span><span class="si">{</span><span class="n">dimension</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="n">value_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_uri_template_fragment</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dimension</span><span class="o">.</span><span class="n">code_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">value_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_value_uri_for_code_list_concepts</span><span class="p">(</span>
+                    <span class="n">column</span><span class="p">,</span> <span class="n">dimension</span><span class="o">.</span><span class="n">code_list</span>
+                <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">local_dimension_uri</span><span class="p">,</span> <span class="n">value_uri</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled dimension type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">dimension</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_default_property_value_uris_for_attribute"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_default_property_value_uris_for_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">_get_default_property_value_uris_for_attribute</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">QbColumn</span><span class="p">[</span><span class="n">QbAttribute</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="n">attribute</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">component</span>
+        <span class="n">column_uri_fragment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_uri_template_fragment</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="n">value_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_uri_template_fragment</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">ExistingQbAttribute</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="n">new_attribute_values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># NewQbAttributeValues defined here.</span>
+                <span class="n">value_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;attribute/</span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">column_uri_fragment</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="c1"># Else: Existing attribute values defined elsewhere. The user *should* have defined an csv_column_uri_template.</span>
+            <span class="c1"># N.B. We can&#39;t do mix-and-match New/Existing attribute values.</span>
+
+            <span class="k">return</span> <span class="n">attribute</span><span class="o">.</span><span class="n">attribute_uri</span><span class="p">,</span> <span class="n">value_uri</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">NewQbAttribute</span><span class="p">):</span>
+            <span class="n">local_attribute_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;attribute/</span><span class="si">{</span><span class="n">attribute</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">attribute</span><span class="o">.</span><span class="n">new_attribute_values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># NewQbAttributeValues defined here.</span>
+                <span class="n">value_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;attribute/</span><span class="si">{</span><span class="n">attribute</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">column_uri_fragment</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="c1"># Else: Existing attribute values defined elsewhere. The user *should* have defined an</span>
+            <span class="c1"># csv_column_uri_template.</span>
+            <span class="c1"># N.B. We can&#39;t do mix-and-match New/Existing attribute values.</span>
+
+            <span class="k">return</span> <span class="n">local_attribute_uri</span><span class="p">,</span> <span class="n">value_uri</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled attribute type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_column_uri_template_fragment"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_column_uri_template_fragment">[docs]</a>    <span class="k">def</span> <span class="nf">_get_column_uri_template_fragment</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">CsvColumn</span><span class="p">,</span> <span class="n">escape_value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">escape_value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;{&quot;</span> <span class="o">+</span> <span class="n">csvw_column_name_safe</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;}&quot;</span>
+
+        <span class="k">return</span> <span class="s2">&quot;{+&quot;</span> <span class="o">+</span> <span class="n">csvw_column_name_safe</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;}&quot;</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_new_code_list_scheme_uri"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_new_code_list_scheme_uri">[docs]</a>    <span class="k">def</span> <span class="nf">_get_new_code_list_scheme_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code_list</span><span class="p">:</span> <span class="n">NewQbCodeList</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">code_list</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">.csv#scheme/</span><span class="si">{</span><span class="n">code_list</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+    <span class="n">_external_code_list_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;^(.*)/concept-scheme/(.*)$&quot;</span><span class="p">)</span>
+    <span class="n">_dataset_local_code_list_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;^(.*)#scheme/(.*)$&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="QbWriter._get_default_value_uri_for_code_list_concepts"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_default_value_uri_for_code_list_concepts">[docs]</a>    <span class="k">def</span> <span class="nf">_get_default_value_uri_for_code_list_concepts</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">CsvColumn</span><span class="p">,</span> <span class="n">code_list</span><span class="p">:</span> <span class="n">QbCodeList</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">column_uri_fragment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_column_uri_template_fragment</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">ExistingQbCodeList</span><span class="p">):</span>
+            <span class="n">external_match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_external_code_list_pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+                <span class="n">code_list</span><span class="o">.</span><span class="n">concept_scheme_uri</span>
+            <span class="p">)</span>
+            <span class="n">local_match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_local_code_list_pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+                <span class="n">code_list</span><span class="o">.</span><span class="n">concept_scheme_uri</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">external_match</span><span class="p">:</span>
+                <span class="n">m</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="o">=</span> <span class="n">external_match</span>
+                <span class="c1"># ConceptScheme URI:</span>
+                <span class="c1"># http://gss-data.org.uk/def/concept-scheme/{code-list-name}</span>
+                <span class="c1"># Concept URI:</span>
+                <span class="c1"># http://gss-data.org.uk/def/concept-scheme/{code-list-name}/{notation}</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">/concept-scheme/</span><span class="si">{</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">column_uri_fragment</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">elif</span> <span class="n">local_match</span><span class="p">:</span>
+                <span class="n">m</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="o">=</span> <span class="n">local_match</span>
+                <span class="c1"># ConceptScheme URI:</span>
+                <span class="c1"># http://gss-data.org.uk/data/gss_data/{family-name}/{dataset-root-name}#scheme/{code-list-name}</span>
+                <span class="c1"># Concept URI:</span>
+                <span class="c1"># http://gss-data.org.uk/data/gss_data/{family-name}/{dataset-root-name}#concept/{code-list-name}/{notation}</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">#concept/</span><span class="si">{</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">column_uri_fragment</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Unexpected code-list URI. Does not match expected conventions.</span>
+                <span class="k">return</span> <span class="n">column_uri_fragment</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeList</span><span class="p">):</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">code_list</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">.csv#concept/</span><span class="si">{</span><span class="n">code_list</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">column_uri_fragment</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">code_list</span><span class="p">,</span> <span class="n">NewQbCodeListInCsvW</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+                <span class="sa">r</span><span class="s2">&quot;\{.?notation\}&quot;</span><span class="p">,</span> <span class="n">column_uri_fragment</span><span class="p">,</span> <span class="n">code_list</span><span class="o">.</span><span class="n">concept_template_uri</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unhandled codelist type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">code_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_unit_uri"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_unit_uri">[docs]</a>    <span class="k">def</span> <span class="nf">_get_unit_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="n">QbUnit</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">ExistingQbUnit</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">unit</span><span class="o">.</span><span class="n">unit_uri</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">NewQbUnit</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unit/</span><span class="si">{</span><span class="n">unit</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unmatched unit type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_measure_uri"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_measure_uri">[docs]</a>    <span class="k">def</span> <span class="nf">_get_measure_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">measure</span><span class="p">:</span> <span class="n">QbMeasure</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">measure</span><span class="p">,</span> <span class="n">ExistingQbMeasure</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">measure</span><span class="o">.</span><span class="n">measure_uri</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">measure</span><span class="p">,</span> <span class="n">NewQbMeasure</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;measure/</span><span class="si">{</span><span class="n">measure</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unmatched measure type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">measure</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_about_url"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_about_url">[docs]</a>    <span class="k">def</span> <span class="nf">_get_about_url</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># Todo: Dimensions are currently appended in the order in which the appear in the cube.</span>
+        <span class="c1">#       We may want to alter this in the future so that the ordering is from</span>
+        <span class="c1">#       least entropic dimension -&gt; most entropic.</span>
+        <span class="c1">#       E.g. http://base-uri/observations/male/1996/all-males-1996</span>
+        <span class="n">about_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc_rel_uri</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">)</span>
+        <span class="n">multi_measure_col</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">QbColumn</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbDimension</span><span class="p">):</span>
+                    <span class="n">about_url</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">about_url</span>
+                        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/</span><span class="se">{{</span><span class="s2">+</span><span class="si">{</span><span class="n">csvw_column_name_safe</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="p">)</span><span class="si">}</span><span class="se">}}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">component</span><span class="p">,</span> <span class="n">QbMultiMeasureDimension</span><span class="p">):</span>
+                    <span class="n">multi_measure_col</span> <span class="o">=</span> <span class="n">csvw_column_name_safe</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">uri_safe_identifier</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">multi_measure_col</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">about_url</span> <span class="o">=</span> <span class="n">about_url</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/</span><span class="se">{{</span><span class="s2">+</span><span class="si">{</span><span class="n">multi_measure_col</span><span class="si">}</span><span class="se">}}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">about_url</span></div>
+
+<div class="viewcode-block" id="QbWriter._get_primary_key_columns"><a class="viewcode-back" href="../../../csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter._get_primary_key_columns">[docs]</a>    <span class="k">def</span> <span class="nf">_get_primary_key_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">dimension_columns</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">QbColumn</span><span class="p">]</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span>
+            <span class="n">get_columns_of_dsd_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">QbDimension</span><span class="p">),</span>
+            <span class="n">get_columns_of_dsd_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">,</span> <span class="n">QbMultiMeasureDimension</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">csvw_column_name_safe</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">csv_column_title</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">dimension_columns</span><span class="p">]</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">csvcubed</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../csvcubed.html">csvcubed package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

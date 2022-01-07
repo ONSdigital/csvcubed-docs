@@ -1,0 +1,33 @@
+csvcubedpmd.models package
+==========================
+
+.. automodule:: csvcubedpmd.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 10
+
+   csvcubedpmd.models.rdf
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedpmd.models.CsvCubedOutputType
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedpmd.models.csvwithcolumndefinitions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

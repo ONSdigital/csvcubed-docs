@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubedpmd.dcatcli.pmdify &#8212; csvcubedpmd  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for csvcubedpmd.dcatcli.pmdify</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PMDify DCAT Metadata</span>
+<span class="sd">--------------------</span>
+
+<span class="sd">Functionality to convert a CSV-W&#39;s DCATv2 metadata into the structure necessary for PMD.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span><span class="p">,</span> <span class="n">urljoin</span>
+
+<span class="kn">import</span> <span class="nn">dateutil.parser</span>
+<span class="kn">import</span> <span class="nn">rdflib</span>
+<span class="kn">from</span> <span class="nn">csvcubedmodels.rdf</span> <span class="kn">import</span> <span class="n">ExistingResource</span>
+<span class="kn">from</span> <span class="nn">csvcubedmodels.utils.uri</span> <span class="kn">import</span> <span class="n">looks_like_uri</span>
+<span class="kn">from</span> <span class="nn">rdflib</span> <span class="kn">import</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">URIRef</span>
+<span class="kn">from</span> <span class="nn">rdflib.term</span> <span class="kn">import</span> <span class="n">Identifier</span>
+
+<span class="kn">from</span> <span class="nn">csvcubedpmd.config</span> <span class="kn">import</span> <span class="n">pmdconfig</span>
+<span class="kn">from</span> <span class="nn">csvcubedpmd.models.CsvCubedOutputType</span> <span class="kn">import</span> <span class="n">CsvCubedOutputType</span>
+<span class="kn">from</span> <span class="nn">csvcubedpmd.models.rdf</span> <span class="kn">import</span> <span class="n">pmdcat</span>
+<span class="kn">from</span> <span class="nn">csvcubedpmd.utils</span> <span class="kn">import</span> <span class="n">rdflibutils</span>
+<span class="kn">from</span> <span class="nn">csvcubedpmd.utils.sparql</span> <span class="kn">import</span> <span class="n">ask</span>
+
+<span class="n">_TEMP_PREFIX_URI</span> <span class="o">=</span> <span class="n">URIRef</span><span class="p">(</span><span class="s2">&quot;http://temporary&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="pmdify_dcat"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify.pmdify_dcat">[docs]</a><span class="k">def</span> <span class="nf">pmdify_dcat</span><span class="p">(</span>
+    <span class="n">csvw_metadata_file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">base_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">data_graph_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">catalog_metadata_graph_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Modifies `csvw_metadata_file_path` which is a standard csvcubed output to remove the `dcat` dataset metadata.</span>
+
+<span class="sd">    Adds a new file located at `csvw_metadata_file_path`.nq containing the catalogue metadata in quad form.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">csvw_metadata_file_path</span> <span class="o">=</span> <span class="n">csvw_metadata_file_path</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+    <span class="n">csvw_rdf_graph</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="n">_TEMP_PREFIX_URI</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csvw_metadata_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">csvw_file_contents_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">rdf_metadata</span> <span class="o">=</span> <span class="n">csvw_file_contents_json</span><span class="p">[</span><span class="s2">&quot;rdfs:seeAlso&quot;</span><span class="p">]</span>
+    <span class="n">rdf_metadata_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">rdf_metadata</span><span class="p">)</span>
+
+    <span class="n">csvw_rdf_graph</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">rdf_metadata_json</span><span class="p">,</span> <span class="n">publicID</span><span class="o">=</span><span class="n">_TEMP_PREFIX_URI</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;json-ld&quot;</span>
+    <span class="p">)</span>
+    <span class="n">csvw_type</span> <span class="o">=</span> <span class="n">_get_csv_cubed_output_type</span><span class="p">(</span><span class="n">csvw_rdf_graph</span><span class="p">)</span>
+
+    <span class="n">catalog_entry</span> <span class="o">=</span> <span class="n">_get_catalog_entry_from_dcat_dataset</span><span class="p">(</span><span class="n">csvw_rdf_graph</span><span class="p">)</span>
+    <span class="n">catalog_record</span> <span class="o">=</span> <span class="n">_generate_pmd_catalog_record</span><span class="p">(</span>
+        <span class="n">catalog_entry</span><span class="p">,</span> <span class="n">data_graph_uri</span><span class="p">,</span> <span class="n">catalog_metadata_graph_uri</span><span class="p">,</span> <span class="n">csvw_type</span>
+    <span class="p">)</span>
+
+    <span class="n">_delete_existing_dcat_dataset_metadata</span><span class="p">(</span><span class="n">csvw_rdf_graph</span><span class="p">)</span>
+
+    <span class="n">_set_pmdcat_type_on_dataset_contents</span><span class="p">(</span><span class="n">csvw_rdf_graph</span><span class="p">,</span> <span class="n">csvw_type</span><span class="p">)</span>
+
+    <span class="n">_replace_uri_substring_in_graph</span><span class="p">(</span><span class="n">csvw_rdf_graph</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">_TEMP_PREFIX_URI</span><span class="p">),</span> <span class="n">base_uri</span><span class="p">)</span>
+    <span class="n">csvw_file_contents_json</span><span class="p">[</span><span class="s2">&quot;rdfs:seeAlso&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rdflibutils</span><span class="o">.</span><span class="n">serialise_to_json_ld</span><span class="p">(</span>
+        <span class="n">csvw_rdf_graph</span>
+    <span class="p">)</span>
+
+    <span class="n">initial_id</span> <span class="o">=</span> <span class="n">csvw_file_contents_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;@id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">looks_like_uri</span><span class="p">(</span><span class="n">initial_id</span><span class="p">):</span>
+        <span class="n">initial_id_parsed</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">initial_id</span><span class="p">)</span>
+        <span class="n">csvw_file_contents_json</span><span class="p">[</span><span class="s2">&quot;@id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">base_uri</span><span class="p">,</span> <span class="n">initial_id_parsed</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="c1"># Write removal of dcat metadata from CSV-W to disk.</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csvw_metadata_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">csvw_file_contents_json</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Write separate N-Quads file containing pmdified catalogue metadata.</span>
+    <span class="n">catalog_metadata_quads_file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">csvw_metadata_file_path</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span><span class="si">}</span><span class="s2">.nq&quot;</span><span class="p">)</span>
+    <span class="n">_write_catalog_metadata_to_quads</span><span class="p">(</span>
+        <span class="n">catalog_record</span><span class="p">,</span>
+        <span class="n">catalog_metadata_quads_file_path</span><span class="p">,</span>
+        <span class="n">catalog_metadata_graph_uri</span><span class="p">,</span>
+        <span class="n">base_uri</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_set_pmdcat_type_on_dataset_contents"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._set_pmdcat_type_on_dataset_contents">[docs]</a><span class="k">def</span> <span class="nf">_set_pmdcat_type_on_dataset_contents</span><span class="p">(</span>
+    <span class="n">csvw_rdf_graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">csvw_type</span><span class="p">:</span> <span class="n">CsvCubedOutputType</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">csvw_type</span> <span class="o">==</span> <span class="n">CsvCubedOutputType</span><span class="o">.</span><span class="n">QbDataSet</span><span class="p">:</span>
+        <span class="n">csvw_rdf_graph</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="sd">&quot;&quot;&quot;           </span>
+<span class="sd">            PREFIX qb:      &lt;http://purl.org/linked-data/cube#&gt;</span>
+<span class="sd">            PREFIX pmdcat:  &lt;http://publishmydata.com/pmdcat#&gt;</span>
+
+<span class="sd">            INSERT { ?dataset a pmdcat:DataCube. } WHERE { ?dataset a qb:DataSet. }</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">csvw_type</span> <span class="o">==</span> <span class="n">CsvCubedOutputType</span><span class="o">.</span><span class="n">SkosConceptScheme</span><span class="p">:</span>
+        <span class="n">csvw_rdf_graph</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            PREFIX skos:    &lt;http://www.w3.org/2004/02/skos/core#&gt;</span>
+<span class="sd">            PREFIX pmdcat:  &lt;http://publishmydata.com/pmdcat#&gt;</span>
+
+<span class="sd">            INSERT { ?dataset a pmdcat:ConceptScheme. } WHERE { ?dataset a skos:ConceptScheme. }</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unmatched CSV-W type &#39;</span><span class="si">{</span><span class="n">csvw_type</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_replace_uri_substring_in_graph"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._replace_uri_substring_in_graph">[docs]</a><span class="k">def</span> <span class="nf">_replace_uri_substring_in_graph</span><span class="p">(</span>
+    <span class="n">csvw_rdf_graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">value_to_replace</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">replacement_value</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">replace_uri_in_triple</span><span class="p">(</span>
+        <span class="n">triple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">Identifier</span><span class="p">,</span> <span class="n">Identifier</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Identifier</span><span class="p">,</span> <span class="n">Identifier</span><span class="p">,</span> <span class="n">Identifier</span><span class="p">]:</span>
+        <span class="k">def</span> <span class="nf">replace_uri_in_identifier</span><span class="p">(</span><span class="n">identifier</span><span class="p">:</span> <span class="n">Identifier</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Identifier</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">URIRef</span><span class="p">(</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">value_to_replace</span><span class="p">,</span> <span class="n">replacement_value</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">identifier</span>
+
+        <span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">o</span> <span class="o">=</span> <span class="n">triple</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">replace_uri_in_identifier</span><span class="p">(</span><span class="n">s</span><span class="p">),</span>
+            <span class="n">replace_uri_in_identifier</span><span class="p">(</span><span class="n">p</span><span class="p">),</span>
+            <span class="n">replace_uri_in_identifier</span><span class="p">(</span><span class="n">o</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="n">triples</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">replace_uri_in_triple</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">csvw_rdf_graph</span><span class="o">.</span><span class="n">triples</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="p">]</span>
+    <span class="n">csvw_rdf_graph</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">triple</span> <span class="ow">in</span> <span class="n">triples</span><span class="p">:</span>
+        <span class="n">csvw_rdf_graph</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">triple</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_generate_pmd_catalog_record"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._generate_pmd_catalog_record">[docs]</a><span class="k">def</span> <span class="nf">_generate_pmd_catalog_record</span><span class="p">(</span>
+    <span class="n">catalog_entry</span><span class="p">:</span> <span class="n">pmdcat</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span>
+    <span class="n">data_graph_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">catalog_metadata_graph_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">csv_cubed_output_type</span><span class="p">:</span> <span class="n">CsvCubedOutputType</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pmdcat</span><span class="o">.</span><span class="n">CatalogRecord</span><span class="p">:</span>
+    <span class="n">catalog_entry</span><span class="o">.</span><span class="n">dataset_contents</span> <span class="o">=</span> <span class="n">ExistingResource</span><span class="p">(</span><span class="n">catalog_entry</span><span class="o">.</span><span class="n">uri</span><span class="p">)</span>
+
+    <span class="c1"># N.B. assumes that all URIs are hash URIs, this may not always be the case.</span>
+    <span class="n">catalog_entry_uri</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;#.*?$&quot;</span><span class="p">,</span> <span class="s2">&quot;#catalog-entry&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">catalog_entry</span><span class="o">.</span><span class="n">uri</span><span class="p">))</span>
+    <span class="n">catalog_record_uri</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;#.*?$&quot;</span><span class="p">,</span> <span class="s2">&quot;#catalog-record&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">catalog_entry</span><span class="o">.</span><span class="n">uri</span><span class="p">))</span>
+    <span class="n">catalog_entry</span><span class="o">.</span><span class="n">uri</span> <span class="o">=</span> <span class="n">URIRef</span><span class="p">(</span><span class="n">catalog_entry_uri</span><span class="p">)</span>
+
+    <span class="c1"># Catalog -(dcat:record)-&gt; Catalog Record -(foaf:primaryTopic)-&gt; Dataset -(pmdcat:datasetContents)-&gt;</span>
+    <span class="c1"># qb:DataSet/skos:ConceptScheme</span>
+
+    <span class="n">catalog_uri</span> <span class="o">=</span> <span class="n">_get_catalog_uri_to_add_to</span><span class="p">(</span><span class="n">csv_cubed_output_type</span><span class="p">)</span>
+
+    <span class="n">catalog_record</span> <span class="o">=</span> <span class="n">pmdcat</span><span class="o">.</span><span class="n">CatalogRecord</span><span class="p">(</span><span class="n">catalog_record_uri</span><span class="p">,</span> <span class="n">catalog_uri</span><span class="p">)</span>
+    <span class="n">catalog_record</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">catalog_entry</span><span class="o">.</span><span class="n">title</span>
+    <span class="n">catalog_record</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">catalog_entry</span><span class="o">.</span><span class="n">label</span>
+    <span class="n">catalog_record</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">catalog_entry</span><span class="o">.</span><span class="n">description</span>
+    <span class="n">catalog_record</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">catalog_entry</span><span class="o">.</span><span class="n">comment</span>
+    <span class="n">catalog_record</span><span class="o">.</span><span class="n">issued</span> <span class="o">=</span> <span class="n">catalog_record</span><span class="o">.</span><span class="n">modified</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">catalog_record</span><span class="o">.</span><span class="n">metadata_graph</span> <span class="o">=</span> <span class="n">catalog_metadata_graph_uri</span>
+    <span class="n">catalog_record</span><span class="o">.</span><span class="n">primary_topic</span> <span class="o">=</span> <span class="n">catalog_entry</span>
+    <span class="n">catalog_entry</span><span class="o">.</span><span class="n">metadata_graph</span> <span class="o">=</span> <span class="n">catalog_metadata_graph_uri</span>
+
+    <span class="n">catalog_entry</span><span class="o">.</span><span class="n">pmdcat_graph</span> <span class="o">=</span> <span class="n">data_graph_uri</span>
+    <span class="n">catalog_entry</span><span class="o">.</span><span class="n">sparql_endpoint</span> <span class="o">=</span> <span class="n">pmdconfig</span><span class="o">.</span><span class="n">SPARQL_ENDPOINT</span>
+
+    <span class="k">return</span> <span class="n">catalog_record</span></div>
+
+
+<div class="viewcode-block" id="_get_catalog_uri_to_add_to"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._get_catalog_uri_to_add_to">[docs]</a><span class="k">def</span> <span class="nf">_get_catalog_uri_to_add_to</span><span class="p">(</span><span class="n">csv_cubed_output_type</span><span class="p">:</span> <span class="n">CsvCubedOutputType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">csv_cubed_output_type</span> <span class="o">==</span> <span class="n">CsvCubedOutputType</span><span class="o">.</span><span class="n">SkosConceptScheme</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pmdconfig</span><span class="o">.</span><span class="n">CODE_LIST_CATALOG_URI</span>
+    <span class="k">elif</span> <span class="n">csv_cubed_output_type</span> <span class="o">==</span> <span class="n">CsvCubedOutputType</span><span class="o">.</span><span class="n">QbDataSet</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pmdconfig</span><span class="o">.</span><span class="n">DATASET_CATALOG_URI</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Unmatched </span><span class="si">{</span><span class="n">CsvCubedOutputType</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">csv_cubed_output_type</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_write_catalog_metadata_to_quads"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._write_catalog_metadata_to_quads">[docs]</a><span class="k">def</span> <span class="nf">_write_catalog_metadata_to_quads</span><span class="p">(</span>
+    <span class="n">catalog_record</span><span class="p">:</span> <span class="n">pmdcat</span><span class="o">.</span><span class="n">CatalogRecord</span><span class="p">,</span>
+    <span class="n">catalog_metadata_quads_file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">catalog_metadata_graph_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">base_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">catalog_metadata_ds</span> <span class="o">=</span> <span class="n">rdflib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+    <span class="n">catalog_metadata_graph</span> <span class="o">=</span> <span class="n">catalog_metadata_ds</span><span class="o">.</span><span class="n">graph</span><span class="p">(</span>
+        <span class="n">catalog_metadata_graph_uri</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">_TEMP_PREFIX_URI</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">catalog_metadata_graph</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="n">catalog_metadata_graph</span> <span class="o">=</span> <span class="n">catalog_record</span><span class="o">.</span><span class="n">to_graph</span><span class="p">(</span><span class="n">catalog_metadata_graph</span><span class="p">)</span>
+    <span class="n">catalog_record</span><span class="o">.</span><span class="n">to_graph</span><span class="p">(</span><span class="n">catalog_metadata_graph</span><span class="p">)</span>
+    <span class="n">_replace_uri_substring_in_graph</span><span class="p">(</span>
+        <span class="n">catalog_metadata_graph</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">_TEMP_PREFIX_URI</span><span class="p">),</span> <span class="n">base_uri</span>
+    <span class="p">)</span>
+
+    <span class="n">catalog_metadata_ds</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">catalog_metadata_quads_file_path</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;nquads&quot;</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_delete_existing_dcat_dataset_metadata"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._delete_existing_dcat_dataset_metadata">[docs]</a><span class="k">def</span> <span class="nf">_delete_existing_dcat_dataset_metadata</span><span class="p">(</span><span class="n">csvw_graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes the existing `dcat:Dataset` and associated metadata from the :obj:`csvw_graph` passed in.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">csvw_graph</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;</span>
+<span class="sd">        PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;</span>
+<span class="sd">        PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+
+<span class="sd">        DELETE {</span>
+<span class="sd">            ?dataset a dcat:Dataset;</span>
+<span class="sd">                a dcat:Resource;</span>
+<span class="sd">                dcterms:issued ?issued;</span>
+<span class="sd">                dcterms:modified ?modified;</span>
+<span class="sd">                rdfs:comment ?comment;</span>
+<span class="sd">                dcterms:description ?description;</span>
+<span class="sd">                dcterms:license ?license;</span>
+<span class="sd">                dcterms:creator ?creator;</span>
+<span class="sd">                dcterms:publisher ?publisher;</span>
+<span class="sd">                dcat:landingPage ?landingPage;</span>
+<span class="sd">                dcat:theme ?theme;</span>
+<span class="sd">                dcat:keyword ?keyword;</span>
+<span class="sd">                dcat:contactPoint ?contactPoint;</span>
+<span class="sd">                dcterms:identifier ?identifier.</span>
+<span class="sd">        }</span>
+<span class="sd">        WHERE {</span>
+<span class="sd">            ?dataset a dcat:Dataset;</span>
+<span class="sd">                dcterms:issued ?issued;</span>
+<span class="sd">                dcterms:modified ?modified.</span>
+
+<span class="sd">            OPTIONAL { ?dataset rdfs:comment ?comment }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:description ?description }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:license ?license }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:creator ?creator }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:publisher ?publisher }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcat:landingPage ?landingPage }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcat:theme ?theme }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcat:keyword ?keyword }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcat:contactPoint ?contactPoint }</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:identifier ?identifier }                </span>
+<span class="sd">        }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_get_catalog_entry_from_dcat_dataset"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._get_catalog_entry_from_dcat_dataset">[docs]</a><span class="k">def</span> <span class="nf">_get_catalog_entry_from_dcat_dataset</span><span class="p">(</span><span class="n">csvw_graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pmdcat</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :return: a :class:`csvcubedpmd.models.rdf.pmdcat.Dataset` to avoid need to convert from dcat to pmdcat object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="n">csvw_graph</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;</span>
+<span class="sd">        PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;</span>
+<span class="sd">        PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="sd">    </span>
+<span class="sd">        SELECT ?dataset ?title ?label ?issued ?modified ?comment ?description ?license ?creator ?publisher </span>
+<span class="sd">            (GROUP_CONCAT(?landingPage ; separator=&#39;|&#39;) as ?landingPages) </span>
+<span class="sd">            (GROUP_CONCAT(?theme; separator=&#39;|&#39;) as ?themes) </span>
+<span class="sd">            (GROUP_CONCAT(?keyword; separator=&#39;|&#39;) as ?keywords) </span>
+<span class="sd">            ?contactPoint ?identifier</span>
+<span class="sd">        WHERE {</span>
+<span class="sd">            ?dataset a dcat:Dataset;</span>
+<span class="sd">                dcterms:title ?title;</span>
+<span class="sd">                rdfs:label ?label;</span>
+<span class="sd">                dcterms:issued ?issued;</span>
+<span class="sd">                dcterms:modified ?modified.</span>
+
+<span class="sd">            OPTIONAL { ?dataset rdfs:comment ?comment }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:description ?description }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:license ?license }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:creator ?creator }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:publisher ?publisher }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcat:landingPage ?landingPage }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcat:theme ?theme }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcat:keyword ?keyword }.</span>
+<span class="sd">            OPTIONAL { ?dataset dcat:contactPoint ?contactPoint }</span>
+<span class="sd">            OPTIONAL { ?dataset dcterms:identifier ?identifier }                </span>
+<span class="sd">        }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">r</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">r</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="n">Literal</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected 1 dcat:Dataset record, found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">record</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">pmdcat_dataset</span> <span class="o">=</span> <span class="n">pmdcat</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">])</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">])</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">])</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">issued</span> <span class="o">=</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">isoparse</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;issued&quot;</span><span class="p">])</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">modified</span> <span class="o">=</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">isoparse</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;modified&quot;</span><span class="p">])</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">comment</span> <span class="o">=</span> <span class="n">_none_or_map</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;comment&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">_none_or_map</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">license</span> <span class="o">=</span> <span class="n">_none_or_map</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;license&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">creator</span> <span class="o">=</span> <span class="n">_none_or_map</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;creator&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">publisher</span> <span class="o">=</span> <span class="n">_none_or_map</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;publisher&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">landing_page</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">set</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;landingPages&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">else</span> <span class="nb">set</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;landingPages&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">themes</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">set</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;themes&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">set</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;themes&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">keywords</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">set</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;keywords&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">else</span> <span class="nb">set</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;keywords&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">contact_point</span> <span class="o">=</span> <span class="n">_none_or_map</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;contactPoint&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
+    <span class="n">pmdcat_dataset</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s2">&quot;identifier&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">pmdcat_dataset</span></div>
+
+
+<div class="viewcode-block" id="_none_or_map"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._none_or_map">[docs]</a><span class="k">def</span> <span class="nf">_none_or_map</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">map_func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">map_func</span><span class="p">(</span><span class="n">val</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_get_csv_cubed_output_type"><a class="viewcode-back" href="../../../csvcubedpmd.dcatcli.html#csvcubedpmd.dcatcli.pmdify._get_csv_cubed_output_type">[docs]</a><span class="k">def</span> <span class="nf">_get_csv_cubed_output_type</span><span class="p">(</span><span class="n">csvw_rdf_graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CsvCubedOutputType</span><span class="p">:</span>
+    <span class="n">is_concept_scheme</span> <span class="o">=</span> <span class="n">ask</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ASK </span>
+<span class="sd">        WHERE {</span>
+<span class="sd">            ?conceptScheme a &lt;http://www.w3.org/2004/02/skos/core#ConceptScheme&gt;.</span>
+<span class="sd">        }</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">,</span>
+        <span class="n">csvw_rdf_graph</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">is_concept_scheme</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">CsvCubedOutputType</span><span class="o">.</span><span class="n">SkosConceptScheme</span>
+
+    <span class="n">is_qb_dataset</span> <span class="o">=</span> <span class="n">ask</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ASK </span>
+<span class="sd">        WHERE {</span>
+<span class="sd">            ?qbDataSet a &lt;http://purl.org/linked-data/cube#DataSet&gt;.</span>
+<span class="sd">        }</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">,</span>
+        <span class="n">csvw_rdf_graph</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">is_qb_dataset</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">CsvCubedOutputType</span><span class="o">.</span><span class="n">QbDataSet</span>
+
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Could not determine </span><span class="si">{</span><span class="n">CsvCubedOutputType</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> for input CSV-W graph.&quot;</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">csvcubedpmd</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../csvcubedpmd.html">csvcubedpmd package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

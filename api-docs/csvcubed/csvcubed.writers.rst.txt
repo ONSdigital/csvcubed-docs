@@ -1,0 +1,32 @@
+csvcubed.writers package
+========================
+
+.. automodule:: csvcubed.writers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubed.writers.qbwriter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubed.writers.skoscodelistwriter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubed.writers.writerbase
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

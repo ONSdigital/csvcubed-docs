@@ -1,0 +1,18 @@
+csvcubedpmd.models.rdf package
+==============================
+
+.. automodule:: csvcubedpmd.models.rdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedpmd.models.rdf.pmdcat
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

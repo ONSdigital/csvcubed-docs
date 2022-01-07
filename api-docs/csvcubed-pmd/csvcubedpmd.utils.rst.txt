@@ -1,0 +1,25 @@
+csvcubedpmd.utils package
+=========================
+
+.. automodule:: csvcubedpmd.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Submodules
+----------
+
+
+.. automodule:: csvcubedpmd.utils.rdflibutils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+
+.. automodule:: csvcubedpmd.utils.sparql
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
