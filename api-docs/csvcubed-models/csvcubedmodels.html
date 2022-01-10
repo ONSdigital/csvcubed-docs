@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubedmodels package &#8212; csvcubedmodels  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubedmodels.rdf package" href="csvcubedmodels.rdf.html" />
+    <link rel="prev" title="Welcome to csvcubedmodels’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-csvcubedmodels">
+<span id="csvcubedmodels-package"></span><h1>csvcubedmodels package<a class="headerlink" href="#module-csvcubedmodels" title="Permalink to this headline">¶</a></h1>
+<p>Contains some models shared by the other libraries. Functionality in here should be kept to an absolute minimum.</p>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubedmodels.rdf.html">csvcubedmodels.rdf package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubedmodels.rdf.html#module-csvcubedmodels.rdf.datatypes">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#rdf-data-types">RDF Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#dcat">DCAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#qb">qb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#rdf-properties">RDF Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#rdfs">RDFS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#resources">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#skos">SKOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html#triples-serialisation">Triples (serialisation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubedmodels.utils.html">csvcubedmodels.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubedmodels.utils.html#module-csvcubedmodels.utils.uri">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.utils.html#uri">URI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-csvcubedmodels.dataclassbase">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-csvcubedmodels.dataclassbase" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dataclass-base">
+<h3>DataClass Base<a class="headerlink" href="#dataclass-base" title="Permalink to this headline">¶</a></h3>
+<p>Provides some utilities to help with serialisation/deserialisation</p>
+<dl class="py class">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.dataclassbase.</span></code><code class="sig-name descname"><span class="pre">DataClassBase</span></code><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Provides functionality to go to/from dictionary or JSON representations of this class.</p>
+<p>N.B. This requires that all subclasses have the <code class="xref py py-obj docutils literal notranslate"><span class="pre">&#64;dataclass</span></code> attribute.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase._as_shallow_dict">
+<code class="sig-name descname"><span class="pre">_as_shallow_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase._as_shallow_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase._as_shallow_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary which is essentially a shallow copy of this dataclass.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase._get_generic_type_args_subclassing_dataclassbase">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_get_generic_type_args_subclassing_dataclassbase</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generic_type_args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">collections.abc.Iterable</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Set</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase._get_generic_type_args_subclassing_dataclassbase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase._get_generic_type_args_subclassing_dataclassbase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase._get_type_hints">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_get_type_hints</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase._get_type_hints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase._get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches type hints associated with this class.</p>
+<p>Ensures that overridden properties have their type hints overridden too.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase._get_value_for_field">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_get_value_for_field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dataclasses.Field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_hints</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase._get_value_for_field"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase._get_value_for_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase._get_value_for_generic_iterable_field">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_get_value_for_generic_iterable_field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dataclasses.Field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typing_hint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generic_type_args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">collections.abc.Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase._get_value_for_generic_iterable_field"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase._get_value_for_generic_iterable_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase._get_value_for_generic_union">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_get_value_for_generic_union</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dataclasses.Field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">union_typing_hint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generic_type_args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">collections.abc.Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase._get_value_for_generic_union"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase._get_value_for_generic_union" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase._get_value_for_typed_field">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_get_value_for_typed_field</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dataclasses.Field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typing_hint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase._get_value_for_typed_field"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase._get_value_for_typed_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase.as_dict">
+<code class="sig-name descname"><span class="pre">as_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase.as_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase.as_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use python dataclasses method to return this model as a dictionary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase.as_json">
+<code class="sig-name descname"><span class="pre">as_json</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase.as_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase.as_json" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the JSON serialisation containing a representation of this object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase.as_json_dict">
+<code class="sig-name descname"><span class="pre">as_json_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase.as_json_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase.as_json_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a dict suitable for JSON serialisation containing a representation of this object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase.dict_fields_match_class">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">dict_fields_match_class</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase.dict_fields_match_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase.dict_fields_match_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase.from_dict">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">TDataClassBase</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to inflate an instance of this class from a dictionary of values using static type annotations as
+guides.</p>
+<p>N.B. this won’t work in all cases. You should <em>really</em> test this against all of the classes you’re expecting
+to be able to inflate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase.from_json">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">TDataClassBase</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase.from_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase.from_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.dataclassbase.DataClassBase.override_with">
+<code class="sig-name descname"><span class="pre">override_with</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overriding_values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">TDataClassBase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overriding_keys</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassBase.override_with"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassBase.override_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows you to override specific attributes of this instance with values from another instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="csvcubedmodels.dataclassbase.DataClassFromDictValueError">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.dataclassbase.</span></code><code class="sig-name descname"><span class="pre">DataClassFromDictValueError</span></code><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#DataClassFromDictValueError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.DataClassFromDictValueError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="csvcubedmodels.dataclassbase._map_coercion_permitted">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.dataclassbase.</span></code><code class="sig-name descname"><span class="pre">_map_coercion_permitted</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">,</span> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{&lt;class</span> <span class="pre">'int'&gt;:</span> <span class="pre">{&lt;class</span> <span class="pre">'float'&gt;}}</span></em><a class="headerlink" href="#csvcubedmodels.dataclassbase._map_coercion_permitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map of coercion directions permitted, value type =&gt; expected static type</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="csvcubedmodels.dataclassbase._type_coercion_permitted">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.dataclassbase.</span></code><code class="sig-name descname"><span class="pre">_type_coercion_permitted</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_data_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotation_data_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Type</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#_type_coercion_permitted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase._type_coercion_permitted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubedmodels.dataclassbase.replace_with_json_serialisable_types">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.dataclassbase.</span></code><code class="sig-name descname"><span class="pre">replace_with_json_serialisable_types</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="reference internal" href="_modules/csvcubedmodels/dataclassbase.html#replace_with_json_serialisable_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.dataclassbase.replace_with_json_serialisable_types" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A replacement of built-in types which are not JSON serialisable with ones which are.</p>
+</dd>
+</dl>
+<p>e.g. <code class="xref py py-obj docutils literal notranslate"><span class="pre">datetime</span></code> instances get replaced with ISO-8601 strings.</p>
+<p>Its inverse is <code class="xref py py-func docutils literal notranslate"><span class="pre">replace_serialised_types_with_builtin_types()</span></code>.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">csvcubedmodels</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">csvcubedmodels package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.rdf.html">csvcubedmodels.rdf package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.utils.html">csvcubedmodels.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-csvcubedmodels.dataclassbase">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dataclass-base">DataClass Base</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to csvcubedmodels’s documentation!</a></li>
+      <li>Next: <a href="csvcubedmodels.rdf.html" title="next chapter">csvcubedmodels.rdf package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/csvcubedmodels.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

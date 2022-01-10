@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubeddevtools.behaviour package &#8212; csvcubeddevtools  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubeddevtools.helpers package" href="csvcubeddevtools.helpers.html" />
+    <link rel="prev" title="csvcubeddevtools package" href="csvcubeddevtools.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-csvcubeddevtools.behaviour">
+<span id="csvcubeddevtools-behaviour-package"></span><h1>csvcubeddevtools.behaviour package<a class="headerlink" href="#module-csvcubeddevtools.behaviour" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-csvcubeddevtools.behaviour.csv2rdf">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-csvcubeddevtools.behaviour.csv2rdf" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="csv2rdf">
+<h3>csv2rdf<a class="headerlink" href="#csv2rdf" title="Permalink to this headline">¶</a></h3>
+<p>behave functionality to run csv2rdf on some output</p>
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.csv2rdf._run_csv2rdf">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.csv2rdf.</span></code><code class="sig-name descname"><span class="pre">_run_csv2rdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/csv2rdf.html#_run_csv2rdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.csv2rdf._run_csv2rdf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.csv2rdf.step_impl">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.csv2rdf.</span></code><code class="sig-name descname"><span class="pre">step_impl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/csv2rdf.html#step_impl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.csv2rdf.step_impl" title="Permalink to this definition">¶</a></dt>
+<dd><p>csv2rdf on “{file}” should fail with “{expected}”</p>
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubeddevtools.behaviour.csvlint"></span><div class="section" id="csvlint">
+<h3>csvlint<a class="headerlink" href="#csvlint" title="Permalink to this headline">¶</a></h3>
+<p>behave functionality to run csv-lint on some output</p>
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.csvlint._run_csvlint">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.csvlint.</span></code><code class="sig-name descname"><span class="pre">_run_csvlint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/csvlint.html#_run_csvlint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.csvlint._run_csvlint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.csvlint.step_impl">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.csvlint.</span></code><code class="sig-name descname"><span class="pre">step_impl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/csvlint.html#step_impl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.csvlint.step_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<span class="target" id="module-csvcubeddevtools.behaviour.file"></span><div class="section" id="file-steps">
+<h3>File Steps<a class="headerlink" href="#file-steps" title="Permalink to this headline">¶</a></h3>
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.file._ensure_directory_hierarchy_exists">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.file.</span></code><code class="sig-name descname"><span class="pre">_ensure_directory_hierarchy_exists</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/file.html#_ensure_directory_hierarchy_exists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.file._ensure_directory_hierarchy_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.file.step_impl">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.file.</span></code><code class="sig-name descname"><span class="pre">step_impl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/file.html#step_impl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.file.step_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<span class="target" id="module-csvcubeddevtools.behaviour.rdf"></span><div class="section" id="rdf-test-steps">
+<h3>RDF Test Steps<a class="headerlink" href="#rdf-test-steps" title="Permalink to this headline">¶</a></h3>
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.rdf.assert_ask">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.rdf.</span></code><code class="sig-name descname"><span class="pre">assert_ask</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ask_query</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_ask_result</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/rdf.html#assert_ask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.rdf.assert_ask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.rdf.step_impl">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.rdf.</span></code><code class="sig-name descname"><span class="pre">step_impl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/rdf.html#step_impl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.rdf.step_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.rdf.test_graph_diff">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.rdf.</span></code><code class="sig-name descname"><span class="pre">test_graph_diff</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/rdf.html#test_graph_diff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.rdf.test_graph_diff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<span class="target" id="module-csvcubeddevtools.behaviour.sparqltests"></span><div class="section" id="sparql-test-steps">
+<h3>SPARQL Test Steps<a class="headerlink" href="#sparql-test-steps" title="Permalink to this headline">¶</a></h3>
+<p>behave functionality to run sparql tests on RDF</p>
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.sparqltests._run_sparql_tests">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.sparqltests.</span></code><code class="sig-name descname"><span class="pre">_run_sparql_tests</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tests_to_run</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/sparqltests.html#_run_sparql_tests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.sparqltests._run_sparql_tests" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.sparqltests.step_impl">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.sparqltests.</span></code><code class="sig-name descname"><span class="pre">step_impl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_types</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/sparqltests.html#step_impl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.sparqltests.step_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<span class="target" id="module-csvcubeddevtools.behaviour.temporarydirectory"></span><div class="section" id="temporary-testing-directory">
+<h3>Temporary Testing Directory<a class="headerlink" href="#temporary-testing-directory" title="Permalink to this headline">¶</a></h3>
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.temporarydirectory._file_safe">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.temporarydirectory.</span></code><code class="sig-name descname"><span class="pre">_file_safe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/temporarydirectory.html#_file_safe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.temporarydirectory._file_safe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubeddevtools.behaviour.temporarydirectory.get_context_temp_dir_path">
+<code class="sig-prename descclassname"><span class="pre">csvcubeddevtools.behaviour.temporarydirectory.</span></code><code class="sig-name descname"><span class="pre">get_context_temp_dir_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pathlib.Path</span><a class="reference internal" href="_modules/csvcubeddevtools/behaviour/temporarydirectory.html#get_context_temp_dir_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubeddevtools.behaviour.temporarydirectory.get_context_temp_dir_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">csvcubeddevtools</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubeddevtools.html">csvcubeddevtools package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubeddevtools.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubeddevtools.behaviour package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubeddevtools.behaviour.csv2rdf">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#csv2rdf">csv2rdf</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#csvlint">csvlint</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#file-steps">File Steps</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rdf-test-steps">RDF Test Steps</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#sparql-test-steps">SPARQL Test Steps</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#temporary-testing-directory">Temporary Testing Directory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubeddevtools.helpers.html">csvcubeddevtools.helpers package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="csvcubeddevtools.html">csvcubeddevtools package</a><ul>
+      <li>Previous: <a href="csvcubeddevtools.html" title="previous chapter">csvcubeddevtools package</a></li>
+      <li>Next: <a href="csvcubeddevtools.helpers.html" title="next chapter">csvcubeddevtools.helpers package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/csvcubeddevtools.behaviour.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

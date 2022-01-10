@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubedpmd.models package &#8212; csvcubedpmd  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubedpmd.models.rdf package" href="csvcubedpmd.models.rdf.html" />
+    <link rel="prev" title="csvcubedpmd.dcatcli package" href="csvcubedpmd.dcatcli.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-csvcubedpmd.models">
+<span id="csvcubedpmd-models-package"></span><h1>csvcubedpmd.models package<a class="headerlink" href="#module-csvcubedpmd.models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubedpmd.models.rdf.html">csvcubedpmd.models.rdf package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubedpmd.models.rdf.html#module-csvcubedpmd.models.rdf.pmdcat">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedpmd.models.rdf.html#pmdcat">PMDCAT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-csvcubedpmd.models.CsvCubedOutputType">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-csvcubedpmd.models.CsvCubedOutputType" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="csvcubedpmd.models.CsvCubedOutputType.CsvCubedOutputType">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedpmd.models.CsvCubedOutputType.</span></code><code class="sig-name descname"><span class="pre">CsvCubedOutputType</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedpmd/models/CsvCubedOutputType.html#CsvCubedOutputType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedpmd.models.CsvCubedOutputType.CsvCubedOutputType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="csvcubedpmd.models.CsvCubedOutputType.CsvCubedOutputType.QbDataSet">
+<code class="sig-name descname"><span class="pre">QbDataSet</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#csvcubedpmd.models.CsvCubedOutputType.CsvCubedOutputType.QbDataSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedpmd.models.CsvCubedOutputType.CsvCubedOutputType.SkosConceptScheme">
+<code class="sig-name descname"><span class="pre">SkosConceptScheme</span></code><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#csvcubedpmd.models.CsvCubedOutputType.CsvCubedOutputType.SkosConceptScheme" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-csvcubedpmd.models.csvwithcolumndefinitions"></span><div class="section" id="csv-with-column-definitions">
+<h3>CSV With Column Definitions<a class="headerlink" href="#csv-with-column-definitions" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubedpmd.models.csvwithcolumndefinitions.CsvWithColumnDefinitions">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedpmd.models.csvwithcolumndefinitions.</span></code><code class="sig-name descname"><span class="pre">CsvWithColumnDefinitions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">csvw.metadata.Column</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedpmd/models/csvwithcolumndefinitions.html#CsvWithColumnDefinitions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedpmd.models.csvwithcolumndefinitions.CsvWithColumnDefinitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="csvcubedpmd.models.csvwithcolumndefinitions.CsvWithColumnDefinitions.columns">
+<code class="sig-name descname"><span class="pre">columns</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">csvw.metadata.Column</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedpmd.models.csvwithcolumndefinitions.CsvWithColumnDefinitions.columns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedpmd.models.csvwithcolumndefinitions.CsvWithColumnDefinitions.csv_path">
+<code class="sig-name descname"><span class="pre">csv_path</span></code><em class="property"><span class="pre">:</span> <span class="pre">pathlib.Path</span></em><a class="headerlink" href="#csvcubedpmd.models.csvwithcolumndefinitions.CsvWithColumnDefinitions.csv_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">csvcubedpmd</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubedpmd.html">csvcubedpmd package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubedpmd.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubedpmd.config.html">csvcubedpmd.config package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedpmd.csvwcli.html">csvcubedpmd.csvwcli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedpmd.dcatcli.html">csvcubedpmd.dcatcli package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubedpmd.models package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="csvcubedpmd.models.rdf.html">csvcubedpmd.models.rdf package</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubedpmd.models.CsvCubedOutputType">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#csv-with-column-definitions">CSV With Column Definitions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedpmd.urireplacement.html">csvcubedpmd.urireplacement package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedpmd.utils.html">csvcubedpmd.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubedpmd.html#module-csvcubedpmd.main">Submodules</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="csvcubedpmd.html">csvcubedpmd package</a><ul>
+      <li>Previous: <a href="csvcubedpmd.dcatcli.html" title="previous chapter">csvcubedpmd.dcatcli package</a></li>
+      <li>Next: <a href="csvcubedpmd.models.rdf.html" title="next chapter">csvcubedpmd.models.rdf package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/csvcubedpmd.models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

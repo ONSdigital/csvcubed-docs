@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubed.models.cube.qb package &#8212; csvcubed  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.models.cube.qb.components package" href="csvcubed.models.cube.qb.components.html" />
+    <link rel="prev" title="csvcubed.models.cube package" href="csvcubed.models.cube.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-csvcubed.models.cube.qb">
+<span id="csvcubed-models-cube-qb-package"></span><h1>csvcubed.models.cube.qb package<a class="headerlink" href="#module-csvcubed.models.cube.qb" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.models.cube.qb.components.html">csvcubed.models.cube.qb.components package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#module-csvcubed.models.cube.qb.components.arbitraryrdf">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#arbitrary-rdf-container">Arbitrary RDF Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#code-lists">Code Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#data-structure-definitions">Data Structure Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#dimensions">Dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#measures">Measures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#observed-values">Observed Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#units">Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#component-validation-errors">Component Validation Errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-csvcubed.models.cube.qb.catalog">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-csvcubed.models.cube.qb.catalog" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="catalog-metadata-dcat">
+<h3>Catalog Metadata (DCAT)<a class="headerlink" href="#catalog-metadata-dcat" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.catalog.</span></code><code class="sig-name descname"><span class="pre">CatalogMetadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">title:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">identifier:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">summary:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">description:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">creator_uri:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">publisher_uri:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">landing_page_uris:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">theme_uris:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">keywords:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">dataset_issued:</span> <span class="pre">Optional[datetime.datetime]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">dataset_modified:</span> <span class="pre">Optional[datetime.datetime]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">license_uri:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">public_contact_point_uri:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">uri_safe_identifier_override:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/catalog.html#CatalogMetadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.cube.html#csvcubed.models.cube.catalog.CatalogMetadataBase" title="csvcubed.models.cube.catalog.CatalogMetadataBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.cube.catalog.CatalogMetadataBase</span></code></a>, <a class="reference internal" href="csvcubed.models.html#csvcubed.models.uriidentifiable.UriIdentifiable" title="csvcubed.models.uriidentifiable.UriIdentifiable"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.uriidentifiable.UriIdentifiable</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata._creator_uri_validator">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_creator_uri_validator</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata._creator_uri_validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> looks like a URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – when <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> does not look like a URI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata._landing_page_uris_validator">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_landing_page_uris_validator</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata._landing_page_uris_validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that the values in a list (<code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code>) look like URIs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – when <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> does not look like a URI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata._license_uri_validator">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_license_uri_validator</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata._license_uri_validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> looks like a URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – when <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> does not look like a URI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata._public_contact_point_uri_validator">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_public_contact_point_uri_validator</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata._public_contact_point_uri_validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> looks like a URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – when <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> does not look like a URI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata._publisher_uri_validator">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">_publisher_uri_validator</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata._publisher_uri_validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> looks like a URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – when <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> does not look like a URI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.configure_dcat_dataset">
+<code class="sig-name descname"><span class="pre">configure_dcat_dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">csvcubedmodels.rdf.dcat.Dataset</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/catalog.html#CatalogMetadata.configure_dcat_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.configure_dcat_dataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.creator_uri">
+<code class="sig-name descname"><span class="pre">creator_uri</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.creator_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.dataset_issued">
+<code class="sig-name descname"><span class="pre">dataset_issued</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.dataset_issued" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.dataset_modified">
+<code class="sig-name descname"><span class="pre">dataset_modified</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.dataset_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.description">
+<code class="sig-name descname"><span class="pre">description</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.from_json_file">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_json_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata" title="csvcubed.models.cube.qb.catalog.CatalogMetadata"><span class="pre">csvcubed.models.cube.qb.catalog.CatalogMetadata</span></a><a class="reference internal" href="_modules/csvcubed/models/cube/qb/catalog.html#CatalogMetadata.from_json_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.from_json_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.get_description">
+<code class="sig-name descname"><span class="pre">get_description</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/catalog.html#CatalogMetadata.get_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.get_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.get_identifier">
+<code class="sig-name descname"><span class="pre">get_identifier</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/catalog.html#CatalogMetadata.get_identifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.get_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>get_identifier - returns the property which is turned into a URI-safe identifier is no override is present.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.get_issued">
+<code class="sig-name descname"><span class="pre">get_issued</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/catalog.html#CatalogMetadata.get_issued"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.get_issued" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.identifier">
+<code class="sig-name descname"><span class="pre">identifier</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.keywords">
+<code class="sig-name descname"><span class="pre">keywords</span></code><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.keywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.landing_page_uris">
+<code class="sig-name descname"><span class="pre">landing_page_uris</span></code><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.landing_page_uris" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.license_uri">
+<code class="sig-name descname"><span class="pre">license_uri</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.license_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.public_contact_point_uri">
+<code class="sig-name descname"><span class="pre">public_contact_point_uri</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.public_contact_point_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.publisher_uri">
+<code class="sig-name descname"><span class="pre">publisher_uri</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.publisher_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.summary">
+<code class="sig-name descname"><span class="pre">summary</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.theme_uris">
+<code class="sig-name descname"><span class="pre">theme_uris</span></code><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.theme_uris" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.to_json_file">
+<code class="sig-name descname"><span class="pre">to_json_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/catalog.html#CatalogMetadata.to_json_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.to_json_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.catalog.CatalogMetadata.uri_safe_identifier_override">
+<code class="sig-name descname"><span class="pre">uri_safe_identifier_override</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.catalog.CatalogMetadata.uri_safe_identifier_override" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubed.models.cube.qb.columns"></span><div class="section" id="columns-with-qb-components">
+<h3>Columns with qb Components<a class="headerlink" href="#columns-with-qb-components" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.columns.QbColumn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.columns.</span></code><code class="sig-name descname"><span class="pre">QbColumn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_column_title</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#csvcubed.models.cube.qb.columns.QbColumnarDsdType" title="csvcubed.models.cube.qb.columns.QbColumnarDsdType"><span class="pre">QbColumnarDsdType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">csv_column_uri_template</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uri_safe_identifier_override</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/columns.html#QbColumn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.columns.QbColumn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.cube.html#csvcubed.models.cube.columns.CsvColumn" title="csvcubed.models.cube.columns.CsvColumn"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.cube.columns.CsvColumn</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="#csvcubed.models.cube.qb.columns.QbColumnarDsdType" title="csvcubed.models.cube.qb.columns.QbColumnarDsdType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">csvcubed.models.cube.qb.columns.QbColumnarDsdType</span></code></a>]</p>
+<p>A CSV column and the qb component it relates to.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.columns.QbColumn._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.columns.QbColumn._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.columns.QbColumn.component">
+<code class="sig-name descname"><span class="pre">component</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="#csvcubed.models.cube.qb.columns.QbColumnarDsdType" title="csvcubed.models.cube.qb.columns.QbColumnarDsdType"><span class="pre">QbColumnarDsdType</span></a></em><a class="headerlink" href="#csvcubed.models.cube.qb.columns.QbColumn.component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.columns.QbColumn.csv_column_title">
+<code class="sig-name descname"><span class="pre">csv_column_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.columns.QbColumn.csv_column_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.columns.QbColumn.csv_column_uri_template">
+<code class="sig-name descname"><span class="pre">csv_column_uri_template</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.columns.QbColumn.csv_column_uri_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.columns.QbColumn.uri_safe_identifier_override">
+<code class="sig-name descname"><span class="pre">uri_safe_identifier_override</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.columns.QbColumn.uri_safe_identifier_override" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubed.models.cube.qb.columns.QbColumn.validate_data">
+<code class="sig-name descname"><span class="pre">validate_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.core.frame.DataFrame</span><span class="p"><span class="pre">,</span> </span><span class="pre">pandas.core.series.Series</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError" title="csvcubed.models.validationerror.ValidationError"><span class="pre">csvcubed.models.validationerror.ValidationError</span></a><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/columns.html#QbColumn.validate_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.columns.QbColumn.validate_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="csvcubed.models.cube.qb.columns.QbColumnarDsdType">
+<code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.columns.</span></code><code class="sig-name descname"><span class="pre">QbColumnarDsdType</span></code><a class="headerlink" href="#csvcubed.models.cube.qb.columns.QbColumnarDsdType" title="Permalink to this definition">¶</a></dt>
+<dd><p>An instance of a class which inherits from <a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.ColumnarQbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.ColumnarQbDataStructureDefinition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColumnarQbDataStructureDefinition</span></code></a>.</p>
+<p>alias of TypeVar(‘QbColumnarDsdType’, covariant=True)</p>
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubed.models.cube.qb.validationerrors"></span><div class="section" id="qb-cube-validation-errors">
+<h3>Qb-Cube Validation Errors<a class="headerlink" href="#qb-cube-validation-errors" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError" title="csvcubed.models.validationerror.ValidationError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValidationError</span></code></a> models specific to <code class="xref py py-mod docutils literal notranslate"><span class="pre">qb</span></code>.</p>
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">BothUnitTypesDefinedError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">component_one:</span> <span class="pre">Union[str</span></em>, <em class="sig-param"><span class="pre">Type[csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition]]</span> <span class="pre">=</span> <span class="pre">'QbObservationValue.unit'</span></em>, <em class="sig-param"><span class="pre">component_two:</span> <span class="pre">Union[str</span></em>, <em class="sig-param"><span class="pre">Type[csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition]]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'csvcubed.models.cube.qb.components.unit.QbMultiUnits'&gt;</span></em>, <em class="sig-param"><span class="pre">additional_explanation:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#BothUnitTypesDefinedError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError" title="csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError</span></code></a></p>
+<p>An error for when the user has both a units column as well as setting <cite>QbObservationValue.unit</cite>.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError.additional_explanation">
+<code class="sig-name descname"><span class="pre">additional_explanation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError.additional_explanation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError.component_one">
+<code class="sig-name descname"><span class="pre">component_one</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">'QbObservationValue.unit'</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError.component_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError.component_two">
+<code class="sig-name descname"><span class="pre">component_two</span></code><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.BothUnitTypesDefinedError.component_two" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.unit.QbMultiUnits" title="csvcubed.models.cube.qb.components.unit.QbMultiUnits"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.cube.qb.components.unit.QbMultiUnits</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.CsvColumnLiteralWithUriTemplate">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">CsvColumnLiteralWithUriTemplate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_column_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#CsvColumnLiteralWithUriTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.CsvColumnLiteralWithUriTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError" title="csvcubed.models.validationerror.SpecificValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.validationerror.SpecificValidationError</span></code></a></p>
+<p>Represents an error where the user has defined a literal with a csv_column_uri_template.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.CsvColumnLiteralWithUriTemplate._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.CsvColumnLiteralWithUriTemplate._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.CsvColumnLiteralWithUriTemplate.component_type">
+<code class="sig-name descname"><span class="pre">component_type</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.CsvColumnLiteralWithUriTemplate.component_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.CsvColumnLiteralWithUriTemplate.csv_column_name">
+<code class="sig-name descname"><span class="pre">csv_column_name</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.CsvColumnLiteralWithUriTemplate.csv_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.CsvColumnUriTemplateMissingError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">CsvColumnUriTemplateMissingError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_column_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#CsvColumnUriTemplateMissingError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.CsvColumnUriTemplateMissingError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError" title="csvcubed.models.validationerror.SpecificValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.validationerror.SpecificValidationError</span></code></a></p>
+<p>Represents an error where the user has defined a component which cannot infer its own csv_column_uri_template without
+manually specifying an csv_column_uri_template.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.CsvColumnUriTemplateMissingError._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.CsvColumnUriTemplateMissingError._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.CsvColumnUriTemplateMissingError.component_type">
+<code class="sig-name descname"><span class="pre">component_type</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.CsvColumnUriTemplateMissingError.component_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.CsvColumnUriTemplateMissingError.csv_column_name">
+<code class="sig-name descname"><span class="pre">csv_column_name</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.CsvColumnUriTemplateMissingError.csv_column_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">IncompatibleComponentsError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component_one</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_two</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_explanation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#IncompatibleComponentsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError" title="csvcubed.models.validationerror.SpecificValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.validationerror.SpecificValidationError</span></code></a></p>
+<p>An error for when the user has defined components which are incompatible with each-other.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError.additional_explanation">
+<code class="sig-name descname"><span class="pre">additional_explanation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError.additional_explanation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError.component_one">
+<code class="sig-name descname"><span class="pre">component_one</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError.component_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError.component_two">
+<code class="sig-name descname"><span class="pre">component_two</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.IncompatibleComponentsError.component_two" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">MaxNumComponentsExceededError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximum_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_explanation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#MaxNumComponentsExceededError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError" title="csvcubed.models.validationerror.SpecificValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.validationerror.SpecificValidationError</span></code></a></p>
+<p>Represents an error where the user can define a maximum number of components of a given type, but has defined
+too many.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError.actual_number">
+<code class="sig-name descname"><span class="pre">actual_number</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError.actual_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError.additional_explanation">
+<code class="sig-name descname"><span class="pre">additional_explanation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError.additional_explanation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError.component_type">
+<code class="sig-name descname"><span class="pre">component_type</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError.component_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError.maximum_number">
+<code class="sig-name descname"><span class="pre">maximum_number</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MaxNumComponentsExceededError.maximum_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">MinNumComponentsNotSatisfiedError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_explanation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#MinNumComponentsNotSatisfiedError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError" title="csvcubed.models.validationerror.SpecificValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.validationerror.SpecificValidationError</span></code></a></p>
+<p>Represents an error where the user must define a minimum number of components of a given type, but has not done so.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError.actual_number">
+<code class="sig-name descname"><span class="pre">actual_number</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError.actual_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError.additional_explanation">
+<code class="sig-name descname"><span class="pre">additional_explanation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError.additional_explanation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError.component_type">
+<code class="sig-name descname"><span class="pre">component_type</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError.component_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError.minimum_number">
+<code class="sig-name descname"><span class="pre">minimum_number</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.MinNumComponentsNotSatisfiedError.minimum_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.NeitherDefinedError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">NeitherDefinedError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component_one</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_two</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_explanation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#NeitherDefinedError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.NeitherDefinedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError" title="csvcubed.models.validationerror.SpecificValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.validationerror.SpecificValidationError</span></code></a></p>
+<p>An error for when the user must define one of two different kinds of component, but has defined neither.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.NeitherDefinedError._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.NeitherDefinedError._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.NeitherDefinedError.additional_explanation">
+<code class="sig-name descname"><span class="pre">additional_explanation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.NeitherDefinedError.additional_explanation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.NeitherDefinedError.component_one">
+<code class="sig-name descname"><span class="pre">component_one</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.NeitherDefinedError.component_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.NeitherDefinedError.component_two">
+<code class="sig-name descname"><span class="pre">component_two</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.NeitherDefinedError.component_two" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">UnitsNotDefinedError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">component_one:</span> <span class="pre">Union[str</span></em>, <em class="sig-param"><span class="pre">Type[csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition]]</span> <span class="pre">=</span> <span class="pre">'QbObservationValue.unit'</span></em>, <em class="sig-param"><span class="pre">component_two:</span> <span class="pre">Union[str</span></em>, <em class="sig-param"><span class="pre">Type[csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition]]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'csvcubed.models.cube.qb.components.unit.QbMultiUnits'&gt;</span></em>, <em class="sig-param"><span class="pre">additional_explanation:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#UnitsNotDefinedError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.cube.qb.validationerrors.NeitherDefinedError" title="csvcubed.models.cube.qb.validationerrors.NeitherDefinedError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.cube.qb.validationerrors.NeitherDefinedError</span></code></a></p>
+<p>An error for when the user has not defined any units for the dataset.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError.additional_explanation">
+<code class="sig-name descname"><span class="pre">additional_explanation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError.additional_explanation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError.component_one">
+<code class="sig-name descname"><span class="pre">component_one</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">'QbObservationValue.unit'</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError.component_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError.component_two">
+<code class="sig-name descname"><span class="pre">component_two</span></code><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.UnitsNotDefinedError.component_two" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.unit.QbMultiUnits" title="csvcubed.models.cube.qb.components.unit.QbMultiUnits"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.cube.qb.components.unit.QbMultiUnits</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">WrongNumberComponentsError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_explanation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#WrongNumberComponentsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError" title="csvcubed.models.validationerror.SpecificValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubed.models.validationerror.SpecificValidationError</span></code></a></p>
+<p>Represents an error where the user must include a specific number of components, but has not done so.</p>
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError.actual_number">
+<code class="sig-name descname"><span class="pre">actual_number</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError.actual_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError.additional_explanation">
+<code class="sig-name descname"><span class="pre">additional_explanation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError.additional_explanation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError.component_type">
+<code class="sig-name descname"><span class="pre">component_type</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError.component_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError.expected_number">
+<code class="sig-name descname"><span class="pre">expected_number</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors.WrongNumberComponentsError.expected_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="csvcubed.models.cube.qb.validationerrors._get_description_for_component">
+<code class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.validationerrors.</span></code><code class="sig-name descname"><span class="pre">_get_description_for_component</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition" title="csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition"><span class="pre">csvcubed.models.cube.qb.components.datastructuredefinition.QbDataStructureDefinition</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/csvcubed/models/cube/qb/validationerrors.html#_get_description_for_component"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubed.models.cube.qb.validationerrors._get_description_for_component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">csvcubed</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.models.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l5 current"><a class="reference internal" href="csvcubed.models.cube.html">csvcubed.models.cube package</a><ul class="current">
+<li class="toctree-l6 current"><a class="reference internal" href="csvcubed.models.cube.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l7 current"><a class="current reference internal" href="#">csvcubed.models.cube.qb package</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="csvcubed.models.cube.qb.components.html">csvcubed.models.cube.qb.components package</a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.models.cube.qb.catalog">Submodules</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#catalog-metadata-dcat">Catalog Metadata (DCAT)</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#columns-with-qb-components">Columns with qb Components</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#qb-cube-validation-errors">Qb-Cube Validation Errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.html#module-csvcubed.models.cube.catalog">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.models.rdf.html">csvcubed.models.rdf package</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.pydanticmodel">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.inputs">Submodules</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="csvcubed.html">csvcubed package</a><ul>
+  <li><a href="csvcubed.models.html">csvcubed.models package</a><ul>
+  <li><a href="csvcubed.models.cube.html">csvcubed.models.cube package</a><ul>
+      <li>Previous: <a href="csvcubed.models.cube.html" title="previous chapter">csvcubed.models.cube package</a></li>
+      <li>Next: <a href="csvcubed.models.cube.qb.components.html" title="next chapter">csvcubed.models.cube.qb.components package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/csvcubed.models.cube.qb.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

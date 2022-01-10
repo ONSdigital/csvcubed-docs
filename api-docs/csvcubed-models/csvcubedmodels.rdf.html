@@ -1,0 +1,1255 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csvcubedmodels.rdf package &#8212; csvcubedmodels  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubedmodels.utils package" href="csvcubedmodels.utils.html" />
+    <link rel="prev" title="csvcubedmodels package" href="csvcubedmodels.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-csvcubedmodels.rdf">
+<span id="csvcubedmodels-rdf-package"></span><h1>csvcubedmodels.rdf package<a class="headerlink" href="#module-csvcubedmodels.rdf" title="Permalink to this headline">¶</a></h1>
+<p>Contains models which are related to or mapped to RDF</p>
+<div class="section" id="module-csvcubedmodels.rdf.datatypes">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-csvcubedmodels.rdf.datatypes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rdf-data-types">
+<h3>RDF Data Types<a class="headerlink" href="#rdf-data-types" title="Permalink to this headline">¶</a></h3>
+</div>
+<span class="target" id="module-csvcubedmodels.rdf.dcat"></span><div class="section" id="dcat">
+<h3>DCAT<a class="headerlink" href="#dcat" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.dcat.Catalog">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.dcat.</span></code><code class="sig-name descname"><span class="pre">Catalog</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/dcat.html#Catalog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.dcat.Dataset" title="csvcubedmodels.rdf.dcat.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.dcat.Dataset</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Catalog._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Catalog.catalog">
+<code class="sig-name descname"><span class="pre">catalog</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog.catalog" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Catalog.dataset">
+<code class="sig-name descname"><span class="pre">dataset</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog.dataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Catalog.has_part">
+<code class="sig-name descname"><span class="pre">has_part</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog.has_part" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Catalog.homepage">
+<code class="sig-name descname"><span class="pre">homepage</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog.homepage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Catalog.records">
+<code class="sig-name descname"><span class="pre">records</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.dcat.CatalogRecord" title="csvcubedmodels.rdf.dcat.CatalogRecord"><span class="pre">csvcubedmodels.rdf.dcat.CatalogRecord</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog.records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Catalog.service">
+<code class="sig-name descname"><span class="pre">service</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Catalog.theme_taxonomy">
+<code class="sig-name descname"><span class="pre">theme_taxonomy</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Catalog.theme_taxonomy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.dcat.CatalogRecord">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.dcat.</span></code><code class="sig-name descname"><span class="pre">CatalogRecord</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/dcat.html#CatalogRecord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.dcat.CatalogRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewMetadataResource" title="csvcubedmodels.rdf.resource.NewMetadataResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewMetadataResource</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.CatalogRecord._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.CatalogRecord._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.CatalogRecord.conforms_to">
+<code class="sig-name descname"><span class="pre">conforms_to</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.CatalogRecord.conforms_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.CatalogRecord.description">
+<code class="sig-name descname"><span class="pre">description</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.CatalogRecord.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.CatalogRecord.issued">
+<code class="sig-name descname"><span class="pre">issued</span></code><em class="property"><span class="pre">:</span> <span class="pre">datetime.datetime</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.CatalogRecord.issued" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.CatalogRecord.modified">
+<code class="sig-name descname"><span class="pre">modified</span></code><em class="property"><span class="pre">:</span> <span class="pre">datetime.datetime</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.CatalogRecord.modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.CatalogRecord.primary_topic">
+<code class="sig-name descname"><span class="pre">primary_topic</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.dcat.Resource" title="csvcubedmodels.rdf.dcat.Resource"><span class="pre">csvcubedmodels.rdf.dcat.Resource</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.CatalogRecord.primary_topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.CatalogRecord.title">
+<code class="sig-name descname"><span class="pre">title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.CatalogRecord.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.dcat.Dataset">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.dcat.</span></code><code class="sig-name descname"><span class="pre">Dataset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/dcat.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.dcat.Resource" title="csvcubedmodels.rdf.dcat.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.dcat.Resource</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Dataset._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Dataset._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Dataset.accrual_periodicity">
+<code class="sig-name descname"><span class="pre">accrual_periodicity</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Dataset.accrual_periodicity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Dataset.spatial">
+<code class="sig-name descname"><span class="pre">spatial</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Dataset.spatial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Dataset.spatial_resolution_in_meters">
+<code class="sig-name descname"><span class="pre">spatial_resolution_in_meters</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Dataset.spatial_resolution_in_meters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Dataset.temporal">
+<code class="sig-name descname"><span class="pre">temporal</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Dataset.temporal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Dataset.temporal_resolution">
+<code class="sig-name descname"><span class="pre">temporal_resolution</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Dataset.temporal_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://github.com/RDFLib/rdflib/pull/808">https://github.com/RDFLib/rdflib/pull/808</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Dataset.was_generated_by">
+<code class="sig-name descname"><span class="pre">was_generated_by</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Dataset.was_generated_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.dcat.Resource">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.dcat.</span></code><code class="sig-name descname"><span class="pre">Resource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/dcat.html#Resource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewMetadataResource" title="csvcubedmodels.rdf.resource.NewMetadataResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewMetadataResource</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.access_rights">
+<code class="sig-name descname"><span class="pre">access_rights</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.access_rights" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.contact_point">
+<code class="sig-name descname"><span class="pre">contact_point</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.contact_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.creator">
+<code class="sig-name descname"><span class="pre">creator</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.creator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.description">
+<code class="sig-name descname"><span class="pre">description</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.has_policy">
+<code class="sig-name descname"><span class="pre">has_policy</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.has_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.identifier">
+<code class="sig-name descname"><span class="pre">identifier</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.is_referenced_by">
+<code class="sig-name descname"><span class="pre">is_referenced_by</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.is_referenced_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.issued">
+<code class="sig-name descname"><span class="pre">issued</span></code><em class="property"><span class="pre">:</span> <span class="pre">datetime.datetime</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.issued" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.keywords">
+<code class="sig-name descname"><span class="pre">keywords</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.keywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.landing_page">
+<code class="sig-name descname"><span class="pre">landing_page</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.landing_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.language">
+<code class="sig-name descname"><span class="pre">language</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.license">
+<code class="sig-name descname"><span class="pre">license</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.license" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.modified">
+<code class="sig-name descname"><span class="pre">modified</span></code><em class="property"><span class="pre">:</span> <span class="pre">datetime.datetime</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.publisher">
+<code class="sig-name descname"><span class="pre">publisher</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.publisher" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.qualified_attribution">
+<code class="sig-name descname"><span class="pre">qualified_attribution</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.qualified_attribution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.qualified_relation">
+<code class="sig-name descname"><span class="pre">qualified_relation</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.qualified_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.relation">
+<code class="sig-name descname"><span class="pre">relation</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.rights">
+<code class="sig-name descname"><span class="pre">rights</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.rights" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.themes">
+<code class="sig-name descname"><span class="pre">themes</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.themes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.title">
+<code class="sig-name descname"><span class="pre">title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.dcat.Resource.type">
+<code class="sig-name descname"><span class="pre">type</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.dcat.Resource.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubedmodels.rdf.namespaces"></span><div class="section" id="namespaces">
+<h3>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h3>
+<dl class="py data">
+<dt id="csvcubedmodels.rdf.namespaces.OM2">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.namespaces.</span></code><code class="sig-name descname"><span class="pre">OM2</span></code><em class="property"> <span class="pre">=</span> <span class="pre">Namespace('http://www.ontology-of-units-of-measure.org/resource/om-2/')</span></em><a class="headerlink" href="#csvcubedmodels.rdf.namespaces.OM2" title="Permalink to this definition">¶</a></dt>
+<dd><p>OM 2: Units of Measure</p>
+<p>See <a class="reference external" href="http://www.ontology-of-units-of-measure.org/page/om-2">http://www.ontology-of-units-of-measure.org/page/om-2</a> for more information.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="csvcubedmodels.rdf.namespaces.QUDT">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.namespaces.</span></code><code class="sig-name descname"><span class="pre">QUDT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">Namespace('http://qudt.org/schema/qudt/')</span></em><a class="headerlink" href="#csvcubedmodels.rdf.namespaces.QUDT" title="Permalink to this definition">¶</a></dt>
+<dd><p>QUDT System of Units</p>
+<p>See <a class="reference external" href="http://qudt.org/">http://qudt.org/</a> for more information.</p>
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubedmodels.rdf.qb"></span><div class="section" id="qb">
+<h3>qb<a class="headerlink" href="#qb" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.Attachable">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">Attachable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#Attachable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.Attachable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Attachable (abstract) - Abstract superclass for everything that can have attributes and dimensions</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.Attachable._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.Attachable._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.Attachable.additional_rdf">
+<code class="sig-name descname"><span class="pre">additional_rdf</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">rdflib.term.Identifier</span><span class="p"><span class="pre">,</span> </span><span class="pre">rdflib.term.Identifier</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.Attachable.additional_rdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>A place for arbitrary RDF attached to this subject/entity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.Attachable.rdf_types">
+<code class="sig-name descname"><span class="pre">rdf_types</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">rdflib.term.URIRef</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.Attachable.rdf_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.AttributeComponentSpecification">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">AttributeComponentSpecification</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#AttributeComponentSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.AttributeComponentSpecification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentSpecification" title="csvcubedmodels.rdf.qb.ComponentSpecification"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentSpecification</span></code></a></p>
+<p>See <a class="reference external" href="https://www.w3.org/TR/vocab-data-cube/#dsd-dsd">https://www.w3.org/TR/vocab-data-cube/#dsd-dsd</a> - manually defined, not normative Qb spec.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.AttributeComponentSpecification._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.AttributeComponentSpecification._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.AttributeComponentSpecification.attribute">
+<code class="sig-name descname"><span class="pre">attribute</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.AttributeProperty" title="csvcubedmodels.rdf.qb.AttributeProperty"><span class="pre">csvcubedmodels.rdf.qb.AttributeProperty</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.AttributeComponentSpecification.attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://www.w3.org/TR/vocab-data-cube/#dsd-dsd">https://www.w3.org/TR/vocab-data-cube/#dsd-dsd</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.AttributeComponentSpecification.componentAttachment">
+<code class="sig-name descname"><span class="pre">componentAttachment</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.rdfs.Class" title="csvcubedmodels.rdf.rdfs.Class"><span class="pre">csvcubedmodels.rdf.rdfs.Class</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.AttributeComponentSpecification.componentAttachment" title="Permalink to this definition">¶</a></dt>
+<dd><p>component attachment - Indicates the level at which the component property should be attached, this might an 
+qb:DataSet, qb:Slice or qb:Observation, or a qb:MeasureProperty.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.AttributeComponentSpecification.componentRequired">
+<code class="sig-name descname"><span class="pre">componentRequired</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.AttributeComponentSpecification.componentRequired" title="Permalink to this definition">¶</a></dt>
+<dd><p>component required - Indicates whether a component property is required (true) or optional (false) in the 
+context of a DSD. Only applicable to components correspond to an attribute. Defaults to false (optional).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.AttributeProperty">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">AttributeProperty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#AttributeProperty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.AttributeProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentProperty" title="csvcubedmodels.rdf.qb.ComponentProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentProperty</span></code></a></p>
+<p>Attribute property - The class of components which represent attributes of observations in the cube,
+e.g. unit of measurement</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.AttributeProperty._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.AttributeProperty._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.AttributeProperty.range">
+<code class="sig-name descname"><span class="pre">range</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.rdfs.Class" title="csvcubedmodels.rdf.rdfs.Class"><span class="pre">csvcubedmodels.rdf.rdfs.Class</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.AttributeProperty.range" title="Permalink to this definition">¶</a></dt>
+<dd><p>range - the <cite>rdfs:range</cite> associated with this attribute property.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.CodedProperty">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">CodedProperty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#CodedProperty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.CodedProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentProperty" title="csvcubedmodels.rdf.qb.ComponentProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentProperty</span></code></a></p>
+<p>Coded property - Superclass of all coded ComponentProperties</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.CodedProperty._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.CodedProperty._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.CodedProperty.code_list">
+<code class="sig-name descname"><span class="pre">code_list</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.skos.ConceptScheme" title="csvcubedmodels.rdf.skos.ConceptScheme"><span class="pre">csvcubedmodels.rdf.skos.ConceptScheme</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.skos.Collection" title="csvcubedmodels.rdf.skos.Collection"><span class="pre">csvcubedmodels.rdf.skos.Collection</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.qb.HierarchicalCodeList" title="csvcubedmodels.rdf.qb.HierarchicalCodeList"><span class="pre">HierarchicalCodeList</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.CodedProperty.code_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>code list - gives the code list associated with a CodedProperty</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.ComponentProperty">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">ComponentProperty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#ComponentProperty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.rdf.PropertyWithMetadata" title="csvcubedmodels.rdf.rdf.PropertyWithMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.rdf.PropertyWithMetadata</span></code></a></p>
+<p>Component property (abstract) - Abstract super-property of all properties representing dimensions, attributes
+or measures</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ComponentProperty._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentProperty._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ComponentProperty.concept">
+<code class="sig-name descname"><span class="pre">concept</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.skos.Concept" title="csvcubedmodels.rdf.skos.Concept"><span class="pre">csvcubedmodels.rdf.skos.Concept</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentProperty.concept" title="Permalink to this definition">¶</a></dt>
+<dd><p>concept - gives the concept which is being measured or indicated by a ComponentProperty</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ComponentProperty.source">
+<code class="sig-name descname"><span class="pre">source</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentProperty.source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.ComponentSet">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">ComponentSet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#ComponentSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Component set - Abstract class of things which reference one or more ComponentProperties</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ComponentSet._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentSet._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ComponentSet.componentProperties">
+<code class="sig-name descname"><span class="pre">componentProperties</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentProperty" title="csvcubedmodels.rdf.qb.ComponentProperty"><span class="pre">csvcubedmodels.rdf.qb.ComponentProperty</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentSet.componentProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>component - indicates a ComponentProperty (i.e. attribute/dimension) expected on a DataSet, or a dimension 
+fixed in a SliceKey</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.ComponentSpecification">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">ComponentSpecification</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#ComponentSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentSpecification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentSet" title="csvcubedmodels.rdf.qb.ComponentSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentSet</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Component specification - Used to define properties of a component (attribute, dimension etc) which are
+specific to its usage in a DSD.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ComponentSpecification._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentSpecification._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ComponentSpecification.order">
+<code class="sig-name descname"><span class="pre">order</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ComponentSpecification.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>order - indicates a priority order for the components of sets with this structure, used to guide presentations 
+- lower order numbers come before higher numbers, un-numbered components come last</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.DataSet">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">DataSet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#DataSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.DataSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.Attachable" title="csvcubedmodels.rdf.qb.Attachable"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.Attachable</span></code></a></p>
+<p>Data set - Represents a collection of observations, possibly organized into various slices, conforming to some
+common dimensional structure.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DataSet._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DataSet._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DataSet.slices">
+<code class="sig-name descname"><span class="pre">slices</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.Slice" title="csvcubedmodels.rdf.qb.Slice"><span class="pre">Slice</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DataSet.slices" title="Permalink to this definition">¶</a></dt>
+<dd><p>slice - Indicates a subset of a DataSet defined by fixing a subset of the dimensional values</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DataSet.structure">
+<code class="sig-name descname"><span class="pre">structure</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.DataStructureDefinition" title="csvcubedmodels.rdf.qb.DataStructureDefinition"><span class="pre">DataStructureDefinition</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DataSet.structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>structure - indicates the structure to which this data set conforms</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.DataStructureDefinition">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">DataStructureDefinition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#DataStructureDefinition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.DataStructureDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentSet" title="csvcubedmodels.rdf.qb.ComponentSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentSet</span></code></a></p>
+<p>Data structure definition - Defines the structure of a DataSet or slice</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DataStructureDefinition._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DataStructureDefinition._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DataStructureDefinition.components">
+<code class="sig-name descname"><span class="pre">components</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentSpecification" title="csvcubedmodels.rdf.qb.ComponentSpecification"><span class="pre">csvcubedmodels.rdf.qb.ComponentSpecification</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DataStructureDefinition.components" title="Permalink to this definition">¶</a></dt>
+<dd><p>component specification - indicates a component specification which is included in the structure of the 
+dataset</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DataStructureDefinition.sliceKey">
+<code class="sig-name descname"><span class="pre">sliceKey</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.SliceKey" title="csvcubedmodels.rdf.qb.SliceKey"><span class="pre">csvcubedmodels.rdf.qb.SliceKey</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DataStructureDefinition.sliceKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>slice key - indicates a slice key which is used for slices in this dataset</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.DimensionComponentSpecification">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">DimensionComponentSpecification</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#DimensionComponentSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.DimensionComponentSpecification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentSpecification" title="csvcubedmodels.rdf.qb.ComponentSpecification"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentSpecification</span></code></a></p>
+<p>See <a class="reference external" href="https://www.w3.org/TR/vocab-data-cube/#dsd-dsd">https://www.w3.org/TR/vocab-data-cube/#dsd-dsd</a> - manually defined, not normative Qb spec.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DimensionComponentSpecification._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DimensionComponentSpecification._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DimensionComponentSpecification.dimension">
+<code class="sig-name descname"><span class="pre">dimension</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.DimensionProperty" title="csvcubedmodels.rdf.qb.DimensionProperty"><span class="pre">csvcubedmodels.rdf.qb.DimensionProperty</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DimensionComponentSpecification.dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://www.w3.org/TR/vocab-data-cube/#dsd-dsd">https://www.w3.org/TR/vocab-data-cube/#dsd-dsd</a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.DimensionProperty">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">DimensionProperty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#DimensionProperty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.DimensionProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.CodedProperty" title="csvcubedmodels.rdf.qb.CodedProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.CodedProperty</span></code></a></p>
+<p>Dimension property - The class of components which represent the dimensions of the cube</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DimensionProperty._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DimensionProperty._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.DimensionProperty.range">
+<code class="sig-name descname"><span class="pre">range</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.rdfs.Class" title="csvcubedmodels.rdf.rdfs.Class"><span class="pre">csvcubedmodels.rdf.rdfs.Class</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.DimensionProperty.range" title="Permalink to this definition">¶</a></dt>
+<dd><p>range - the <cite>rdfs:range</cite> associated with this measure property. i.e. the value types the measured values can 
+range over.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.ExistingDimensionPropertyWithRange">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">ExistingDimensionPropertyWithRange</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.rdfs.Class" title="csvcubedmodels.rdf.rdfs.Class"><span class="pre">csvcubedmodels.rdf.rdfs.Class</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#ExistingDimensionPropertyWithRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.ExistingDimensionPropertyWithRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a></p>
+<p>A bit of a hack to allow setting the range against an existing qb:DimensionProperty without
+re-defining anything about it.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ExistingDimensionPropertyWithRange._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ExistingDimensionPropertyWithRange._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ExistingDimensionPropertyWithRange.range">
+<code class="sig-name descname"><span class="pre">range</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.rdfs.Class" title="csvcubedmodels.rdf.rdfs.Class"><span class="pre">csvcubedmodels.rdf.rdfs.Class</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ExistingDimensionPropertyWithRange.range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.HierarchicalCodeList">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">HierarchicalCodeList</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#HierarchicalCodeList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.HierarchicalCodeList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a></p>
+<p>Hierarchical Code List - Represents a generalized hierarchy of concepts which can be used for coding. The
+hierarchy is defined by one or more roots together with a property which relates concepts in the hierarchy to
+thier child concept .  The same concepts may be members of multiple hierarchies provided that different
+qb:parentChildProperty values are used for each hierarchy.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.HierarchicalCodeList._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.HierarchicalCodeList._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.HierarchicalCodeList.parentChildProperty">
+<code class="sig-name descname"><span class="pre">parentChildProperty</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.rdf.Property" title="csvcubedmodels.rdf.rdf.Property"><span class="pre">csvcubedmodels.rdf.rdf.Property</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.HierarchicalCodeList.parentChildProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>parent-child property - Specifies a property which relates a parent concept in the hierarchy to a child 
+concept.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.MeasureComponentSpecification">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">MeasureComponentSpecification</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#MeasureComponentSpecification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.MeasureComponentSpecification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentSpecification" title="csvcubedmodels.rdf.qb.ComponentSpecification"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentSpecification</span></code></a></p>
+<p>See <a class="reference external" href="https://www.w3.org/TR/vocab-data-cube/#dsd-dsd">https://www.w3.org/TR/vocab-data-cube/#dsd-dsd</a> - manually defined, not normative Qb spec.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.MeasureComponentSpecification._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.MeasureComponentSpecification._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.MeasureComponentSpecification.measure">
+<code class="sig-name descname"><span class="pre">measure</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.MeasureProperty" title="csvcubedmodels.rdf.qb.MeasureProperty"><span class="pre">csvcubedmodels.rdf.qb.MeasureProperty</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.MeasureComponentSpecification.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://www.w3.org/TR/vocab-data-cube/#dsd-dsd">https://www.w3.org/TR/vocab-data-cube/#dsd-dsd</a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.MeasureProperty">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">MeasureProperty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#MeasureProperty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.MeasureProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentProperty" title="csvcubedmodels.rdf.qb.ComponentProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentProperty</span></code></a></p>
+<p>Measure property - The class of components which represent the measured value of the phenomenon being observed</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.MeasureProperty._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.MeasureProperty._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.MeasureProperty.range">
+<code class="sig-name descname"><span class="pre">range</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.rdfs.Class" title="csvcubedmodels.rdf.rdfs.Class"><span class="pre">csvcubedmodels.rdf.rdfs.Class</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.MeasureProperty.range" title="Permalink to this definition">¶</a></dt>
+<dd><p>range - the <cite>rdfs:range</cite> associated with this measure property. i.e. the value types the measured values can 
+range over.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.Observation">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">Observation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#Observation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.Observation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.Attachable" title="csvcubedmodels.rdf.qb.Attachable"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.Attachable</span></code></a></p>
+<p>Observation - A single observation in the cube, may have one or more associated measured values</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.Observation._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.Observation._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.Observation.dataSet">
+<code class="sig-name descname"><span class="pre">dataSet</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.DataSet" title="csvcubedmodels.rdf.qb.DataSet"><span class="pre">DataSet</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.Observation.dataSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>data set - indicates the data set of which this observation is a part</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.ObservationGroup">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">ObservationGroup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#ObservationGroup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.ObservationGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a></p>
+<p>Observation Group - A, possibly arbitrary, group of observations.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ObservationGroup._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ObservationGroup._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.ObservationGroup.observations">
+<code class="sig-name descname"><span class="pre">observations</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.Observation" title="csvcubedmodels.rdf.qb.Observation"><span class="pre">Observation</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.ObservationGroup.observations" title="Permalink to this definition">¶</a></dt>
+<dd><p>observation - indicates a observation contained within this slice of the data set</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.Slice">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">Slice</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#Slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.Slice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.Attachable" title="csvcubedmodels.rdf.qb.Attachable"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.Attachable</span></code></a>, <a class="reference internal" href="#csvcubedmodels.rdf.qb.ObservationGroup" title="csvcubedmodels.rdf.qb.ObservationGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ObservationGroup</span></code></a></p>
+<p>Slice - Denotes a subset of a DataSet defined by fixing a subset of the dimensional values, component
+properties on the Slice</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.Slice._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.Slice._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.Slice.sliceStructure">
+<code class="sig-name descname"><span class="pre">sliceStructure</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.SliceKey" title="csvcubedmodels.rdf.qb.SliceKey"><span class="pre">SliceKey</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.Slice.sliceStructure" title="Permalink to this definition">¶</a></dt>
+<dd><p>slice structure - indicates the sub-key corresponding to this slice</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.qb.SliceKey">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.qb.</span></code><code class="sig-name descname"><span class="pre">SliceKey</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/qb.html#SliceKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.qb.SliceKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentSet" title="csvcubedmodels.rdf.qb.ComponentSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.qb.ComponentSet</span></code></a></p>
+<p>Slice key - Denotes a subset of the component properties of a DataSet which are fixed in the corresponding
+slices</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.SliceKey._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.SliceKey._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.SliceKey.additional_rdf">
+<code class="sig-name descname"><span class="pre">additional_rdf</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Identifier</span><span class="p"><span class="pre">,</span> </span><span class="pre">Identifier</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.SliceKey.additional_rdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>A place for arbitrary RDF attached to this subject/entity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.SliceKey.componentProperties">
+<code class="sig-name descname"><span class="pre">componentProperties</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.qb.ComponentProperty" title="csvcubedmodels.rdf.qb.ComponentProperty"><span class="pre">csvcubedmodels.rdf.qb.ComponentProperty</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.SliceKey.componentProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>component - indicates a ComponentProperty (i.e. attribute/dimension) expected on a DataSet, or a dimension 
+fixed in a SliceKey</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.SliceKey.rdf_types">
+<code class="sig-name descname"><span class="pre">rdf_types</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">URIRef</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.SliceKey.rdf_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.qb.SliceKey.uri">
+<code class="sig-name descname"><span class="pre">uri</span></code><em class="property"><span class="pre">:</span> <span class="pre">URIRef</span></em><a class="headerlink" href="#csvcubedmodels.rdf.qb.SliceKey.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubedmodels.rdf.rdf"></span><div class="section" id="rdf-properties">
+<h3>RDF Properties<a class="headerlink" href="#rdf-properties" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.rdf.Property">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.rdf.</span></code><code class="sig-name descname"><span class="pre">Property</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/rdf.html#Property"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.rdf.Property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdf.Property._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdf.Property._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdf.Property.subPropertyOf">
+<code class="sig-name descname"><span class="pre">subPropertyOf</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.rdf.Property" title="csvcubedmodels.rdf.rdf.Property"><span class="pre">Property</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdf.Property.subPropertyOf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.rdf.PropertyWithLabel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.rdf.</span></code><code class="sig-name descname"><span class="pre">PropertyWithLabel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/rdf.html#PropertyWithLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.rdf.PropertyWithLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.rdf.Property" title="csvcubedmodels.rdf.rdf.Property"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.rdf.Property</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdf.PropertyWithLabel._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdf.PropertyWithLabel._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdf.PropertyWithLabel.label">
+<code class="sig-name descname"><span class="pre">label</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdf.PropertyWithLabel.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.rdf.PropertyWithMetadata">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.rdf.</span></code><code class="sig-name descname"><span class="pre">PropertyWithMetadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/rdf.html#PropertyWithMetadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.rdf.PropertyWithMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.rdf.PropertyWithLabel" title="csvcubedmodels.rdf.rdf.PropertyWithLabel"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.rdf.PropertyWithLabel</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdf.PropertyWithMetadata._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdf.PropertyWithMetadata._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdf.PropertyWithMetadata.comment">
+<code class="sig-name descname"><span class="pre">comment</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdf.PropertyWithMetadata.comment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubedmodels.rdf.rdfs"></span><div class="section" id="rdfs">
+<h3>RDFS<a class="headerlink" href="#rdfs" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.rdfs.Class">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.rdfs.</span></code><code class="sig-name descname"><span class="pre">Class</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/rdfs.html#Class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.rdfs.Class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdfs.Class._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdfs.Class._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdfs.Class.additional_rdf">
+<code class="sig-name descname"><span class="pre">additional_rdf</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">rdflib.term.Identifier</span><span class="p"><span class="pre">,</span> </span><span class="pre">rdflib.term.Identifier</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdfs.Class.additional_rdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>A place for arbitrary RDF attached to this subject/entity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.rdfs.Class.rdf_types">
+<code class="sig-name descname"><span class="pre">rdf_types</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">rdflib.term.URIRef</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.rdfs.Class.rdf_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubedmodels.rdf.resource"></span><div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.resource.ExistingResource">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">ExistingResource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#ExistingResource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.ExistingResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.RdfResource" title="csvcubedmodels.rdf.resource.RdfResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.RdfResource</span></code></a></p>
+<p>Node - represents an existing node which we don’t want to redefine. Just specify its URI.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.ExistingResource._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.ExistingResource._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.ExistingResource.uri">
+<code class="sig-name descname"><span class="pre">uri</span></code><em class="property"><span class="pre">:</span> <span class="pre">rdflib.term.URIRef</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.ExistingResource.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.resource.ExistingResourceWithLiteral">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">ExistingResourceWithLiteral</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#ExistingResourceWithLiteral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.ExistingResourceWithLiteral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></code></a></p>
+<p>Due to the way we intend to allow for existing resources which are literals, we need a range here.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.ExistingResourceWithLiteral._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.ExistingResourceWithLiteral._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.ExistingResourceWithLiteral.range">
+<code class="sig-name descname"><span class="pre">range</span></code><em class="property"><span class="pre">:</span> <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.resource.RdfResource" title="csvcubedmodels.rdf.resource.RdfResource"><span class="pre">csvcubedmodels.rdf.resource.RdfResource</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.ExistingResourceWithLiteral.range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.resource.InversePredicate">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">InversePredicate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#InversePredicate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.InversePredicate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rdflib.term.URIRef</span></code></p>
+<p>An rdflib identifier which represents a predicate where the subject/object are reversed.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="csvcubedmodels.rdf.resource.MaybeResource">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">MaybeResource</span></code><a class="headerlink" href="#csvcubedmodels.rdf.resource.MaybeResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents an RdfResource OR an ExistingNode OR None</p>
+<p>alias of Optional[Union[RdfResourceType, csvcubedmodels.rdf.resource.ExistingResource]]</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.resource.NewMetadataResource">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">NewMetadataResource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#NewMetadataResource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewMetadataResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResourceWithLabel" title="csvcubedmodels.rdf.resource.NewResourceWithLabel"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResourceWithLabel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.NewMetadataResource._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewMetadataResource._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.NewMetadataResource.comment">
+<code class="sig-name descname"><span class="pre">comment</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewMetadataResource.comment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.resource.NewResource">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">NewResource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#NewResource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.RdfResource" title="csvcubedmodels.rdf.resource.RdfResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.RdfResource</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.NewResource._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResource._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.rdf.resource.NewResource._add_triples_to_graph">
+<code class="sig-name descname"><span class="pre">_add_triples_to_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.graph.Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triple</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#csvcubedmodels.rdf.triple.AbstractTriple" title="csvcubedmodels.rdf.triple.AbstractTriple"><span class="pre">csvcubedmodels.rdf.triple.AbstractTriple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">objects_already_processed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#NewResource._add_triples_to_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResource._add_triples_to_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.rdf.resource.NewResource._get_type_hints">
+<code class="sig-name descname"><span class="pre">_get_type_hints</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#NewResource._get_type_hints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResource._get_type_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches type hints associated with this class.</p>
+<p>Ensures that overridden properties have their type hints overridden too.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.NewResource.additional_rdf">
+<code class="sig-name descname"><span class="pre">additional_rdf</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">rdflib.term.Identifier</span><span class="p"><span class="pre">,</span> </span><span class="pre">rdflib.term.Identifier</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResource.additional_rdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>A place for arbitrary RDF attached to this subject/entity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.NewResource.rdf_types">
+<code class="sig-name descname"><span class="pre">rdf_types</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">rdflib.term.URIRef</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResource.rdf_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.rdf.resource.NewResource.to_graph">
+<code class="sig-name descname"><span class="pre">to_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.graph.Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objects_already_processed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">rdflib.graph.Graph</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#NewResource.to_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResource.to_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialises the current object into an RDF Graph.</p>
+<p>Raises an exception where properties marked as PropertyStatus.mandatory have not been provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.rdf.resource.NewResource.uri_str">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">uri_str</span></code><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResource.uri_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.resource.NewResourceWithLabel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">NewResourceWithLabel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#NewResourceWithLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResourceWithLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.NewResourceWithLabel._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResourceWithLabel._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.NewResourceWithLabel.label">
+<code class="sig-name descname"><span class="pre">label</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.NewResourceWithLabel.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.resource.RdfResource">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">RdfResource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#RdfResource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.RdfResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.RdfResource._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.RdfResource._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.resource.RdfResource.uri">
+<code class="sig-name descname"><span class="pre">uri</span></code><em class="property"><span class="pre">:</span> <span class="pre">rdflib.term.URIRef</span></em><a class="headerlink" href="#csvcubedmodels.rdf.resource.RdfResource.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="csvcubedmodels.rdf.resource.Resource">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">Resource</span></code><a class="headerlink" href="#csvcubedmodels.rdf.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents an RdfResource OR an ExistingNode</p>
+<p>alias of Union[RdfResourceType, csvcubedmodels.rdf.resource.ExistingResource]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="csvcubedmodels.rdf.resource.map_resource_to_uri">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">map_resource_to_uri</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#csvcubedmodels.rdf.resource.RdfResource" title="csvcubedmodels.rdf.resource.RdfResource"><span class="pre">csvcubedmodels.rdf.resource.RdfResource</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">rdflib.term.URIRef</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#map_resource_to_uri"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.map_resource_to_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubedmodels.rdf.resource.map_str_to_en_literal">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">map_str_to_en_literal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">rdflib.term.Literal</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#map_str_to_en_literal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.map_str_to_en_literal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubedmodels.rdf.resource.map_str_to_markdown">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">map_str_to_markdown</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">rdflib.term.Literal</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#map_str_to_markdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.map_str_to_markdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubedmodels.rdf.resource.map_to_literal_with_datatype">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">map_to_literal_with_datatype</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datatype</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.term.URIRef</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">rdflib.term.Literal</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#map_to_literal_with_datatype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.map_to_literal_with_datatype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="csvcubedmodels.rdf.resource.maybe_existing_resource">
+<code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.resource.</span></code><code class="sig-name descname"><span class="pre">maybe_existing_resource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maybe_resource_uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/csvcubedmodels/rdf/resource.html#maybe_existing_resource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.resource.maybe_existing_resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<span class="target" id="module-csvcubedmodels.rdf.skos"></span><div class="section" id="skos">
+<h3>SKOS<a class="headerlink" href="#skos" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.skos.Collection">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.skos.</span></code><code class="sig-name descname"><span class="pre">Collection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/skos.html#Collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.skos.Collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResource" title="csvcubedmodels.rdf.resource.NewResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResource</span></code></a></p>
+<p>Collection -</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.Collection._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.Collection._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.Collection.members">
+<code class="sig-name descname"><span class="pre">members</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.skos.Concept" title="csvcubedmodels.rdf.skos.Concept"><span class="pre">Concept</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.skos.Collection" title="csvcubedmodels.rdf.skos.Collection"><span class="pre">Collection</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.Collection.members" title="Permalink to this definition">¶</a></dt>
+<dd><p>has member -</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.skos.Concept">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.skos.</span></code><code class="sig-name descname"><span class="pre">Concept</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/skos.html#Concept"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.skos.Concept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResourceWithLabel" title="csvcubedmodels.rdf.resource.NewResourceWithLabel"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResourceWithLabel</span></code></a></p>
+<p>Concept -</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.Concept._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.Concept._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.Concept.semanticRelation">
+<code class="sig-name descname"><span class="pre">semanticRelation</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.skos.Concept" title="csvcubedmodels.rdf.skos.Concept"><span class="pre">Concept</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.Concept.semanticRelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>is in semantic relation with -</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.Concept.topConceptOf">
+<code class="sig-name descname"><span class="pre">topConceptOf</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="#csvcubedmodels.rdf.skos.ConceptScheme" title="csvcubedmodels.rdf.skos.ConceptScheme"><span class="pre">ConceptScheme</span></a></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.Concept.topConceptOf" title="Permalink to this definition">¶</a></dt>
+<dd><p>is top concept in scheme -</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.skos.ConceptScheme">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.skos.</span></code><code class="sig-name descname"><span class="pre">ConceptScheme</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/skos.html#ConceptScheme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.skos.ConceptScheme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.resource.NewResourceWithLabel" title="csvcubedmodels.rdf.resource.NewResourceWithLabel"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.resource.NewResourceWithLabel</span></code></a></p>
+<p>Concept Scheme -</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.ConceptScheme._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.ConceptScheme._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.ConceptScheme.hasTopConcepts">
+<code class="sig-name descname"><span class="pre">hasTopConcepts</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.skos.Concept" title="csvcubedmodels.rdf.skos.Concept"><span class="pre">Concept</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.ConceptScheme.hasTopConcepts" title="Permalink to this definition">¶</a></dt>
+<dd><p>has top concept -</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.ConceptScheme.variant">
+<code class="sig-name descname"><span class="pre">variant</span></code><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubedmodels.rdf.skos.ConceptScheme" title="csvcubedmodels.rdf.skos.ConceptScheme"><span class="pre">ConceptScheme</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#csvcubedmodels.rdf.resource.ExistingResource" title="csvcubedmodels.rdf.resource.ExistingResource"><span class="pre">csvcubedmodels.rdf.resource.ExistingResource</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.ConceptScheme.variant" title="Permalink to this definition">¶</a></dt>
+<dd><p>xkos:variant - <cite>ConceptScheme</cite> s from which this scheme derives.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.skos.OrderedCollection">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.skos.</span></code><code class="sig-name descname"><span class="pre">OrderedCollection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/skos.html#OrderedCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.skos.OrderedCollection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.skos.Collection" title="csvcubedmodels.rdf.skos.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.skos.Collection</span></code></a></p>
+<p>Ordered Collection -</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.OrderedCollection._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.OrderedCollection._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.skos.OrderedCollection.memberList">
+<code class="sig-name descname"><span class="pre">memberList</span></code><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#csvcubedmodels.rdf.skos.OrderedCollection.memberList" title="Permalink to this definition">¶</a></dt>
+<dd><p>has member list - For any resource, every item in the list given as the value of the
+skos:memberList property is also a value of the skos:member property.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-csvcubedmodels.rdf.triple"></span><div class="section" id="triples-serialisation">
+<h3>Triples (serialisation)<a class="headerlink" href="#triples-serialisation" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.triple.AbstractTriple">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.triple.</span></code><code class="sig-name descname"><span class="pre">AbstractTriple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.term.URIRef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#csvcubedmodels.rdf.triple.PropertyStatus" title="csvcubedmodels.rdf.triple.PropertyStatus"><span class="pre">csvcubedmodels.rdf.triple.PropertyStatus</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/triple.html#AbstractTriple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.triple.AbstractTriple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.AbstractTriple._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.AbstractTriple._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.rdf.triple.AbstractTriple.add_to_graph">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">add_to_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.graph.Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.term.URIRef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/triple.html#AbstractTriple.add_to_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.triple.AbstractTriple.add_to_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.AbstractTriple.predicate">
+<code class="sig-name descname"><span class="pre">predicate</span></code><em class="property"><span class="pre">:</span> <span class="pre">rdflib.term.URIRef</span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.AbstractTriple.predicate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.AbstractTriple.status">
+<code class="sig-name descname"><span class="pre">status</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="#csvcubedmodels.rdf.triple.PropertyStatus" title="csvcubedmodels.rdf.triple.PropertyStatus"><span class="pre">csvcubedmodels.rdf.triple.PropertyStatus</span></a></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.AbstractTriple.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.triple.InverseTriple">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.triple.</span></code><code class="sig-name descname"><span class="pre">InverseTriple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.term.URIRef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#csvcubedmodels.rdf.triple.PropertyStatus" title="csvcubedmodels.rdf.triple.PropertyStatus"><span class="pre">csvcubedmodels.rdf.triple.PropertyStatus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_to_uri_mapper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">rdflib.term.URIRef</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/triple.html#InverseTriple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.triple.InverseTriple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.triple.AbstractTriple" title="csvcubedmodels.rdf.triple.AbstractTriple"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.triple.AbstractTriple</span></code></a></p>
+<p>Class representing the triple <cite>&lt;property_to_uri_mapper(property_value)&gt; &lt;predicate&gt; &lt;entity_uri&gt;</cite>.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.InverseTriple._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.InverseTriple._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.rdf.triple.InverseTriple.add_to_graph">
+<code class="sig-name descname"><span class="pre">add_to_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.graph.Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.term.URIRef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/triple.html#InverseTriple.add_to_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.triple.InverseTriple.add_to_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.InverseTriple.map_to_uri">
+<code class="sig-name descname"><span class="pre">map_to_uri</span></code><em class="property"><span class="pre">:</span> <span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">rdflib.term.URIRef</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.InverseTriple.map_to_uri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps the python value to an RDF Literal for serialisation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.triple.PropertyStatus">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.triple.</span></code><code class="sig-name descname"><span class="pre">PropertyStatus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/triple.html#PropertyStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.triple.PropertyStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.PropertyStatus.mandatory">
+<code class="sig-name descname"><span class="pre">mandatory</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.PropertyStatus.mandatory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.PropertyStatus.optional">
+<code class="sig-name descname"><span class="pre">optional</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.PropertyStatus.optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.PropertyStatus.recommended">
+<code class="sig-name descname"><span class="pre">recommended</span></code><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.PropertyStatus.recommended" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="csvcubedmodels.rdf.triple.Triple">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">csvcubedmodels.rdf.triple.</span></code><code class="sig-name descname"><span class="pre">Triple</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.term.URIRef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#csvcubedmodels.rdf.triple.PropertyStatus" title="csvcubedmodels.rdf.triple.PropertyStatus"><span class="pre">csvcubedmodels.rdf.triple.PropertyStatus</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_mapper</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">rdflib.term.Identifier</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/triple.html#Triple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.triple.Triple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubedmodels.rdf.triple.AbstractTriple" title="csvcubedmodels.rdf.triple.AbstractTriple"><code class="xref py py-class docutils literal notranslate"><span class="pre">csvcubedmodels.rdf.triple.AbstractTriple</span></code></a></p>
+<p>Class representing the triple <cite>&lt;entity_uri&gt; &lt;predicate&gt; &lt;property_mapper(property_value)&gt;</cite>.</p>
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.Triple._abc_impl">
+<code class="sig-name descname"><span class="pre">_abc_impl</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.Triple._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="csvcubedmodels.rdf.triple.Triple.add_to_graph">
+<code class="sig-name descname"><span class="pre">add_to_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.graph.Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">rdflib.term.URIRef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/csvcubedmodels/rdf/triple.html#Triple.add_to_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#csvcubedmodels.rdf.triple.Triple.add_to_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="csvcubedmodels.rdf.triple.Triple.map_to_rdf">
+<code class="sig-name descname"><span class="pre">map_to_rdf</span></code><em class="property"><span class="pre">:</span> <span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">rdflib.term.Identifier</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubedmodels.rdf.triple.Triple.map_to_rdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps the python value to an RDF Literal for serialisation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">csvcubedmodels</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubedmodels.html">csvcubedmodels package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubedmodels.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubedmodels.rdf package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubedmodels.rdf.datatypes">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#rdf-data-types">RDF Data Types</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#dcat">DCAT</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#namespaces">Namespaces</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#qb">qb</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rdf-properties">RDF Properties</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rdfs">RDFS</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#resources">Resources</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#skos">SKOS</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#triples-serialisation">Triples (serialisation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubedmodels.utils.html">csvcubedmodels.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubedmodels.html#module-csvcubedmodels.dataclassbase">Submodules</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="csvcubedmodels.html">csvcubedmodels package</a><ul>
+      <li>Previous: <a href="csvcubedmodels.html" title="previous chapter">csvcubedmodels package</a></li>
+      <li>Next: <a href="csvcubedmodels.utils.html" title="next chapter">csvcubedmodels.utils package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/csvcubedmodels.rdf.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
