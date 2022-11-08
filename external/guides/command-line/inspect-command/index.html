@@ -1,0 +1,2060 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gss-cogs.github.io/csvcubed-docs/external/guides/command-line/inspect-command/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
+    
+    
+      
+        <title>inspect - csvcubed</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inspect-command" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="csvcubed" class="md-header__button md-logo" aria-label="csvcubed" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csvcubed
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              inspect
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csvcubed" class="md-nav__button md-logo" aria-label="csvcubed" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    csvcubed
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Home</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../quick-start/">Quick start</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Quick start" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Quick start
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/designing-csv/" class="md-nav__link">
+        Designing a CSV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/build/" class="md-nav__link">
+        Building a CSV-W
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/describing-csv/" class="md-nav__link">
+        Describing your CSV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/linking-data/" class="md-nav__link">
+        Linking data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/inspect/" class="md-nav__link">
+        Inspecting a CSV-W
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Guides</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Commands" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Commands
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-command/" class="md-nav__link">
+        build
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          inspect
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        inspect
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-types" class="md-nav__link">
+    Input types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-format" class="md-nav__link">
+    Output format
+  </a>
+  
+    <nav class="md-nav" aria-label="Output format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-cube" class="md-nav__link">
+    Data cube
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-list" class="md-nav__link">
+    Code list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-command-errors" class="md-nav__link">
+    Inspect command errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-help-for-the-inspect-command" class="md-nav__link">
+    Getting help for the inspect command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-a-data-cube" class="md-nav__link">
+    Inspecting a data cube
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-a-code-list" class="md-nav__link">
+    Inspecting a code list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/">Configuration</a>
+          
+            <label for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/convention/" class="md-nav__link">
+        By convention
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_3" type="checkbox" id="__nav_3_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_3">
+          Explicit configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Explicit configuration" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Explicit configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/" class="md-nav__link">
+        Writing a qube-config.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/code-list-config/" class="md-nav__link">
+        Code Lists
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../errors/">Errors</a>
+          
+            <label for="__nav_3_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Errors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Errors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/build-command-errors/" class="md-nav__link">
+        build command errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/inspect-command-errors/" class="md-nav__link">
+        inspect command errors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../missing-observed-values/" class="md-nav__link">
+        Handling missing observed values
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Linked Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linked Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linked Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/licenses/" class="md-nav__link">
+        Licenses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/organisations/" class="md-nav__link">
+        Organisations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raise-issue/" class="md-nav__link">
+        Raise an issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shape-data/" class="md-nav__link">
+        Shape your data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uris/" class="md-nav__link">
+        Working with URIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csv-to-csvw-github-action/" class="md-nav__link">
+        Build with GitHub
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../glossary/">Glossary</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Glossary" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Glossary
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="inspect-command">inspect command</h1>
+<p>The inspect command is used to inspect the metadata of an existing cube.</p>
+<p><strong>Syntax</strong><br />
+<code>csvcubed inspect [OPTIONS] CSVW_METADATA_JSON_PATH</code></p>
+<p><strong>Arguments</strong></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSVW_METADATA_JSON_PATH</td>
+<td>The file path to the JSON-LD metadata file of a CSV-W generated by the <a href="../build-command/">build</a> command.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Options</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--help / -h</td>
+<td>Show the command help text.</td>
+</tr>
+<tr>
+<td>--log-level</td>
+<td>Set the desired logging level to one of 'crit', 'err', 'warn', 'info' and 'debug'.  <br/> The default is 'warn'.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logging">Logging</h2>
+<p>Please refer to the <a href="../logging/">Logging</a> section to know how the logging works in the inspect command.</p>
+<h2 id="input-types">Input types</h2>
+<p>The inspect command takes data cubes and code lists that are provided in one of two specialised forms of tidy data (i.e. <a href="../../shape-data/#standard-shape">standard shape</a> and <a href="../../shape-data/#pivoted-shape">pivoted shape</a>) as inputs.</p>
+<h2 id="output-format">Output format</h2>
+<p>In the following, the format of the outputs generated by the inspect command is discussed.</p>
+<h3 id="data-cube">Data cube</h3>
+<p><code>csvcubed inspect ./datacube.csv-metadata.json</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>- This file is a data cube.
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>- The data cube has the following catalog metadata:
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        - Title: 
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>        - Label:
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        - Issued:
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>        - Modified: 
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        - License: 
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        - Creator:
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        - Publisher:
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        - Landing Pages:
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        - Themes:
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        - Keywords:
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        - Contact Point:
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        - Identifier:
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        - Comment:
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        - Description:
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>- The data cube has the following data structure definition:
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        - Dataset Label:
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        - Number of Components:
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        - Components:
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        - Columns where suppress output is true:
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>- The data cube has the following code list information:
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        - Number of Code Lists:
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        - Code Lists:
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>- The data cube has the following dataset information:
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        - Number of Observations:
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        - Number of Duplicates:
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        - First 10 Observations:
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        - Last 10 Observations:
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>- The data cube has the following value counts:
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        - Value counts broken-down by measure and unit (of measure):
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p><code>This file is a data cube</code> - whether the input CSV-W is of type data cube or code list.</p>
+</li>
+<li>
+<p><code>The data cube has the following catalog metadata</code>:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td>Title of the data set.</td>
+</tr>
+<tr>
+<td>Label</td>
+<td>Label of the data set.</td>
+</tr>
+<tr>
+<td>Issued</td>
+<td>Data set issued timestamp in the <code>YYYY-DD-MM'T'HH:mm:ssZ</code> format.</td>
+</tr>
+<tr>
+<td>Modified</td>
+<td>Data set modified timestamp in the <code>YYYY-DD-MM'T'HH:mm:ssZ</code> format.</td>
+</tr>
+<tr>
+<td>License</td>
+<td>License information.</td>
+</tr>
+<tr>
+<td>Creator</td>
+<td>Creator information web page url.</td>
+</tr>
+<tr>
+<td>Publisher</td>
+<td>Publisher information web page url.</td>
+</tr>
+<tr>
+<td>Landing Pages</td>
+<td>List of web urls of landing pages.</td>
+</tr>
+<tr>
+<td>Themes</td>
+<td>List of web urls of theme information.</td>
+</tr>
+<tr>
+<td>Keywords</td>
+<td>List of keywords.</td>
+</tr>
+<tr>
+<td>Contact Point</td>
+<td>Contact information.</td>
+</tr>
+<tr>
+<td>Identifier</td>
+<td>Data set identifier.</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>Any comments associated with the data set.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Formatted description of the data set.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>The data cube has the following data structure definition</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset Label</td>
+<td>Label of the dataset.</td>
+</tr>
+<tr>
+<td>Number of Components</td>
+<td>Number of components in the data structure definition.</td>
+</tr>
+<tr>
+<td>Components</td>
+<td>List of components with component property, property label, property type, column title and required columns.</td>
+</tr>
+<tr>
+<td>Columns where suppress output is true</td>
+<td>List of columns where the suppress output is true.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>The data cube has the following code list information</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of Code Lists</td>
+<td>Number of code lists in the data cube.</td>
+</tr>
+<tr>
+<td>Code Lists</td>
+<td>List of codelists with code list uri, code list label, and columns used in.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>The data cube has the following dataset information</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of Observations</td>
+<td>Number of observations (i.e. rows) in the data set.</td>
+</tr>
+<tr>
+<td>Number of Duplicates</td>
+<td>Number of duplicated observations in the data set.</td>
+</tr>
+<tr>
+<td>First 10 Observations</td>
+<td>Sample consists of first 10 obervations.</td>
+</tr>
+<tr>
+<td>Last 10 Observations</td>
+<td>Sample consists of last 10 obervations.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>The data cube has the following value counts</code>- Data set value counts broken-down by measure and unit (of measure).</li>
+</ul>
+<h3 id="code-list">Code list</h3>
+<p><code>csvcubed inspect ./codelist.csv-metadata.json</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>- This file is a code list.
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>- The code list has the following catalog metadata:
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>        - Title:
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>        - Label:
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>        - Issued:
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        - Modified:
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>        - License:
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>        - Creator:
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        - Publisher:
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>        - Landing Pages:
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>        - Themes:
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>        - Keywords:
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>        - Contact Point:
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>        - Identifier:
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>        - Comment:
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>        - Description:
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>- The code list has the following dataset information:
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>        - Number of Concepts:
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>        - Number of Duplicates:
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>        - First 10 Concepts:
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>        - Last 10 Concepts:
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>- The code list has the following concepts information:
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>        - Concepts hierarchy depth:
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>        - Concepts hierarchy:
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p><code>This file is a code list</code> - whether the input CSV-W is of type data cube or code list.</p>
+</li>
+<li>
+<p><code>The code list has the following catalog metadata</code>:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td>Title of the data set.</td>
+</tr>
+<tr>
+<td>Label</td>
+<td>Label of the data set.</td>
+</tr>
+<tr>
+<td>Issued</td>
+<td>Data set issued timestamp in the <code>YYYY-DD-MM'T'HH:mm:ssZ</code> format.</td>
+</tr>
+<tr>
+<td>Modified</td>
+<td>Data set modified timestamp in the <code>YYYY-DD-MM'T'HH:mm:ssZ</code> format.</td>
+</tr>
+<tr>
+<td>License</td>
+<td>License information.</td>
+</tr>
+<tr>
+<td>Creator</td>
+<td>Creator information web page url.</td>
+</tr>
+<tr>
+<td>Publisher</td>
+<td>Publisher information web page url.</td>
+</tr>
+<tr>
+<td>Landing Pages</td>
+<td>List of web urls of landing pages.</td>
+</tr>
+<tr>
+<td>Themes</td>
+<td>List of web urls of theme information.</td>
+</tr>
+<tr>
+<td>Keywords</td>
+<td>List of keywords.</td>
+</tr>
+<tr>
+<td>Contact Point</td>
+<td>Contact information.</td>
+</tr>
+<tr>
+<td>Identifier</td>
+<td>Data set identifier.</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>Any comments associated with the data set.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Formatted description of the data set.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>The code list has the following dataset information</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of Concepts</td>
+<td>Number of concepts (i.e. rows) in the data set.</td>
+</tr>
+<tr>
+<td>Number of Duplicates</td>
+<td>Number of duplicated concepts in the data set.</td>
+</tr>
+<tr>
+<td>First 10 Observations</td>
+<td>Sample consists of first 10 concepts.</td>
+</tr>
+<tr>
+<td>Last 10 Observations</td>
+<td>Sample consists of last 10 concepts.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>The code list has the following concepts information</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concepts hierarchy depth</td>
+<td>The hierachy depth of the code list concepts.</td>
+</tr>
+<tr>
+<td>Concepts hierarchy</td>
+<td>Tree representation of the code list concepts hierarchy.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="inspect-command-errors">Inspect command errors</h2>
+<p>When errors are encountered, please refer to the <a href="../../errors/">errors guide</a> for help on understanding and resolving them.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="getting-help-for-the-inspect-command">Getting help for the inspect command</h3>
+<p><code>csvcubed inspect --help</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>Options:
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  --log-level [warn|err|crit|info|debug]
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>                                  select a logging level out of: &#39;warn&#39;,
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>                                  &#39;err&#39;, &#39;crit&#39;, &#39;info&#39; or &#39;debug&#39;.
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>  -h, --help                      Show this message and exit.
+</code></pre></div></td></tr></table></div>
+<h3 id="inspecting-a-data-cube">Inspecting a data cube</h3>
+<p><code>csvcubed inspect ./alcohol-bulletin.csv-metadata.json</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-3-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-3-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-3-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-3-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-3-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-3-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-3-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-3-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-3-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-3-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-3-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-3-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-3-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-3-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-3-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-3-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-3-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-3-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-3-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-3-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-3-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-3-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-3-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-3-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-3-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-3-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-3-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-3-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-3-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-3-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-3-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-3-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-3-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-3-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-3-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-3-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-3-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-3-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-3-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-3-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-3-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-3-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-3-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-3-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-3-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-3-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-3-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-3-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-3-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-3-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-3-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-3-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-3-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-3-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-3-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-3-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-3-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-3-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-3-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-3-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-3-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-3-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-3-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-3-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-3-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-3-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-3-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-3-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-3-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-3-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-3-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-3-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-3-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-3-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-3-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-3-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-3-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-3-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-3-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-3-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-3-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-3-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-3-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-3-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-3-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-3-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-3-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-3-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-3-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-3-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-3-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-3-100">100</a></span>
+<span class="normal"><a href="#__codelineno-3-101">101</a></span>
+<span class="normal"><a href="#__codelineno-3-102">102</a></span>
+<span class="normal"><a href="#__codelineno-3-103">103</a></span>
+<span class="normal"><a href="#__codelineno-3-104">104</a></span>
+<span class="normal"><a href="#__codelineno-3-105">105</a></span>
+<span class="normal"><a href="#__codelineno-3-106">106</a></span>
+<span class="normal"><a href="#__codelineno-3-107">107</a></span>
+<span class="normal"><a href="#__codelineno-3-108">108</a></span>
+<span class="normal"><a href="#__codelineno-3-109">109</a></span>
+<span class="normal"><a href="#__codelineno-3-110">110</a></span>
+<span class="normal"><a href="#__codelineno-3-111">111</a></span>
+<span class="normal"><a href="#__codelineno-3-112">112</a></span>
+<span class="normal"><a href="#__codelineno-3-113">113</a></span>
+<span class="normal"><a href="#__codelineno-3-114">114</a></span>
+<span class="normal"><a href="#__codelineno-3-115">115</a></span>
+<span class="normal"><a href="#__codelineno-3-116">116</a></span>
+<span class="normal"><a href="#__codelineno-3-117">117</a></span>
+<span class="normal"><a href="#__codelineno-3-118">118</a></span>
+<span class="normal"><a href="#__codelineno-3-119">119</a></span>
+<span class="normal"><a href="#__codelineno-3-120">120</a></span>
+<span class="normal"><a href="#__codelineno-3-121">121</a></span>
+<span class="normal"><a href="#__codelineno-3-122">122</a></span>
+<span class="normal"><a href="#__codelineno-3-123">123</a></span>
+<span class="normal"><a href="#__codelineno-3-124">124</a></span>
+<span class="normal"><a href="#__codelineno-3-125">125</a></span>
+<span class="normal"><a href="#__codelineno-3-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>- This file is a data cube.
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>- The data cube has the following catalog metadata:
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>        - Title: Alcohol Bulletin
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>        - Label: Alcohol Bulletin
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>        - Issued: 2016-02-26T09:30:00+00:00
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>        - Modified: 2022-02-11T21:00:09.286102+00:00
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>        - License: None
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>        - Creator: https://www.gov.uk/government/organisations/hm-revenue-customs
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>        - Publisher: https://www.gov.uk/government/organisations/hm-revenue-customs
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>        - Landing Pages: 
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>                -- https://www.gov.uk/government/statistics/alcohol-bulletin
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>        - Themes: 
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>                -- http://gss-data.org.uk/def/gdp#trade
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>        - Keywords: None
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>        - Contact Point: None
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>        - Identifier: Alcohol Bulletin
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>        - Comment: Quarterly statistics from the 4 different alcohol duty regimes administered by HM Revenue and Customs.
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>        - Description: The Alcohol Bulletin National Statistics present statistics from the 4
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>                different alcohol duties administered by HM Revenue and Customs (HMRC): [Wine
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>                Duty](https://www.gov.uk/government/collections/wine-duty) (wine and made-
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>                wine), [Spirits Duty](https://www.gov.uk/guidance/spirits-duty), [Beer
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a>                Duty](https://www.gov.uk/guidance/beer-duty) and [Cider
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>                Duty](https://www.gov.uk/government/collections/cider-duty).
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>                The Alcohol Bulletin is updated quarterly and includes statistics on duty
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a>                receipts up to the latest full month before its release, and statistics
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a>                relating to clearances and production that are one month behind that of duty
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>                receipts.
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a>                [Archive versions of the Alcohol Bulletin published on GOV.UK after August
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a>                2019](https://webarchive.nationalarchives.gov.uk/ukgwa/*/https://www.gov.uk/government/statistics/alcohol-
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a>                bulletin) are no longer hosted on this page and are instead available via the
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a>                UK Government Web Archive, from the National Archives.
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a>                [Archive versions of the Alcohol Bulletin published between 2008 and August
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a>                2019](https://www.uktradeinfo.com/trade-data/tax-and-duty-bulletins/) are
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a>                found on the UK Trade Info website.
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a>                ## Quality report
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a>                Further details for this statistical release, including data suitability and
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a>                coverage, are included within the [Alcohol Bulletin quality
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a>                report](https://www.gov.uk/government/statistics/quality-report-alcohol-
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a>                duties-publications-bulletin-and-factsheet).
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a>                  *[HMRC]: HM Revenue and Customs
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a>                  *[UK]: United Kingdom
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a>- The data cube has the following data structure definition:
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a>        - Dataset Label: Alcohol Bulletin
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a>        - Number of Components: 17
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a>        - Components:
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a>                                                        Property   Property Label Property Type     Column Title  Required
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a>       http://purl.org/linked-data/sdmx/2009/dimension#refPeriod                      Dimension           Period      True
+<a id="__codelineno-3-56" name="__codelineno-3-56"></a>http://gss-data.org.uk/def/trade/property/dimension/alcohol-type                      Dimension     Alcohol Type      True
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a>                 alcohol-bulletin.csv#dimension/alcohol-sub-type Alcohol Sub Type     Dimension Alcohol Sub Type      True
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a>                  alcohol-bulletin.csv#dimension/alcohol-content  Alcohol Content     Dimension  Alcohol Content      True
+<a id="__codelineno-3-59" name="__codelineno-3-59"></a>                 alcohol-bulletin.csv#dimension/clearance-origin Clearance Origin     Dimension Clearance Origin      True
+<a id="__codelineno-3-60" name="__codelineno-3-60"></a>                    http://purl.org/linked-data/cube#measureType                      Dimension     Measure Type      True
+<a id="__codelineno-3-61" name="__codelineno-3-61"></a>        http://gss-data.org.uk/def/measure/alcohol-duty-receipts                        Measure                       True
+<a id="__codelineno-3-62" name="__codelineno-3-62"></a>           http://gss-data.org.uk/def/measure/beer-duty-receipts                        Measure                       True
+<a id="__codelineno-3-63" name="__codelineno-3-63"></a>          http://gss-data.org.uk/def/measure/cider-duty-receipts                        Measure                       True
+<a id="__codelineno-3-64" name="__codelineno-3-64"></a>                   http://gss-data.org.uk/def/measure/clearances                        Measure                       True
+<a id="__codelineno-3-65" name="__codelineno-3-65"></a>        http://gss-data.org.uk/def/measure/clearances-of-alcohol                        Measure                       True
+<a id="__codelineno-3-66" name="__codelineno-3-66"></a>            http://gss-data.org.uk/def/measure/production-volume                        Measure                       True
+<a id="__codelineno-3-67" name="__codelineno-3-67"></a>    http://gss-data.org.uk/def/measure/production-volume-alcohol                        Measure                       True
+<a id="__codelineno-3-68" name="__codelineno-3-68"></a>        http://gss-data.org.uk/def/measure/spirits-duty-receipts                        Measure                       True
+<a id="__codelineno-3-69" name="__codelineno-3-69"></a>           http://gss-data.org.uk/def/measure/wine-duty-receipts                        Measure                       True
+<a id="__codelineno-3-70" name="__codelineno-3-70"></a>     http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure                      Attribute             Unit      True
+<a id="__codelineno-3-71" name="__codelineno-3-71"></a>       http://purl.org/linked-data/sdmx/2009/attribute#obsStatus                      Attribute           Marker     False
+<a id="__codelineno-3-72" name="__codelineno-3-72"></a>        - Columns where suppress output is true: None
+<a id="__codelineno-3-73" name="__codelineno-3-73"></a>
+<a id="__codelineno-3-74" name="__codelineno-3-74"></a>- The data cube has the following code list information:
+<a id="__codelineno-3-75" name="__codelineno-3-75"></a>        - Number of Code Lists: 3
+<a id="__codelineno-3-76" name="__codelineno-3-76"></a>        - Code Lists:
+<a id="__codelineno-3-77" name="__codelineno-3-77"></a>                                   Code List Code List Label  Columns Used In
+<a id="__codelineno-3-78" name="__codelineno-3-78"></a>alcohol-sub-type.csv#scheme/alcohol-sub-type                 Alcohol Sub Type
+<a id="__codelineno-3-79" name="__codelineno-3-79"></a>  alcohol-content.csv#scheme/alcohol-content                  Alcohol Content
+<a id="__codelineno-3-80" name="__codelineno-3-80"></a>clearance-origin.csv#scheme/clearance-origin                 Clearance Origin
+<a id="__codelineno-3-81" name="__codelineno-3-81"></a>
+<a id="__codelineno-3-82" name="__codelineno-3-82"></a>- The data cube has the following dataset information:
+<a id="__codelineno-3-83" name="__codelineno-3-83"></a>        - Number of Observations: 10676
+<a id="__codelineno-3-84" name="__codelineno-3-84"></a>        - Number of Duplicates: 0
+<a id="__codelineno-3-85" name="__codelineno-3-85"></a>        - First 10 Observations: 
+<a id="__codelineno-3-86" name="__codelineno-3-86"></a>                   Period Alcohol Type Alcohol Sub Type Alcohol Content Clearance Origin      Value          Measure Type        Unit Marker
+<a id="__codelineno-3-87" name="__codelineno-3-87"></a>government-year/1999-2000         wine            still    up-to-15-abv              all 8721828.97            clearances hectolitres    NaN
+<a id="__codelineno-3-88" name="__codelineno-3-88"></a>government-year/1999-2000         wine        sparkling    up-to-15-abv              all  621067.74            clearances hectolitres    NaN
+<a id="__codelineno-3-89" name="__codelineno-3-89"></a>government-year/1999-2000         wine              all     over-15-abv              all  312545.57            clearances hectolitres    NaN
+<a id="__codelineno-3-90" name="__codelineno-3-90"></a>government-year/1999-2000         wine              all    over-5-5-abv          ex-ship 2248574.50            clearances hectolitres    NaN
+<a id="__codelineno-3-91" name="__codelineno-3-91"></a>government-year/1999-2000         wine              all    over-5-5-abv     ex-warehouse 7393838.35            clearances hectolitres    NaN
+<a id="__codelineno-3-92" name="__codelineno-3-92"></a>government-year/1999-2000         wine              all    over-5-5-abv        uk-origin   13029.44            clearances hectolitres    NaN
+<a id="__codelineno-3-93" name="__codelineno-3-93"></a>government-year/1999-2000         wine              all             all              all 9655442.29            clearances hectolitres    NaN
+<a id="__codelineno-3-94" name="__codelineno-3-94"></a>government-year/1999-2000         wine              all             all              all    1657.00    wine-duty-receipts gbp-million    NaN
+<a id="__codelineno-3-95" name="__codelineno-3-95"></a>government-year/1999-2000         wine              all             all              all    6429.00 alcohol-duty-receipts gbp-million    NaN
+<a id="__codelineno-3-96" name="__codelineno-3-96"></a>government-year/2000-2001         wine            still    up-to-15-abv              all 8920111.13            clearances hectolitres    NaN
+<a id="__codelineno-3-97" name="__codelineno-3-97"></a>        - Last 10 Observations: 
+<a id="__codelineno-3-98" name="__codelineno-3-98"></a>       Period   Alcohol Type Alcohol Sub Type Alcohol Content                    Clearance Origin  Value              Measure Type                 Unit        Marker
+<a id="__codelineno-3-99" name="__codelineno-3-99"></a>month/2021-09          cider              all             all                                 all  25.05       cider-duty-receipts          gbp-million   provisional
+<a id="__codelineno-3-100" name="__codelineno-3-100"></a>month/2021-10           beer               uk             all                                 all    NaN         production-volume thousand-hectolitres not-available
+<a id="__codelineno-3-101" name="__codelineno-3-101"></a>month/2021-10           beer               uk             all                                 all    NaN production-volume-alcohol thousand-hectolitres not-available
+<a id="__codelineno-3-102" name="__codelineno-3-102"></a>month/2021-10 beer-and-cider    uk-registered             all                                 all    NaN                clearances thousand-hectolitres not-available
+<a id="__codelineno-3-103" name="__codelineno-3-103"></a>month/2021-10 beer-and-cider              all             all ex-warehouse-and-ex-ship-clearances    NaN                clearances thousand-hectolitres not-available
+<a id="__codelineno-3-104" name="__codelineno-3-104"></a>month/2021-10           beer              all             all                                 all    NaN                clearances thousand-hectolitres not-available
+<a id="__codelineno-3-105" name="__codelineno-3-105"></a>month/2021-10           beer              all             all                                 all    NaN     clearances-of-alcohol thousand-hectolitres not-available
+<a id="__codelineno-3-106" name="__codelineno-3-106"></a>month/2021-10          cider              all             all                                 all    NaN                clearances thousand-hectolitres not-available
+<a id="__codelineno-3-107" name="__codelineno-3-107"></a>month/2021-10           beer              all             all                                 all 344.74        beer-duty-receipts          gbp-million   provisional
+<a id="__codelineno-3-108" name="__codelineno-3-108"></a>month/2021-10          cider              all             all                                 all  22.60       cider-duty-receipts          gbp-million   provisional
+<a id="__codelineno-3-109" name="__codelineno-3-109"></a>
+<a id="__codelineno-3-110" name="__codelineno-3-110"></a>
+<a id="__codelineno-3-111" name="__codelineno-3-111"></a>- The data cube has the following value counts:
+<a id="__codelineno-3-112" name="__codelineno-3-112"></a>        - Value counts broken-down by measure and unit (of measure):
+<a id="__codelineno-3-113" name="__codelineno-3-113"></a>                  Measure                   Unit  Count
+<a id="__codelineno-3-114" name="__codelineno-3-114"></a>    alcohol-duty-receipts            gbp-million    314
+<a id="__codelineno-3-115" name="__codelineno-3-115"></a>       beer-duty-receipts            gbp-million    314
+<a id="__codelineno-3-116" name="__codelineno-3-116"></a>      cider-duty-receipts            gbp-million    314
+<a id="__codelineno-3-117" name="__codelineno-3-117"></a>               clearances            hectolitres   4710
+<a id="__codelineno-3-118" name="__codelineno-3-118"></a>               clearances hectolitres-of-alcohol    942
+<a id="__codelineno-3-119" name="__codelineno-3-119"></a>               clearances   thousand-hectolitres   1256
+<a id="__codelineno-3-120" name="__codelineno-3-120"></a>    clearances-of-alcohol            hectolitres    942
+<a id="__codelineno-3-121" name="__codelineno-3-121"></a>    clearances-of-alcohol   thousand-hectolitres    314
+<a id="__codelineno-3-122" name="__codelineno-3-122"></a>        production-volume   thousand-hectolitres    314
+<a id="__codelineno-3-123" name="__codelineno-3-123"></a>production-volume-alcohol            hectolitres    314
+<a id="__codelineno-3-124" name="__codelineno-3-124"></a>production-volume-alcohol   thousand-hectolitres    314
+<a id="__codelineno-3-125" name="__codelineno-3-125"></a>    spirits-duty-receipts            gbp-million    314
+<a id="__codelineno-3-126" name="__codelineno-3-126"></a>       wine-duty-receipts            gbp-million    314
+</code></pre></div></td></tr></table></div>
+<h3 id="inspecting-a-code-list">Inspecting a code list</h3>
+<p><code>csvcubed inspect ./itis-industry.csv-metadata.json</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span>
+<span class="normal"><a href="#__codelineno-4-31">31</a></span>
+<span class="normal"><a href="#__codelineno-4-32">32</a></span>
+<span class="normal"><a href="#__codelineno-4-33">33</a></span>
+<span class="normal"><a href="#__codelineno-4-34">34</a></span>
+<span class="normal"><a href="#__codelineno-4-35">35</a></span>
+<span class="normal"><a href="#__codelineno-4-36">36</a></span>
+<span class="normal"><a href="#__codelineno-4-37">37</a></span>
+<span class="normal"><a href="#__codelineno-4-38">38</a></span>
+<span class="normal"><a href="#__codelineno-4-39">39</a></span>
+<span class="normal"><a href="#__codelineno-4-40">40</a></span>
+<span class="normal"><a href="#__codelineno-4-41">41</a></span>
+<span class="normal"><a href="#__codelineno-4-42">42</a></span>
+<span class="normal"><a href="#__codelineno-4-43">43</a></span>
+<span class="normal"><a href="#__codelineno-4-44">44</a></span>
+<span class="normal"><a href="#__codelineno-4-45">45</a></span>
+<span class="normal"><a href="#__codelineno-4-46">46</a></span>
+<span class="normal"><a href="#__codelineno-4-47">47</a></span>
+<span class="normal"><a href="#__codelineno-4-48">48</a></span>
+<span class="normal"><a href="#__codelineno-4-49">49</a></span>
+<span class="normal"><a href="#__codelineno-4-50">50</a></span>
+<span class="normal"><a href="#__codelineno-4-51">51</a></span>
+<span class="normal"><a href="#__codelineno-4-52">52</a></span>
+<span class="normal"><a href="#__codelineno-4-53">53</a></span>
+<span class="normal"><a href="#__codelineno-4-54">54</a></span>
+<span class="normal"><a href="#__codelineno-4-55">55</a></span>
+<span class="normal"><a href="#__codelineno-4-56">56</a></span>
+<span class="normal"><a href="#__codelineno-4-57">57</a></span>
+<span class="normal"><a href="#__codelineno-4-58">58</a></span>
+<span class="normal"><a href="#__codelineno-4-59">59</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>- This file is a code list.
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>- The code list has the following catalog metadata:
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>        - Title: Itis Industry
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>        - Label: Itis Industry
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>        - Issued: 2021-04-13T10:04:13.589262
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>        - Modified: 2021-05-20T10:55:04.059085
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>        - License: None
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>        - Creator: None
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>        - Publisher: None
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        - Landing Pages: None
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>        - Themes: None
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>        - Keywords: None
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>        - Contact Point: None
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>        - Identifier: None
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>        - Comment: Dataset representing the &#39;Itis Industry&#39; code list.
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>        - Description: None
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>- The code list has the following dataset information:
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>        - Number of Concepts: 9
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>        - Number of Duplicates: 0
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>        - First 10 Concepts: 
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a>                                                       Label                                                            Notation Parent Notation  Sort Priority  Description
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a>                                              All industries                                                                 all             NaN              1          NaN
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a>                                               Manufacturing                                              manufacturing-industry             all              2          NaN
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a>                                          Wholesale &amp; Retail                                           wholesale-retail-industry             all              3          NaN
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a>                               Information and Communication                              information-and-communication-industry             all              4          NaN
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>              Professional, Scientific and Technical Support              professional-scientific-and-technical-support-industry             all              5          NaN
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a>               Administrative and Support Service Activities              administrative-and-support-service-activities-industry             all              6          NaN
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a>Arts, Entertainment, Recreation and Other Service Activities arts-entertainment-recreation-and-other-service-activities-industry             all              7          NaN
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a>                                               Film Industry                              film-industry-excluding-other-services             all              8          NaN
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a>                                         Television Industry                        television-industry-excluding-other-services             all              9          NaN
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a>        - Last 10 Concepts: 
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a>                                                       Label                                                            Notation Parent Notation  Sort Priority  Description
+<a id="__codelineno-4-36" name="__codelineno-4-36"></a>                                              All industries                                                                 all             NaN              1          NaN
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a>                                               Manufacturing                                              manufacturing-industry             all              2          NaN
+<a id="__codelineno-4-38" name="__codelineno-4-38"></a>                                          Wholesale &amp; Retail                                           wholesale-retail-industry             all              3          NaN
+<a id="__codelineno-4-39" name="__codelineno-4-39"></a>                               Information and Communication                              information-and-communication-industry             all              4          NaN
+<a id="__codelineno-4-40" name="__codelineno-4-40"></a>              Professional, Scientific and Technical Support              professional-scientific-and-technical-support-industry             all              5          NaN
+<a id="__codelineno-4-41" name="__codelineno-4-41"></a>               Administrative and Support Service Activities              administrative-and-support-service-activities-industry             all              6          NaN
+<a id="__codelineno-4-42" name="__codelineno-4-42"></a>Arts, Entertainment, Recreation and Other Service Activities arts-entertainment-recreation-and-other-service-activities-industry             all              7          NaN
+<a id="__codelineno-4-43" name="__codelineno-4-43"></a>                                               Film Industry                              film-industry-excluding-other-services             all              8          NaN
+<a id="__codelineno-4-44" name="__codelineno-4-44"></a>                                         Television Industry                        television-industry-excluding-other-services             all              9          NaN
+<a id="__codelineno-4-45" name="__codelineno-4-45"></a>
+<a id="__codelineno-4-46" name="__codelineno-4-46"></a>
+<a id="__codelineno-4-47" name="__codelineno-4-47"></a>- The code list has the following concepts information:
+<a id="__codelineno-4-48" name="__codelineno-4-48"></a>        - Concepts hierarchy depth: 2
+<a id="__codelineno-4-49" name="__codelineno-4-49"></a>        - Concepts hierarchy:
+<a id="__codelineno-4-50" name="__codelineno-4-50"></a>root
+<a id="__codelineno-4-51" name="__codelineno-4-51"></a>└── All industries
+<a id="__codelineno-4-52" name="__codelineno-4-52"></a>    ├── Administrative and Support Service Activities
+<a id="__codelineno-4-53" name="__codelineno-4-53"></a>    ├── Arts, Entertainment, Recreation and Other Service Activities
+<a id="__codelineno-4-54" name="__codelineno-4-54"></a>    ├── Film Industry
+<a id="__codelineno-4-55" name="__codelineno-4-55"></a>    ├── Information and Communication
+<a id="__codelineno-4-56" name="__codelineno-4-56"></a>    ├── Manufacturing
+<a id="__codelineno-4-57" name="__codelineno-4-57"></a>    ├── Professional, Scientific and Technical Support
+<a id="__codelineno-4-58" name="__codelineno-4-58"></a>    ├── Television Industry
+<a id="__codelineno-4-59" name="__codelineno-4-59"></a>    └── Wholesale &amp; Retail
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../build-command/" class="md-footer__link md-footer__link--prev" aria-label="Previous: build" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              build
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../logging/" class="md-footer__link md-footer__link--next" aria-label="Next: Logging" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Logging
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.instant", "navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>

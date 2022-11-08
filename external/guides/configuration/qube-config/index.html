@@ -1,0 +1,1689 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
+    
+    
+      
+        <title>Writing a qube-config.json - csvcubed</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#writing-a-qube-configjson" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="csvcubed" class="md-header__button md-logo" aria-label="csvcubed" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csvcubed
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Writing a qube-config.json
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csvcubed" class="md-nav__button md-logo" aria-label="csvcubed" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    csvcubed
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Home</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../quick-start/">Quick start</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Quick start" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Quick start
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/designing-csv/" class="md-nav__link">
+        Designing a CSV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/build/" class="md-nav__link">
+        Building a CSV-W
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/describing-csv/" class="md-nav__link">
+        Describing your CSV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/linking-data/" class="md-nav__link">
+        Linking data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/inspect/" class="md-nav__link">
+        Inspecting a CSV-W
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Guides</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Commands" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Commands
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../command-line/build-command/" class="md-nav__link">
+        build
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../command-line/inspect-command/" class="md-nav__link">
+        inspect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../command-line/logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Configuration</a>
+          
+            <label for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convention/" class="md-nav__link">
+        By convention
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_3" type="checkbox" id="__nav_3_3_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_3">
+          Explicit configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Explicit configuration" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Explicit configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Writing a qube-config.json
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Writing a qube-config.json
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-definitions" class="md-nav__link">
+    Column definitions
+  </a>
+  
+    <nav class="md-nav" aria-label="Column definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dimensions" class="md-nav__link">
+    Dimensions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measures" class="md-nav__link">
+    Measures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#units" class="md-nav__link">
+    Units
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observations" class="md-nav__link">
+    Observations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-templates" class="md-nav__link">
+    Using templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-existing-columns" class="md-nav__link">
+    Using existing columns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-column-configuration-options" class="md-nav__link">
+    Shared column configuration options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dimension-configuration" class="md-nav__link">
+    Dimension configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes-configuration" class="md-nav__link">
+    Attributes Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observations-configuration" class="md-nav__link">
+    Observations Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measure-and-unit-columns-configuration" class="md-nav__link">
+    Measure and Unit Columns Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measures-and-units" class="md-nav__link">
+    Measures and Units
+  </a>
+  
+    <nav class="md-nav" aria-label="Measures and Units">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measures-configuration" class="md-nav__link">
+    Measures Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#units-configuration" class="md-nav__link">
+    Units Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-list-config/" class="md-nav__link">
+        Code Lists
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../errors/">Errors</a>
+          
+            <label for="__nav_3_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Errors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Errors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/build-command-errors/" class="md-nav__link">
+        build command errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/inspect-command-errors/" class="md-nav__link">
+        inspect command errors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../missing-observed-values/" class="md-nav__link">
+        Handling missing observed values
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Linked Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linked Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linked Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/licenses/" class="md-nav__link">
+        Licenses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/organisations/" class="md-nav__link">
+        Organisations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raise-issue/" class="md-nav__link">
+        Raise an issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shape-data/" class="md-nav__link">
+        Shape your data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uris/" class="md-nav__link">
+        Working with URIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csv-to-csvw-github-action/" class="md-nav__link">
+        Build with GitHub
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../glossary/">Glossary</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Glossary" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Glossary
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="writing-a-qube-configjson">Writing a qube-config.json</h1>
+<p>This page discusses how to configure your cube with the greatest control and flexibility by writing a <code>qube-config.json</code> file. If you are just starting out with csvcubed, you may wish to start with the <a href="../../../quick-start/">quick start</a>.</p>
+<blockquote>
+<p><strong>Experience of writing basic JSON documents is assumed throughout this document.</strong>
+See this <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-json">tutorial from DigitalOcean</a> for an introduction to writing JSON.</p>
+</blockquote>
+<p>The <code>qube-config.json</code> file has two sections:</p>
+<ol>
+<li><strong>Metadata</strong>
+   This section is used to describe the data set's catalog information to aid discovery, provide provinance and publication information, and optionally define the scope of the data set.</li>
+<li><strong>Column Definitions</strong>
+   This section is used to describe each column in the <code>.csv</code> file, classifying the column and defining how the column data is both represented and how it links semantically to other data.</li>
+</ol>
+<h2 id="metadata">Metadata</h2>
+<p>A CSV-W file contains metadata which improves discoverability of data publications. In csvcubed, we use a selection of metadata entries from established namespaces to enable users to contribute to the web of data faster. The metadata fields available, their description and defaults are as follows.</p>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th><strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>the title of the cube</td>
+<td>A capital case version of the csv file name</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>a description of the contents of the cube</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>publisher</code></td>
+<td>a link to the publisher of the cube</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>creator</code></td>
+<td>a link to the creator of the cube</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td>a list or a single string of the keywords(s) covered by the data (i.e. <code>["trade", "energy", "imports"]</code>)</td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<!-- todo: The metadata section is missing values like `keywords`, `dataset_issued`, `dataset_published`, `license` and `summary`. -->
+
+<p>See the <a href="../../../quick-start/describing-csv/">describing your CSV</a> quick start for a practical guide on configuring metadata.</p>
+<h2 id="column-definitions">Column definitions</h2>
+<p>A CSV-W file provides detailed information about the columns beyond their values. In csvcubed, we are targeting a level of detail which results in a data cube which can be be expressed using W3C's RDF Cube Vocabulary. A data cube must have a dimension, and observation columns along with at least one unit and measure defined to be valid. A cube may also have one or more attribute columns which provide clarification to observational data. Units and measures may be attached to the observation column (single measure cube), or appear in a column of their own (multi-measure cube).</p>
+<p>To define a column in a <code>qube-config.json</code> file, provide the column header's value as a dictionary key, and create a new dictionary.</p>
+<p>A column is assumed to be a dimension unless otherwise configured using the <code>type</code> key or the column being named one of the reserved names. A dimension can still have a <code>"type": "dimension"</code> key/value pair.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w"> </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;Example column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p><strong>If a column mapping is not defined in the <code>qube-config.json</code> file for a given CSV column, the column is configured using <a href="../convention/">convention</a>.</strong></p>
+<h3 id="dimensions">Dimensions</h3>
+<blockquote>
+<p>The <em>dimension</em> [column] serve[s] to identify the observations. A set of values for all the dimension components is sufficient to identify a single observation. Examples of dimensions include the time to which the observation applies, or a geographic region which the observation covers.</p>
+</blockquote>
+<p>Think of the principle of <a href="https://en.wikipedia.org/wiki/MECE_principle">MECE</a>.</p>
+<h3 id="measures">Measures</h3>
+<blockquote>
+<p>The <em>measure</em> [column] represent[s] the phenomenon being observed.</p>
+</blockquote>
+<p>The measure column is effectively another form of dimension.</p>
+<h3 id="attributes">Attributes</h3>
+<blockquote>
+<p>The <em>attribute</em> [column] allow us to qualify and interpret the observed value(s). They enable specification of the units of measure, any scaling factors and metadata such as the status of the observation (e.g. <em>estimated</em>, <em>provisional</em>).</p>
+</blockquote>
+<p>The attribute column can link to resources or literals.</p>
+<h3 id="units">Units</h3>
+<p>The <em>unit</em> component is a type of attribute column which provides the units of the observation.</p>
+<h3 id="observations">Observations</h3>
+<p>The <em>observation</em> column are the numeric values of the observation being recorded in the data set.</p>
+<h3 id="using-templates">Using templates</h3>
+<p>To use or extend an existing template, provide a <code>"from_template": "month"</code> key-value pair referencing one of the <a href="../templates/">available templates</a>. csvcubed loads the reference template's key-value pairs making creating linked data much faster. The values for a column with a <code>from_template</code> set in <code>qube-config.json</code> override the values for the template. In the example below, the CSV contains a column called Marker, the <code>qube-config.json</code> file references the template <a href="https://purl.org/csv-cubed/qube-config/templates/observation-status.json"><code>observation-status</code></a> but csvcubed will override the template's label with the value provided.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="w">   </span><span class="s2">&quot;columns&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">      </span><span class="nt">&quot;Marker&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">         </span><span class="nt">&quot;from_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;observation-status&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">         </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data Marker&quot;</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">   </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="using-existing-columns">Using existing columns</h3>
+<p>To reuse or extend existing dimensions, attributes, units, or measures, provide a <code>"from_existing": "uri"</code> key-value pair linking to the RDF subject for the component specification. csvcubed determines whether the column is a reuse of an existing component (e.g. dimension) or requires the extension of an existing component through the configuration of the column.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">      </span><span class="nt">&quot;reused column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">         </span><span class="nt">&quot;from_existing&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.org/dimension/years&quot;</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">      </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;reused and renamed column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">         </span><span class="nt">&quot;from_existing&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.org/dimension/flavours&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">         </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ice cream flavours&quot;</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">   </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>In the example above there are two reused dimensions. For the first existing dimension, "reused column" takes the existing dimension "years" and reuses it without any changes. The second dimension is an example of the creation of a new dimension but showing that ice-cream flavours it is a child dimension of flavours.</p>
+<p>Unless the component being reused is a literal attribute and you're providing a <code>"data_type"</code> key-value pair, any other key-value pairs provided will change the column to a new component which will extend the linked parent component.</p>
+<h2 id="shared-column-configuration-options">Shared column configuration options</h2>
+<p>There are several configuration options available across column types except observations.</p>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th><strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>The type of the column (Required)</td>
+<td><em>dimension</em></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>The title of the column (Optional)</td>
+<td>The capital case of the header in the csv file with spaces replacing underscores</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A description of the contents of the column (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>from_existing</code></td>
+<td>The uri of the resource for reuse/extension (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>definition_uri</code></td>
+<td>A uri of a resource to show how the column is created/managed (i.e. a uri of a PDF explaining a list of units) (Optional)</td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>from_existing</code> value when set provides the basis of linked data; it allows csvcubed to generate additional RDF-hints to allow users to discover how the <code>tidy_data.csv</code> links to other data semanticly.</p>
+<h2 id="dimension-configuration">Dimension configuration</h2>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th><strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>The type of the column (Required)</td>
+<td><em>dimension</em></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>The title of the column (Optional)</td>
+<td>The capital case of the header in the csv file with spaces replacing underscores</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A description of the contents of the column (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>from_existing</code></td>
+<td>The uri of the resource for reuse/extension (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>definition_uri</code></td>
+<td>A uri of a resource to show how the column is created/managed (i.e. a uri of a PDF explaining a list of units) (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>uri_override</code></td>
+<td>Override the uri created automatically for the column (Optional) (Advanced)</td>
+<td><code>tidy_data.csv#uri_safe_column_header_from_csv</code></td>
+</tr>
+<tr>
+<td><code>cell_uri_template</code></td>
+<td>Override the uri generated for values within the uri (Optional) (Advanced)</td>
+<td><strong>TODO</strong> Look this up</td>
+</tr>
+<tr>
+<td><code>code_list</code></td>
+<td>Link to an existing code list (uri), supress a code-list (false), file path to a <a href="../code-list-config/">code-list-config.json</a> (uri), <a href="../code-list-config/">in-line code list</a> (json), or generate a code-list (true)</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>from_template</code></td>
+<td>Use a <a href="../templates/">column template</a></td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="attributes-configuration">Attributes Configuration</h2>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th><strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>The type of the column; to configure an attribute column use the value <code>attribute</code> (Required)</td>
+<td><em>dimension</em></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>The title of the column (Optional)</td>
+<td>The capital case of the header in the csv file with spaces replacing underscores</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A description of the contents of the column (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>from_existing</code></td>
+<td>The uri of the resource for reuse/extension (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>definition_uri</code></td>
+<td>A uri of a resource to show how the column is created/managed (i.e. a uri of a PDF explaining a list of units) (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>data_type</code></td>
+<td>The <a href="https://www.w3.org/TR/xmlschema-2/#built-in-datatypes">xml data type</a> of the contents of the column, if this is provided it becomes a Literal Attribute column (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>required</code></td>
+<td>If this boolean value is true csvcubed will flag to the user if there are blank values in this column</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>from_template</code></td>
+<td>Use a <a href="../templates/">column template</a></td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="observations-configuration">Observations Configuration</h2>
+<p>Observations are the most important component of a CSV-W data set. Observation columns can have measures and units defined against them to obviate the need for separate unit and measure columns in a single unit/measure data set.</p>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th><strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>The type of the column; to configure an observation column use the value <code>observations</code>. <strong>NOTE</strong> This value is required if the observation column isn't <a href="../convention/">conventionally named</a> or required if either measure or unit columns are not part of the observation csv file.</td>
+<td><em>diemsnion</em></td>
+</tr>
+<tr>
+<td><code>data_type</code></td>
+<td>The data type of the observations. This should generally be a decimal or integer. (Optional)</td>
+<td><em>decimal</em></td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>The unit for this observation column; this can a uri to an existing unit, or a dictionary containing a new or extended existing unit. If there is a unit column this value must not be provided. (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>measure</code></td>
+<td>The measure for this observation column; this can be a uri to an existing dimension, or a dictionary containing a new or extneded existing measure. If there is a measure column this key must not be provided. (Optional)</td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="measure-and-unit-columns-configuration">Measure and Unit Columns Configuration</h2>
+<p>Measure and unit columns are treated slightly differently to dimension, attribute, and observation columns. Measure and unit columns contain references to discrete units and measures. In both cases by defining <code>"type": "measure column"</code> or <code>"type": "unit column"</code> provides the same behaviour. Do not put measures in units columns and units and measure columns.</p>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th>f<strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>The type of the column, provide <code>"measure column"</code> for the measure column type or <code>"unit column"</code> for the unit column (Required)</td>
+<td><em>dimension</em></td>
+</tr>
+<tr>
+<td><code>values</code></td>
+<td>If basic units/measures are desired, a boolean value of <code>true</code> is used to signify to csvcubed to create units/measures from values of this column; otherwise values is a dictionary which defines the units/measures using the notion from <a href="#Measures and Units">Measures and Units</a></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="measures-and-units">Measures and Units</h2>
+<p>Measures can either be attached to a Measure Column if there are a mixture of measures in your data set, or to an Observation column if all observations in the cube have the same measure.
+Units can either be attached to a Unit Column if there are a mixture of units in your data set, or to an Observation column if all observations in the cube have the same unit.</p>
+<h3 id="measures-configuration">Measures Configuration</h3>
+<p>Measures have no unique configuration options.</p>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th><strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>The title of the measure (Required; Optional if <code>from_existing</code> defined)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A description of the contents of the measure (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>from_existing</code></td>
+<td>The uri of the resource for reuse/extension (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>definition_uri</code></td>
+<td>A uri of a resource to show how the measure is created/managed (i.e. a uri of a PDF explaining the measure type) (Optional)</td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="units-configuration">Units Configuration</h3>
+<p>Units are effectively attributes with additional options.</p>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th><strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>The title of the unit (Required; Optional if <code>from_existing</code> defined)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A description of the contents of the unit (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>from_existing</code></td>
+<td>The uri of the resource for reuse/extension (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>definition_uri</code></td>
+<td>A uri of a resource to show how the unit is created/managed (i.e. a uri of a image which shows the formula on how the unit is derived) (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>scaling_factor</code></td>
+<td>The scaling factor (expressed in base 10) is used to define a new unit from an existing base (i.e. "GBP millions" would have a form_existing unit of GBP, and a <code>"scaling_factor": 1000000</code>) (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>si_scaling_factor</code></td>
+<td>The si_scaling_factor helps relate common scaled units to source SI units, for example kilograms are 1000 grams. Most of these units are already defined. (Optional) (Advanced)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>quantity_kind</code></td>
+<td>The <a href="http://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html#Instances">QUDT quantity kind</a> helps group units</td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+<p>For a more practical approach to defining units, see <a href="../units/">configuring units</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../convention/" class="md-footer__link md-footer__link--prev" aria-label="Previous: By convention" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              By convention
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../templates/" class="md-footer__link md-footer__link--next" aria-label="Next: Templates" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Templates
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.instant", "navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
