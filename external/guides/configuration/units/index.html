@@ -17,7 +17,7 @@
         <link rel="next" href="../code-list-config/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6b71719e.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9c788c91.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
@@ -800,6 +800,116 @@
           
         
           
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../shape-data/">Shape your data</a>
+          
+            <label for="__nav_3_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Shape your data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Shape your data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shape-data/standard-shape/" class="md-nav__link">
+        Standard shape
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shape-data/pivoted-shape/" class="md-nav__link">
+        Pivoted shape
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shape-data/shape-conversion/" class="md-nav__link">
+        Shape conversion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../missing-observed-values/" class="md-nav__link">
+        Handling missing observed values
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+            
+          
+        
+          
             
           
         
@@ -814,14 +924,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../errors/">Errors</a>
           
-            <label for="__nav_3_4">
+            <label for="__nav_3_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Errors" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_4">
+        <label class="md-nav__title" for="__nav_3_6">
           <span class="md-nav__icon md-icon"></span>
           Errors
         </label>
@@ -869,27 +979,13 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../missing-observed-values/" class="md-nav__link">
-        Handling missing observed values
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
       
       
         
@@ -901,13 +997,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_6" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_3_7" tabindex="0" aria-expanded="false">
           Linked Data
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Linked Data" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_6">
+        <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           Linked Data
         </label>
@@ -970,20 +1066,6 @@
     <li class="md-nav__item">
       <a href="../../raise-issue/" class="md-nav__link">
         Raise an issue
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../shape-data/" class="md-nav__link">
-        Shape your data
       </a>
     </li>
   
@@ -1090,7 +1172,7 @@
 <h1 id="configuring-units">Configuring units</h1>
 <p>This guide discusses how to reuse units which have been defined elsewhere within your data cube. If you're not sure which unit is right for your data set, take a look at the guide on <a href="../../linked-data/units/">choosing units</a>.</p>
 <h2 id="defining-a-new-unit">Defining a new unit</h2>
-<p>csvcubed automatically defines new units using the unique values in your <a href="../../shape-data/#standard-shape">standard shape</a> cube's units column. If desired, you can gain more control over how the units are defined by providing configuration in a <a href="../qube-config/">qube-config.json</a> file.</p>
+<p>csvcubed automatically defines new units using the unique values in your <a href="../../shape-data/standard-shape/">standard shape</a> cube's units column. If desired, you can gain more control over how the units are defined by providing configuration in a <a href="../qube-config/">qube-config.json</a> file.</p>
 <p>A data set like the one defined below can be paired with a JSON configuration allowing you to provide additional information about the units you are creating:</p>
 <table>
 <thead>
@@ -1124,7 +1206,7 @@
 <span class="normal"><a href="#__codelineno-0-12">12</a></span>
 <span class="normal"><a href="#__codelineno-0-13">13</a></span>
 <span class="normal"><a href="#__codelineno-0-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://purl.org/csv-cubed/qube-config/v1.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://purl.org/csv-cubed/qube-config/v1&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="nt">&quot;Unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;units&quot;</span><span class="p">,</span>
@@ -1144,7 +1226,7 @@
 <p>In the above example we defined a new unit called <code>Pounds Sterling (£), Millions</code>. Looking at the guide on <a href="../../linked-data/units/">choosing units</a> we see that we could relate this unit back to a well established standard unit defined by QUDT: <a href="http://qudt.org/vocab/unit/PoundSterling">PoundSterling</a>.</p>
 <p>Our dataset could of course be expressed directly in <a href="http://qudt.org/vocab/unit/PoundSterling">PoundSterling</a> but that may make the data harder to read and compare so it would be ideal if you could define your own new unit <code>Pounds Sterling (£), Millions</code>.</p>
 <p>We've done some checking on the <a href="http://www.qudt.org/doc/DOC_VOCAB-UNITS.html#Instances">QUDT Units vocabulary</a> to make sure that our new unit doesn't duplicating an existing unit so we decide that it is helpful to link <code>Pounds Sterling (£), Millions</code> back to <a href="http://qudt.org/vocab/unit/PoundSterling">PoundSterling</a>. This will ensure that software can automatically figure out how to compare our data with other data sets that use units related to <a href="http://qudt.org/vocab/unit/PoundSterling">PoundSterling</a>.</p>
-<p>In the following example, we'll show how to define new units for <code>Pounds Sterling (£), Millions</code> and <code>Barrels of petrol per day (,000)</code> with a <a href="../../shape-data/#standard-shape">standard shaped</a> cube:</p>
+<p>In the following example, we'll show how to define new units for <code>Pounds Sterling (£), Millions</code> and <code>Barrels of petrol per day (,000)</code> with a <a href="../../shape-data/standard-shape/">standard shaped</a> cube:</p>
 <p><strong>1. Ensure that your units column contains the new units' labels</strong></p>
 <table>
 <thead>
@@ -1195,7 +1277,7 @@
 <span class="normal"><a href="#__codelineno-1-22">22</a></span>
 <span class="normal"><a href="#__codelineno-1-23">23</a></span>
 <span class="normal"><a href="#__codelineno-1-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://purl.org/csv-cubed/qube-config/v1.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://purl.org/csv-cubed/qube-config/v1&quot;</span><span class="p">,</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="nt">&quot;Unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;units&quot;</span><span class="p">,</span>
