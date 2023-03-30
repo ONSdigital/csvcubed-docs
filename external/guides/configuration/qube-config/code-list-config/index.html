@@ -8,16 +8,16 @@
       
       
       
-        <link rel="canonical" href="https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/code-list-config/">
+        <link rel="canonical" href="https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/code-list-config/">
       
       
-        <link rel="prev" href="../units/">
+        <link rel="prev" href="../unit-definitions/">
       
       
-        <link rel="next" href="../../shape-data/">
+        <link rel="next" href="../../../shape-data/">
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
@@ -25,10 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7bf56d0a.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.240905d7.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -56,16 +56,12 @@
   
     
     
-      
-    
     
     
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -89,7 +85,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="csvcubed" class="md-header__button md-logo" aria-label="csvcubed" data-md-component="logo">
+    <a href="../../../.." title="csvcubed" class="md-header__button md-logo" aria-label="csvcubed" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -114,26 +110,6 @@
         </div>
       </div>
     </div>
-    
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-            </label>
-          
-        
-      </form>
     
     
     
@@ -171,6 +147,18 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/GSS-Cogs/csvcubed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSS-Cogs/csvcubed
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -193,11 +181,9 @@
                     
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="csvcubed" class="md-nav__button md-logo" aria-label="csvcubed" data-md-component="logo">
+    <a href="../../../.." title="csvcubed" class="md-nav__button md-logo" aria-label="csvcubed" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -205,6 +191,18 @@
     </a>
     csvcubed
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GSS-Cogs/csvcubed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSS-Cogs/csvcubed
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -236,7 +234,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../..">Home</a>
+          <a href="../../../..">Home</a>
           
         </div>
       
@@ -295,7 +293,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../quick-start/">Quick start</a>
+          <a href="../../../../quick-start/">Quick start</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -318,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../quick-start/installation/" class="md-nav__link">
+      <a href="../../../../quick-start/installation/" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -332,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../quick-start/designing-csv/" class="md-nav__link">
+      <a href="../../../../quick-start/designing-csv/" class="md-nav__link">
         Designing a CSV
       </a>
     </li>
@@ -346,7 +344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../quick-start/build/" class="md-nav__link">
+      <a href="../../../../quick-start/build/" class="md-nav__link">
         Building a CSV-W
       </a>
     </li>
@@ -360,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../quick-start/describing-csv/" class="md-nav__link">
+      <a href="../../../../quick-start/describing-csv/" class="md-nav__link">
         Describing your CSV
       </a>
     </li>
@@ -374,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../quick-start/linking-data/" class="md-nav__link">
+      <a href="../../../../quick-start/linking-data/" class="md-nav__link">
         Linking data
       </a>
     </li>
@@ -388,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../quick-start/inspect/" class="md-nav__link">
+      <a href="../../../../quick-start/inspect/" class="md-nav__link">
         Inspecting a CSV-W
       </a>
     </li>
@@ -450,7 +448,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Guides</a>
+          <a href="../../../">Guides</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -510,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../command-line/build-command/" class="md-nav__link">
+      <a href="../../../command-line/build-command/" class="md-nav__link">
         build
       </a>
     </li>
@@ -524,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../command-line/code-list-build-command/" class="md-nav__link">
+      <a href="../../../command-line/code-list-build-command/" class="md-nav__link">
         code list build
       </a>
     </li>
@@ -538,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../command-line/inspect-command/" class="md-nav__link">
+      <a href="../../../command-line/inspect-command/" class="md-nav__link">
         inspect
       </a>
     </li>
@@ -552,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../command-line/logging/" class="md-nav__link">
+      <a href="../../../command-line/logging/" class="md-nav__link">
         Logging
       </a>
     </li>
@@ -597,7 +595,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Configuration</a>
+          <a href="../../">Configuration</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -620,7 +618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../convention/" class="md-nav__link">
+      <a href="../../convention/" class="md-nav__link">
         By convention
       </a>
     </li>
@@ -646,6 +644,14 @@
       
         
           
+            
+          
+        
+          
+        
+          
+        
+          
         
           
         
@@ -655,10 +661,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
-          Explicit configuration
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Explicit configuration</a>
+          
+            <label for="__nav_3_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_3_3">
@@ -668,14 +680,226 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
-      <a href="../qube-config/" class="md-nav__link">
-        Writing a qube-config.json
+      <a href="../metadata/" class="md-nav__link">
+        Metadata
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../columns/">Column definitions</a>
+          
+            <label for="__nav_3_3_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Column definitions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../columns/dimensions/" class="md-nav__link">
+        Dimension columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../columns/observations/" class="md-nav__link">
+        Observations columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../columns/measures/" class="md-nav__link">
+        Measures columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../columns/units/" class="md-nav__link">
+        Units columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3_3_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../columns/attributes/">Attribute columns</a>
+          
+            <label for="__nav_3_3_3_3_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_3_3_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_3_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Attribute columns
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../columns/attributes/attribute-resources/" class="md-nav__link">
+        Resource attributes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../columns/attributes/attribute-literals/" class="md-nav__link">
+        Literal attributes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../columns/attributes/attribute-values/" class="md-nav__link">
+        Attribute values
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -688,7 +912,7 @@
   
     <li class="md-nav__item">
       <a href="../templates/" class="md-nav__link">
-        Templates
+        Using templates
       </a>
     </li>
   
@@ -701,8 +925,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../units/" class="md-nav__link">
-        Units
+      <a href="../measure-definitions/" class="md-nav__link">
+        Measure definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unit-definitions/" class="md-nav__link">
+        Unit definitions
       </a>
     </li>
   
@@ -882,7 +1120,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../shape-data/">Shape your data</a>
+          <a href="../../../shape-data/">Shape your data</a>
           
             <label for="__nav_3_4">
               <span class="md-nav__icon md-icon"></span>
@@ -905,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../shape-data/standard-shape/" class="md-nav__link">
+      <a href="../../../shape-data/standard-shape/" class="md-nav__link">
         Standard shape
       </a>
     </li>
@@ -919,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../shape-data/pivoted-shape/" class="md-nav__link">
+      <a href="../../../shape-data/pivoted-shape/" class="md-nav__link">
         Pivoted shape
       </a>
     </li>
@@ -933,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../shape-data/shape-conversion/" class="md-nav__link">
+      <a href="../../../shape-data/shape-conversion/" class="md-nav__link">
         Shape conversion
       </a>
     </li>
@@ -954,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../missing-observed-values/" class="md-nav__link">
+      <a href="../../../missing-observed-values/" class="md-nav__link">
         Handling missing observed values
       </a>
     </li>
@@ -994,7 +1232,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../errors/">Errors</a>
+          <a href="../../../errors/">Errors</a>
           
             <label for="__nav_3_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1017,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../errors/build-command-errors/" class="md-nav__link">
+      <a href="../../../errors/build-command-errors/" class="md-nav__link">
         build command errors
       </a>
     </li>
@@ -1031,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../errors/inspect-command-errors/" class="md-nav__link">
+      <a href="../../../errors/inspect-command-errors/" class="md-nav__link">
         inspect command errors
       </a>
     </li>
@@ -1087,7 +1325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linked-data/licenses/" class="md-nav__link">
+      <a href="../../../linked-data/licenses/" class="md-nav__link">
         Licenses
       </a>
     </li>
@@ -1101,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linked-data/organisations/" class="md-nav__link">
+      <a href="../../../linked-data/organisations/" class="md-nav__link">
         Organisations
       </a>
     </li>
@@ -1115,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linked-data/units/" class="md-nav__link">
+      <a href="../../../linked-data/units/" class="md-nav__link">
         Units
       </a>
     </li>
@@ -1136,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../raise-issue/" class="md-nav__link">
+      <a href="../../../raise-issue/" class="md-nav__link">
         Raise an issue
       </a>
     </li>
@@ -1150,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../uris/" class="md-nav__link">
+      <a href="../../../uris/" class="md-nav__link">
         Working with URIs
       </a>
     </li>
@@ -1164,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../csv-to-csvw-github-action/" class="md-nav__link">
+      <a href="../../../csv-to-csvw-github-action/" class="md-nav__link">
         Build with GitHub
       </a>
     </li>
@@ -1206,7 +1444,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../glossary/">Glossary</a>
+          <a href="../../../../glossary/">Glossary</a>
           
         </div>
       
@@ -1232,6 +1470,113 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#defining-a-code-list-configuration-file" class="md-nav__link">
+    Defining a code list configuration file
+  </a>
+  
+    <nav class="md-nav" aria-label="Defining a code list configuration file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    Metadata
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-sort" class="md-nav__link">
+    Using sort
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-sort_order" class="md-nav__link">
+    Using sort_order
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-same_as" class="md-nav__link">
+    Using same_as
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencing-a-code-list-configuration-file" class="md-nav__link">
+    Referencing a code list configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-an-in-line-code-list" class="md-nav__link">
+    Defining an in-line code list
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-list-build-command" class="md-nav__link">
+    Code-list build command
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -1239,16 +1584,25 @@
                 
                   
 
+  
+  
+
 
 <h1 id="configuring-code-lists">Configuring code lists</h1>
-<p>By default, csvcubed generates code lists with the unique values of each <a href="../../../glossary/#dimension">dimension</a> in a data set. This makes it as quick as possible to get from data to CSV-W cube, but it doesn't always leave you with the best representation of your code list's metadata, structure, hierarchy, or values. In order to provide more accurate representations of code lists, csvcubed allows users to explicitly configure code lists using JSON.</p>
+<p>By default, csvcubed generates code lists with the unique values of each <a href="../../../../glossary/#dimension">dimension</a>
+in a data set. This makes it as quick as possible to get from data to CSV-W cube, but it doesn't always leave you with
+the best representation of your code list's metadata, structure, hierarchy, or values. In order to provide more accurate
+ representations of code lists, csvcubed allows users to explicitly configure code lists using JSON.</p>
 <p>This guide details how to explicitly define a code list using csvcubed.</p>
-<blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><strong>Experience of writing basic JSON documents is assumed throughout this document.</strong>
-See this <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-json">tutorial from DigitalOcean</a> for an introduction to writing JSON.</p>
-</blockquote>
+See this <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-json">tutorial from DigitalOcean</a> for
+an introduction to writing JSON.</p>
+</div>
 <h2 id="defining-a-code-list-configuration-file">Defining a code list configuration file</h2>
-<p>This approach allows defining a code list in a <em>code list configuration file</em>. The following example demonstrates the structure of a <em>code list configuration file</em>:</p>
+<p>This approach allows defining a code list in a <em>code list configuration file</em>. The following example demonstrates the
+structure of a <em>code list configuration file</em>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -1396,7 +1750,7 @@ See this <a href="https://www.digitalocean.com/community/tutorials/an-introducti
 </tr>
 <tr>
 <td><code>description</code></td>
-<td>Description of the contents in code list</td>
+<td>Description of the contents in code list; this field supports the <a href="https://www.markdownguide.org/getting-started/">markdown</a> format</td>
 <td><em>none</em></td>
 </tr>
 <tr>
@@ -1498,7 +1852,7 @@ See this <a href="https://www.digitalocean.com/community/tutorials/an-introducti
 <h4 id="using-same_as">Using <code>same_as</code></h4>
 <p>The <code>same_as</code> field allows using a concept defined elsewhere in the internet (e.g. <a href="http://statistics.data.gov.uk/id/statistical-geography/E92000001">E92 concept in Geography Linked Data</a>).</p>
 <h3 id="referencing-a-code-list-configuration-file">Referencing a code list configuration file</h3>
-<p>This new code list can be referenced in a <a href="../qube-config/">qube-config.json</a> file using the <code>code_list</code> field in <a href="../qube-config/#dimension-configuration">dimension configuration</a>, e.g.</p>
+<p>This new code list can be referenced in a <a href="../">qube-config.json</a> file using the <code>code_list</code> field in <a href="../#dimension-configuration">dimension configuration</a>, e.g.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
@@ -1518,7 +1872,7 @@ See this <a href="https://www.digitalocean.com/community/tutorials/an-introducti
 <a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="defining-an-in-line-code-list">Defining an in-line code list</h2>
-<p>It is also possible to define a code list configuration inside a <a href="../qube-config/">qube-config.json</a> file.</p>
+<p>It is also possible to define a code list configuration inside a <a href="../">qube-config.json</a> file.</p>
 <p>This approach is recommended for defining simple code lists (e.g. code lists with a small number of concepts or simple hierarchy).</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
@@ -1630,7 +1984,7 @@ See this <a href="https://www.digitalocean.com/community/tutorials/an-introducti
 </code></pre></div></td></tr></table></div>
 <p>As shown in the above example, an in-line code list is defined within the <code>qube-config.json</code> using the same fields discussed above. Moreover, one can choose to define a separate code list configuration file for one dimension and define an in-line code list for another dimension.</p>
 <h2 id="code-list-build-command">Code-list build command</h2>
-<p>It is possible to generate a code list CSV-W without providing a tidy-data.csv file using the <code>code-list build</code> command. Please refer to the <a href="../../command-line/code-list-build-command/">code-list build command documentation</a> page for a usage guide.</p>
+<p>It is possible to generate a code list CSV-W without providing a tidy-data.csv file using the <code>code-list build</code> command. Please refer to the <a href="../../../command-line/code-list-build-command/">code-list build command documentation</a> page for a usage guide.</p>
 
 
 
@@ -1643,10 +1997,10 @@ See this <a href="https://www.digitalocean.com/community/tutorials/an-introducti
           
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
-          </a>
+          </button>
         
       </main>
       
@@ -1673,10 +2027,10 @@ See this <a href="https://www.digitalocean.com/community/tutorials/an-introducti
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.instant", "navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.highlight", "navigation.instant", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.19047be9.min.js"></script>
       
     
   </body>
