@@ -1,0 +1,2191 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/dimensions/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../observations/">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>Dimension columns - csvcubed</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dimension-columns" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="csvcubed" class="md-header__button md-logo" aria-label="csvcubed" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csvcubed
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dimension columns
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GSS-Cogs/csvcubed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSS-Cogs/csvcubed
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="csvcubed" class="md-nav__button md-logo" aria-label="csvcubed" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    csvcubed
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GSS-Cogs/csvcubed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSS-Cogs/csvcubed
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../..">Home</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../quick-start/">Quick start</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Quick start
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../quick-start/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../quick-start/designing-csv/" class="md-nav__link">
+        Designing a CSV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../quick-start/build/" class="md-nav__link">
+        Building a CSV-W
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../quick-start/describing-csv/" class="md-nav__link">
+        Describing your CSV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../quick-start/linking-data/" class="md-nav__link">
+        Linking data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../quick-start/inspect/" class="md-nav__link">
+        Inspecting a CSV-W
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../">Guides</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Commands
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../command-line/build-command/" class="md-nav__link">
+        build
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../command-line/code-list-build-command/" class="md-nav__link">
+        code list build
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../command-line/inspect-command/" class="md-nav__link">
+        inspect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../command-line/logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../">Configuration</a>
+          
+            <label for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../convention/" class="md-nav__link">
+        By convention
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Explicit configuration</a>
+          
+            <label for="__nav_3_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Explicit configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metadata/" class="md-nav__link">
+        Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Column definitions</a>
+          
+            <label for="__nav_3_3_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Column definitions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dimension columns
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Dimension columns
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-dimension-column" class="md-nav__link">
+    What is a dimension column?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-one" class="md-nav__link">
+    When to use one
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    Basic configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label-description-and-definition" class="md-nav__link">
+    Label, description and definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-list-configuration" class="md-nav__link">
+    Code list configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Code list configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#link-to-an-externally-defined-code-list-uri" class="md-nav__link">
+    Link to an externally-defined code list (URI)
+  </a>
+  
+    <nav class="md-nav" aria-label="Link to an externally-defined code list (URI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-a-locally-defined-code-list-configjson" class="md-nav__link">
+    Use a locally-defined code-list-config.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-an-in-line-code-list" class="md-nav__link">
+    Define an in-line code list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suppress-a-code-list" class="md-nav__link">
+    Suppress a code list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dimension-column-templates" class="md-nav__link">
+    Dimension column templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-configuration" class="md-nav__link">
+    Advanced configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cell-uri-templates" class="md-nav__link">
+    Cell URI templates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observations/" class="md-nav__link">
+        Observations columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../measures/" class="md-nav__link">
+        Measures columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../units/" class="md-nav__link">
+        Units columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3_3_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../attributes/">Attribute columns</a>
+          
+            <label for="__nav_3_3_3_3_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_3_3_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_3_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Attribute columns
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attributes/attribute-resources/" class="md-nav__link">
+        Resource attributes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attributes/attribute-literals/" class="md-nav__link">
+        Literal attributes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../attributes/attribute-values/" class="md-nav__link">
+        Attribute values
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../templates/" class="md-nav__link">
+        Using templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../measure-definitions/" class="md-nav__link">
+        Measure definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unit-definitions/" class="md-nav__link">
+        Unit definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-list-config/" class="md-nav__link">
+        Code Lists
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../shape-data/">Shape your data</a>
+          
+            <label for="__nav_3_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Shape your data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shape-data/standard-shape/" class="md-nav__link">
+        Standard shape
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shape-data/pivoted-shape/" class="md-nav__link">
+        Pivoted shape
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shape-data/shape-conversion/" class="md-nav__link">
+        Shape conversion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../missing-observed-values/" class="md-nav__link">
+        Handling missing observed values
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../errors/">Errors</a>
+          
+            <label for="__nav_3_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Errors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../errors/build-command-errors/" class="md-nav__link">
+        build command errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../errors/inspect-command-errors/" class="md-nav__link">
+        inspect command errors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          Linked Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Linked Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linked-data/licenses/" class="md-nav__link">
+        Licenses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linked-data/organisations/" class="md-nav__link">
+        Organisations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linked-data/units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../raise-issue/" class="md-nav__link">
+        Raise an issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../uris/" class="md-nav__link">
+        Working with URIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../csv-to-csvw-github-action/" class="md-nav__link">
+        Build with GitHub
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../glossary/">Glossary</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Glossary
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-dimension-column" class="md-nav__link">
+    What is a dimension column?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-one" class="md-nav__link">
+    When to use one
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    Basic configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label-description-and-definition" class="md-nav__link">
+    Label, description and definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-list-configuration" class="md-nav__link">
+    Code list configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Code list configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#link-to-an-externally-defined-code-list-uri" class="md-nav__link">
+    Link to an externally-defined code list (URI)
+  </a>
+  
+    <nav class="md-nav" aria-label="Link to an externally-defined code list (URI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-a-locally-defined-code-list-configjson" class="md-nav__link">
+    Use a locally-defined code-list-config.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-an-in-line-code-list" class="md-nav__link">
+    Define an in-line code list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suppress-a-code-list" class="md-nav__link">
+    Suppress a code list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dimension-column-templates" class="md-nav__link">
+    Dimension column templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-configuration" class="md-nav__link">
+    Advanced configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cell-uri-templates" class="md-nav__link">
+    Cell URI templates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="dimension-columns">Dimension columns</h1>
+<p>This page discusses what a dimension column is, when one should be used, and how one can be defined.</p>
+<blockquote>
+<p>For a detailed look at a dimension column's configuration options, see the <a href="#reference">Reference table</a> at the bottom
+ of this page.</p>
+</blockquote>
+<h2 id="what-is-a-dimension-column">What is a dimension column?</h2>
+<p>A dimension column identifies the observations in a data set. In order to be valid, a data cube must include at least
+one dimension column; however, in practice, it is likely that your data set will contain more than one dimension.</p>
+<p>A combined set of dimension values (including the measure) uniquely identifies each observation in the data set. More
+specifically, the combined dimension values identify the sub-set of the population to which the observed value applies.</p>
+<p>Examples of dimensions include the time period to which the observation applies, or the geographic region which the
+observation covers, as demonstrated with the <code>Year</code> and <code>Region</code> columns in the table below:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Year</strong></th>
+<th align="left"><strong>Region</strong></th>
+<th align="center"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">2020</td>
+<td align="left">England</td>
+<td align="center">10.6</td>
+</tr>
+<tr>
+<td align="left">2021</td>
+<td align="left">Scotland</td>
+<td align="center">13.8</td>
+</tr>
+<tr>
+<td align="left">2022</td>
+<td align="left">Wales</td>
+<td align="center">9.43</td>
+</tr>
+</tbody>
+</table>
+<h2 id="when-to-use-one">When to use one</h2>
+<p>Dimensions are the fundamental building blocks of your data set, so your data set must always include at least one
+dimension.</p>
+<p><strong>If a column groups or identifies a sub-set of the population that your cube describes, then it is a dimension.</strong> Care
+should be taken when deciding whether a column represents a dimension or an <a href="../attributes/">attribute</a>. Attributes
+describe the observed value and <strong>should not</strong> identify a sub-set of your cube's population.</p>
+<p>Referring to the table above, <code>Year</code> and <code>Region</code> are the dimensions that partition the population into sub-sets. That
+is, <code>Year</code> and <code>Region</code> respectively identify the time period and geographic area to which the observed value relates.</p>
+<h2 id="basic-configuration">Basic configuration</h2>
+<p>If you do not provide a column configuration in your <code>qube-config.json</code> file for a column, then
+it will be <a href="../../../convention/">configured by convention</a>. This means that your column will be
+treated as a dimension by default unless it has a <a href="../../../convention/#conventional-column-names">reserved name</a>.</p>
+<p>If you provide a column mapping for your column, but you do not specify the <code>type</code> field, then csvcubed will
+automatically assume that your column is a dimension. It is also possible to explicitly set the column as a dimension
+by setting the column's <code>type</code> field to <code>dimension</code>. The following examples are therefore equivalent:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">   </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://purl.org/csv-cubed/qube-config/v1&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The title of the cube&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A description of the contents of the cube&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">   </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://purl.org/csv-cubed/qube-config/v1&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">   </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The title of the cube&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A description of the contents of the cube&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This minimal definition results in:</p>
+<ul>
+<li>the <code>label</code> field defaulting to the column titles (<code>Year</code> and <code>Region</code> in this example);</li>
+<li>a <code>code_list</code> being automatically generated for each column, containing the column's unique values.</li>
+</ul>
+<h2 id="label-description-and-definition">Label, description and definition</h2>
+<p>Additional details can be associated with the dimensions in your data set through the <code>label</code>, <code>description</code> and
+<code>definition_uri</code> fields.</p>
+<p>As mentioned above, the <code>label</code> field will default to the column title unless explicitly configured in the
+<code>qube-config.json</code> file. In the example below, the <code>Region</code> label is amended to <code>Geographic region</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">         </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Geographic region&quot;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>description</code> field can be used to provide a longer description of your dimension. If you want to provide
+information about your methodology, the <code>description</code> field is the preferred place for this.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The geographic region to which the observation relates; uses standard ONS Geography codes&quot;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>definition_uri</code> field allows you to refer to external human readable resources that further define a dimension's
+values:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">         </span><span class="nt">&quot;definition_uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://en.wikipedia.org/wiki/ONS_coding_system&quot;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="code-list-configuration">Code list configuration</h2>
+<blockquote>
+<p><a href="../../../../../glossary/#code-list">Code list</a> - A predefined set of codified concepts which represent the distinct
+values that a dimension can hold.</p>
+</blockquote>
+<p>One of the key principles of linked data is to connect data from different sources by reusing common definitions. Code
+lists are an important part of your data set where using linked data can make comparability with other cubes easy.</p>
+<p>By default, csvcubed will generate code lists for each of the dimensions in your data set. However, there are several
+configuration options for refining how your code lists are generated and expressed. These are briefly described below -
+full details can be found on the <a href="../../code-list-config/">Code list configuration</a> page.</p>
+<h3 id="link-to-an-externally-defined-code-list-uri">Link to an externally-defined code list (URI)</h3>
+<!-- TODO: Find an actual code list URI -->
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">         </span><span class="nt">&quot;code_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://statistics.data.gov.uk/data/statistical-geography/code-lists&quot;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="use-a-locally-defined-code-list-configjson">Use a locally-defined <a href="../../code-list-config/#defining-a-code-list-configuration-file">code-list-config.json</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">         </span><span class="nt">&quot;code_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;regions-code-list-config.json&quot;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="define-an-in-line-code-list">Define an <a href="../../code-list-config/#defining-an-in-line-code-list">in-line code list</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">         </span><span class="nt">&quot;code_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Geographic regions&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">            </span><span class="nt">&quot;concepts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">               </span><span class="p">{</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">                  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;E92000001&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">                  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;England&quot;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">               </span><span class="p">},</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">               </span><span class="p">{</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">                  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;S92000003&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">                  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Scotland&quot;</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">               </span><span class="p">},</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">               </span><span class="p">{</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="w">                  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;W92000004&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">                  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Wales&quot;</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">               </span><span class="p">}</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="suppress-a-code-list">Suppress a code list</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">         </span><span class="nt">&quot;code_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="dimension-column-templates">Dimension column templates</h2>
+<p>The <code>Region</code> column could also be configured by using a <a href="../../templates/">column template</a> - doing so means that the
+<code>type</code>, <code>from_existing</code>, <code>label</code> and <code>cell_uri_template</code> fields will be automatically populated based on the
+<code>statistical-geography</code> <a href="https://purl.org/csv-cubed/qube-config/templates/statistical-geography.json">template</a>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">         </span><span class="nt">&quot;from_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;statistical-geography&quot;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="inheritance">Inheritance</h2>
+<p>To reuse or extend an existing dimension, the <code>from_existing</code> field can be configured to link to a URI where the
+dimension to be reused or extended is defined.</p>
+<p>To reuse a parent dimension without making any changes to it, set the <code>from_existing</code> field to the URI defining the
+dimension to be reused:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">      </span><span class="nt">&quot;Year&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">         </span><span class="nt">&quot;from_existing&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://purl.org/linked-data/sdmx/2009/dimension#refPeriod&quot;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>To extend a parent dimension and create a new dimension from it, set the <code>from_existing</code> field to the URI defining the
+dimension to be reused, and set the <code>label</code> field to indicate that this is a new child dimension of
+<code>http://purl.org/linked-data/sdmx/2009/dimension#refArea</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span>
+<span class="normal"><a href="#__codelineno-11-7">7</a></span>
+<span class="normal"><a href="#__codelineno-11-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">      </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">         </span><span class="nt">&quot;from_existing&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://purl.org/linked-data/sdmx/2009/dimension#refArea&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">         </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Geographic region&quot;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="advanced-configuration">Advanced configuration</h2>
+<h3 id="cell-uri-templates">Cell URI templates</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The use of the <code>cell_uri_template</code> field is considered an advanced configuration option, and therefore care must be
+taken to ensure that the values generated are valid.</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">{</span><span class="w"> </span><span class="err">...</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">   </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">      </span><span class="nt">&quot;Song&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">         </span><span class="nt">&quot;from_existing&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.org/dimension/eurovision-songs&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">         </span><span class="nt">&quot;cell_uri_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.org/code-lists/eurovision-songs/{+song}&quot;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">      </span><span class="nt">&quot;Language&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">         </span><span class="nt">&quot;code_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">         </span><span class="nt">&quot;cell_uri_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.org/eurovision-languages/{+language}&quot;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>Song</code> and <code>Language</code> columns have both been configured with a <code>cell_uri_template</code> field. It is important to note
+that this field should only be used where the concept scheme is defined externally at an existing URI, or there is no
+concept scheme, but you want to point to an existing resource to provide additional context about the dimension's value.</p>
+<p>If <code>cell_uri_template</code> is specified:</p>
+<dl>
+<dt><strong>Either</strong></dt>
+<dd><code>from_existing</code> must also be defined, in which case <code>cell_uri_template</code> should refer to the concepts in the existing
+  dimension's code list;</dd>
+<dt><strong>Or</strong></dt>
+<dd><code>code_list</code> must be set as <code>false</code>, in which case <code>cell_uri_template</code> should refer to URIs which are existing RDF
+  resources.</dd>
+</dl>
+<p>The format of the <code>cell_uri_template</code> value <strong>must</strong> follow <a href="https://www.rfc-editor.org/rfc/rfc6570">RFC6570</a> guidance
+for URI Templates. Note that the only variable which can be used in a <code>cell_uri_template</code> references the column itself;
+the name of the variable can be calculated by applying the
+<a href="../../../../uris/#csv-column-name-safe-transformation">CSV column name safe transformation</a> to the CSV column title.</p>
+<h2 id="reference">Reference</h2>
+<p>This table shows a list of the possible fields that can be entered when configuring a dimension column.</p>
+<table>
+<thead>
+<tr>
+<th><strong>field name</strong></th>
+<th><strong>description</strong></th>
+<th><strong>default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>The type of the column. This can be left blank to configure a column as a dimension by default.</td>
+<td><em>dimension</em></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>The title of the column (Optional)</td>
+<td>The capital case version of the column header in the CSV file with spaces replacing underscores</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>A description of the contents of the column (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>from_template</code></td>
+<td>Use a <a href="../../templates/">column template</a> (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>from_existing</code></td>
+<td>The URI of the resource for reuse/extension (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>code_list</code></td>
+<td>Generate a code-list (true), suppress a code-list (false), file path to a <a href="../../code-list-config/#defining-a-code-list-configuration-file">code-list-config.json</a>, <a href="../../code-list-config/#defining-an-in-line-code-list">in-line code list</a> (JSON), or link to an externally-defined code list (URI)</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>definition_uri</code></td>
+<td>A URI of a resource to show how the column is created/managed (e.g. a URI of a PDF explaining a list of units) (Optional)</td>
+<td><em>none</em></td>
+</tr>
+<tr>
+<td><code>cell_uri_template</code></td>
+<td><strong>(Advanced)</strong> Override the URI generated for values within the URI (Optional)</td>
+<td><em>none</em></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.instant", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>
