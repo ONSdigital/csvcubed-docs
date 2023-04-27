@@ -2,507 +2,507 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/glossary/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/csv-to-csvw-github-action/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/installing-python/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/missing-observed-values/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/raise-issue/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/uris/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/command-line/build-command/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/command-line/code-list-build-command/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/command-line/inspect-command/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/command-line/logging/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/convention/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/code-list-config/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/measure-definitions/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/metadata/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/templates/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/unit-definitions/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/dimensions/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/measures/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/observations/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/units/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/attributes/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/attributes/attribute-literals/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/attributes/attribute-resources/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/configuration/qube-config/columns/attributes/attribute-values/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/attribute-no-uri-template-or-values/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/attribute-not-linked/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/both-measure-types-defined/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/both-unit-types-defined/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/column-definition-not-supported/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/column-not-found-in-data/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/column-validation/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/conflicting-uri-values/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/csv-column-literal-with-uri-template/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/csv-column-uri-template-missing/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/duplicate-column-title/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/duplicate-measures/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/empty-multi-measure-dimension/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/empty-multi-units/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/hybrid-shape-error/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/label-uri-collision/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/linked-obs-column-doesnt-exist/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/linked-to-non-obs-column/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/missing-column-definition/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/missing-uri-template-name-error/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/multiple-measure-columns/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/multiple-observations-columns/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/multiple-units-columns/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/no-dimensions-defined/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/no-measures-defined/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/no-observations-columns/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/no-units-defined/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/observed-values-missing/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/pivoted-obs-val-col-without-measure/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/pivoted-shape-measure-col-exist/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/reserved-uri-value/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/undefined-attribute-values/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/undefined-measures/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/undefined-units/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/build-command-errors/unknown-pydantic-error/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/ask-sparql-query-response-type-unexpected/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/ask-sparql-query-results-unexpected/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/comp-property-type-unsupported/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/csvw-content-read-failed/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/dataframe-load-failed/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/dataframe-to-string-convert-failed/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/error-processing-dataframe/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/feature-not-supported/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/invalid-csvw-content/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/invalid-num-of-dsd-comps-for-obs-val-col/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/invalid-num-of-unit-cols-for-obs-val-col-title/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/invalid-num-of-value-urls-for-about-url/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/invalid-pk-col-title/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/rdf-graph-load-failed/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/sparql-query-read-failed/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/table-schema-to-rdf-graph-load-failed/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/unexpected-num-of-records/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/unsupported-input/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/unsupported-num-of-primary-keys/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/linked-data/licenses/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/linked-data/organisations/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/linked-data/units/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/shape-data/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/shape-data/pivoted-shape/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/shape-data/shape-conversion/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/shape-data/standard-shape/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/quick-start/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/quick-start/build/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/quick-start/command-line/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/quick-start/describing-csv/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/quick-start/designing-csv/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/quick-start/inspect/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/quick-start/installation/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/quick-start/linking-data/</loc>
-         <lastmod>2023-04-26</lastmod>
+         <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
