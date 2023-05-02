@@ -1,0 +1,11 @@
+div.sphinxsidebarwrapper ul{
+    line-break: auto;
+    word-break: break-all;
+}
+div.sphinxsidebarwrapper li{
+    line-break: auto;
+    word-break: break-all;
+}
+div.sphinxsidebarwrapper{
+    background-color: blue;
+}
