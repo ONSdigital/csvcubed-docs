@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>csvcubed.utils.qb.validation package &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.utils.skos package" href="csvcubed.utils.skos.html" />
+    <link rel="prev" title="csvcubed.utils.qb package" href="csvcubed.utils.qb.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.utils.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l5 current"><a class="reference internal" href="csvcubed.utils.qb.html">csvcubed.utils.qb package</a><ul class="current">
+<li class="toctree-l6 current"><a class="reference internal" href="csvcubed.utils.qb.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l7 current"><a class="current reference internal" href="#">csvcubed.utils.qb.validation package</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.utils.qb.validation.cube">csvcubed.utils.qb.validation.cube module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.utils.qb.validation.cube.validate_qb_component_constraints"><code class="docutils literal notranslate"><span class="pre">validate_qb_component_constraints()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.utils.qb.validation.observations">csvcubed.utils.qb.validation.observations module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.utils.qb.validation.observations.get_observation_status_columns"><code class="docutils literal notranslate"><span class="pre">get_observation_status_columns()</span></code></a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.utils.qb.validation.observations.validate_observations"><code class="docutils literal notranslate"><span class="pre">validate_observations()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.utils.qb.validation.uri_safe">csvcubed.utils.qb.validation.uri_safe module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#uri-safe-validations">URI Safe Validations</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.utils.qb.validation.uri_safe.ensure_no_uri_safe_conflicts"><code class="docutils literal notranslate"><span class="pre">ensure_no_uri_safe_conflicts()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.utils.qb.validation">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.components">csvcubed.utils.qb.components module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.cube">csvcubed.utils.qb.cube module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.standardise">csvcubed.utils.qb.standardise module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.skos.html">csvcubed.utils.skos package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.validators.html">csvcubed.utils.validators package</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.cache">csvcubed.utils.cache module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.cli">csvcubed.utils.cli module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.createlocalcopyresponse">csvcubed.utils.createlocalcopyresponse module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.csvdataset">csvcubed.utils.csvdataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.csvw">csvcubed.utils.csvw module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.datetime">csvcubed.utils.datetime module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.dict">csvcubed.utils.dict module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.file">csvcubed.utils.file module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.iterables">csvcubed.utils.iterables module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.json">csvcubed.utils.json module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.log">csvcubed.utils.log module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.pandas">csvcubed.utils.pandas module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.printable">csvcubed.utils.printable module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.rdf">csvcubed.utils.rdf module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.tableschema">csvcubed.utils.tableschema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.text">csvcubed.utils.text module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.uri">csvcubed.utils.uri module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.validations">csvcubed.utils.validations module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.version">csvcubed.utils.version module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.definitions">csvcubed.definitions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.inputs">csvcubed.inputs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#csvcubed-zconf-module">csvcubed.zconf module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.utils.qb.validation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.skos.html" title="csvcubed.utils.skos package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.qb.html" title="csvcubed.utils.qb package"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.utils.html" >csvcubed.utils package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.utils.qb.html" accesskey="U">csvcubed.utils.qb package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.utils.qb.validation package</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-utils-qb-validation-package">
+<h1>csvcubed.utils.qb.validation package<a class="headerlink" href="#csvcubed-utils-qb-validation-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-csvcubed.utils.qb.validation.cube">
+<span id="csvcubed-utils-qb-validation-cube-module"></span><h2>csvcubed.utils.qb.validation.cube module<a class="headerlink" href="#module-csvcubed.utils.qb.validation.cube" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.validation.cube.validate_qb_component_constraints">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.validation.cube.</span></span><span class="sig-name descname"><span class="pre">validate_qb_component_constraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cube</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="csvcubed.models.cube.html#csvcubed.models.cube.cube.Cube" title="csvcubed.models.cube.cube.Cube"><span class="pre">Cube</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError" title="csvcubed.models.validationerror.ValidationError"><span class="pre">ValidationError</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.qb.validation.cube.validate_qb_component_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate a <code class="xref py py-class docutils literal notranslate"><span class="pre">QbCube</span></code> to highlight errors in configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError" title="csvcubed.models.validationerror.ValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationError</span></code></a> s.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-csvcubed.utils.qb.validation.observations">
+<span id="csvcubed-utils-qb-validation-observations-module"></span><h2>csvcubed.utils.qb.validation.observations module<a class="headerlink" href="#module-csvcubed.utils.qb.validation.observations" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.validation.observations.get_observation_status_columns">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.validation.observations.</span></span><span class="sig-name descname"><span class="pre">get_observation_status_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cube</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="csvcubed.models.cube.html#csvcubed.models.cube.cube.Cube" title="csvcubed.models.cube.cube.Cube"><span class="pre">Cube</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.html#csvcubed.models.cube.qb.columns.QbColumn" title="csvcubed.models.cube.qb.columns.QbColumn"><span class="pre">QbColumn</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.attribute.QbAttribute" title="csvcubed.models.cube.qb.components.attribute.QbAttribute"><span class="pre">QbAttribute</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.qb.validation.observations.get_observation_status_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns any columns in the given cube which represent <cite>sdmxa:obsStatus</cite> attributes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.validation.observations.validate_observations">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.validation.observations.</span></span><span class="sig-name descname"><span class="pre">validate_observations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cube</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="csvcubed.models.cube.html#csvcubed.models.cube.cube.Cube" title="csvcubed.models.cube.cube.Cube"><span class="pre">Cube</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError" title="csvcubed.models.validationerror.ValidationError"><span class="pre">ValidationError</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.qb.validation.observations.validate_observations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-csvcubed.utils.qb.validation.uri_safe">
+<span id="csvcubed-utils-qb-validation-uri-safe-module"></span><h2>csvcubed.utils.qb.validation.uri_safe module<a class="headerlink" href="#module-csvcubed.utils.qb.validation.uri_safe" title="Permalink to this heading">¶</a></h2>
+<section id="uri-safe-validations">
+<h3>URI Safe Validations<a class="headerlink" href="#uri-safe-validations" title="Permalink to this heading">¶</a></h3>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.validation.uri_safe.ensure_no_uri_safe_conflicts">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.validation.uri_safe.</span></span><span class="sig-name descname"><span class="pre">ensure_no_uri_safe_conflicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_with_uri_safe_identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offending_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidateModelPropertiesError" title="csvcubed.models.validationerror.ValidateModelPropertiesError"><span class="pre">ValidateModelPropertiesError</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.qb.validation.uri_safe.ensure_no_uri_safe_conflicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a list of tuples of <cite>(label, uri_safe_identifier)</cite> and identifies any duplicate mappings of
+<cite>label</cite> =&gt; <cite>uri_safe_identifier</cite>.</p>
+<p>:raises ConflictingUriSafeValuesError when conflicts are found.</p>
+</dd></dl>
+
+</section>
+<section id="module-csvcubed.utils.qb.validation">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-csvcubed.utils.qb.validation" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.utils.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l5 current"><a class="reference internal" href="csvcubed.utils.qb.html">csvcubed.utils.qb package</a><ul class="current">
+<li class="toctree-l6 current"><a class="reference internal" href="csvcubed.utils.qb.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l7 current"><a class="current reference internal" href="#">csvcubed.utils.qb.validation package</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.utils.qb.validation.cube">csvcubed.utils.qb.validation.cube module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.utils.qb.validation.cube.validate_qb_component_constraints"><code class="docutils literal notranslate"><span class="pre">validate_qb_component_constraints()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.utils.qb.validation.observations">csvcubed.utils.qb.validation.observations module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.utils.qb.validation.observations.get_observation_status_columns"><code class="docutils literal notranslate"><span class="pre">get_observation_status_columns()</span></code></a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.utils.qb.validation.observations.validate_observations"><code class="docutils literal notranslate"><span class="pre">validate_observations()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.utils.qb.validation.uri_safe">csvcubed.utils.qb.validation.uri_safe module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#uri-safe-validations">URI Safe Validations</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.utils.qb.validation.uri_safe.ensure_no_uri_safe_conflicts"><code class="docutils literal notranslate"><span class="pre">ensure_no_uri_safe_conflicts()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.utils.qb.validation">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.components">csvcubed.utils.qb.components module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.cube">csvcubed.utils.qb.cube module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.standardise">csvcubed.utils.qb.standardise module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.skos.html">csvcubed.utils.skos package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.validators.html">csvcubed.utils.validators package</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.cache">csvcubed.utils.cache module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.cli">csvcubed.utils.cli module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.createlocalcopyresponse">csvcubed.utils.createlocalcopyresponse module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.csvdataset">csvcubed.utils.csvdataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.csvw">csvcubed.utils.csvw module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.datetime">csvcubed.utils.datetime module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.dict">csvcubed.utils.dict module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.file">csvcubed.utils.file module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.iterables">csvcubed.utils.iterables module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.json">csvcubed.utils.json module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.log">csvcubed.utils.log module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.pandas">csvcubed.utils.pandas module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.printable">csvcubed.utils.printable module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.rdf">csvcubed.utils.rdf module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.tableschema">csvcubed.utils.tableschema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.text">csvcubed.utils.text module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.uri">csvcubed.utils.uri module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.validations">csvcubed.utils.validations module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.version">csvcubed.utils.version module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.definitions">csvcubed.definitions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.inputs">csvcubed.inputs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#csvcubed-zconf-module">csvcubed.zconf module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.utils.qb.validation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.skos.html" title="csvcubed.utils.skos package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.qb.html" title="csvcubed.utils.qb package"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.utils.html" >csvcubed.utils package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.utils.qb.html" >csvcubed.utils.qb package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.utils.qb.validation package</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2023, ONS.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>csvcubed package &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.cli package" href="csvcubed.cli.html" />
+    <link rel="prev" title="Welcome to csvcubed’s documentation!" href="index.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">csvcubed package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-csvcubed.definitions">csvcubed.definitions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definitions">Definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-csvcubed.inputs">csvcubed.inputs module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pandas-inputs">Pandas Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvcubed.inputs.pandas_input_to_columnar"><code class="docutils literal notranslate"><span class="pre">pandas_input_to_columnar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvcubed.inputs.pandas_input_to_columnar_list"><code class="docutils literal notranslate"><span class="pre">pandas_input_to_columnar_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvcubed.inputs.pandas_input_to_columnar_optional_str"><code class="docutils literal notranslate"><span class="pre">pandas_input_to_columnar_optional_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvcubed.inputs.pandas_input_to_columnar_str"><code class="docutils literal notranslate"><span class="pre">pandas_input_to_columnar_str()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#csvcubed-zconf-module">csvcubed.zconf module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-csvcubed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.cli.html" title="csvcubed.cli package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to csvcubed’s documentation!"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed package</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-package">
+<h1>csvcubed package<a class="headerlink" href="#csvcubed-package" title="Permalink to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.inspect.html">csvcubed.cli.inspect package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspect.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspect.html#csvcubed-cli-inspect-inspect-module">csvcubed.cli.inspect.inspect module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspect.html#csvcubed-cli-inspect-inspectdatasetmanager-module">csvcubed.cli.inspect.inspectdatasetmanager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspect.html#csvcubed-cli-inspect-metadatainputvalidator-module">csvcubed.cli.inspect.metadatainputvalidator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspect.html#csvcubed-cli-inspect-metadataprinter-module">csvcubed.cli.inspect.metadataprinter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspect.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html#csvcubed-cli-build-module">csvcubed.cli.build module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html#csvcubed-cli-build-code-list-module">csvcubed.cli.build_code_list module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli.entrypoint">csvcubed.cli.entrypoint module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html#cli">CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli.error_mapping">csvcubed.cli.error_mapping module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html#csvcubed.cli.error_mapping.friendly_error_mapping"><code class="docutils literal notranslate"><span class="pre">friendly_error_mapping()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.codelistconfig.html">csvcubed.models.codelistconfig package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.codelistconfig.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.codelistconfig.html#module-csvcubed.models.codelistconfig.code_list_config">csvcubed.models.codelistconfig.code_list_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.codelistconfig.html#module-csvcubed.models.codelistconfig">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.html">csvcubed.models.cube package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#module-csvcubed.models.cube.catalog">csvcubed.models.cube.catalog module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#module-csvcubed.models.cube.columns">csvcubed.models.cube.columns module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#module-csvcubed.models.cube.cube">csvcubed.models.cube.cube module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#module-csvcubed.models.cube.cube_shape">csvcubed.models.cube.cube_shape module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#module-csvcubed.models.cube.uristyle">csvcubed.models.cube.uristyle module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#module-csvcubed.models.cube.validationerrors">csvcubed.models.cube.validationerrors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.html#module-csvcubed.models.cube">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.rdf.html">csvcubed.models.rdf package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.rdf.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.rdf.html#module-csvcubed.models.rdf.conceptschemeincatalog">csvcubed.models.rdf.conceptschemeincatalog module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.rdf.html#module-csvcubed.models.rdf.newattributevalueresource">csvcubed.models.rdf.newattributevalueresource module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.rdf.html#module-csvcubed.models.rdf.newunitresource">csvcubed.models.rdf.newunitresource module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.rdf.html#module-csvcubed.models.rdf.prov">csvcubed.models.rdf.prov module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.rdf.html#module-csvcubed.models.rdf.qbdatasetincatalog">csvcubed.models.rdf.qbdatasetincatalog module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.rdf.html#module-csvcubed.models.rdf">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.sparql.html">csvcubed.models.sparql package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.sparql.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.sparql.html#module-csvcubed.models.sparql.valuesbinding">csvcubed.models.sparql.valuesbinding module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.sparql.html#module-csvcubed.models.sparql">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.csvcubedexception">csvcubed.models.csvcubedexception module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvToDataFrameLoadFailedException"><code class="docutils literal notranslate"><span class="pre">CsvToDataFrameLoadFailedException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvToDataFrameLoadFailedException.get_error_url"><code class="docutils literal notranslate"><span class="pre">CsvToDataFrameLoadFailedException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedException"><code class="docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.CsvToDataFrameLoadFailed"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.CsvToDataFrameLoadFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.ErrorProcessingDataFrame"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.ErrorProcessingDataFrame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToConvertDataFrameToString"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.FailedToConvertDataFrameToString</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToLoadRDFGraph"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.FailedToLoadRDFGraph</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToLoadTableSchemaIntoRdfGraph"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.FailedToLoadTableSchemaIntoRdfGraph</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToReadCsvwFileContent"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.FailedToReadCsvwFileContent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToReadSparqlQuery"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.FailedToReadSparqlQuery</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FeatureNotSupported"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.FeatureNotSupported</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InputNotSupported"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.InputNotSupported</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidCsvwFileContent"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.InvalidCsvwFileContent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfDSDComponentsForObsValColTitle"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.InvalidNumOfDSDComponentsForObsValColTitle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfUnitColsForObsValColTitle"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.InvalidNumOfUnitColsForObsValColTitle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfValUrlsForAboutUrl"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.InvalidNumOfValUrlsForAboutUrl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumberOfRecords"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.InvalidNumberOfRecords</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.PrimaryKeyColumnTitleCannotBeNone"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.PrimaryKeyColumnTitleCannotBeNone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnexpectedSparqlAskQueryResponseType"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.UnexpectedSparqlAskQueryResponseType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnexpectedSparqlAskQueryResults"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.UnexpectedSparqlAskQueryResults</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedColumnDefinition"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.UnsupportedColumnDefinition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedComponentPropertyType"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.UnsupportedComponentPropertyType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedNumberOfPrimaryKeyColNames"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionMsges.UnsupportedNumberOfPrimaryKeyColNames</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.CsvToDataFrameLoadFailed"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.CsvToDataFrameLoadFailed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.ErrorProcessingDataFrame"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.ErrorProcessingDataFrame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToConvertDataFrameToString"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.FailedToConvertDataFrameToString</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToLoadRDFGraph"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.FailedToLoadRDFGraph</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToLoadTableSchemaIntoRdfGraph"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.FailedToLoadTableSchemaIntoRdfGraph</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToReadCsvwFileContent"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.FailedToReadCsvwFileContent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToReadSparqlQuery"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.FailedToReadSparqlQuery</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FeatureNotSupported"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.FeatureNotSupported</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InputNotSupported"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.InputNotSupported</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidCsvwFileContent"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.InvalidCsvwFileContent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfDSDComponentsForObsValColTitle"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.InvalidNumOfDSDComponentsForObsValColTitle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfUnitColsForObsValColTitle"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.InvalidNumOfUnitColsForObsValColTitle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfValUrlsForAboutUrl"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.InvalidNumOfValUrlsForAboutUrl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumberOfRecords"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.InvalidNumberOfRecords</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.PrimaryKeyColumnTitleCannotBeNone"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.PrimaryKeyColumnTitleCannotBeNone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnexpectedSparqlAskQueryResponseType"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.UnexpectedSparqlAskQueryResponseType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnexpectedSparqlAskQueryResults"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.UnexpectedSparqlAskQueryResults</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedColumnDefinition"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.UnsupportedColumnDefinition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedComponentPropertyType"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.UnsupportedComponentPropertyType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedNumberOfPrimaryKeyColNames"><code class="docutils literal notranslate"><span class="pre">CsvcubedExceptionUrls.UnsupportedNumberOfPrimaryKeyColNames</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.ErrorProcessingDataFrameException"><code class="docutils literal notranslate"><span class="pre">ErrorProcessingDataFrameException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.ErrorProcessingDataFrameException.get_error_url"><code class="docutils literal notranslate"><span class="pre">ErrorProcessingDataFrameException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToConvertDataFrameToStringException"><code class="docutils literal notranslate"><span class="pre">FailedToConvertDataFrameToStringException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToConvertDataFrameToStringException.get_error_url"><code class="docutils literal notranslate"><span class="pre">FailedToConvertDataFrameToStringException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToLoadRDFGraphException"><code class="docutils literal notranslate"><span class="pre">FailedToLoadRDFGraphException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToLoadRDFGraphException.get_error_url"><code class="docutils literal notranslate"><span class="pre">FailedToLoadRDFGraphException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToLoadTableSchemaIntoRdfGraphException"><code class="docutils literal notranslate"><span class="pre">FailedToLoadTableSchemaIntoRdfGraphException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToLoadTableSchemaIntoRdfGraphException.get_error_url"><code class="docutils literal notranslate"><span class="pre">FailedToLoadTableSchemaIntoRdfGraphException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToReadCsvwFileContentException"><code class="docutils literal notranslate"><span class="pre">FailedToReadCsvwFileContentException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToReadCsvwFileContentException.get_error_url"><code class="docutils literal notranslate"><span class="pre">FailedToReadCsvwFileContentException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToReadSparqlQueryException"><code class="docutils literal notranslate"><span class="pre">FailedToReadSparqlQueryException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FailedToReadSparqlQueryException.get_error_url"><code class="docutils literal notranslate"><span class="pre">FailedToReadSparqlQueryException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FeatureNotSupportedException"><code class="docutils literal notranslate"><span class="pre">FeatureNotSupportedException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.FeatureNotSupportedException.get_error_url"><code class="docutils literal notranslate"><span class="pre">FeatureNotSupportedException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InputNotSupportedException"><code class="docutils literal notranslate"><span class="pre">InputNotSupportedException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InputNotSupportedException.get_error_url"><code class="docutils literal notranslate"><span class="pre">InputNotSupportedException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidCsvwFileContentException"><code class="docutils literal notranslate"><span class="pre">InvalidCsvwFileContentException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidCsvwFileContentException.get_error_url"><code class="docutils literal notranslate"><span class="pre">InvalidCsvwFileContentException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidNumOfDSDComponentsForObsValColTitleException"><code class="docutils literal notranslate"><span class="pre">InvalidNumOfDSDComponentsForObsValColTitleException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidNumOfDSDComponentsForObsValColTitleException.get_error_url"><code class="docutils literal notranslate"><span class="pre">InvalidNumOfDSDComponentsForObsValColTitleException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidNumberOfRecordsException"><code class="docutils literal notranslate"><span class="pre">InvalidNumberOfRecordsException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidNumberOfRecordsException.get_error_url"><code class="docutils literal notranslate"><span class="pre">InvalidNumberOfRecordsException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidObservationColumnTitle"><code class="docutils literal notranslate"><span class="pre">InvalidObservationColumnTitle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidObservationColumnTitle.get_error_url"><code class="docutils literal notranslate"><span class="pre">InvalidObservationColumnTitle.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidUnitColumnDefinition"><code class="docutils literal notranslate"><span class="pre">InvalidUnitColumnDefinition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.InvalidUnitColumnDefinition.get_error_url"><code class="docutils literal notranslate"><span class="pre">InvalidUnitColumnDefinition.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.PrimaryKeyColumnTitleCannotBeNoneException"><code class="docutils literal notranslate"><span class="pre">PrimaryKeyColumnTitleCannotBeNoneException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.PrimaryKeyColumnTitleCannotBeNoneException.get_error_url"><code class="docutils literal notranslate"><span class="pre">PrimaryKeyColumnTitleCannotBeNoneException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResponseTypeException"><code class="docutils literal notranslate"><span class="pre">UnexpectedSparqlAskQueryResponseTypeException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResponseTypeException.get_error_url"><code class="docutils literal notranslate"><span class="pre">UnexpectedSparqlAskQueryResponseTypeException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResultsException"><code class="docutils literal notranslate"><span class="pre">UnexpectedSparqlAskQueryResultsException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResultsException.get_error_url"><code class="docutils literal notranslate"><span class="pre">UnexpectedSparqlAskQueryResultsException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnsupportedColumnDefinitionException"><code class="docutils literal notranslate"><span class="pre">UnsupportedColumnDefinitionException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnsupportedColumnDefinitionException.get_error_url"><code class="docutils literal notranslate"><span class="pre">UnsupportedColumnDefinitionException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnsupportedComponentPropertyTypeException"><code class="docutils literal notranslate"><span class="pre">UnsupportedComponentPropertyTypeException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnsupportedComponentPropertyTypeException.get_error_url"><code class="docutils literal notranslate"><span class="pre">UnsupportedComponentPropertyTypeException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnsupportedNumOfPrimaryKeyColNamesException"><code class="docutils literal notranslate"><span class="pre">UnsupportedNumOfPrimaryKeyColNamesException</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvcubedexception.UnsupportedNumOfPrimaryKeyColNamesException.get_error_url"><code class="docutils literal notranslate"><span class="pre">UnsupportedNumOfPrimaryKeyColNamesException.get_error_url()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.csvwtype">csvcubed.models.csvwtype module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvwtype.CSVWType"><code class="docutils literal notranslate"><span class="pre">CSVWType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvwtype.CSVWType.CodeList"><code class="docutils literal notranslate"><span class="pre">CSVWType.CodeList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvwtype.CSVWType.Other"><code class="docutils literal notranslate"><span class="pre">CSVWType.Other</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.csvwtype.CSVWType.QbDataSet"><code class="docutils literal notranslate"><span class="pre">CSVWType.QbDataSet</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.errorurl">csvcubed.models.errorurl module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed-error-url-specific-funtionalities">Csvcubed Error url specific funtionalities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.errorurl.HasErrorUrl"><code class="docutils literal notranslate"><span class="pre">HasErrorUrl</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.errorurl.HasErrorUrl.get_error_url"><code class="docutils literal notranslate"><span class="pre">HasErrorUrl.get_error_url()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.inspectdataframeresults">csvcubed.models.inspectdataframeresults module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#inspect-dataframe-query-results">Inspect Dataframe query results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.CodelistHierarchyInfoResult"><code class="docutils literal notranslate"><span class="pre">CodelistHierarchyInfoResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.CodelistHierarchyInfoResult.output_str"><code class="docutils literal notranslate"><span class="pre">CodelistHierarchyInfoResult.output_str</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.CodelistHierarchyInfoResult.tree"><code class="docutils literal notranslate"><span class="pre">CodelistHierarchyInfoResult.tree</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsByMeasureUnitInfoResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult.by_measure_and_unit_val_counts_df"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsByMeasureUnitInfoResult.by_measure_and_unit_val_counts_df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult.output_str"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsByMeasureUnitInfoResult.output_str</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsInfoResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult.csvw_type"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsInfoResult.csvw_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult.cube_shape"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsInfoResult.cube_shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult.dataset_head"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsInfoResult.dataset_head</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult.dataset_tail"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsInfoResult.dataset_tail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult.num_of_duplicates"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsInfoResult.num_of_duplicates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult.num_of_observations"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsInfoResult.num_of_observations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult.output_str"><code class="docutils literal notranslate"><span class="pre">DatasetObservationsInfoResult.output_str</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetSingleMeasureResult"><code class="docutils literal notranslate"><span class="pre">DatasetSingleMeasureResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetSingleMeasureResult.measure_label"><code class="docutils literal notranslate"><span class="pre">DatasetSingleMeasureResult.measure_label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.inspectdataframeresults.DatasetSingleMeasureResult.measure_uri"><code class="docutils literal notranslate"><span class="pre">DatasetSingleMeasureResult.measure_uri</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.jsonvalidationerrors">csvcubed.models.jsonvalidationerrors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#json-validation-errors">JSON Validation Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.AnyOneOfJsonSchemaValidationError"><code class="docutils literal notranslate"><span class="pre">AnyOneOfJsonSchemaValidationError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.AnyOneOfJsonSchemaValidationError.get_children"><code class="docutils literal notranslate"><span class="pre">AnyOneOfJsonSchemaValidationError.get_children()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.AnyOneOfJsonSchemaValidationError.possible_types_with_grouped_errors"><code class="docutils literal notranslate"><span class="pre">AnyOneOfJsonSchemaValidationError.possible_types_with_grouped_errors</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.GenericJsonSchemaValidationError"><code class="docutils literal notranslate"><span class="pre">GenericJsonSchemaValidationError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.GenericJsonSchemaValidationError.children"><code class="docutils literal notranslate"><span class="pre">GenericJsonSchemaValidationError.children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.GenericJsonSchemaValidationError.get_children"><code class="docutils literal notranslate"><span class="pre">GenericJsonSchemaValidationError.get_children()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError.as_dict"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError.as_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError.get_children"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError.get_children()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError.json_path"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError.json_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError.message"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError.message</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError.offending_value"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError.offending_value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError.schema"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError.schema</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError.schema_validator_type"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError.schema_validator_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError.to_display_string"><code class="docutils literal notranslate"><span class="pre">JsonSchemaValidationError.to_display_string()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.sparqlresults">csvcubed.models.sparqlresults module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#sparql-query-results">SPARQL query results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CSVWTableSchemaFileDependenciesResult"><code class="docutils literal notranslate"><span class="pre">CSVWTableSchemaFileDependenciesResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CSVWTableSchemaFileDependenciesResult.table_schema_file_dependencies"><code class="docutils literal notranslate"><span class="pre">CSVWTableSchemaFileDependenciesResult.table_schema_file_dependencies</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.comment"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.comment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.contact_point"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.contact_point</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.creator"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.creator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.dataset_uri"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.dataset_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.description"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.graph_uri"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.graph_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.identifier"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.identifier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.issued"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.issued</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.keywords"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.keywords</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.label"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.landing_pages"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.landing_pages</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.license"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.license</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.modified"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.modified</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.output_str"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.output_str</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.publisher"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.publisher</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.themes"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.themes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CatalogMetadataResult.title"><code class="docutils literal notranslate"><span class="pre">CatalogMetadataResult.title</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodeListColsByDatasetUrlResult"><code class="docutils literal notranslate"><span class="pre">CodeListColsByDatasetUrlResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodeListColsByDatasetUrlResult.columns"><code class="docutils literal notranslate"><span class="pre">CodeListColsByDatasetUrlResult.columns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodeListTableIdentifers"><code class="docutils literal notranslate"><span class="pre">CodeListTableIdentifers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodeListTableIdentifers.concept_scheme_url"><code class="docutils literal notranslate"><span class="pre">CodeListTableIdentifers.concept_scheme_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodeListTableIdentifers.csv_url"><code class="docutils literal notranslate"><span class="pre">CodeListTableIdentifers.csv_url</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistColumnResult"><code class="docutils literal notranslate"><span class="pre">CodelistColumnResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistColumnResult.column_name"><code class="docutils literal notranslate"><span class="pre">CodelistColumnResult.column_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistColumnResult.column_property_url"><code class="docutils literal notranslate"><span class="pre">CodelistColumnResult.column_property_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistColumnResult.column_title"><code class="docutils literal notranslate"><span class="pre">CodelistColumnResult.column_title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistColumnResult.column_value_url"><code class="docutils literal notranslate"><span class="pre">CodelistColumnResult.column_value_url</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistResult"><code class="docutils literal notranslate"><span class="pre">CodelistResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistResult.code_list"><code class="docutils literal notranslate"><span class="pre">CodelistResult.code_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistResult.code_list_label"><code class="docutils literal notranslate"><span class="pre">CodelistResult.code_list_label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistResult.cols_used_in"><code class="docutils literal notranslate"><span class="pre">CodelistResult.cols_used_in</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistResult.csv_url"><code class="docutils literal notranslate"><span class="pre">CodelistResult.csv_url</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistsResult"><code class="docutils literal notranslate"><span class="pre">CodelistsResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistsResult.codelists"><code class="docutils literal notranslate"><span class="pre">CodelistsResult.codelists</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CodelistsResult.num_codelists"><code class="docutils literal notranslate"><span class="pre">CodelistsResult.num_codelists</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.about_url"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.about_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.csv_url"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.csv_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.data_type"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.data_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.name"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.property_url"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.property_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.required"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.suppress_output"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.suppress_output</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.title"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.value_url"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.value_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ColumnDefinition.virtual"><code class="docutils literal notranslate"><span class="pre">ColumnDefinition.virtual</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CubeTableIdentifiers"><code class="docutils literal notranslate"><span class="pre">CubeTableIdentifiers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CubeTableIdentifiers.csv_url"><code class="docutils literal notranslate"><span class="pre">CubeTableIdentifiers.csv_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CubeTableIdentifiers.data_set_url"><code class="docutils literal notranslate"><span class="pre">CubeTableIdentifiers.data_set_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.CubeTableIdentifiers.dsd_uri"><code class="docutils literal notranslate"><span class="pre">CubeTableIdentifiers.dsd_uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.IsPivotedShapeMeasureResult"><code class="docutils literal notranslate"><span class="pre">IsPivotedShapeMeasureResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.IsPivotedShapeMeasureResult.csv_url"><code class="docutils literal notranslate"><span class="pre">IsPivotedShapeMeasureResult.csv_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.IsPivotedShapeMeasureResult.is_pivoted_shape"><code class="docutils literal notranslate"><span class="pre">IsPivotedShapeMeasureResult.is_pivoted_shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.IsPivotedShapeMeasureResult.measure"><code class="docutils literal notranslate"><span class="pre">IsPivotedShapeMeasureResult.measure</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.MetadataDependenciesResult"><code class="docutils literal notranslate"><span class="pre">MetadataDependenciesResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.MetadataDependenciesResult.data_dump"><code class="docutils literal notranslate"><span class="pre">MetadataDependenciesResult.data_dump</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.MetadataDependenciesResult.data_set"><code class="docutils literal notranslate"><span class="pre">MetadataDependenciesResult.data_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.MetadataDependenciesResult.uri_space"><code class="docutils literal notranslate"><span class="pre">MetadataDependenciesResult.uri_space</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.PrimaryKeyColNameByDatasetUrlResult"><code class="docutils literal notranslate"><span class="pre">PrimaryKeyColNameByDatasetUrlResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.PrimaryKeyColNameByDatasetUrlResult.value"><code class="docutils literal notranslate"><span class="pre">PrimaryKeyColNameByDatasetUrlResult.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.PrimaryKeyColNamesByDatasetUrlResult"><code class="docutils literal notranslate"><span class="pre">PrimaryKeyColNamesByDatasetUrlResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.PrimaryKeyColNamesByDatasetUrlResult.primary_key_col_names"><code class="docutils literal notranslate"><span class="pre">PrimaryKeyColNamesByDatasetUrlResult.primary_key_col_names</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult.component"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult.component</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult.dsd_uri"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult.dsd_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult.property"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult.property</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult.property_label"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult.property_label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult.property_type"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult.property_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult.real_columns_used_in"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult.real_columns_used_in</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult.required"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult.required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentResult.used_by_observed_value_columns"><code class="docutils literal notranslate"><span class="pre">QubeComponentResult.used_by_observed_value_columns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentsResult"><code class="docutils literal notranslate"><span class="pre">QubeComponentsResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentsResult.num_components"><code class="docutils literal notranslate"><span class="pre">QubeComponentsResult.num_components</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.QubeComponentsResult.qube_components"><code class="docutils literal notranslate"><span class="pre">QubeComponentsResult.qube_components</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ResourceURILabelResult"><code class="docutils literal notranslate"><span class="pre">ResourceURILabelResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ResourceURILabelResult.resource_label"><code class="docutils literal notranslate"><span class="pre">ResourceURILabelResult.resource_label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.ResourceURILabelResult.resource_uri"><code class="docutils literal notranslate"><span class="pre">ResourceURILabelResult.resource_uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.TableSchemaPropertiesResult"><code class="docutils literal notranslate"><span class="pre">TableSchemaPropertiesResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.TableSchemaPropertiesResult.about_url"><code class="docutils literal notranslate"><span class="pre">TableSchemaPropertiesResult.about_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.TableSchemaPropertiesResult.csv_url"><code class="docutils literal notranslate"><span class="pre">TableSchemaPropertiesResult.csv_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.TableSchemaPropertiesResult.primary_key_col_names"><code class="docutils literal notranslate"><span class="pre">TableSchemaPropertiesResult.primary_key_col_names</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.UnitResult"><code class="docutils literal notranslate"><span class="pre">UnitResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.UnitResult.unit_label"><code class="docutils literal notranslate"><span class="pre">UnitResult.unit_label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.UnitResult.unit_uri"><code class="docutils literal notranslate"><span class="pre">UnitResult.unit_uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_catalog_metadata_results"><code class="docutils literal notranslate"><span class="pre">map_catalog_metadata_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_codelists_sparql_result"><code class="docutils literal notranslate"><span class="pre">map_codelists_sparql_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_column_definition_results"><code class="docutils literal notranslate"><span class="pre">map_column_definition_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_csvw_table_schemas_file_dependencies_result"><code class="docutils literal notranslate"><span class="pre">map_csvw_table_schemas_file_dependencies_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_data_set_dsd_csv_url_result"><code class="docutils literal notranslate"><span class="pre">map_data_set_dsd_csv_url_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_is_pivoted_shape_for_measures_in_data_set"><code class="docutils literal notranslate"><span class="pre">map_is_pivoted_shape_for_measures_in_data_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_labels_for_resource_uris"><code class="docutils literal notranslate"><span class="pre">map_labels_for_resource_uris()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_metadata_dependency_results"><code class="docutils literal notranslate"><span class="pre">map_metadata_dependency_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_primary_key_col_names_by_csv_url_result"><code class="docutils literal notranslate"><span class="pre">map_primary_key_col_names_by_csv_url_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_qube_components_sparql_result"><code class="docutils literal notranslate"><span class="pre">map_qube_components_sparql_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_table_schema_properties_results"><code class="docutils literal notranslate"><span class="pre">map_table_schema_properties_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.sparqlresults.map_units"><code class="docutils literal notranslate"><span class="pre">map_units()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.uriidentifiable">csvcubed.models.uriidentifiable module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#uri-identifiable">URI Identifiable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.uriidentifiable.UriIdentifiable"><code class="docutils literal notranslate"><span class="pre">UriIdentifiable</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.uriidentifiable.UriIdentifiable.get_identifier"><code class="docutils literal notranslate"><span class="pre">UriIdentifiable.get_identifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.uriidentifiable.UriIdentifiable.uri_safe_identifier"><code class="docutils literal notranslate"><span class="pre">UriIdentifiable.uri_safe_identifier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.uriidentifiable.UriIdentifiable.uri_safe_identifier_override"><code class="docutils literal notranslate"><span class="pre">UriIdentifiable.uri_safe_identifier_override</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.validatedmodel">csvcubed.models.validatedmodel module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validatedmodel.ValidatedModel"><code class="docutils literal notranslate"><span class="pre">ValidatedModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validatedmodel.ValidatedModel.validate"><code class="docutils literal notranslate"><span class="pre">ValidatedModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validatedmodel.Validations"><code class="docutils literal notranslate"><span class="pre">Validations</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validatedmodel.Validations.individual_property_validations"><code class="docutils literal notranslate"><span class="pre">Validations.individual_property_validations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validatedmodel.Validations.whole_object_validations"><code class="docutils literal notranslate"><span class="pre">Validations.whole_object_validations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models.validationerror">csvcubed.models.validationerror module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#validationerror">ValidationError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ConflictingUriSafeValuesError"><code class="docutils literal notranslate"><span class="pre">ConflictingUriSafeValuesError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ConflictingUriSafeValuesError.component_type"><code class="docutils literal notranslate"><span class="pre">ConflictingUriSafeValuesError.component_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ConflictingUriSafeValuesError.get_error_url"><code class="docutils literal notranslate"><span class="pre">ConflictingUriSafeValuesError.get_error_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ConflictingUriSafeValuesError.map_uri_safe_values_to_conflicting_labels"><code class="docutils literal notranslate"><span class="pre">ConflictingUriSafeValuesError.map_uri_safe_values_to_conflicting_labels</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ReservedUriValueError"><code class="docutils literal notranslate"><span class="pre">ReservedUriValueError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ReservedUriValueError.component"><code class="docutils literal notranslate"><span class="pre">ReservedUriValueError.component</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ReservedUriValueError.conflicting_values"><code class="docutils literal notranslate"><span class="pre">ReservedUriValueError.conflicting_values</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ReservedUriValueError.get_error_url"><code class="docutils literal notranslate"><span class="pre">ReservedUriValueError.get_error_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ReservedUriValueError.reserved_identifier"><code class="docutils literal notranslate"><span class="pre">ReservedUriValueError.reserved_identifier</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError"><code class="docutils literal notranslate"><span class="pre">SpecificValidationError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.SpecificValidationError.message"><code class="docutils literal notranslate"><span class="pre">SpecificValidationError.message</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidateModelPropertiesError"><code class="docutils literal notranslate"><span class="pre">ValidateModelPropertiesError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidateModelPropertiesError.offending_value"><code class="docutils literal notranslate"><span class="pre">ValidateModelPropertiesError.offending_value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidateModelPropertiesError.property_path"><code class="docutils literal notranslate"><span class="pre">ValidateModelPropertiesError.property_path</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError"><code class="docutils literal notranslate"><span class="pre">ValidationError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError.message"><code class="docutils literal notranslate"><span class="pre">ValidationError.message</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html#module-csvcubed.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.catalogmetadata.html">csvcubed.readers.catalogmetadata package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.catalogmetadata.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.catalogmetadata.html#module-csvcubed.readers.catalogmetadata">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.html">csvcubed.readers.cubeconfig package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig.schema_versions">csvcubed.readers.cubeconfig.schema_versions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig.utils">csvcubed.readers.cubeconfig.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html#module-csvcubed.readers.preconfiguredtemplates">csvcubed.readers.preconfiguredtemplates module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.html#pre-configured-json-templates">Pre-configured JSON Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.html#csvcubed.readers.preconfiguredtemplates.apply_preconfigured_values_from_template"><code class="docutils literal notranslate"><span class="pre">apply_preconfigured_values_from_template()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html#csvcubed-readers-skoscodelistreader-module">csvcubed.readers.skoscodelistreader module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html#module-csvcubed.readers">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.html#readers">Readers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.qb.html">csvcubed.utils.qb package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.components">csvcubed.utils.qb.components module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.cube">csvcubed.utils.qb.cube module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb.standardise">csvcubed.utils.qb.standardise module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.html#module-csvcubed.utils.qb">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.skos.html">csvcubed.utils.skos package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.skos.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.skos.html#module-csvcubed.utils.skos.codelist">csvcubed.utils.skos.codelist module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.skos.html#module-csvcubed.utils.skos">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.html#module-csvcubed.utils.sparql_handler.code_list_inspector">csvcubed.utils.sparql_handler.code_list_inspector module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.html#module-csvcubed.utils.sparql_handler.column_component_info">csvcubed.utils.sparql_handler.column_component_info module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.html#module-csvcubed.utils.sparql_handler.csvw_inspector">csvcubed.utils.sparql_handler.csvw_inspector module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.html#module-csvcubed.utils.sparql_handler.data_cube_inspector">csvcubed.utils.sparql_handler.data_cube_inspector module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.html#module-csvcubed.utils.sparql_handler.sparql">csvcubed.utils.sparql_handler.sparql module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.html#module-csvcubed.utils.sparql_handler.sparqlquerymanager">csvcubed.utils.sparql_handler.sparqlquerymanager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.html#module-csvcubed.utils.sparql_handler">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.validators.html">csvcubed.utils.validators package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.validators.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.validators.html#module-csvcubed.utils.validators.schema">csvcubed.utils.validators.schema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.validators.html#module-csvcubed.utils.validators">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.cache">csvcubed.utils.cache module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.cli">csvcubed.utils.cli module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#cli">CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.cli.log_validation_and_json_schema_errors"><code class="docutils literal notranslate"><span class="pre">log_validation_and_json_schema_errors()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.createlocalcopyresponse">csvcubed.utils.createlocalcopyresponse module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.createlocalcopyresponse.AdapterToServeLocalFileWhenHTTPRequestFails"><code class="docutils literal notranslate"><span class="pre">AdapterToServeLocalFileWhenHTTPRequestFails</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.createlocalcopyresponse.AdapterToServeLocalFileWhenHTTPRequestFails.close"><code class="docutils literal notranslate"><span class="pre">AdapterToServeLocalFileWhenHTTPRequestFails.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.createlocalcopyresponse.AdapterToServeLocalFileWhenHTTPRequestFails.http_adapter"><code class="docutils literal notranslate"><span class="pre">AdapterToServeLocalFileWhenHTTPRequestFails.http_adapter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.createlocalcopyresponse.AdapterToServeLocalFileWhenHTTPRequestFails.send"><code class="docutils literal notranslate"><span class="pre">AdapterToServeLocalFileWhenHTTPRequestFails.send()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.csvdataset">csvcubed.utils.csvdataset module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csv-dataset">CSV Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.csvdataset.filter_components_from_dsd"><code class="docutils literal notranslate"><span class="pre">filter_components_from_dsd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.csvdataset.get_single_measure_from_dsd"><code class="docutils literal notranslate"><span class="pre">get_single_measure_from_dsd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.csvdataset.get_standard_shape_measure_col_name_from_dsd"><code class="docutils literal notranslate"><span class="pre">get_standard_shape_measure_col_name_from_dsd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.csvdataset.get_standard_shape_unit_col_name_from_dsd"><code class="docutils literal notranslate"><span class="pre">get_standard_shape_unit_col_name_from_dsd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.csvdataset.transform_dataset_to_canonical_shape"><code class="docutils literal notranslate"><span class="pre">transform_dataset_to_canonical_shape()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.csvw">csvcubed.utils.csvw module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csv-w">CSV-W</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.csvw.get_dependent_local_files"><code class="docutils literal notranslate"><span class="pre">get_dependent_local_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.csvw.load_table_schema_file_to_graph"><code class="docutils literal notranslate"><span class="pre">load_table_schema_file_to_graph()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.datetime">csvcubed.utils.datetime module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed-datetime-utils">Csvcubed DateTime Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.datetime.parse_iso_8601_date_time"><code class="docutils literal notranslate"><span class="pre">parse_iso_8601_date_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.dict">csvcubed.utils.dict module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#dictionary">Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.dict.get_from_dict_ensure_exists"><code class="docutils literal notranslate"><span class="pre">get_from_dict_ensure_exists()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.dict.get_with_func_or_none"><code class="docutils literal notranslate"><span class="pre">get_with_func_or_none()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.dict.rdf_resource_to_json_ld"><code class="docutils literal notranslate"><span class="pre">rdf_resource_to_json_ld()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.file">csvcubed.utils.file module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#file">File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.file.code_list_config_json_exists"><code class="docutils literal notranslate"><span class="pre">code_list_config_json_exists()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.file.copy_files_to_directory_with_structure"><code class="docutils literal notranslate"><span class="pre">copy_files_to_directory_with_structure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.file.get_root_dir_level"><code class="docutils literal notranslate"><span class="pre">get_root_dir_level()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.iterables">csvcubed.utils.iterables module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#iterables">Iterables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.iterables.first"><code class="docutils literal notranslate"><span class="pre">first()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.iterables.group_by"><code class="docutils literal notranslate"><span class="pre">group_by()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.iterables.single"><code class="docutils literal notranslate"><span class="pre">single()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.json">csvcubed.utils.json module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#json-utilities">JSON Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.json.load_json_document"><code class="docutils literal notranslate"><span class="pre">load_json_document()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.json.resolve_path"><code class="docutils literal notranslate"><span class="pre">resolve_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.json.serialize_sets"><code class="docutils literal notranslate"><span class="pre">serialize_sets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.json.to_json_path"><code class="docutils literal notranslate"><span class="pre">to_json_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.log">csvcubed.utils.log module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#log">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter"><code class="docutils literal notranslate"><span class="pre">CustomFormatter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.FORMATS"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.FORMATS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.bold_red"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.bold_red</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.format"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.formatting"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.formatting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.grey"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.grey</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.light_grey"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.light_grey</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.red"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.red</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.reset"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.reset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.CustomFormatter.yellow"><code class="docutils literal notranslate"><span class="pre">CustomFormatter.yellow</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.debug_log_exception"><code class="docutils literal notranslate"><span class="pre">debug_log_exception()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.log_exception"><code class="docutils literal notranslate"><span class="pre">log_exception()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.log.start_logging"><code class="docutils literal notranslate"><span class="pre">start_logging()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.pandas">csvcubed.utils.pandas module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#pandas-utils">Pandas Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.pandas.read_csv"><code class="docutils literal notranslate"><span class="pre">read_csv()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.printable">csvcubed.utils.printable module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.printable.get_printable_list_str"><code class="docutils literal notranslate"><span class="pre">get_printable_list_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.printable.get_printable_tabular_str_from_list"><code class="docutils literal notranslate"><span class="pre">get_printable_tabular_str_from_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.rdf">csvcubed.utils.rdf module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#rdf">RDF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.rdf.parse_graph_retain_relative"><code class="docutils literal notranslate"><span class="pre">parse_graph_retain_relative()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.tableschema">csvcubed.utils.tableschema module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#table-schema">Table Schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.tableschema.CsvWRdfManager"><code class="docutils literal notranslate"><span class="pre">CsvWRdfManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.tableschema.CsvWRdfManager.csvw_inspector"><code class="docutils literal notranslate"><span class="pre">CsvWRdfManager.csvw_inspector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.tableschema.CsvWRdfManager.csvw_metadata_file_path"><code class="docutils literal notranslate"><span class="pre">CsvWRdfManager.csvw_metadata_file_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.tableschema.CsvWRdfManager.rdf_graph"><code class="docutils literal notranslate"><span class="pre">CsvWRdfManager.rdf_graph</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.tableschema.add_triples_for_file_dependencies"><code class="docutils literal notranslate"><span class="pre">add_triples_for_file_dependencies()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.text">csvcubed.utils.text module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#text-utilities">Text Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.text.truncate"><code class="docutils literal notranslate"><span class="pre">truncate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.uri">csvcubed.utils.uri module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#uri">URI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.uri.csvw_column_name_safe"><code class="docutils literal notranslate"><span class="pre">csvw_column_name_safe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.uri.ensure_looks_like_uri"><code class="docutils literal notranslate"><span class="pre">ensure_looks_like_uri()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.uri.ensure_values_in_lists_looks_like_uris"><code class="docutils literal notranslate"><span class="pre">ensure_values_in_lists_looks_like_uris()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.uri.file_uri_to_path"><code class="docutils literal notranslate"><span class="pre">file_uri_to_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.uri.get_data_type_uri_from_str"><code class="docutils literal notranslate"><span class="pre">get_data_type_uri_from_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.uri.get_last_uri_part"><code class="docutils literal notranslate"><span class="pre">get_last_uri_part()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.uri.looks_like_uri"><code class="docutils literal notranslate"><span class="pre">looks_like_uri()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.uri.uri_safe"><code class="docutils literal notranslate"><span class="pre">uri_safe()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.validations">csvcubed.utils.validations module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.all_of"><code class="docutils literal notranslate"><span class="pre">all_of()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.any_of"><code class="docutils literal notranslate"><span class="pre">any_of()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.boolean"><code class="docutils literal notranslate"><span class="pre">boolean()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.data_type"><code class="docutils literal notranslate"><span class="pre">data_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.enum"><code class="docutils literal notranslate"><span class="pre">enum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.file"><code class="docutils literal notranslate"><span class="pre">file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.float"><code class="docutils literal notranslate"><span class="pre">float()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.integer"><code class="docutils literal notranslate"><span class="pre">integer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.is_instance_of"><code class="docutils literal notranslate"><span class="pre">is_instance_of()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.list"><code class="docutils literal notranslate"><span class="pre">list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.optional"><code class="docutils literal notranslate"><span class="pre">optional()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.string"><code class="docutils literal notranslate"><span class="pre">string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.uri"><code class="docutils literal notranslate"><span class="pre">uri()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.validations.validated_model"><code class="docutils literal notranslate"><span class="pre">validated_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils.version">csvcubed.utils.version module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html#csvcubed.utils.version.get_csvcubed_version_uri"><code class="docutils literal notranslate"><span class="pre">get_csvcubed_version_uri()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html#module-csvcubed.utils">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.helpers.html">csvcubed.writers.helpers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.html#module-csvcubed.writers.helpers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html#module-csvcubed.writers.qbwriter">csvcubed.writers.qbwriter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html#csv-qb-writer">CSV-qb Writer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter"><code class="docutils literal notranslate"><span class="pre">QbWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter.csv_file_name"><code class="docutils literal notranslate"><span class="pre">QbWriter.csv_file_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter.csv_metadata_file_name"><code class="docutils literal notranslate"><span class="pre">QbWriter.csv_metadata_file_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter.cube"><code class="docutils literal notranslate"><span class="pre">QbWriter.cube</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter.raise_missing_uri_safe_value_exceptions"><code class="docutils literal notranslate"><span class="pre">QbWriter.raise_missing_uri_safe_value_exceptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.qbwriter.QbWriter.write"><code class="docutils literal notranslate"><span class="pre">QbWriter.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html#module-csvcubed.writers.skoscodelistwriter">csvcubed.writers.skoscodelistwriter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html#codelist-writer">CodeList Writer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.csv_file_name"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.csv_file_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.csv_metadata_file_name"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.csv_metadata_file_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.default_uri_style"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.default_uri_style</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.has_duplicated_qb_concepts"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.has_duplicated_qb_concepts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.new_code_list"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.new_code_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.uri_helper"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.uri_helper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.write"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html#module-csvcubed.writers.writerbase">csvcubed.writers.writerbase module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html#writer-base">Writer Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.writerbase.WriterBase"><code class="docutils literal notranslate"><span class="pre">WriterBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.html#csvcubed.writers.writerbase.WriterBase.write"><code class="docutils literal notranslate"><span class="pre">WriterBase.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html#module-csvcubed.writers">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html#writers">Writers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-csvcubed.definitions">
+<span id="csvcubed-definitions-module"></span><h2>csvcubed.definitions module<a class="headerlink" href="#module-csvcubed.definitions" title="Permalink to this heading">¶</a></h2>
+<section id="definitions">
+<h3>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading">¶</a></h3>
+<p>Defines the root project path as well as holding the constants that represent uri templates special properties.</p>
+</section>
+</section>
+<section id="module-csvcubed.inputs">
+<span id="csvcubed-inputs-module"></span><h2>csvcubed.inputs module<a class="headerlink" href="#module-csvcubed.inputs" title="Permalink to this heading">¶</a></h2>
+<section id="pandas-inputs">
+<h3>Pandas Inputs<a class="headerlink" href="#pandas-inputs" title="Permalink to this heading">¶</a></h3>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.inputs.pandas_input_to_columnar">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.inputs.</span></span><span class="sig-name descname"><span class="pre">pandas_input_to_columnar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maybe_columnar_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_no_data_at_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#csvcubed.inputs.pandas_input_to_columnar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.inputs.pandas_input_to_columnar_list">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.inputs.</span></span><span class="sig-name descname"><span class="pre">pandas_input_to_columnar_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maybe_columnar_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_no_data_at_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.inputs.pandas_input_to_columnar_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.inputs.pandas_input_to_columnar_optional_str">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.inputs.</span></span><span class="sig-name descname"><span class="pre">pandas_input_to_columnar_optional_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maybe_columnar_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_no_data_at_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.inputs.pandas_input_to_columnar_optional_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.inputs.pandas_input_to_columnar_str">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.inputs.</span></span><span class="sig-name descname"><span class="pre">pandas_input_to_columnar_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maybe_columnar_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_no_data_at_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.inputs.pandas_input_to_columnar_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert pandas data to an iterable of strings. Ensure no values are missing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A generator checking that no values are <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – when a value is missing.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="csvcubed-zconf-module">
+<h2>csvcubed.zconf module<a class="headerlink" href="#csvcubed-zconf-module" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-csvcubed">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-csvcubed" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">csvcubed package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-csvcubed.definitions">csvcubed.definitions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definitions">Definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-csvcubed.inputs">csvcubed.inputs module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pandas-inputs">Pandas Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvcubed.inputs.pandas_input_to_columnar"><code class="docutils literal notranslate"><span class="pre">pandas_input_to_columnar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvcubed.inputs.pandas_input_to_columnar_list"><code class="docutils literal notranslate"><span class="pre">pandas_input_to_columnar_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvcubed.inputs.pandas_input_to_columnar_optional_str"><code class="docutils literal notranslate"><span class="pre">pandas_input_to_columnar_optional_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csvcubed.inputs.pandas_input_to_columnar_str"><code class="docutils literal notranslate"><span class="pre">pandas_input_to_columnar_str()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#csvcubed-zconf-module">csvcubed.zconf module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-csvcubed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.cli.html" title="csvcubed.cli package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to csvcubed’s documentation!"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed package</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2023, ONS.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+
+  </body>
+</html>

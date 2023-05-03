@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>csvcubed.cli.inspect package &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csvcubed.cli package &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
@@ -18,8 +18,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="csvcubed.models package" href="csvcubed.models.html" />
-    <link rel="prev" title="csvcubed.cli package" href="csvcubed.cli.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+    <link rel="next" title="csvcubed.cli.inspect package" href="csvcubed.cli.inspect.html" />
+    <link rel="prev" title="csvcubed package" href="csvcubed.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
             <script type="text/javascript" src="_static/copybutton.js"></script>
             <script type="text/javascript" src="_static/menu.js"></script> 
   </head>
@@ -52,25 +52,23 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.cli.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l5 current"><a class="current reference internal" href="#">csvcubed.cli.inspect package</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#csvcubed-cli-inspect-inspect-module">csvcubed.cli.inspect.inspect module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#csvcubed-cli-inspect-inspectdatasetmanager-module">csvcubed.cli.inspect.inspectdatasetmanager module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#csvcubed-cli-inspect-metadatainputvalidator-module">csvcubed.cli.inspect.metadatainputvalidator module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#csvcubed-cli-inspect-metadataprinter-module">csvcubed.cli.inspect.metadataprinter module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubed.cli package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.cli.inspect.html">csvcubed.cli.inspect package</a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csvcubed-cli-build-module">csvcubed.cli.build module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csvcubed-cli-build-code-list-module">csvcubed.cli.build_code_list module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubed.cli.entrypoint">csvcubed.cli.entrypoint module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#cli">CLI</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#csvcubed-cli-build-module">csvcubed.cli.build module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#csvcubed-cli-build-code-list-module">csvcubed.cli.build_code_list module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli.entrypoint">csvcubed.cli.entrypoint module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli.error_mapping">csvcubed.cli.error_mapping module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubed.cli.error_mapping">csvcubed.cli.error_mapping module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#csvcubed.cli.error_mapping.friendly_error_mapping"><code class="docutils literal notranslate"><span class="pre">friendly_error_mapping()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubed.cli">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a></li>
@@ -91,7 +89,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/csvcubed.cli.inspect.rst.txt"
+      <li><a href="_sources/csvcubed.cli.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -119,10 +117,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="csvcubed.models.html" title="csvcubed.models package"
+          <a href="csvcubed.cli.inspect.html" title="csvcubed.cli.inspect package"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="csvcubed.cli.html" title="csvcubed.cli package"
+          <a href="csvcubed.html" title="csvcubed package"
              accesskey="P">previous</a> |</li>
           <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://www.python.org/">Python</a> &#187;</li>
@@ -135,9 +133,8 @@
               <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
               
           </li>
-          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed package</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="csvcubed.cli.html" accesskey="U">csvcubed.cli package</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">csvcubed.cli.inspect package</a></li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" accesskey="U">csvcubed package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.cli package</a></li>
                 <li class="right">
                     
 
@@ -160,25 +157,53 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="csvcubed-cli-inspect-package">
-<h1>csvcubed.cli.inspect package<a class="headerlink" href="#csvcubed-cli-inspect-package" title="Permalink to this heading">¶</a></h1>
+  <section id="csvcubed-cli-package">
+<h1>csvcubed.cli package<a class="headerlink" href="#csvcubed-cli-package" title="Permalink to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.cli.inspect.html">csvcubed.cli.inspect package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.inspect.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.inspect.html#csvcubed-cli-inspect-inspect-module">csvcubed.cli.inspect.inspect module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.inspect.html#csvcubed-cli-inspect-inspectdatasetmanager-module">csvcubed.cli.inspect.inspectdatasetmanager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.inspect.html#csvcubed-cli-inspect-metadatainputvalidator-module">csvcubed.cli.inspect.metadatainputvalidator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.inspect.html#csvcubed-cli-inspect-metadataprinter-module">csvcubed.cli.inspect.metadataprinter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.inspect.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="csvcubed-cli-inspect-inspect-module">
-<h2>csvcubed.cli.inspect.inspect module<a class="headerlink" href="#csvcubed-cli-inspect-inspect-module" title="Permalink to this heading">¶</a></h2>
+<section id="csvcubed-cli-build-module">
+<h2>csvcubed.cli.build module<a class="headerlink" href="#csvcubed-cli-build-module" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="csvcubed-cli-inspect-inspectdatasetmanager-module">
-<h2>csvcubed.cli.inspect.inspectdatasetmanager module<a class="headerlink" href="#csvcubed-cli-inspect-inspectdatasetmanager-module" title="Permalink to this heading">¶</a></h2>
+<section id="csvcubed-cli-build-code-list-module">
+<h2>csvcubed.cli.build_code_list module<a class="headerlink" href="#csvcubed-cli-build-code-list-module" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="csvcubed-cli-inspect-metadatainputvalidator-module">
-<h2>csvcubed.cli.inspect.metadatainputvalidator module<a class="headerlink" href="#csvcubed-cli-inspect-metadatainputvalidator-module" title="Permalink to this heading">¶</a></h2>
+<section id="module-csvcubed.cli.entrypoint">
+<span id="csvcubed-cli-entrypoint-module"></span><h2>csvcubed.cli.entrypoint module<a class="headerlink" href="#module-csvcubed.cli.entrypoint" title="Permalink to this heading">¶</a></h2>
+<section id="cli">
+<h3>CLI<a class="headerlink" href="#cli" title="Permalink to this heading">¶</a></h3>
+<p>The <em>Command Line Interface</em> for <a class="reference internal" href="#module-csvcubed.cli" title="csvcubed.cli"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a>.</p>
 </section>
-<section id="csvcubed-cli-inspect-metadataprinter-module">
-<h2>csvcubed.cli.inspect.metadataprinter module<a class="headerlink" href="#csvcubed-cli-inspect-metadataprinter-module" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<section id="module-csvcubed.cli.error_mapping">
+<span id="csvcubed-cli-error-mapping-module"></span><h2>csvcubed.cli.error_mapping module<a class="headerlink" href="#module-csvcubed.cli.error_mapping" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.cli.error_mapping.friendly_error_mapping">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.cli.error_mapping.</span></span><span class="sig-name descname"><span class="pre">friendly_error_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError" title="csvcubed.models.validationerror.ValidationError"><span class="pre">ValidationError</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.cli.error_mapping.friendly_error_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a validation error it returns an error message that is tailored to the qube-config.json interface so it’s
+more user-friendly.</p>
+<p>Note: adding any new error will require a test in ‘test_build_friendly_error_msgs.py’</p>
+</dd></dl>
+
+</section>
+<section id="module-csvcubed.cli">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-csvcubed.cli" title="Permalink to this heading">¶</a></h2>
 </section>
 </section>
 
@@ -194,25 +219,23 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.cli.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l5 current"><a class="current reference internal" href="#">csvcubed.cli.inspect package</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#csvcubed-cli-inspect-inspect-module">csvcubed.cli.inspect.inspect module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#csvcubed-cli-inspect-inspectdatasetmanager-module">csvcubed.cli.inspect.inspectdatasetmanager module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#csvcubed-cli-inspect-metadatainputvalidator-module">csvcubed.cli.inspect.metadatainputvalidator module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#csvcubed-cli-inspect-metadataprinter-module">csvcubed.cli.inspect.metadataprinter module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubed.cli package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.cli.inspect.html">csvcubed.cli.inspect package</a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csvcubed-cli-build-module">csvcubed.cli.build module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csvcubed-cli-build-code-list-module">csvcubed.cli.build_code_list module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubed.cli.entrypoint">csvcubed.cli.entrypoint module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#cli">CLI</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#csvcubed-cli-build-module">csvcubed.cli.build module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#csvcubed-cli-build-code-list-module">csvcubed.cli.build_code_list module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli.entrypoint">csvcubed.cli.entrypoint module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli.error_mapping">csvcubed.cli.error_mapping module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.html#module-csvcubed.cli">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubed.cli.error_mapping">csvcubed.cli.error_mapping module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#csvcubed.cli.error_mapping.friendly_error_mapping"><code class="docutils literal notranslate"><span class="pre">friendly_error_mapping()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#module-csvcubed.cli">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a></li>
@@ -233,7 +256,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/csvcubed.cli.inspect.rst.txt"
+      <li><a href="_sources/csvcubed.cli.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -261,10 +284,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="csvcubed.models.html" title="csvcubed.models package"
+          <a href="csvcubed.cli.inspect.html" title="csvcubed.cli.inspect package"
              >next</a> |</li>
         <li class="right" >
-          <a href="csvcubed.cli.html" title="csvcubed.cli package"
+          <a href="csvcubed.html" title="csvcubed package"
              >previous</a> |</li>
           <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://www.python.org/">Python</a> &#187;</li>
@@ -278,8 +301,7 @@
               
           </li>
           <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed package</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="csvcubed.cli.html" >csvcubed.cli package</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">csvcubed.cli.inspect package</a></li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.cli package</a></li>
                 <li class="right">
                     
 

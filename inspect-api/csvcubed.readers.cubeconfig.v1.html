@@ -1,0 +1,1087 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>csvcubed.readers.cubeconfig.v1 package &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.utils package" href="csvcubed.utils.html" />
+    <link rel="prev" title="csvcubed.readers.cubeconfig package" href="csvcubed.readers.cubeconfig.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.readers.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.readers.catalogmetadata.html">csvcubed.readers.catalogmetadata package</a></li>
+<li class="toctree-l5 current"><a class="reference internal" href="csvcubed.readers.cubeconfig.html">csvcubed.readers.cubeconfig package</a><ul class="current">
+<li class="toctree-l6 current"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l7 current"><a class="current reference internal" href="#">csvcubed.readers.cubeconfig.v1 package</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.columnschema">csvcubed.readers.cubeconfig.v1.columnschema module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#models">Models</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue"><code class="docutils literal notranslate"><span class="pre">AttributeValue</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.definition_uri"><code class="docutils literal notranslate"><span class="pre">AttributeValue.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.description"><code class="docutils literal notranslate"><span class="pre">AttributeValue.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.from_existing"><code class="docutils literal notranslate"><span class="pre">AttributeValue.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.label"><code class="docutils literal notranslate"><span class="pre">AttributeValue.label</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.data_type"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.data_type</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.map_to_existing_qb_attribute"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.map_to_existing_qb_attribute()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.required"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.map_to_existing_qb_attribute"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.map_to_existing_qb_attribute()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.required"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.required</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.values"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension"><code class="docutils literal notranslate"><span class="pre">ExistingDimension</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.map_to_existing_qb_dimension"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.map_to_existing_qb_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.map_to_existing_multi_measure_dimension"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures.map_to_existing_multi_measure_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits"><code class="docutils literal notranslate"><span class="pre">ExistingUnits</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.map_to_existing_qb_multi_units"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.map_to_existing_qb_multi_units()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure"><code class="docutils literal notranslate"><span class="pre">Measure</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.definition_uri"><code class="docutils literal notranslate"><span class="pre">Measure.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.description"><code class="docutils literal notranslate"><span class="pre">Measure.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.from_existing"><code class="docutils literal notranslate"><span class="pre">Measure.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.label"><code class="docutils literal notranslate"><span class="pre">Measure.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.map_to_measure"><code class="docutils literal notranslate"><span class="pre">Measure.map_to_measure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.data_type"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.data_type</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.description"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.from_existing"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.label"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.map_to_new_qb_attribute"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.map_to_new_qb_attribute()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.required"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.description"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.from_existing"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.label"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.map_to_new_qb_attribute"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.map_to_new_qb_attribute()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.required"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.required</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.values"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension"><code class="docutils literal notranslate"><span class="pre">NewDimension</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">NewDimension.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.code_list"><code class="docutils literal notranslate"><span class="pre">NewDimension.code_list</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewDimension.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.description"><code class="docutils literal notranslate"><span class="pre">NewDimension.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.from_existing"><code class="docutils literal notranslate"><span class="pre">NewDimension.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.label"><code class="docutils literal notranslate"><span class="pre">NewDimension.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.map_to_new_qb_dimension"><code class="docutils literal notranslate"><span class="pre">NewDimension.map_to_new_qb_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures"><code class="docutils literal notranslate"><span class="pre">NewMeasures</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.map_to_new_multi_measure_dimension"><code class="docutils literal notranslate"><span class="pre">NewMeasures.map_to_new_multi_measure_dimension()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.values"><code class="docutils literal notranslate"><span class="pre">NewMeasures.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits"><code class="docutils literal notranslate"><span class="pre">NewUnits</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewUnits.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.map_to_new_qb_multi_units"><code class="docutils literal notranslate"><span class="pre">NewUnits.map_to_new_qb_multi_units()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.values"><code class="docutils literal notranslate"><span class="pre">NewUnits.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue"><code class="docutils literal notranslate"><span class="pre">ObservationValue</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.data_type"><code class="docutils literal notranslate"><span class="pre">ObservationValue.data_type</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.map_to_qb_observation"><code class="docutils literal notranslate"><span class="pre">ObservationValue.map_to_qb_observation()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.measure"><code class="docutils literal notranslate"><span class="pre">ObservationValue.measure</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.unit"><code class="docutils literal notranslate"><span class="pre">ObservationValue.unit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit"><code class="docutils literal notranslate"><span class="pre">Unit</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.definition_uri"><code class="docutils literal notranslate"><span class="pre">Unit.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.description"><code class="docutils literal notranslate"><span class="pre">Unit.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.from_existing"><code class="docutils literal notranslate"><span class="pre">Unit.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.label"><code class="docutils literal notranslate"><span class="pre">Unit.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.quantity_kind"><code class="docutils literal notranslate"><span class="pre">Unit.quantity_kind</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.scaling_factor"><code class="docutils literal notranslate"><span class="pre">Unit.scaling_factor</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.si_scaling_factor"><code class="docutils literal notranslate"><span class="pre">Unit.si_scaling_factor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.configdeserialiser">csvcubed.readers.cubeconfig.v1.configdeserialiser module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#config-json-loader">Config.json Loader</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.configdeserialiser.get_deserialiser"><code class="docutils literal notranslate"><span class="pre">get_deserialiser()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.constants">csvcubed.readers.cubeconfig.v1.constants module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.datatypes">csvcubed.readers.cubeconfig.v1.datatypes module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.datatypes.get_pandas_datatypes"><code class="docutils literal notranslate"><span class="pre">get_pandas_datatypes()</span></code></a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.datatypes.pandas_datatypes_from_columns_config"><code class="docutils literal notranslate"><span class="pre">pandas_datatypes_from_columns_config()</span></code></a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.datatypes.pandas_dtype_from_schema"><code class="docutils literal notranslate"><span class="pre">pandas_dtype_from_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.mapcolumntocomponent">csvcubed.readers.cubeconfig.v1.mapcolumntocomponent module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#mapping">Mapping</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.map_column_to_qb_component"><code class="docutils literal notranslate"><span class="pre">map_column_to_qb_component()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig.schema_versions">csvcubed.readers.cubeconfig.schema_versions module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig.utils">csvcubed.readers.cubeconfig.utils module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.html#module-csvcubed.readers.preconfiguredtemplates">csvcubed.readers.preconfiguredtemplates module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.html#csvcubed-readers-skoscodelistreader-module">csvcubed.readers.skoscodelistreader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.html#module-csvcubed.readers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.definitions">csvcubed.definitions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.inputs">csvcubed.inputs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#csvcubed-zconf-module">csvcubed.zconf module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.readers.cubeconfig.v1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.html" title="csvcubed.utils package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.readers.cubeconfig.html" title="csvcubed.readers.cubeconfig package"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.readers.html" >csvcubed.readers package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.readers.cubeconfig.html" accesskey="U">csvcubed.readers.cubeconfig package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.readers.cubeconfig.v1 package</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-readers-cubeconfig-v1-package">
+<h1>csvcubed.readers.cubeconfig.v1 package<a class="headerlink" href="#csvcubed-readers-cubeconfig-v1-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-csvcubed.readers.cubeconfig.v1.columnschema">
+<span id="csvcubed-readers-cubeconfig-v1-columnschema-module"></span><h2>csvcubed.readers.cubeconfig.v1.columnschema module<a class="headerlink" href="#module-csvcubed.readers.cubeconfig.v1.columnschema" title="Permalink to this heading">¶</a></h2>
+<section id="models">
+<h3>Models<a class="headerlink" href="#models" title="Permalink to this heading">¶</a></h3>
+<p>config.json v1.* column mapping models.</p>
+<p>If you change the shape of any model in this file, you <strong>must</strong> create a newly versioned JSON schema reflecting said changes.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">AttributeValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.definition_uri">
+<span class="sig-name descname"><span class="pre">definition_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.definition_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">ExistingAttributeLiteral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">describes_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.data_type">
+<span class="sig-name descname"><span class="pre">data_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.describes_observations">
+<span class="sig-name descname"><span class="pre">describes_observations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.describes_observations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.map_to_existing_qb_attribute">
+<span class="sig-name descname"><span class="pre">map_to_existing_qb_attribute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.attribute.ExistingQbAttributeLiteral" title="csvcubed.models.cube.qb.components.attribute.ExistingQbAttributeLiteral"><span class="pre">ExistingQbAttributeLiteral</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.map_to_existing_qb_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.required">
+<span class="sig-name descname"><span class="pre">required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">ExistingAttributeResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue" title="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_uri_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">describes_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.cell_uri_template">
+<span class="sig-name descname"><span class="pre">cell_uri_template</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.cell_uri_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.describes_observations">
+<span class="sig-name descname"><span class="pre">describes_observations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.describes_observations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.map_to_existing_qb_attribute">
+<span class="sig-name descname"><span class="pre">map_to_existing_qb_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.attribute.ExistingQbAttribute" title="csvcubed.models.cube.qb.components.attribute.ExistingQbAttribute"><span class="pre">ExistingQbAttribute</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.map_to_existing_qb_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.required">
+<span class="sig-name descname"><span class="pre">required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.values">
+<span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue" title="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue"><span class="pre">AttributeValue</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">ExistingDimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_uri_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.cell_uri_template">
+<span class="sig-name descname"><span class="pre">cell_uri_template</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.cell_uri_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.map_to_existing_qb_dimension">
+<span class="sig-name descname"><span class="pre">map_to_existing_qb_dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.dimension.ExistingQbDimension" title="csvcubed.models.cube.qb.components.dimension.ExistingQbDimension"><span class="pre">ExistingQbDimension</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.map_to_existing_qb_dimension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">ExistingMeasures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_uri_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.cell_uri_template">
+<span class="sig-name descname"><span class="pre">cell_uri_template</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.cell_uri_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.map_to_existing_multi_measure_dimension">
+<span class="sig-name descname"><span class="pre">map_to_existing_multi_measure_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.measuresdimension.QbMultiMeasureDimension" title="csvcubed.models.cube.qb.components.measuresdimension.QbMultiMeasureDimension"><span class="pre">QbMultiMeasureDimension</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.map_to_existing_multi_measure_dimension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">ExistingUnits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_uri_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">describes_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.cell_uri_template">
+<span class="sig-name descname"><span class="pre">cell_uri_template</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.cell_uri_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.describes_observations">
+<span class="sig-name descname"><span class="pre">describes_observations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.describes_observations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.map_to_existing_qb_multi_units">
+<span class="sig-name descname"><span class="pre">map_to_existing_qb_multi_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.unitscolumn.QbMultiUnits" title="csvcubed.models.cube.qb.components.unitscolumn.QbMultiUnits"><span class="pre">QbMultiUnits</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.map_to_existing_qb_multi_units" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Measure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">Measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Measure.definition_uri">
+<span class="sig-name descname"><span class="pre">definition_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.definition_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Measure.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Measure.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Measure.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Measure.map_to_measure">
+<span class="sig-name descname"><span class="pre">map_to_measure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.measure.NewQbMeasure" title="csvcubed.models.cube.qb.components.measure.NewQbMeasure"><span class="pre">NewQbMeasure</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.map_to_measure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">NewAttributeLiteral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">describes_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.data_type">
+<span class="sig-name descname"><span class="pre">data_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.definition_uri">
+<span class="sig-name descname"><span class="pre">definition_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.definition_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.describes_observations">
+<span class="sig-name descname"><span class="pre">describes_observations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.describes_observations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.map_to_new_qb_attribute">
+<span class="sig-name descname"><span class="pre">map_to_new_qb_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.attribute.NewQbAttributeLiteral" title="csvcubed.models.cube.qb.components.attribute.NewQbAttributeLiteral"><span class="pre">NewQbAttributeLiteral</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.map_to_new_qb_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.required">
+<span class="sig-name descname"><span class="pre">required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">NewAttributeResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue" title="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_uri_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">describes_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.cell_uri_template">
+<span class="sig-name descname"><span class="pre">cell_uri_template</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.cell_uri_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.definition_uri">
+<span class="sig-name descname"><span class="pre">definition_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.definition_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.describes_observations">
+<span class="sig-name descname"><span class="pre">describes_observations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.describes_observations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.map_to_new_qb_attribute">
+<span class="sig-name descname"><span class="pre">map_to_new_qb_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.attribute.NewQbAttribute" title="csvcubed.models.cube.qb.components.attribute.NewQbAttribute"><span class="pre">NewQbAttribute</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.map_to_new_qb_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.required">
+<span class="sig-name descname"><span class="pre">required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.values">
+<span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue" title="csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue"><span class="pre">AttributeValue</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewDimension">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">NewDimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_uri_template</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="simple">
+<dt>Schema property - but removed for json to dataclass mapping</dt><dd><p>type: # str = “dimension”</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.cell_uri_template">
+<span class="sig-name descname"><span class="pre">cell_uri_template</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.cell_uri_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.code_list">
+<span class="sig-name descname"><span class="pre">code_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.code_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.definition_uri">
+<span class="sig-name descname"><span class="pre">definition_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.definition_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.map_to_new_qb_dimension">
+<span class="sig-name descname"><span class="pre">map_to_new_qb_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_column_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_config_minor_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.dimension.NewQbDimension" title="csvcubed.models.cube.qb.components.dimension.NewQbDimension"><span class="pre">NewQbDimension</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError" title="csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError"><span class="pre">JsonSchemaValidationError</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.map_to_new_qb_dimension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">NewMeasures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure" title="csvcubed.readers.cubeconfig.v1.columnschema.Measure"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.Measure</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.map_to_new_multi_measure_dimension">
+<span class="sig-name descname"><span class="pre">map_to_new_multi_measure_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.measuresdimension.QbMultiMeasureDimension" title="csvcubed.models.cube.qb.components.measuresdimension.QbMultiMeasureDimension"><span class="pre">QbMultiMeasureDimension</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.map_to_new_multi_measure_dimension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.values">
+<span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure" title="csvcubed.readers.cubeconfig.v1.columnschema.Measure"><span class="pre">Measure</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewUnits">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">NewUnits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit" title="csvcubed.readers.cubeconfig.v1.columnschema.Unit"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.Unit</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">describes_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.describes_observations">
+<span class="sig-name descname"><span class="pre">describes_observations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.describes_observations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.map_to_new_qb_multi_units">
+<span class="sig-name descname"><span class="pre">map_to_new_qb_multi_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.unitscolumn.QbMultiUnits" title="csvcubed.models.cube.qb.components.unitscolumn.QbMultiUnits"><span class="pre">QbMultiUnits</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.map_to_new_qb_multi_units" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.values">
+<span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit" title="csvcubed.readers.cubeconfig.v1.columnschema.Unit"><span class="pre">Unit</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">ObservationValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'decimal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NoneType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit" title="csvcubed.readers.cubeconfig.v1.columnschema.Unit"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.Unit</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">NoneType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure" title="csvcubed.readers.cubeconfig.v1.columnschema.Measure"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.Measure</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.data_type">
+<span class="sig-name descname"><span class="pre">data_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'decimal'</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.map_to_qb_observation">
+<span class="sig-name descname"><span class="pre">map_to_qb_observation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="csvcubed.models.cube.qb.components.html#csvcubed.models.cube.qb.components.observedvalue.QbObservationValue" title="csvcubed.models.cube.qb.components.observedvalue.QbObservationValue"><span class="pre">QbObservationValue</span></a></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.map_to_qb_observation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure" title="csvcubed.readers.cubeconfig.v1.columnschema.Measure"><span class="pre">Measure</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.measure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit" title="csvcubed.readers.cubeconfig.v1.columnschema.Unit"><span class="pre">Unit</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">SchemaBaseClass</span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataClassBase</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Unit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.columnschema.</span></span><span class="sig-name descname"><span class="pre">Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_existing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">si_scaling_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Unit.definition_uri">
+<span class="sig-name descname"><span class="pre">definition_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.definition_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Unit.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Unit.from_existing">
+<span class="sig-name descname"><span class="pre">from_existing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.from_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Unit.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Unit.quantity_kind">
+<span class="sig-name descname"><span class="pre">quantity_kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.quantity_kind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Unit.scaling_factor">
+<span class="sig-name descname"><span class="pre">scaling_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.scaling_factor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.columnschema.Unit.si_scaling_factor">
+<span class="sig-name descname"><span class="pre">si_scaling_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.si_scaling_factor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-csvcubed.readers.cubeconfig.v1.configdeserialiser">
+<span id="csvcubed-readers-cubeconfig-v1-configdeserialiser-module"></span><h2>csvcubed.readers.cubeconfig.v1.configdeserialiser module<a class="headerlink" href="#module-csvcubed.readers.cubeconfig.v1.configdeserialiser" title="Permalink to this heading">¶</a></h2>
+<section id="config-json-loader">
+<h3>Config.json Loader<a class="headerlink" href="#config-json-loader" title="Permalink to this heading">¶</a></h3>
+<p>A loader for the v1.* config.json.</p>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.configdeserialiser.get_deserialiser">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.configdeserialiser.</span></span><span class="sig-name descname"><span class="pre">get_deserialiser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_config_minor_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.html#csvcubed.models.cube.cube.Cube" title="csvcubed.models.cube.cube.Cube"><span class="pre">Cube</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.html#csvcubed.models.cube.qb.catalog.CatalogMetadata" title="csvcubed.models.cube.qb.catalog.CatalogMetadata"><span class="pre">CatalogMetadata</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError" title="csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError"><span class="pre">JsonSchemaValidationError</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.html#csvcubed.models.validationerror.ValidationError" title="csvcubed.models.validationerror.ValidationError"><span class="pre">ValidationError</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.configdeserialiser.get_deserialiser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a deserialiser function which validates the JSON file against the schema at <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema_path</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-csvcubed.readers.cubeconfig.v1.constants">
+<span id="csvcubed-readers-cubeconfig-v1-constants-module"></span><h2>csvcubed.readers.cubeconfig.v1.constants module<a class="headerlink" href="#module-csvcubed.readers.cubeconfig.v1.constants" title="Permalink to this heading">¶</a></h2>
+<p>Constants relevant to loading v1 schema data</p>
+</section>
+<section id="module-csvcubed.readers.cubeconfig.v1.datatypes">
+<span id="csvcubed-readers-cubeconfig-v1-datatypes-module"></span><h2>csvcubed.readers.cubeconfig.v1.datatypes module<a class="headerlink" href="#module-csvcubed.readers.cubeconfig.v1.datatypes" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.datatypes.get_pandas_datatypes">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.datatypes.</span></span><span class="sig-name descname"><span class="pre">get_pandas_datatypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.datatypes.get_pandas_datatypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a dictionary of column_label:datatype for all columns in the dataframe.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.datatypes.pandas_datatypes_from_columns_config">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.datatypes.</span></span><span class="sig-name descname"><span class="pre">pandas_datatypes_from_columns_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.datatypes.pandas_datatypes_from_columns_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a dictionary of column config in the form:</p>
+<dl class="simple">
+<dt>“Column Name”: {</dt><dd><p>&lt;COLUMN CONFIG DICT&gt;</p>
+</dd>
+</dl>
+<p>}</p>
+<p>Returns a dictionary mapping column names to pandas
+datatypes (which are declared via strings)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.datatypes.pandas_dtype_from_schema">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.datatypes.</span></span><span class="sig-name descname"><span class="pre">pandas_dtype_from_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">known_schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass" title="csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><span class="pre">SchemaBaseClass</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.datatypes.pandas_dtype_from_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a schema, return the appropriate pandas datatype</p>
+</dd></dl>
+
+</section>
+<section id="module-csvcubed.readers.cubeconfig.v1.mapcolumntocomponent">
+<span id="csvcubed-readers-cubeconfig-v1-mapcolumntocomponent-module"></span><h2>csvcubed.readers.cubeconfig.v1.mapcolumntocomponent module<a class="headerlink" href="#module-csvcubed.readers.cubeconfig.v1.mapcolumntocomponent" title="Permalink to this heading">¶</a></h2>
+<section id="mapping">
+<h3>Mapping<a class="headerlink" href="#mapping" title="Permalink to this heading">¶</a></h3>
+<p>Map info.json v1.* definitions to QB column components</p>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.map_column_to_qb_component">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.</span></span><span class="sig-name descname"><span class="pre">map_column_to_qb_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_config_minor_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.cube.qb.html#csvcubed.models.cube.qb.columns.QbColumn" title="csvcubed.models.cube.qb.columns.QbColumn"><span class="pre">QbColumn</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.html#csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError" title="csvcubed.models.jsonvalidationerrors.JsonSchemaValidationError"><span class="pre">JsonSchemaValidationError</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.map_column_to_qb_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a config.json v1.* column mapping and, if valid,
+returns a <a class="reference internal" href="csvcubed.models.cube.qb.html#csvcubed.models.cube.qb.columns.QbColumn" title="csvcubed.models.cube.qb.columns.QbColumn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QbColumn</span></code></a>.</p>
+</dd></dl>
+
+</section>
+<section id="module-csvcubed.readers.cubeconfig.v1">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-csvcubed.readers.cubeconfig.v1" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.html">csvcubed.models package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.readers.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.readers.catalogmetadata.html">csvcubed.readers.catalogmetadata package</a></li>
+<li class="toctree-l5 current"><a class="reference internal" href="csvcubed.readers.cubeconfig.html">csvcubed.readers.cubeconfig package</a><ul class="current">
+<li class="toctree-l6 current"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l7 current"><a class="current reference internal" href="#">csvcubed.readers.cubeconfig.v1 package</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.columnschema">csvcubed.readers.cubeconfig.v1.columnschema module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#models">Models</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue"><code class="docutils literal notranslate"><span class="pre">AttributeValue</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.definition_uri"><code class="docutils literal notranslate"><span class="pre">AttributeValue.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.description"><code class="docutils literal notranslate"><span class="pre">AttributeValue.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.from_existing"><code class="docutils literal notranslate"><span class="pre">AttributeValue.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.label"><code class="docutils literal notranslate"><span class="pre">AttributeValue.label</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.data_type"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.data_type</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.map_to_existing_qb_attribute"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.map_to_existing_qb_attribute()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.required"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.map_to_existing_qb_attribute"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.map_to_existing_qb_attribute()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.required"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.required</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.values"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension"><code class="docutils literal notranslate"><span class="pre">ExistingDimension</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.map_to_existing_qb_dimension"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.map_to_existing_qb_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.map_to_existing_multi_measure_dimension"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures.map_to_existing_multi_measure_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits"><code class="docutils literal notranslate"><span class="pre">ExistingUnits</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.map_to_existing_qb_multi_units"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.map_to_existing_qb_multi_units()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure"><code class="docutils literal notranslate"><span class="pre">Measure</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.definition_uri"><code class="docutils literal notranslate"><span class="pre">Measure.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.description"><code class="docutils literal notranslate"><span class="pre">Measure.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.from_existing"><code class="docutils literal notranslate"><span class="pre">Measure.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.label"><code class="docutils literal notranslate"><span class="pre">Measure.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Measure.map_to_measure"><code class="docutils literal notranslate"><span class="pre">Measure.map_to_measure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.data_type"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.data_type</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.description"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.from_existing"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.label"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.map_to_new_qb_attribute"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.map_to_new_qb_attribute()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.required"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.description"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.from_existing"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.label"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.map_to_new_qb_attribute"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.map_to_new_qb_attribute()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.required"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.required</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.values"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension"><code class="docutils literal notranslate"><span class="pre">NewDimension</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">NewDimension.cell_uri_template</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.code_list"><code class="docutils literal notranslate"><span class="pre">NewDimension.code_list</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewDimension.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.description"><code class="docutils literal notranslate"><span class="pre">NewDimension.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.from_existing"><code class="docutils literal notranslate"><span class="pre">NewDimension.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.label"><code class="docutils literal notranslate"><span class="pre">NewDimension.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.map_to_new_qb_dimension"><code class="docutils literal notranslate"><span class="pre">NewDimension.map_to_new_qb_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures"><code class="docutils literal notranslate"><span class="pre">NewMeasures</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.map_to_new_multi_measure_dimension"><code class="docutils literal notranslate"><span class="pre">NewMeasures.map_to_new_multi_measure_dimension()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.values"><code class="docutils literal notranslate"><span class="pre">NewMeasures.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits"><code class="docutils literal notranslate"><span class="pre">NewUnits</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewUnits.describes_observations</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.map_to_new_qb_multi_units"><code class="docutils literal notranslate"><span class="pre">NewUnits.map_to_new_qb_multi_units()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.values"><code class="docutils literal notranslate"><span class="pre">NewUnits.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue"><code class="docutils literal notranslate"><span class="pre">ObservationValue</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.data_type"><code class="docutils literal notranslate"><span class="pre">ObservationValue.data_type</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.map_to_qb_observation"><code class="docutils literal notranslate"><span class="pre">ObservationValue.map_to_qb_observation()</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.measure"><code class="docutils literal notranslate"><span class="pre">ObservationValue.measure</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.unit"><code class="docutils literal notranslate"><span class="pre">ObservationValue.unit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit"><code class="docutils literal notranslate"><span class="pre">Unit</span></code></a><ul>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.definition_uri"><code class="docutils literal notranslate"><span class="pre">Unit.definition_uri</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.description"><code class="docutils literal notranslate"><span class="pre">Unit.description</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.from_existing"><code class="docutils literal notranslate"><span class="pre">Unit.from_existing</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.label"><code class="docutils literal notranslate"><span class="pre">Unit.label</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.quantity_kind"><code class="docutils literal notranslate"><span class="pre">Unit.quantity_kind</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.scaling_factor"><code class="docutils literal notranslate"><span class="pre">Unit.scaling_factor</span></code></a></li>
+<li class="toctree-l10"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.columnschema.Unit.si_scaling_factor"><code class="docutils literal notranslate"><span class="pre">Unit.si_scaling_factor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.configdeserialiser">csvcubed.readers.cubeconfig.v1.configdeserialiser module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#config-json-loader">Config.json Loader</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.configdeserialiser.get_deserialiser"><code class="docutils literal notranslate"><span class="pre">get_deserialiser()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.constants">csvcubed.readers.cubeconfig.v1.constants module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.datatypes">csvcubed.readers.cubeconfig.v1.datatypes module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.datatypes.get_pandas_datatypes"><code class="docutils literal notranslate"><span class="pre">get_pandas_datatypes()</span></code></a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.datatypes.pandas_datatypes_from_columns_config"><code class="docutils literal notranslate"><span class="pre">pandas_datatypes_from_columns_config()</span></code></a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.datatypes.pandas_dtype_from_schema"><code class="docutils literal notranslate"><span class="pre">pandas_dtype_from_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1.mapcolumntocomponent">csvcubed.readers.cubeconfig.v1.mapcolumntocomponent module</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="#mapping">Mapping</a></li>
+<li class="toctree-l9"><a class="reference internal" href="#csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.map_column_to_qb_component"><code class="docutils literal notranslate"><span class="pre">map_column_to_qb_component()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l8"><a class="reference internal" href="#module-csvcubed.readers.cubeconfig.v1">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig.schema_versions">csvcubed.readers.cubeconfig.schema_versions module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig.utils">csvcubed.readers.cubeconfig.utils module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.html#module-csvcubed.readers.preconfiguredtemplates">csvcubed.readers.preconfiguredtemplates module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.html#csvcubed-readers-skoscodelistreader-module">csvcubed.readers.skoscodelistreader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.html#module-csvcubed.readers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.definitions">csvcubed.definitions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed.inputs">csvcubed.inputs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#csvcubed-zconf-module">csvcubed.zconf module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.html#module-csvcubed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.readers.cubeconfig.v1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.html" title="csvcubed.utils package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.readers.cubeconfig.html" title="csvcubed.readers.cubeconfig package"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed package</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.readers.html" >csvcubed.readers package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.readers.cubeconfig.html" >csvcubed.readers.cubeconfig package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.readers.cubeconfig.v1 package</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2023, ONS.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+
+  </body>
+</html>
