@@ -21,14 +21,6 @@ csvcubed.readers.preconfiguredtemplates module
    :undoc-members:
    :show-inheritance:
 
-csvcubed.readers.skoscodelistreader module
-------------------------------------------
-
-.. automodule:: csvcubed.readers.skoscodelistreader
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 

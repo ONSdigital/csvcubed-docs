@@ -32,14 +32,6 @@ csvcubed.inputs module
    :undoc-members:
    :show-inheritance:
 
-csvcubed.zconf module
----------------------
-
-.. automodule:: csvcubed.zconf
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 

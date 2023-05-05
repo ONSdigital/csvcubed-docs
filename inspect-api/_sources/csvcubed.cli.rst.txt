@@ -7,26 +7,13 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   csvcubed.cli.inspect
+   csvcubed.cli.buildcsvw
+   csvcubed.cli.codelist
+   csvcubed.cli.inspectcsvw
+   csvcubed.cli.pullcsvw
 
 Submodules
 ----------
-
-csvcubed.cli.build module
--------------------------
-
-.. automodule:: csvcubed.cli.build
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-csvcubed.cli.build\_code\_list module
--------------------------------------
-
-.. automodule:: csvcubed.cli.build_code_list
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 csvcubed.cli.entrypoint module
 ------------------------------
