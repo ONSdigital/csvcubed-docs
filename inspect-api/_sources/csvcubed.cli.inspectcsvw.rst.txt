@@ -1,40 +1,14 @@
-csvcubed.cli.inspectcsvw package
-================================
+csvcubed.cli.inspectcsvw 
+=========================
 
-Submodules
-----------
 
-csvcubed.cli.inspectcsvw.inspect module
----------------------------------------
+.. toctree::
+   :maxdepth: 20
 
-.. automodule:: csvcubed.cli.inspectcsvw.inspect
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-csvcubed.cli.inspectcsvw.inspectdatasetmanager module
------------------------------------------------------
-
-.. automodule:: csvcubed.cli.inspectcsvw.inspectdatasetmanager
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-csvcubed.cli.inspectcsvw.metadatainputvalidator module
-------------------------------------------------------
-
-.. automodule:: csvcubed.cli.inspectcsvw.metadatainputvalidator
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-csvcubed.cli.inspectcsvw.metadataprinter module
------------------------------------------------
-
-.. automodule:: csvcubed.cli.inspectcsvw.metadataprinter
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   csvcubed.cli.inspectcsvw.inspect
+   csvcubed.cli.inspectcsvw.inspectdatasetmanager
+   csvcubed.cli.inspectcsvw.metadatainputvalidator
+   csvcubed.cli.inspectcsvw.metadataprinter
 
 Module contents
 ---------------

@@ -1,0 +1,7 @@
+csvcubed.utils.sparql\_handler.sparql 
+======================================
+
+.. automodule:: csvcubed.utils.sparql_handler.sparql
+   :members:
+   :undoc-members:
+   :show-inheritance:

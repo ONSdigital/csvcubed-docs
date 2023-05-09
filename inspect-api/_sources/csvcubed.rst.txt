@@ -1,11 +1,9 @@
-csvcubed package
-================
+csvcubed 
+=========
 
-Subpackages
------------
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 20
 
    csvcubed.cli
    csvcubed.models
@@ -13,24 +11,12 @@ Subpackages
    csvcubed.utils
    csvcubed.writers
 
-Submodules
-----------
 
-csvcubed.definitions module
----------------------------
+.. toctree::
+   :maxdepth: 20
 
-.. automodule:: csvcubed.definitions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-csvcubed.inputs module
-----------------------
-
-.. automodule:: csvcubed.inputs
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   csvcubed.definitions
+   csvcubed.inputs
 
 Module contents
 ---------------

@@ -1,0 +1,7 @@
+csvcubed.cli.inspectcsvw.metadataprinter 
+=========================================
+
+.. automodule:: csvcubed.cli.inspectcsvw.metadataprinter
+   :members:
+   :undoc-members:
+   :show-inheritance:

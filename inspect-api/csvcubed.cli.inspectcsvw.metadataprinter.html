@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>csvcubed.cli.inspectcsvw.metadataprinter &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.utils" href="csvcubed.utils.html" />
+    <link rel="prev" title="csvcubed.cli.inspectcsvw.metadatainputvalidator" href="csvcubed.cli.inspectcsvw.metadatainputvalidator.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspect.html">csvcubed.cli.inspectcsvw.inspect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspectdatasetmanager.html">csvcubed.cli.inspectcsvw.inspectdatasetmanager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.metadatainputvalidator.html">csvcubed.cli.inspectcsvw.metadatainputvalidator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.cli.inspectcsvw.metadataprinter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">csvcubed</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspect.html">csvcubed.cli.inspectcsvw.inspect</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspectdatasetmanager.html">csvcubed.cli.inspectcsvw.inspectdatasetmanager</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.cli.inspectcsvw.metadatainputvalidator.html">csvcubed.cli.inspectcsvw.metadatainputvalidator</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">csvcubed.cli.inspectcsvw.metadataprinter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.cli.inspectcsvw.metadataprinter.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.html" title="csvcubed.utils"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.cli.inspectcsvw.metadatainputvalidator.html" title="csvcubed.cli.inspectcsvw.metadatainputvalidator"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.cli.html" >csvcubed.cli</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.cli.inspectcsvw.html" accesskey="U">csvcubed.cli.inspectcsvw</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.cli.inspectcsvw.metadataprinter</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-csvcubed.cli.inspectcsvw.metadataprinter">
+<span id="csvcubed-cli-inspectcsvw-metadataprinter"></span><h1>csvcubed.cli.inspectcsvw.metadataprinter<a class="headerlink" href="#module-csvcubed.cli.inspectcsvw.metadataprinter" title="Permalink to this heading">¶</a></h1>
+<section id="metadata-printer">
+<h2>Metadata Printer<a class="headerlink" href="#metadata-printer" title="Permalink to this heading">¶</a></h2>
+<p>Provides functionality for validating and detecting input metadata.json file.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.cli.inspectcsvw.metadataprinter.</span></span><span class="sig-name descname"><span class="pre">MetadataPrinter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html#csvcubed.utils.sparql_handler.data_cube_inspector.DataCubeInspector" title="csvcubed.utils.sparql_handler.data_cube_inspector.DataCubeInspector"><span class="pre">DataCubeInspector</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html#csvcubed.utils.sparql_handler.code_list_inspector.CodeListInspector" title="csvcubed.utils.sparql_handler.code_list_inspector.CodeListInspector"><span class="pre">CodeListInspector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class produces the printables necessary for producing outputs to the CLI.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.catalog_metadata_printable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">catalog_metadata_printable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.catalog_metadata_printable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a printable of catalog metadata (e.g. title, description).</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - user-friendly string which will be output to CLI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.codelist_hierachy_info_printable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">codelist_hierachy_info_printable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.codelist_hierachy_info_printable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a printable of code list concepts hierarchy.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - user-friendly string which will be output to CLI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.codelist_info_printable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">codelist_info_printable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.codelist_info_printable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a printable of data structure definition (DSD) code list information (e.g. column name, type, etc.).</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - user-friendly string which will be output to CLI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.column_component_info_printable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">column_component_info_printable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.column_component_info_printable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a printable of the column titles and types.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.csvw_type_str">
+<span class="sig-name descname"><span class="pre">csvw_type_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.csvw_type_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.dataset">
+<span class="sig-name descname"><span class="pre">dataset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.dataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.dataset_observations_info_printable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dataset_observations_info_printable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.dataset_observations_info_printable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a printable of top 10 and last 10 records.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - user-friendly string which will be output to CLI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.dataset_val_counts_by_measure_unit_info_printable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dataset_val_counts_by_measure_unit_info_printable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.dataset_val_counts_by_measure_unit_info_printable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a printable of data set value counts broken-down by measure and unit.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - user-friendly string which will be output to CLI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.generate_codelist_results">
+<span class="sig-name descname"><span class="pre">generate_codelist_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.generate_codelist_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates results specific to code lists.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.generate_general_results">
+<span class="sig-name descname"><span class="pre">generate_general_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.generate_general_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates results related to data cubes and code lists.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_csvw_type_str">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_csvw_type_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csvw_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CSVWType</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_csvw_type_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the type of csvw being evaluated as a string.
+E.g. ‘data cube’ or ‘code list’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_datacube_results">
+<span class="sig-name descname"><span class="pre">get_datacube_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_datacube_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates results specific to data cubes.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_parent_label_unique_id_col_titles">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_parent_label_unique_id_col_titles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ColumnDefinition</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_key_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_parent_label_unique_id_col_titles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple containing the parent, label and unique id column titles
+in a code list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_primary_csv_url">
+<span class="sig-name descname"><span class="pre">get_primary_csv_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_primary_csv_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the csv_url for the primary table in the graph.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_csv_column_definitions">
+<span class="sig-name descname"><span class="pre">primary_csv_column_definitions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ColumnDefinition</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_csv_column_definitions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_csv_url">
+<span class="sig-name descname"><span class="pre">primary_csv_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_csv_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_cube_table_identifiers">
+<span class="sig-name descname"><span class="pre">primary_cube_table_identifiers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CubeTableIdentifiers</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_cube_table_identifiers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_catalog_metadata">
+<span class="sig-name descname"><span class="pre">result_catalog_metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CatalogMetadataResult</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_catalog_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_code_list_cols">
+<span class="sig-name descname"><span class="pre">result_code_list_cols</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ColumnDefinition</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_code_list_cols" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_column_component_infos">
+<span class="sig-name descname"><span class="pre">result_column_component_infos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html#csvcubed.utils.sparql_handler.column_component_info.ColumnComponentInfo" title="csvcubed.utils.sparql_handler.column_component_info.ColumnComponentInfo"><span class="pre">ColumnComponentInfo</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_column_component_infos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_concepts_hierachy_info">
+<span class="sig-name descname"><span class="pre">result_concepts_hierachy_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CodelistHierarchyInfoResult</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_concepts_hierachy_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_observations_info">
+<span class="sig-name descname"><span class="pre">result_dataset_observations_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DatasetObservationsInfoResult</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_observations_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_value_counts">
+<span class="sig-name descname"><span class="pre">result_dataset_value_counts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DatasetObservationsByMeasureUnitInfoResult</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_value_counts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_primary_csv_code_lists">
+<span class="sig-name descname"><span class="pre">result_primary_csv_code_lists</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CodelistsResult</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_primary_csv_code_lists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.state">
+<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html#csvcubed.utils.sparql_handler.data_cube_inspector.DataCubeInspector" title="csvcubed.utils.sparql_handler.data_cube_inspector.DataCubeInspector"><span class="pre">DataCubeInspector</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html#csvcubed.utils.sparql_handler.code_list_inspector.CodeListInspector" title="csvcubed.utils.sparql_handler.code_list_inspector.CodeListInspector"><span class="pre">CodeListInspector</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.type_info_printable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type_info_printable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.type_info_printable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a printable of file content type.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/MetadataPrinter</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - user-friendly string which will be output to CLI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspect.html">csvcubed.cli.inspectcsvw.inspect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspectdatasetmanager.html">csvcubed.cli.inspectcsvw.inspectdatasetmanager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.metadatainputvalidator.html">csvcubed.cli.inspectcsvw.metadatainputvalidator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.cli.inspectcsvw.metadataprinter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">csvcubed</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspect.html">csvcubed.cli.inspectcsvw.inspect</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspectdatasetmanager.html">csvcubed.cli.inspectcsvw.inspectdatasetmanager</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.cli.inspectcsvw.metadatainputvalidator.html">csvcubed.cli.inspectcsvw.metadatainputvalidator</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">csvcubed.cli.inspectcsvw.metadataprinter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.cli.inspectcsvw.metadataprinter.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.html" title="csvcubed.utils"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.cli.inspectcsvw.metadatainputvalidator.html" title="csvcubed.cli.inspectcsvw.metadatainputvalidator"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.cli.html" >csvcubed.cli</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.cli.inspectcsvw.html" >csvcubed.cli.inspectcsvw</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.cli.inspectcsvw.metadataprinter</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2023, ONS.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+
+  </body>
+</html>

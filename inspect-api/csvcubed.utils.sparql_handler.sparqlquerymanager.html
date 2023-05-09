@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>csvcubed.utils.sparql_handler.sparqlquerymanager &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed" href="modules.html" />
+    <link rel="prev" title="csvcubed.utils.sparql_handler.sparql" href="csvcubed.utils.sparql_handler.sparql.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html">csvcubed.utils.sparql_handler.code_list_inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html">csvcubed.utils.sparql_handler.column_component_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_inspector.html">csvcubed.utils.sparql_handler.csvw_inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html">csvcubed.utils.sparql_handler.data_cube_inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.sparql.html">csvcubed.utils.sparql_handler.sparql</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">csvcubed</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html">csvcubed.utils.sparql_handler.code_list_inspector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html">csvcubed.utils.sparql_handler.column_component_info</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_inspector.html">csvcubed.utils.sparql_handler.csvw_inspector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html">csvcubed.utils.sparql_handler.data_cube_inspector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.sparql.html">csvcubed.utils.sparql_handler.sparql</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.utils.sparql_handler.sparqlquerymanager.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="csvcubed"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.sparql_handler.sparql.html" title="csvcubed.utils.sparql_handler.sparql"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.utils.html" >csvcubed.utils</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.utils.sparql_handler.html" accesskey="U">csvcubed.utils.sparql_handler</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-csvcubed.utils.sparql_handler.sparqlquerymanager">
+<span id="csvcubed-utils-sparql-handler-sparqlquerymanager"></span><h1>csvcubed.utils.sparql_handler.sparqlquerymanager<a class="headerlink" href="#module-csvcubed.utils.sparql_handler.sparqlquerymanager" title="Permalink to this heading">¶</a></h1>
+<section id="sparql-queries">
+<h2>SPARQL Queries<a class="headerlink" href="#sparql-queries" title="Permalink to this heading">¶</a></h2>
+<p>Collection of SPARQL queries.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">SPARQLQueryName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>The names of sparql queries.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.ASK_IS_CODELIST">
+<span class="sig-name descname"><span class="pre">ASK_IS_CODELIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ask_is_codelist'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.ASK_IS_CODELIST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.ASK_IS_QB_DATASET">
+<span class="sig-name descname"><span class="pre">ASK_IS_QB_DATASET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ask_is_qb_dataset'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.ASK_IS_QB_DATASET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CATALOG_METADATA">
+<span class="sig-name descname"><span class="pre">SELECT_CATALOG_METADATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_catalog_metadata'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CATALOG_METADATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CODELISTS_AND_COLS">
+<span class="sig-name descname"><span class="pre">SELECT_CODELISTS_AND_COLS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_codelists_and_cols'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CODELISTS_AND_COLS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CODELIST_COLS_BY_CSV_URL">
+<span class="sig-name descname"><span class="pre">SELECT_CODELIST_COLS_BY_CSV_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_codelist_cols_by_csv_url'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CODELIST_COLS_BY_CSV_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CODELIST_PRIMARY_KEY_BY_CSV_URL">
+<span class="sig-name descname"><span class="pre">SELECT_CODELIST_PRIMARY_KEY_BY_CSV_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_codelist_primary_key_by_csv_url'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CODELIST_PRIMARY_KEY_BY_CSV_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_COLUMN_DEFINITIONS">
+<span class="sig-name descname"><span class="pre">SELECT_COLUMN_DEFINITIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_column_definitions'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_COLUMN_DEFINITIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CSVW_TABLE_SCHEMA_FILE_DEPENDENCIES">
+<span class="sig-name descname"><span class="pre">SELECT_CSVW_TABLE_SCHEMA_FILE_DEPENDENCIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_csvw_table_schema_file_dependencies'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_CSVW_TABLE_SCHEMA_FILE_DEPENDENCIES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_DATA_SET_DSD_CSV_URL">
+<span class="sig-name descname"><span class="pre">SELECT_DATA_SET_DSD_CSV_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_data_set_dsd_csv_url'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_DATA_SET_DSD_CSV_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_DSD_QUBE_COMPONENTS">
+<span class="sig-name descname"><span class="pre">SELECT_DSD_QUBE_COMPONENTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_dsd_qube_components'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_DSD_QUBE_COMPONENTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_IS_PIVOTED_SHAPE_FOR_MEASURES_IN_DATA_SET">
+<span class="sig-name descname"><span class="pre">SELECT_IS_PIVOTED_SHAPE_FOR_MEASURES_IN_DATA_SET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_is_pivoted_shape_for_measures_in_data_set'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_IS_PIVOTED_SHAPE_FOR_MEASURES_IN_DATA_SET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_LABELS_FOR_RESOURCE_URIS">
+<span class="sig-name descname"><span class="pre">SELECT_LABELS_FOR_RESOURCE_URIS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_labels_for_resource_uris'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_LABELS_FOR_RESOURCE_URIS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_METADATA_DEPENDENCIES">
+<span class="sig-name descname"><span class="pre">SELECT_METADATA_DEPENDENCIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_metadata_dependencies'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_METADATA_DEPENDENCIES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_TABLE_SCHEMA_PROPERTIES">
+<span class="sig-name descname"><span class="pre">SELECT_TABLE_SCHEMA_PROPERTIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_table_schema_properties'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_TABLE_SCHEMA_PROPERTIES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_UNITS">
+<span class="sig-name descname"><span class="pre">SELECT_UNITS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'select_units'</span></em><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.SPARQLQueryName.SELECT_UNITS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.ask_is_csvw_code_list">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">ask_is_csvw_code_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.ask_is_csvw_code_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries whether the given rdf is a code list (i.e. skos:ConceptScheme).</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>bool</cite> - Boolean specifying whether the rdf is code list (true) or not (false).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.ask_is_csvw_qb_dataset">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">ask_is_csvw_qb_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.ask_is_csvw_qb_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries whether the given rdf is a qb dataset (i.e. qb:Dataset).</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>bool</cite> - Boolean specifying whether the rdf is code list (true) or not (false).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_column_definitions">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_column_definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ColumnDefinition</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_column_definitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects the column names and corresponding column titles.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_csvw_catalog_metadata">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_csvw_catalog_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">CatalogMetadataResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_csvw_catalog_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries catalog metadata such as title, label, issued date/time, modified data/time, etc.</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>CatalogMetadataResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_csvw_dsd_qube_components">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_csvw_dsd_qube_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConjunctiveGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_dsd_uri_to_csv_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_csv_url_to_column_definitions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ColumnDefinition</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_csv_url_to_cube_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">CubeShape</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">QubeComponentsResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_csvw_dsd_qube_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the list of qube components.</p>
+<p>Returns a map of csv_url to the <cite>QubeComponentsResult</cite>.</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>Dict[str, QubeComponentsResult]</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_csvw_table_schema_file_dependencies">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_csvw_table_schema_file_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConjunctiveGraph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CSVWTableSchemaFileDependenciesResult</span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_csvw_table_schema_file_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the table schemas of the given csvw json-ld.</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>CSVWTabelSchemasResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_data_set_dsd_and_csv_url">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_data_set_dsd_and_csv_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConjunctiveGraph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">CubeTableIdentifiers</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_data_set_dsd_and_csv_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects the dataset’s DSD and CSV URL. Returns a list of cube table identifiers containing the results.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_dsd_code_list_and_cols">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_dsd_code_list_and_cols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConjunctiveGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">CodelistsResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_dsd_code_list_and_cols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries code lists and columns in the data cube.</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>CodelistInfoSparqlResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_is_pivoted_shape_for_measures_in_data_set">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_is_pivoted_shape_for_measures_in_data_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConjunctiveGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_table_identifiers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">CubeTableIdentifiers</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">IsPivotedShapeMeasureResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_is_pivoted_shape_for_measures_in_data_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the measure and whether it is a part of a pivoted or standard shape cube.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_labels_for_resource_uris">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_labels_for_resource_uris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConjunctiveGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_uris</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_labels_for_resource_uris" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries a list of value uris and returns associated labels</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>Dict[str, str]</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_metadata_dependencies">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_metadata_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">MetadataDependenciesResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_metadata_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries a CSV-W and extracts metadata dependencies defined by void dataset dataDumps.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_primary_key_col_names_by_csv_url">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_primary_key_col_names_by_csv_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConjunctiveGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PrimaryKeyColNamesByDatasetUrlResult</span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_primary_key_col_names_by_csv_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the primary keys for the given table url.</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>PrimaryKeyColNamesByDatasetUrlResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_table_schema_properties">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_table_schema_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">TableSchemaPropertiesResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_table_schema_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries a CSV-W and extracts about_url, csv_url and a list of the primary key column names for all tables in the CSV-W.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparqlquerymanager.select_units">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparqlquerymanager.</span></span><span class="sig-name descname"><span class="pre">select_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdf_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConjunctiveGraph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">UnitResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparqlquerymanager.select_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the units from data set.</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparqlquerymanager.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>List[UnitResult]</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html">csvcubed.utils.sparql_handler.code_list_inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html">csvcubed.utils.sparql_handler.column_component_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_inspector.html">csvcubed.utils.sparql_handler.csvw_inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html">csvcubed.utils.sparql_handler.data_cube_inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.sparql.html">csvcubed.utils.sparql_handler.sparql</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">csvcubed</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html">csvcubed.utils.sparql_handler.code_list_inspector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html">csvcubed.utils.sparql_handler.column_component_info</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_inspector.html">csvcubed.utils.sparql_handler.csvw_inspector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html">csvcubed.utils.sparql_handler.data_cube_inspector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.sparql.html">csvcubed.utils.sparql_handler.sparql</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.utils.sparql_handler.sparqlquerymanager.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="csvcubed"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.sparql_handler.sparql.html" title="csvcubed.utils.sparql_handler.sparql"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.utils.html" >csvcubed.utils</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.utils.sparql_handler.html" >csvcubed.utils.sparql_handler</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2023, ONS.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+
+  </body>
+</html>

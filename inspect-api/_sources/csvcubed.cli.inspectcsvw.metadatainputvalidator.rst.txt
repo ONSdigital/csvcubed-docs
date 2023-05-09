@@ -1,0 +1,7 @@
+csvcubed.cli.inspectcsvw.metadatainputvalidator 
+================================================
+
+.. automodule:: csvcubed.cli.inspectcsvw.metadatainputvalidator
+   :members:
+   :undoc-members:
+   :show-inheritance:

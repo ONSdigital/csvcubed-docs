@@ -1,0 +1,7 @@
+csvcubed.cli.inspectcsvw.inspect 
+=================================
+
+.. automodule:: csvcubed.cli.inspectcsvw.inspect
+   :members:
+   :undoc-members:
+   :show-inheritance:

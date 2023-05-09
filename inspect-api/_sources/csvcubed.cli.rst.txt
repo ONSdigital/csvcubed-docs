@@ -1,35 +1,21 @@
-csvcubed.cli package
-====================
+csvcubed.cli 
+=============
 
-Subpackages
------------
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 20
 
    csvcubed.cli.buildcsvw
    csvcubed.cli.codelist
    csvcubed.cli.inspectcsvw
    csvcubed.cli.pullcsvw
 
-Submodules
-----------
 
-csvcubed.cli.entrypoint module
-------------------------------
+.. toctree::
+   :maxdepth: 20
 
-.. automodule:: csvcubed.cli.entrypoint
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-csvcubed.cli.error\_mapping module
-----------------------------------
-
-.. automodule:: csvcubed.cli.error_mapping
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   csvcubed.cli.entrypoint
+   csvcubed.cli.error_mapping
 
 Module contents
 ---------------
