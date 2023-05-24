@@ -1,7 +1,0 @@
-csvcubed.utils.sparql\_handler.code\_list\_inspector 
-=====================================================
-
-.. automodule:: csvcubed.utils.sparql_handler.code_list_inspector
-   :members:
-   :undoc-members:
-   :show-inheritance:

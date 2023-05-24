@@ -1,0 +1,12 @@
+csvcubed.writers.helpers.qbwriter.newresourceurigenerator 
+==========================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.writers.helpers.qbwriter.newresourceurigenerator
+   :members:
+   :undoc-members:
+   :show-inheritance:

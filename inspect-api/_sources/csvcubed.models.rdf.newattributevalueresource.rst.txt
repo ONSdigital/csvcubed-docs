@@ -1,0 +1,12 @@
+csvcubed.models.rdf.newattributevalueresource 
+==============================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.rdf.newattributevalueresource
+   :members:
+   :undoc-members:
+   :show-inheritance:

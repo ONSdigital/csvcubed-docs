@@ -1,0 +1,12 @@
+csvcubed.models.uriidentifiable 
+================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.uriidentifiable
+   :members:
+   :undoc-members:
+   :show-inheritance:

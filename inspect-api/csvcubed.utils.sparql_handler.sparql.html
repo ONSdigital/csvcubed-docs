@@ -4,12 +4,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>csvcubed.utils.sparql_handler.sparql &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -19,93 +20,28 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="csvcubed.utils.sparql_handler.sparqlquerymanager" href="csvcubed.utils.sparql_handler.sparqlquerymanager.html" />
-    <link rel="prev" title="csvcubed.utils.sparql_handler.data_cube_inspector" href="csvcubed.utils.sparql_handler.data_cube_inspector.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+    <link rel="prev" title="csvcubed.utils.sparql_handler.data_cube_repository" href="csvcubed.utils.sparql_handler.data_cube_repository.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
             <script type="text/javascript" src="_static/copybutton.js"></script>
-            <script type="text/javascript" src="_static/menu.js"></script> 
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
   </head>
 <body>
 <div class="mobile-nav">
     <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
            aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
-    <label for="menuToggler" class="toggler__label">
-        <span></span>
-    </label>
     <nav class="nav-content" role="navigation">
-         <a href="https://www.python.org/" class="nav-logo">
-             <img src="_static/py.svg" alt="Logo"/>
-         </a>
-        <div class="version_switcher_placeholder"></div>
-        <form role="search" class="search" action="search.html" method="get">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
-                <path fill-rule="nonzero"
-                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
-            </svg>
-            <input type="text" name="q" aria-label="Quick search"/>
-            <input type="submit" value="Go"/>
-        </form>
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
     </nav>
-    <div class="menu-wrapper">
-        <nav class="menu" role="navigation" aria-label="main navigation">
-            <div class="language_switcher_placeholder"></div>
-<h3><a href="index.html">Table of Contents</a></h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html">csvcubed.utils.sparql_handler.code_list_inspector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html">csvcubed.utils.sparql_handler.column_component_info</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_inspector.html">csvcubed.utils.sparql_handler.csvw_inspector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html">csvcubed.utils.sparql_handler.data_cube_inspector</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.utils.sparql_handler.sparql</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.sparqlquerymanager.html">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">csvcubed</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a><ul class="current">
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html">csvcubed.utils.sparql_handler.code_list_inspector</a></li>
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html">csvcubed.utils.sparql_handler.column_component_info</a></li>
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_inspector.html">csvcubed.utils.sparql_handler.csvw_inspector</a></li>
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html">csvcubed.utils.sparql_handler.data_cube_inspector</a></li>
-<li class="toctree-l5 current"><a class="current reference internal" href="#">csvcubed.utils.sparql_handler.sparql</a></li>
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.sparqlquerymanager.html">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/csvcubed.utils.sparql_handler.sparql.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-        </nav>
-    </div>
 </div>
   
     <div class="related" role="navigation" aria-label="related navigation">
@@ -121,10 +57,8 @@
           <a href="csvcubed.utils.sparql_handler.sparqlquerymanager.html" title="csvcubed.utils.sparql_handler.sparqlquerymanager"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="csvcubed.utils.sparql_handler.data_cube_inspector.html" title="csvcubed.utils.sparql_handler.data_cube_inspector"
+          <a href="csvcubed.utils.sparql_handler.data_cube_repository.html" title="csvcubed.utils.sparql_handler.data_cube_repository"
              accesskey="P">previous</a> |</li>
-          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
-          <li><a href="https://www.python.org/">Python</a> &#187;</li>
           <li class="switchers">
             <div class="language_switcher_placeholder"></div>
             <div class="version_switcher_placeholder"></div>
@@ -143,14 +77,21 @@
 
     <div class="inline-search" role="search">
         <form class="inline-search" action="search.html" method="get">
-          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
           <input type="submit" value="Go" />
-          <input type="hidden" name="check_keywords" value="yes" />
-          <input type="hidden" name="area" value="default" />
         </form>
     </div>
                      |
                 </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
             
       </ul>
     </div>    
@@ -160,9 +101,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-csvcubed.utils.sparql_handler.sparql">
-<span id="csvcubed-utils-sparql-handler-sparql"></span><h1>csvcubed.utils.sparql_handler.sparql<a class="headerlink" href="#module-csvcubed.utils.sparql_handler.sparql" title="Permalink to this heading">¶</a></h1>
-<section id="sparql">
+  <section id="csvcubed-utils-sparql-handler-sparql">
+<h1>csvcubed.utils.sparql_handler.sparql<a class="headerlink" href="#csvcubed-utils-sparql-handler-sparql" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-csvcubed.utils.sparql_handler.sparql"></span><section id="sparql">
 <h2>SPARQL<a class="headerlink" href="#sparql" title="Permalink to this heading">¶</a></h2>
 <p>Utilities to help when running SPARQL queries.</p>
 </section>
@@ -192,7 +133,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="csvcubed.utils.sparql_handler.sparql.select">
-<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparql.</span></span><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_bindings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Node</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values_bindings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ValuesBinding</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ResultRow</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparql.select" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.sparql_handler.sparql.</span></span><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_bindings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Identifier</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values_bindings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.sparql.valuesbinding.html#csvcubed.models.sparql.valuesbinding.ValuesBinding" title="csvcubed.models.sparql.valuesbinding.ValuesBinding"><span class="pre">ValuesBinding</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ResultRow</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.utils.sparql_handler.sparql.select" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the given SELECT query on the rdf graph.</p>
 <p>Member of <code class="file docutils literal notranslate"><span class="pre">./sparql.py</span></code>.</p>
 <dl class="field-list simple">
@@ -216,37 +157,45 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.qb.html">csvcubed.utils.qb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.skos.html">csvcubed.utils.skos</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html">csvcubed.utils.sparql_handler.code_list_inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_repository.html">csvcubed.utils.sparql_handler.code_list_repository</a></li>
 <li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html">csvcubed.utils.sparql_handler.column_component_info</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_inspector.html">csvcubed.utils.sparql_handler.csvw_inspector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html">csvcubed.utils.sparql_handler.data_cube_inspector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_repository.html">csvcubed.utils.sparql_handler.csvw_repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_repository.html">csvcubed.utils.sparql_handler.data_cube_repository</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.utils.sparql_handler.sparql</a></li>
 <li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.sparql_handler.sparqlquerymanager.html">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.validators.html">csvcubed.utils.validators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.cache.html">csvcubed.utils.cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.cli.html">csvcubed.utils.cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.createlocalcopyresponse.html">csvcubed.utils.createlocalcopyresponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.csvdataset.html">csvcubed.utils.csvdataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.csvw.html">csvcubed.utils.csvw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.datetime.html">csvcubed.utils.datetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.dict.html">csvcubed.utils.dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.file.html">csvcubed.utils.file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.iterables.html">csvcubed.utils.iterables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.json.html">csvcubed.utils.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.log.html">csvcubed.utils.log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.pandas.html">csvcubed.utils.pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.printable.html">csvcubed.utils.printable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.rdf.html">csvcubed.utils.rdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.tableschema.html">csvcubed.utils.tableschema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.text.html">csvcubed.utils.text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.uri.html">csvcubed.utils.uri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.validations.html">csvcubed.utils.validations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.version.html">csvcubed.utils.version</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">csvcubed</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a><ul class="current">
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_inspector.html">csvcubed.utils.sparql_handler.code_list_inspector</a></li>
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html">csvcubed.utils.sparql_handler.column_component_info</a></li>
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.csvw_inspector.html">csvcubed.utils.sparql_handler.csvw_inspector</a></li>
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_inspector.html">csvcubed.utils.sparql_handler.data_cube_inspector</a></li>
-<li class="toctree-l5 current"><a class="current reference internal" href="#">csvcubed.utils.sparql_handler.sparql</a></li>
-<li class="toctree-l5"><a class="reference internal" href="csvcubed.utils.sparql_handler.sparqlquerymanager.html">csvcubed.utils.sparql_handler.sparqlquerymanager</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
 </ul>
 </li>
 </ul>
@@ -285,10 +234,8 @@
           <a href="csvcubed.utils.sparql_handler.sparqlquerymanager.html" title="csvcubed.utils.sparql_handler.sparqlquerymanager"
              >next</a> |</li>
         <li class="right" >
-          <a href="csvcubed.utils.sparql_handler.data_cube_inspector.html" title="csvcubed.utils.sparql_handler.data_cube_inspector"
+          <a href="csvcubed.utils.sparql_handler.data_cube_repository.html" title="csvcubed.utils.sparql_handler.data_cube_repository"
              >previous</a> |</li>
-          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
-          <li><a href="https://www.python.org/">Python</a> &#187;</li>
           <li class="switchers">
             <div class="language_switcher_placeholder"></div>
             <div class="version_switcher_placeholder"></div>
@@ -307,38 +254,27 @@
 
     <div class="inline-search" role="search">
         <form class="inline-search" action="search.html" method="get">
-          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
           <input type="submit" value="Go" />
-          <input type="hidden" name="check_keywords" value="yes" />
-          <input type="hidden" name="area" value="default" />
         </form>
     </div>
                      |
                 </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
             
       </ul>
     </div>  
-    <div class="footer">
-    &copy; Copyright 2023, ONS.
-    <br />
-    This page is licensed under the Python Software Foundation License Version 2.
-    <br />
-    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
-    <br />
-    
-    <br />
-
-    The Python Software Foundation is a non-profit corporation.
-<a href="https://www.python.org/psf/donations/">Please donate.</a>
-<br />
-    <br />
-
-    Last updated on None.
-    
-    <br />
-
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
     </div>
-
   </body>
 </html>

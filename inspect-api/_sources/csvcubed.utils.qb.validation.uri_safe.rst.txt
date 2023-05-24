@@ -1,0 +1,12 @@
+csvcubed.utils.qb.validation.uri\_safe 
+=======================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.qb.validation.uri_safe
+   :members:
+   :undoc-members:
+   :show-inheritance:

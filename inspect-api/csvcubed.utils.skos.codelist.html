@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>csvcubed.utils.skos.codelist &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.utils.sparql_handler" href="csvcubed.utils.sparql_handler.html" />
+    <link rel="prev" title="csvcubed.utils.skos" href="csvcubed.utils.skos.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.sparql_handler.html" title="csvcubed.utils.sparql_handler"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.skos.html" title="csvcubed.utils.skos"
+             accesskey="P">previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.utils.html" >csvcubed.utils</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.utils.skos.html" accesskey="U">csvcubed.utils.skos</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.utils.skos.codelist</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-utils-skos-codelist">
+<h1>csvcubed.utils.skos.codelist<a class="headerlink" href="#csvcubed-utils-skos-codelist" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-csvcubed.utils.skos.codelist"></span><section id="codelist">
+<h2>CodeList<a class="headerlink" href="#codelist" title="Permalink to this heading">¶</a></h2>
+<p>Utilities for skos:codelists</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.CodelistPropertyUrl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.utils.skos.codelist.</span></span><span class="sig-name descname"><span class="pre">CodelistPropertyUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>The codelist column property url types.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.CodelistPropertyUrl.RDFLabel">
+<span class="sig-name descname"><span class="pre">RDFLabel</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rdfs:label'</span></em><a class="headerlink" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl.RDFLabel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.CodelistPropertyUrl.RDFType">
+<span class="sig-name descname"><span class="pre">RDFType</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rdf:type'</span></em><a class="headerlink" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl.RDFType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.CodelistPropertyUrl.RDFsComment">
+<span class="sig-name descname"><span class="pre">RDFsComment</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rdfs:comment'</span></em><a class="headerlink" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl.RDFsComment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.CodelistPropertyUrl.SkosBroader">
+<span class="sig-name descname"><span class="pre">SkosBroader</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'skos:broader'</span></em><a class="headerlink" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl.SkosBroader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.CodelistPropertyUrl.SkosInScheme">
+<span class="sig-name descname"><span class="pre">SkosInScheme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'skos:inScheme'</span></em><a class="headerlink" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl.SkosInScheme" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.CodelistPropertyUrl.SkosNotation">
+<span class="sig-name descname"><span class="pre">SkosNotation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'skos:notation'</span></em><a class="headerlink" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl.SkosNotation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.CodelistPropertyUrl.SortPriority">
+<span class="sig-name descname"><span class="pre">SortPriority</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://www.w3.org/ns/ui#sortPriority'</span></em><a class="headerlink" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl.SortPriority" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.build_concepts_hierarchy_tree">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.skos.codelist.</span></span><span class="sig-name descname"><span class="pre">build_concepts_hierarchy_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concepts_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_notation_col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notation_col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tree</span></span></span><a class="headerlink" href="#csvcubed.utils.skos.codelist.build_concepts_hierarchy_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the concepts hierarchy as a tree data structure.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/codelist</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>Tree</cite> - concepts as a tree data structure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.get_codelist_col_title_by_property_url">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.skos.codelist.</span></span><span class="sig-name descname"><span class="pre">get_codelist_col_title_by_property_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.sparqlresults.html#csvcubed.models.sparqlresults.ColumnDefinition" title="csvcubed.models.sparqlresults.ColumnDefinition"><span class="pre">ColumnDefinition</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#csvcubed.utils.skos.codelist.CodelistPropertyUrl" title="csvcubed.utils.skos.codelist.CodelistPropertyUrl"><span class="pre">CodelistPropertyUrl</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#csvcubed.utils.skos.codelist.get_codelist_col_title_by_property_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>n
+Returns dataset column title for the given property url.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/codelist</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - dataset column title.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.skos.codelist.get_codelist_col_title_from_col_name">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.skos.codelist.</span></span><span class="sig-name descname"><span class="pre">get_codelist_col_title_from_col_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.sparqlresults.html#csvcubed.models.sparqlresults.ColumnDefinition" title="csvcubed.models.sparqlresults.ColumnDefinition"><span class="pre">ColumnDefinition</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.utils.skos.codelist.get_codelist_col_title_from_col_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the column title for the column name.</p>
+<p>Member of <code class="xref py py-class docutils literal notranslate"><span class="pre">/codelist</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - dataset column title.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.qb.html">csvcubed.utils.qb</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.skos.html">csvcubed.utils.skos</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.utils.skos.codelist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.validators.html">csvcubed.utils.validators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.cache.html">csvcubed.utils.cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.cli.html">csvcubed.utils.cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.createlocalcopyresponse.html">csvcubed.utils.createlocalcopyresponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.csvdataset.html">csvcubed.utils.csvdataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.csvw.html">csvcubed.utils.csvw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.datetime.html">csvcubed.utils.datetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.dict.html">csvcubed.utils.dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.file.html">csvcubed.utils.file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.iterables.html">csvcubed.utils.iterables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.json.html">csvcubed.utils.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.log.html">csvcubed.utils.log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.pandas.html">csvcubed.utils.pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.printable.html">csvcubed.utils.printable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.rdf.html">csvcubed.utils.rdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.tableschema.html">csvcubed.utils.tableschema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.text.html">csvcubed.utils.text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.uri.html">csvcubed.utils.uri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.validations.html">csvcubed.utils.validations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.version.html">csvcubed.utils.version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.utils.skos.codelist.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.sparql_handler.html" title="csvcubed.utils.sparql_handler"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.skos.html" title="csvcubed.utils.skos"
+             >previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.utils.html" >csvcubed.utils</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.utils.skos.html" >csvcubed.utils.skos</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.utils.skos.codelist</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
+    </div>
+  </body>
+</html>

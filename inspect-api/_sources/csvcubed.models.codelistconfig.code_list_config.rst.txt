@@ -1,0 +1,12 @@
+csvcubed.models.codelistconfig.code\_list\_config 
+==================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.codelistconfig.code_list_config
+   :members:
+   :undoc-members:
+   :show-inheritance:

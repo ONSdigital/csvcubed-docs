@@ -1,0 +1,12 @@
+csvcubed.models.validatedmodel 
+===============================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.validatedmodel
+   :members:
+   :undoc-members:
+   :show-inheritance:

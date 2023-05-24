@@ -1,0 +1,12 @@
+csvcubed.utils.tableschema 
+===========================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.tableschema
+   :members:
+   :undoc-members:
+   :show-inheritance:

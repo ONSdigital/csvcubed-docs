@@ -1,0 +1,12 @@
+csvcubed.models.rdf.conceptschemeincatalog 
+===========================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.rdf.conceptschemeincatalog
+   :members:
+   :undoc-members:
+   :show-inheritance:

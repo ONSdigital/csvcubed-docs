@@ -1,0 +1,17 @@
+csvcubed.cli.buildcsvw 
+=======================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.cli.buildcsvw.build
+
+:py:mod:`csvcubed.cli.buildcsvw.build`
+
+
+
+
+.. automodule:: csvcubed.cli.buildcsvw
+   :members:
+   :undoc-members:
+   :show-inheritance:

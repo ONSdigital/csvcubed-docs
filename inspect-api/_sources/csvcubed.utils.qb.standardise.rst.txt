@@ -1,0 +1,12 @@
+csvcubed.utils.qb.standardise 
+==============================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.qb.standardise
+   :members:
+   :undoc-members:
+   :show-inheritance:

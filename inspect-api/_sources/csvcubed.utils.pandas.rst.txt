@@ -1,0 +1,12 @@
+csvcubed.utils.pandas 
+======================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.pandas
+   :members:
+   :undoc-members:
+   :show-inheritance:

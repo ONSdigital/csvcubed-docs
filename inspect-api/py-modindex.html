@@ -8,7 +8,8 @@
     <title>Python Module Index &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -17,9 +18,12 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-<link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+<link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
             <script type="text/javascript" src="_static/copybutton.js"></script>
-            <script type="text/javascript" src="_static/menu.js"></script> 
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
 
 
   </head>
@@ -27,45 +31,17 @@
 <div class="mobile-nav">
     <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
            aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
-    <label for="menuToggler" class="toggler__label">
-        <span></span>
-    </label>
     <nav class="nav-content" role="navigation">
-         <a href="https://www.python.org/" class="nav-logo">
-             <img src="_static/py.svg" alt="Logo"/>
-         </a>
-        <div class="version_switcher_placeholder"></div>
-        <form role="search" class="search" action="search.html" method="get">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
-                <path fill-rule="nonzero"
-                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
-            </svg>
-            <input type="text" name="q" aria-label="Quick search"/>
-            <input type="submit" value="Go"/>
-        </form>
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
     </nav>
-    <div class="menu-wrapper">
-        <nav class="menu" role="navigation" aria-label="main navigation">
-            <div class="language_switcher_placeholder"></div>
-<h3><a href="index.html">Table of Contents</a></h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="csvcubed.html">csvcubed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">csvcubed</a></li>
-</ul>
-
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-        </nav>
-    </div>
 </div>
   
     <div class="related" role="navigation" aria-label="related navigation">
@@ -77,8 +53,6 @@
         <li class="right" >
           <a href="#" title="Python Module Index"
              >modules</a> |</li>
-          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
-          <li><a href="https://www.python.org/">Python</a> &#187;</li>
           <li class="switchers">
             <div class="language_switcher_placeholder"></div>
             <div class="version_switcher_placeholder"></div>
@@ -94,14 +68,21 @@
 
     <div class="inline-search" role="search">
         <form class="inline-search" action="search.html" method="get">
-          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
           <input type="submit" value="Go" />
-          <input type="hidden" name="check_keywords" value="yes" />
-          <input type="hidden" name="area" value="default" />
         </form>
     </div>
                      |
                 </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
             
       </ul>
     </div>    
@@ -136,6 +117,36 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
+       <a href="csvcubed.cli.buildcsvw.html#module-csvcubed.cli.buildcsvw"><code class="xref">csvcubed.cli.buildcsvw</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.cli.buildcsvw.build.html#module-csvcubed.cli.buildcsvw.build"><code class="xref">csvcubed.cli.buildcsvw.build</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.cli.codelist.html#module-csvcubed.cli.codelist"><code class="xref">csvcubed.cli.codelist</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.cli.codelist.build_code_list.html#module-csvcubed.cli.codelist.build_code_list"><code class="xref">csvcubed.cli.codelist.build_code_list</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.cli.entrypoint.html#module-csvcubed.cli.entrypoint"><code class="xref">csvcubed.cli.entrypoint</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.cli.error_mapping.html#module-csvcubed.cli.error_mapping"><code class="xref">csvcubed.cli.error_mapping</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
        <a href="csvcubed.cli.inspectcsvw.html#module-csvcubed.cli.inspectcsvw"><code class="xref">csvcubed.cli.inspectcsvw</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
@@ -161,7 +172,447 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
+       <a href="csvcubed.cli.pullcsvw.html#module-csvcubed.cli.pullcsvw"><code class="xref">csvcubed.cli.pullcsvw</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.cli.pullcsvw.pull.html#module-csvcubed.cli.pullcsvw.pull"><code class="xref">csvcubed.cli.pullcsvw.pull</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.definitions.html#module-csvcubed.definitions"><code class="xref">csvcubed.definitions</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.inputs.html#module-csvcubed.inputs"><code class="xref">csvcubed.inputs</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.html#module-csvcubed.models"><code class="xref">csvcubed.models</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.codelistconfig.html#module-csvcubed.models.codelistconfig"><code class="xref">csvcubed.models.codelistconfig</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.codelistconfig.code_list_config.html#module-csvcubed.models.codelistconfig.code_list_config"><code class="xref">csvcubed.models.codelistconfig.code_list_config</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.csvcubedexception.html#module-csvcubed.models.csvcubedexception"><code class="xref">csvcubed.models.csvcubedexception</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.csvwtype.html#module-csvcubed.models.csvwtype"><code class="xref">csvcubed.models.csvwtype</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.html#module-csvcubed.models.cube"><code class="xref">csvcubed.models.cube</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.catalog.html#module-csvcubed.models.cube.catalog"><code class="xref">csvcubed.models.cube.catalog</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.columns.html#module-csvcubed.models.cube.columns"><code class="xref">csvcubed.models.cube.columns</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.cube.html#module-csvcubed.models.cube.cube"><code class="xref">csvcubed.models.cube.cube</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.cube_shape.html#module-csvcubed.models.cube.cube_shape"><code class="xref">csvcubed.models.cube.cube_shape</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.html#module-csvcubed.models.cube.qb"><code class="xref">csvcubed.models.cube.qb</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.catalog.html#module-csvcubed.models.cube.qb.catalog"><code class="xref">csvcubed.models.cube.qb.catalog</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.columns.html#module-csvcubed.models.cube.qb.columns"><code class="xref">csvcubed.models.cube.qb.columns</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.html#module-csvcubed.models.cube.qb.components"><code class="xref">csvcubed.models.cube.qb.components</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.arbitraryrdf.html#module-csvcubed.models.cube.qb.components.arbitraryrdf"><code class="xref">csvcubed.models.cube.qb.components.arbitraryrdf</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.attribute.html#module-csvcubed.models.cube.qb.components.attribute"><code class="xref">csvcubed.models.cube.qb.components.attribute</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.attributevalue.html#module-csvcubed.models.cube.qb.components.attributevalue"><code class="xref">csvcubed.models.cube.qb.components.attributevalue</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.codelist.html#module-csvcubed.models.cube.qb.components.codelist"><code class="xref">csvcubed.models.cube.qb.components.codelist</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.concept.html#module-csvcubed.models.cube.qb.components.concept"><code class="xref">csvcubed.models.cube.qb.components.concept</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.constants.html#module-csvcubed.models.cube.qb.components.constants"><code class="xref">csvcubed.models.cube.qb.components.constants</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.datastructuredefinition.html#module-csvcubed.models.cube.qb.components.datastructuredefinition"><code class="xref">csvcubed.models.cube.qb.components.datastructuredefinition</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.dimension.html#module-csvcubed.models.cube.qb.components.dimension"><code class="xref">csvcubed.models.cube.qb.components.dimension</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.measure.html#module-csvcubed.models.cube.qb.components.measure"><code class="xref">csvcubed.models.cube.qb.components.measure</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.measuresdimension.html#module-csvcubed.models.cube.qb.components.measuresdimension"><code class="xref">csvcubed.models.cube.qb.components.measuresdimension</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.observedvalue.html#module-csvcubed.models.cube.qb.components.observedvalue"><code class="xref">csvcubed.models.cube.qb.components.observedvalue</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.unit.html#module-csvcubed.models.cube.qb.components.unit"><code class="xref">csvcubed.models.cube.qb.components.unit</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.unitscolumn.html#module-csvcubed.models.cube.qb.components.unitscolumn"><code class="xref">csvcubed.models.cube.qb.components.unitscolumn</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.components.validationerrors.html#module-csvcubed.models.cube.qb.components.validationerrors"><code class="xref">csvcubed.models.cube.qb.components.validationerrors</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.qb.validationerrors.html#module-csvcubed.models.cube.qb.validationerrors"><code class="xref">csvcubed.models.cube.qb.validationerrors</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.uristyle.html#module-csvcubed.models.cube.uristyle"><code class="xref">csvcubed.models.cube.uristyle</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.cube.validationerrors.html#module-csvcubed.models.cube.validationerrors"><code class="xref">csvcubed.models.cube.validationerrors</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.errorurl.html#module-csvcubed.models.errorurl"><code class="xref">csvcubed.models.errorurl</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.inspectdataframeresults.html#module-csvcubed.models.inspectdataframeresults"><code class="xref">csvcubed.models.inspectdataframeresults</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.jsonvalidationerrors.html#module-csvcubed.models.jsonvalidationerrors"><code class="xref">csvcubed.models.jsonvalidationerrors</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.rdf.html#module-csvcubed.models.rdf"><code class="xref">csvcubed.models.rdf</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.rdf.conceptschemeincatalog.html#module-csvcubed.models.rdf.conceptschemeincatalog"><code class="xref">csvcubed.models.rdf.conceptschemeincatalog</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.rdf.newattributevalueresource.html#module-csvcubed.models.rdf.newattributevalueresource"><code class="xref">csvcubed.models.rdf.newattributevalueresource</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.rdf.newunitresource.html#module-csvcubed.models.rdf.newunitresource"><code class="xref">csvcubed.models.rdf.newunitresource</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.rdf.prov.html#module-csvcubed.models.rdf.prov"><code class="xref">csvcubed.models.rdf.prov</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.rdf.qbdatasetincatalog.html#module-csvcubed.models.rdf.qbdatasetincatalog"><code class="xref">csvcubed.models.rdf.qbdatasetincatalog</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.sparql.html#module-csvcubed.models.sparql"><code class="xref">csvcubed.models.sparql</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.sparql.valuesbinding.html#module-csvcubed.models.sparql.valuesbinding"><code class="xref">csvcubed.models.sparql.valuesbinding</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.sparqlresults.html#module-csvcubed.models.sparqlresults"><code class="xref">csvcubed.models.sparqlresults</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.uriidentifiable.html#module-csvcubed.models.uriidentifiable"><code class="xref">csvcubed.models.uriidentifiable</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.validatedmodel.html#module-csvcubed.models.validatedmodel"><code class="xref">csvcubed.models.validatedmodel</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.models.validationerror.html#module-csvcubed.models.validationerror"><code class="xref">csvcubed.models.validationerror</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.html#module-csvcubed.readers"><code class="xref">csvcubed.readers</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.catalogmetadata.html#module-csvcubed.readers.catalogmetadata"><code class="xref">csvcubed.readers.catalogmetadata</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.catalogmetadata.v1.html#module-csvcubed.readers.catalogmetadata.v1"><code class="xref">csvcubed.readers.catalogmetadata.v1</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader.html#module-csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader"><code class="xref">csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.html#module-csvcubed.readers.cubeconfig"><code class="xref">csvcubed.readers.cubeconfig</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.schema_versions.html#module-csvcubed.readers.cubeconfig.schema_versions"><code class="xref">csvcubed.readers.cubeconfig.schema_versions</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.utils.html#module-csvcubed.readers.cubeconfig.utils"><code class="xref">csvcubed.readers.cubeconfig.utils</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.v1.html#module-csvcubed.readers.cubeconfig.v1"><code class="xref">csvcubed.readers.cubeconfig.v1</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.v1.columnschema.html#module-csvcubed.readers.cubeconfig.v1.columnschema"><code class="xref">csvcubed.readers.cubeconfig.v1.columnschema</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.v1.configdeserialiser.html#module-csvcubed.readers.cubeconfig.v1.configdeserialiser"><code class="xref">csvcubed.readers.cubeconfig.v1.configdeserialiser</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.v1.constants.html#module-csvcubed.readers.cubeconfig.v1.constants"><code class="xref">csvcubed.readers.cubeconfig.v1.constants</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.v1.datatypes.html#module-csvcubed.readers.cubeconfig.v1.datatypes"><code class="xref">csvcubed.readers.cubeconfig.v1.datatypes</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.html#module-csvcubed.readers.cubeconfig.v1.mapcolumntocomponent"><code class="xref">csvcubed.readers.cubeconfig.v1.mapcolumntocomponent</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.readers.preconfiguredtemplates.html#module-csvcubed.readers.preconfiguredtemplates"><code class="xref">csvcubed.readers.preconfiguredtemplates</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
        <a href="csvcubed.utils.html#module-csvcubed.utils"><code class="xref">csvcubed.utils</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.cache.html#module-csvcubed.utils.cache"><code class="xref">csvcubed.utils.cache</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.cli.html#module-csvcubed.utils.cli"><code class="xref">csvcubed.utils.cli</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.createlocalcopyresponse.html#module-csvcubed.utils.createlocalcopyresponse"><code class="xref">csvcubed.utils.createlocalcopyresponse</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.csvdataset.html#module-csvcubed.utils.csvdataset"><code class="xref">csvcubed.utils.csvdataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.csvw.html#module-csvcubed.utils.csvw"><code class="xref">csvcubed.utils.csvw</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.datetime.html#module-csvcubed.utils.datetime"><code class="xref">csvcubed.utils.datetime</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.dict.html#module-csvcubed.utils.dict"><code class="xref">csvcubed.utils.dict</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.file.html#module-csvcubed.utils.file"><code class="xref">csvcubed.utils.file</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.iterables.html#module-csvcubed.utils.iterables"><code class="xref">csvcubed.utils.iterables</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.json.html#module-csvcubed.utils.json"><code class="xref">csvcubed.utils.json</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.log.html#module-csvcubed.utils.log"><code class="xref">csvcubed.utils.log</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.pandas.html#module-csvcubed.utils.pandas"><code class="xref">csvcubed.utils.pandas</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.printable.html#module-csvcubed.utils.printable"><code class="xref">csvcubed.utils.printable</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.qb.html#module-csvcubed.utils.qb"><code class="xref">csvcubed.utils.qb</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.qb.components.html#module-csvcubed.utils.qb.components"><code class="xref">csvcubed.utils.qb.components</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.qb.cube.html#module-csvcubed.utils.qb.cube"><code class="xref">csvcubed.utils.qb.cube</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.qb.standardise.html#module-csvcubed.utils.qb.standardise"><code class="xref">csvcubed.utils.qb.standardise</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.qb.validation.html#module-csvcubed.utils.qb.validation"><code class="xref">csvcubed.utils.qb.validation</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.qb.validation.cube.html#module-csvcubed.utils.qb.validation.cube"><code class="xref">csvcubed.utils.qb.validation.cube</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.qb.validation.observations.html#module-csvcubed.utils.qb.validation.observations"><code class="xref">csvcubed.utils.qb.validation.observations</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.qb.validation.uri_safe.html#module-csvcubed.utils.qb.validation.uri_safe"><code class="xref">csvcubed.utils.qb.validation.uri_safe</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.rdf.html#module-csvcubed.utils.rdf"><code class="xref">csvcubed.utils.rdf</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.skos.html#module-csvcubed.utils.skos"><code class="xref">csvcubed.utils.skos</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.skos.codelist.html#module-csvcubed.utils.skos.codelist"><code class="xref">csvcubed.utils.skos.codelist</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -171,7 +622,7 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="csvcubed.utils.sparql_handler.code_list_inspector.html#module-csvcubed.utils.sparql_handler.code_list_inspector"><code class="xref">csvcubed.utils.sparql_handler.code_list_inspector</code></a></td><td>
+       <a href="csvcubed.utils.sparql_handler.code_list_repository.html#module-csvcubed.utils.sparql_handler.code_list_repository"><code class="xref">csvcubed.utils.sparql_handler.code_list_repository</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -181,12 +632,12 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="csvcubed.utils.sparql_handler.csvw_inspector.html#module-csvcubed.utils.sparql_handler.csvw_inspector"><code class="xref">csvcubed.utils.sparql_handler.csvw_inspector</code></a></td><td>
+       <a href="csvcubed.utils.sparql_handler.csvw_repository.html#module-csvcubed.utils.sparql_handler.csvw_repository"><code class="xref">csvcubed.utils.sparql_handler.csvw_repository</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="csvcubed.utils.sparql_handler.data_cube_inspector.html#module-csvcubed.utils.sparql_handler.data_cube_inspector"><code class="xref">csvcubed.utils.sparql_handler.data_cube_inspector</code></a></td><td>
+       <a href="csvcubed.utils.sparql_handler.data_cube_repository.html#module-csvcubed.utils.sparql_handler.data_cube_repository"><code class="xref">csvcubed.utils.sparql_handler.data_cube_repository</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -197,6 +648,101 @@
        <td></td>
        <td>&#160;&#160;&#160;
        <a href="csvcubed.utils.sparql_handler.sparqlquerymanager.html#module-csvcubed.utils.sparql_handler.sparqlquerymanager"><code class="xref">csvcubed.utils.sparql_handler.sparqlquerymanager</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.tableschema.html#module-csvcubed.utils.tableschema"><code class="xref">csvcubed.utils.tableschema</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.text.html#module-csvcubed.utils.text"><code class="xref">csvcubed.utils.text</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.uri.html#module-csvcubed.utils.uri"><code class="xref">csvcubed.utils.uri</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.validations.html#module-csvcubed.utils.validations"><code class="xref">csvcubed.utils.validations</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.validators.html#module-csvcubed.utils.validators"><code class="xref">csvcubed.utils.validators</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.validators.schema.html#module-csvcubed.utils.validators.schema"><code class="xref">csvcubed.utils.validators.schema</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.utils.version.html#module-csvcubed.utils.version"><code class="xref">csvcubed.utils.version</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.html#module-csvcubed.writers"><code class="xref">csvcubed.writers</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.helpers.html#module-csvcubed.writers.helpers"><code class="xref">csvcubed.writers.helpers</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.helpers.qbwriter.html#module-csvcubed.writers.helpers.qbwriter"><code class="xref">csvcubed.writers.helpers.qbwriter</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.html#module-csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper"><code class="xref">csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#module-csvcubed.writers.helpers.qbwriter.newresourceurigenerator"><code class="xref">csvcubed.writers.helpers.qbwriter.newresourceurigenerator</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.helpers.qbwriter.urihelper.html#module-csvcubed.writers.helpers.qbwriter.urihelper"><code class="xref">csvcubed.writers.helpers.qbwriter.urihelper</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.helpers.skoscodelistwriter.html#module-csvcubed.writers.helpers.skoscodelistwriter"><code class="xref">csvcubed.writers.helpers.skoscodelistwriter</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.helpers.skoscodelistwriter.constants.html#module-csvcubed.writers.helpers.skoscodelistwriter.constants"><code class="xref">csvcubed.writers.helpers.skoscodelistwriter.constants</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#module-csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator"><code class="xref">csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.qbwriter.html#module-csvcubed.writers.qbwriter"><code class="xref">csvcubed.writers.qbwriter</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.skoscodelistwriter.html#module-csvcubed.writers.skoscodelistwriter"><code class="xref">csvcubed.writers.skoscodelistwriter</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="csvcubed.writers.writerbase.html#module-csvcubed.writers.writerbase"><code class="xref">csvcubed.writers.writerbase</code></a></td><td>
        <em></em></td></tr>
    </table>
 
@@ -211,7 +757,6 @@
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="csvcubed.html">csvcubed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">csvcubed</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -237,8 +782,6 @@
         <li class="right" >
           <a href="#" title="Python Module Index"
              >modules</a> |</li>
-          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
-          <li><a href="https://www.python.org/">Python</a> &#187;</li>
           <li class="switchers">
             <div class="language_switcher_placeholder"></div>
             <div class="version_switcher_placeholder"></div>
@@ -254,38 +797,27 @@
 
     <div class="inline-search" role="search">
         <form class="inline-search" action="search.html" method="get">
-          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
           <input type="submit" value="Go" />
-          <input type="hidden" name="check_keywords" value="yes" />
-          <input type="hidden" name="area" value="default" />
         </form>
     </div>
                      |
                 </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
             
       </ul>
     </div>  
-    <div class="footer">
-    &copy; Copyright 2023, ONS.
-    <br />
-    This page is licensed under the Python Software Foundation License Version 2.
-    <br />
-    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
-    <br />
-    
-    <br />
-
-    The Python Software Foundation is a non-profit corporation.
-<a href="https://www.python.org/psf/donations/">Please donate.</a>
-<br />
-    <br />
-
-    Last updated on None.
-    
-    <br />
-
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
     </div>
-
   </body>
 </html>

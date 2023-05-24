@@ -1,0 +1,12 @@
+csvcubed.utils.skos.codelist 
+=============================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.skos.codelist
+   :members:
+   :undoc-members:
+   :show-inheritance:

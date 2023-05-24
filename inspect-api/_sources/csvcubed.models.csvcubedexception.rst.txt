@@ -1,0 +1,12 @@
+csvcubed.models.csvcubedexception 
+==================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.csvcubedexception
+   :members:
+   :undoc-members:
+   :show-inheritance:

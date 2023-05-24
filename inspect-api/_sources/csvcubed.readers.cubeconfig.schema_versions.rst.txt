@@ -1,0 +1,12 @@
+csvcubed.readers.cubeconfig.schema\_versions 
+=============================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.readers.cubeconfig.schema_versions
+   :members:
+   :undoc-members:
+   :show-inheritance:

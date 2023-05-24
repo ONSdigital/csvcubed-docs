@@ -1,0 +1,28 @@
+csvcubed.readers.cubeconfig 
+============================
+
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.readers.cubeconfig.v1
+:py:mod:`csvcubed.readers.cubeconfig.v1`
+
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.readers.cubeconfig.schema_versions
+   csvcubed.readers.cubeconfig.utils
+
+:py:mod:`csvcubed.readers.cubeconfig.schema_versions`
+
+:py:mod:`csvcubed.readers.cubeconfig.utils`
+
+
+
+
+.. automodule:: csvcubed.readers.cubeconfig
+   :members:
+   :undoc-members:
+   :show-inheritance:

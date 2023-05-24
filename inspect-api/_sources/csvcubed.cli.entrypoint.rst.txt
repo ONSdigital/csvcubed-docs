@@ -1,0 +1,12 @@
+csvcubed.cli.entrypoint 
+========================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.cli.entrypoint
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,12 @@
+csvcubed.models.cube.cube 
+==========================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.cube.cube
+   :members:
+   :undoc-members:
+   :show-inheritance:

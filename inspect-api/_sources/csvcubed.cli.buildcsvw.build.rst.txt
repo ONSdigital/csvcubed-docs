@@ -1,0 +1,12 @@
+csvcubed.cli.buildcsvw.build 
+=============================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.cli.buildcsvw.build
+   :members:
+   :undoc-members:
+   :show-inheritance:

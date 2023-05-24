@@ -1,0 +1,12 @@
+csvcubed.readers.preconfiguredtemplates 
+========================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.readers.preconfiguredtemplates
+   :members:
+   :undoc-members:
+   :show-inheritance:

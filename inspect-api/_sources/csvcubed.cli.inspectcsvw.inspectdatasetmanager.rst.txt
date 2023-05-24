@@ -1,6 +1,11 @@
 csvcubed.cli.inspectcsvw.inspectdatasetmanager 
 ===============================================
 
+
+.. toctree::
+   :maxdepth: 
+
+
 .. automodule:: csvcubed.cli.inspectcsvw.inspectdatasetmanager
    :members:
    :undoc-members:

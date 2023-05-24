@@ -1,0 +1,12 @@
+csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator 
+====================================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,12 @@
+csvcubed.utils.sparql\_handler.csvw\_repository 
+================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.sparql_handler.csvw_repository
+   :members:
+   :undoc-members:
+   :show-inheritance:

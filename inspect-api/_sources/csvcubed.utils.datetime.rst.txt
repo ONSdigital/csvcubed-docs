@@ -1,0 +1,12 @@
+csvcubed.utils.datetime 
+========================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.datetime
+   :members:
+   :undoc-members:
+   :show-inheritance:

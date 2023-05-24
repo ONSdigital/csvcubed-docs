@@ -1,19 +1,30 @@
 csvcubed.utils.sparql\_handler 
 ===============================
 
-
 .. toctree::
    :maxdepth: 20
 
-   csvcubed.utils.sparql_handler.code_list_inspector
+   csvcubed.utils.sparql_handler.code_list_repository
    csvcubed.utils.sparql_handler.column_component_info
-   csvcubed.utils.sparql_handler.csvw_inspector
-   csvcubed.utils.sparql_handler.data_cube_inspector
+   csvcubed.utils.sparql_handler.csvw_repository
+   csvcubed.utils.sparql_handler.data_cube_repository
    csvcubed.utils.sparql_handler.sparql
    csvcubed.utils.sparql_handler.sparqlquerymanager
 
-Module contents
----------------
+:py:mod:`csvcubed.utils.sparql_handler.code_list_repository`
+
+:py:mod:`csvcubed.utils.sparql_handler.column_component_info`
+
+:py:mod:`csvcubed.utils.sparql_handler.csvw_repository`
+
+:py:mod:`csvcubed.utils.sparql_handler.data_cube_repository`
+
+:py:mod:`csvcubed.utils.sparql_handler.sparql`
+
+:py:mod:`csvcubed.utils.sparql_handler.sparqlquerymanager`
+
+
+
 
 .. automodule:: csvcubed.utils.sparql_handler
    :members:

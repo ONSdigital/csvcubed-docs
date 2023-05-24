@@ -1,7 +1,0 @@
-csvcubed.utils.sparql\_handler.csvw\_inspector 
-===============================================
-
-.. automodule:: csvcubed.utils.sparql_handler.csvw_inspector
-   :members:
-   :undoc-members:
-   :show-inheritance:

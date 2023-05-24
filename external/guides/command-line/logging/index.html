@@ -1513,15 +1513,23 @@
 <tbody>
 <tr>
 <td><strong>Windows</strong></td>
-<td><code>C:\Documents and Settings\&lt;username&gt;\Local Settings\Application Data\csvcubed\csvcubed-cli\Logs\out.log</code></td>
+<td><code>%USERPROFILE%\AppData\Local\csvcubed-cli\csvcubed\Logs\out.log</code> (not roaming)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>%USERPROFILE%\AppData\Roaming\Local\csvcubed-cli\csvcubed\Logs\out.log</code> (Roaming)</td>
 </tr>
 <tr>
 <td><strong>Linux</strong></td>
-<td><code>~/.cache/csvcubed-cli/log/out.log</code></td>
+<td><code>~/.local/state/csvcubed-cli/csvcubed\log\out.log</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>$XDG_STATE_HOME/csvcubed-cli/csvcubed\log\out.log</code></td>
 </tr>
 <tr>
 <td><strong>MacOS</strong></td>
-<td><code>~/Library/Logs/csvcubed-cli/out.log</code></td>
+<td><code>/root/.local/state/csvcubed-cli/log/out.log</code></td>
 </tr>
 </tbody>
 </table>

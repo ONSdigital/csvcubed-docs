@@ -1,0 +1,12 @@
+csvcubed.models.errorurl 
+=========================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.errorurl
+   :members:
+   :undoc-members:
+   :show-inheritance:

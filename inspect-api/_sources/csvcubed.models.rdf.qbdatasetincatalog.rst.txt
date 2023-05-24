@@ -1,0 +1,12 @@
+csvcubed.models.rdf.qbdatasetincatalog 
+=======================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.rdf.qbdatasetincatalog
+   :members:
+   :undoc-members:
+   :show-inheritance:

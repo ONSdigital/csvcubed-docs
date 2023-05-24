@@ -10,6 +10,15 @@ csvcubed
    csvcubed.readers
    csvcubed.utils
    csvcubed.writers
+:py:mod:`csvcubed.cli`
+
+:py:mod:`csvcubed.models`
+
+:py:mod:`csvcubed.readers`
+
+:py:mod:`csvcubed.utils`
+
+:py:mod:`csvcubed.writers`
 
 
 .. toctree::
@@ -18,8 +27,12 @@ csvcubed
    csvcubed.definitions
    csvcubed.inputs
 
-Module contents
----------------
+:py:mod:`csvcubed.definitions`
+
+:py:mod:`csvcubed.inputs`
+
+
+
 
 .. automodule:: csvcubed
    :members:

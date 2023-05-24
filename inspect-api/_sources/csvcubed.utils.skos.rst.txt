@@ -1,0 +1,17 @@
+csvcubed.utils.skos 
+====================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.utils.skos.codelist
+
+:py:mod:`csvcubed.utils.skos.codelist`
+
+
+
+
+.. automodule:: csvcubed.utils.skos
+   :members:
+   :undoc-members:
+   :show-inheritance:

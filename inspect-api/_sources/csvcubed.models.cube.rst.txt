@@ -1,0 +1,40 @@
+csvcubed.models.cube 
+=====================
+
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.models.cube.qb
+:py:mod:`csvcubed.models.cube.qb`
+
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.models.cube.catalog
+   csvcubed.models.cube.columns
+   csvcubed.models.cube.cube
+   csvcubed.models.cube.cube_shape
+   csvcubed.models.cube.uristyle
+   csvcubed.models.cube.validationerrors
+
+:py:mod:`csvcubed.models.cube.catalog`
+
+:py:mod:`csvcubed.models.cube.columns`
+
+:py:mod:`csvcubed.models.cube.cube`
+
+:py:mod:`csvcubed.models.cube.cube_shape`
+
+:py:mod:`csvcubed.models.cube.uristyle`
+
+:py:mod:`csvcubed.models.cube.validationerrors`
+
+
+
+
+.. automodule:: csvcubed.models.cube
+   :members:
+   :undoc-members:
+   :show-inheritance:

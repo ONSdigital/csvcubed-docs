@@ -1,0 +1,17 @@
+csvcubed.models.sparql 
+=======================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.models.sparql.valuesbinding
+
+:py:mod:`csvcubed.models.sparql.valuesbinding`
+
+
+
+
+.. automodule:: csvcubed.models.sparql
+   :members:
+   :undoc-members:
+   :show-inheritance:

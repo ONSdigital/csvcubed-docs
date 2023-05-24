@@ -1,0 +1,12 @@
+csvcubed.models.cube.qb.components.measuresdimension 
+=====================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.cube.qb.components.measuresdimension
+   :members:
+   :undoc-members:
+   :show-inheritance:

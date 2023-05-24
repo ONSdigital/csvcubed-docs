@@ -1,0 +1,17 @@
+csvcubed.cli.codelist 
+======================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.cli.codelist.build_code_list
+
+:py:mod:`csvcubed.cli.codelist.build_code_list`
+
+
+
+
+.. automodule:: csvcubed.cli.codelist
+   :members:
+   :undoc-members:
+   :show-inheritance:

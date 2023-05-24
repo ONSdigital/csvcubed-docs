@@ -1,0 +1,12 @@
+csvcubed.models.inspectdataframeresults 
+========================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.inspectdataframeresults
+   :members:
+   :undoc-members:
+   :show-inheritance:

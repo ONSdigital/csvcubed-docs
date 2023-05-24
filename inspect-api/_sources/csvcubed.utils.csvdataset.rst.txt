@@ -1,0 +1,12 @@
+csvcubed.utils.csvdataset 
+==========================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.csvdataset
+   :members:
+   :undoc-members:
+   :show-inheritance:

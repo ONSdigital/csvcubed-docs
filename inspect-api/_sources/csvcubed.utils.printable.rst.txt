@@ -1,0 +1,12 @@
+csvcubed.utils.printable 
+=========================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.utils.printable
+   :members:
+   :undoc-members:
+   :show-inheritance:

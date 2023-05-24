@@ -1,0 +1,12 @@
+csvcubed.writers.writerbase 
+============================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.writers.writerbase
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,23 @@
+csvcubed.writers.helpers.qbwriter 
+==================================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper
+   csvcubed.writers.helpers.qbwriter.newresourceurigenerator
+   csvcubed.writers.helpers.qbwriter.urihelper
+
+:py:mod:`csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper`
+
+:py:mod:`csvcubed.writers.helpers.qbwriter.newresourceurigenerator`
+
+:py:mod:`csvcubed.writers.helpers.qbwriter.urihelper`
+
+
+
+
+.. automodule:: csvcubed.writers.helpers.qbwriter
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -4,12 +4,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>csvcubed.cli &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=2d3badd06fe70b34b68db01f99471ce1624ffe4a" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -18,78 +19,29 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="csvcubed.cli.inspectcsvw" href="csvcubed.cli.inspectcsvw.html" />
-    <link rel="prev" title="csvcubed" href="csvcubed.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+    <link rel="next" title="csvcubed.cli.buildcsvw" href="csvcubed.cli.buildcsvw.html" />
+    <link rel="prev" title="csvcubed" href="csvcubed.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
             <script type="text/javascript" src="_static/copybutton.js"></script>
-            <script type="text/javascript" src="_static/menu.js"></script> 
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
   </head>
 <body>
 <div class="mobile-nav">
     <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
            aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
-    <label for="menuToggler" class="toggler__label">
-        <span></span>
-    </label>
     <nav class="nav-content" role="navigation">
-         <a href="https://www.python.org/" class="nav-logo">
-             <img src="_static/py.svg" alt="Logo"/>
-         </a>
-        <div class="version_switcher_placeholder"></div>
-        <form role="search" class="search" action="search.html" method="get">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
-                <path fill-rule="nonzero"
-                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
-            </svg>
-            <input type="text" name="q" aria-label="Quick search"/>
-            <input type="submit" value="Go"/>
-        </form>
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
     </nav>
-    <div class="menu-wrapper">
-        <nav class="menu" role="navigation" aria-label="main navigation">
-            <div class="language_switcher_placeholder"></div>
-<h3><a href="index.html">Table of Contents</a></h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">csvcubed.cli</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">csvcubed</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubed.cli</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/csvcubed.cli.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-        </nav>
-    </div>
 </div>
   
     <div class="related" role="navigation" aria-label="related navigation">
@@ -102,13 +54,11 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="csvcubed.cli.inspectcsvw.html" title="csvcubed.cli.inspectcsvw"
+          <a href="csvcubed.cli.buildcsvw.html" title="csvcubed.cli.buildcsvw"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="csvcubed.html" title="csvcubed"
              accesskey="P">previous</a> |</li>
-          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
-          <li><a href="https://www.python.org/">Python</a> &#187;</li>
           <li class="switchers">
             <div class="language_switcher_placeholder"></div>
             <div class="version_switcher_placeholder"></div>
@@ -125,14 +75,21 @@
 
     <div class="inline-search" role="search">
         <form class="inline-search" action="search.html" method="get">
-          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
           <input type="submit" value="Go" />
-          <input type="hidden" name="check_keywords" value="yes" />
-          <input type="hidden" name="area" value="default" />
         </form>
     </div>
                      |
                 </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
             
       </ul>
     </div>    
@@ -146,6 +103,22 @@
 <h1>csvcubed.cli<a class="headerlink" href="#csvcubed-cli" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.cli.buildcsvw.html">csvcubed.cli.buildcsvw</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.buildcsvw.build.html">csvcubed.cli.buildcsvw.build</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.buildcsvw.build.html#build-command">Build Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.buildcsvw.build.html#csvcubed.cli.buildcsvw.build.build_csvw"><code class="docutils literal notranslate"><span class="pre">build_csvw()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.cli.codelist.html">csvcubed.cli.codelist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.codelist.build_code_list.html">csvcubed.cli.codelist.build_code_list</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.codelist.build_code_list.html#build-code-list-command">Build Code List Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.codelist.build_code_list.html#csvcubed.cli.codelist.build_code_list.build_code_list"><code class="docutils literal notranslate"><span class="pre">build_code_list()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspect.html">csvcubed.cli.inspectcsvw.inspect</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspect.html#inspect-command">Inspect Command</a></li>
@@ -203,17 +176,55 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html#module-csvcubed.cli.inspectcsvw">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.cli.pullcsvw.html">csvcubed.cli.pullcsvw</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html">csvcubed.cli.pullcsvw.pull</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#pull-csv-w">Pull CSV-W</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.AbsoluteBasePathError"><code class="docutils literal notranslate"><span class="pre">AbsoluteBasePathError</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.AbsoluteBasePathError.base_url"><code class="docutils literal notranslate"><span class="pre">AbsoluteBasePathError.base_url</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.CsvWPuller"><code class="docutils literal notranslate"><span class="pre">CsvWPuller</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.CsvWPuller.csvw_metadata_path"><code class="docutils literal notranslate"><span class="pre">CsvWPuller.csvw_metadata_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.CsvWPuller.pull"><code class="docutils literal notranslate"><span class="pre">CsvWPuller.pull()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.FileCsvWPuller"><code class="docutils literal notranslate"><span class="pre">FileCsvWPuller</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.FileCsvWPuller.csvw_metadata_path"><code class="docutils literal notranslate"><span class="pre">FileCsvWPuller.csvw_metadata_path</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.HttpCsvWPuller"><code class="docutils literal notranslate"><span class="pre">HttpCsvWPuller</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.HttpCsvWPuller.csvw_metadata_path"><code class="docutils literal notranslate"><span class="pre">HttpCsvWPuller.csvw_metadata_path</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.TPath"><code class="docutils literal notranslate"><span class="pre">TPath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.pullcsvw.pull.html#csvcubed.cli.pullcsvw.pull.pull"><code class="docutils literal notranslate"><span class="pre">pull()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
+<p><a class="reference internal" href="csvcubed.cli.buildcsvw.html#module-csvcubed.cli.buildcsvw" title="csvcubed.cli.buildcsvw"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.cli.buildcsvw</span></code></a></p>
+<p><a class="reference internal" href="csvcubed.cli.codelist.html#module-csvcubed.cli.codelist" title="csvcubed.cli.codelist"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.cli.codelist</span></code></a></p>
+<p><a class="reference internal" href="csvcubed.cli.inspectcsvw.html#module-csvcubed.cli.inspectcsvw" title="csvcubed.cli.inspectcsvw"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.cli.inspectcsvw</span></code></a></p>
+<p><a class="reference internal" href="csvcubed.cli.pullcsvw.html#module-csvcubed.cli.pullcsvw" title="csvcubed.cli.pullcsvw"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.cli.pullcsvw</span></code></a></p>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.cli.entrypoint.html">csvcubed.cli.entrypoint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.entrypoint.html#cli">CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.cli.error_mapping.html">csvcubed.cli.error_mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.error_mapping.html#csvcubed.cli.error_mapping.friendly_error_mapping"><code class="docutils literal notranslate"><span class="pre">friendly_error_mapping()</span></code></a></li>
+</ul>
+</li>
+</ul>
 </div>
-<section id="module-csvcubed.cli">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-csvcubed.cli" title="Permalink to this heading">¶</a></h2>
-</section>
-</section>
+<p><a class="reference internal" href="csvcubed.cli.entrypoint.html#module-csvcubed.cli.entrypoint" title="csvcubed.cli.entrypoint"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.cli.entrypoint</span></code></a></p>
+<p><a class="reference internal" href="csvcubed.cli.error_mapping.html#module-csvcubed.cli.error_mapping" title="csvcubed.cli.error_mapping"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.cli.error_mapping</span></code></a></p>
+<span class="target" id="module-csvcubed.cli"></span></section>
 
 
             <div class="clearer"></div>
@@ -227,21 +238,20 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">csvcubed.cli</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.buildcsvw.html">csvcubed.cli.buildcsvw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.codelist.html">csvcubed.cli.codelist</a></li>
 <li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.pullcsvw.html">csvcubed.cli.pullcsvw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.entrypoint.html">csvcubed.cli.entrypoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.error_mapping.html">csvcubed.cli.error_mapping</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">csvcubed</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubed.cli</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
 </ul>
 </li>
 </ul>
@@ -277,13 +287,11 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="csvcubed.cli.inspectcsvw.html" title="csvcubed.cli.inspectcsvw"
+          <a href="csvcubed.cli.buildcsvw.html" title="csvcubed.cli.buildcsvw"
              >next</a> |</li>
         <li class="right" >
           <a href="csvcubed.html" title="csvcubed"
              >previous</a> |</li>
-          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
-          <li><a href="https://www.python.org/">Python</a> &#187;</li>
           <li class="switchers">
             <div class="language_switcher_placeholder"></div>
             <div class="version_switcher_placeholder"></div>
@@ -300,38 +308,27 @@
 
     <div class="inline-search" role="search">
         <form class="inline-search" action="search.html" method="get">
-          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
           <input type="submit" value="Go" />
-          <input type="hidden" name="check_keywords" value="yes" />
-          <input type="hidden" name="area" value="default" />
         </form>
     </div>
                      |
                 </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
             
       </ul>
     </div>  
-    <div class="footer">
-    &copy; Copyright 2023, ONS.
-    <br />
-    This page is licensed under the Python Software Foundation License Version 2.
-    <br />
-    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
-    <br />
-    
-    <br />
-
-    The Python Software Foundation is a non-profit corporation.
-<a href="https://www.python.org/psf/donations/">Please donate.</a>
-<br />
-    <br />
-
-    Last updated on None.
-    
-    <br />
-
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
     </div>
-
   </body>
 </html>

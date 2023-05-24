@@ -1,0 +1,29 @@
+csvcubed.readers.cubeconfig.v1 
+===============================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.readers.cubeconfig.v1.columnschema
+   csvcubed.readers.cubeconfig.v1.configdeserialiser
+   csvcubed.readers.cubeconfig.v1.constants
+   csvcubed.readers.cubeconfig.v1.datatypes
+   csvcubed.readers.cubeconfig.v1.mapcolumntocomponent
+
+:py:mod:`csvcubed.readers.cubeconfig.v1.columnschema`
+
+:py:mod:`csvcubed.readers.cubeconfig.v1.configdeserialiser`
+
+:py:mod:`csvcubed.readers.cubeconfig.v1.constants`
+
+:py:mod:`csvcubed.readers.cubeconfig.v1.datatypes`
+
+:py:mod:`csvcubed.readers.cubeconfig.v1.mapcolumntocomponent`
+
+
+
+
+.. automodule:: csvcubed.readers.cubeconfig.v1
+   :members:
+   :undoc-members:
+   :show-inheritance:

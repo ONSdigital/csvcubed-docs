@@ -9,6 +9,13 @@ csvcubed.cli
    csvcubed.cli.codelist
    csvcubed.cli.inspectcsvw
    csvcubed.cli.pullcsvw
+:py:mod:`csvcubed.cli.buildcsvw`
+
+:py:mod:`csvcubed.cli.codelist`
+
+:py:mod:`csvcubed.cli.inspectcsvw`
+
+:py:mod:`csvcubed.cli.pullcsvw`
 
 
 .. toctree::
@@ -17,8 +24,12 @@ csvcubed.cli
    csvcubed.cli.entrypoint
    csvcubed.cli.error_mapping
 
-Module contents
----------------
+:py:mod:`csvcubed.cli.entrypoint`
+
+:py:mod:`csvcubed.cli.error_mapping`
+
+
+
 
 .. automodule:: csvcubed.cli
    :members:

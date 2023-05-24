@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>csvcubed.utils.qb.components &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.utils.qb.cube" href="csvcubed.utils.qb.cube.html" />
+    <link rel="prev" title="csvcubed.utils.qb.validation.uri_safe" href="csvcubed.utils.qb.validation.uri_safe.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.qb.cube.html" title="csvcubed.utils.qb.cube"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.qb.validation.uri_safe.html" title="csvcubed.utils.qb.validation.uri_safe"
+             accesskey="P">previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.utils.html" >csvcubed.utils</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.utils.qb.html" accesskey="U">csvcubed.utils.qb</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.utils.qb.components</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-utils-qb-components">
+<h1>csvcubed.utils.qb.components<a class="headerlink" href="#csvcubed-utils-qb-components" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-csvcubed.utils.qb.components"></span><section id="cube-components">
+<h2>Cube Components<a class="headerlink" href="#cube-components" title="Permalink to this heading">¶</a></h2>
+<p>Utilities to help when handling qube components data.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentField">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.components.</span></span><span class="sig-name descname"><span class="pre">ComponentField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>The fields of <cite>QubeComponentResult</cite> model that are relevant for filtering the <cite>QubeComponentsResult</cite>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentField.Property">
+<span class="sig-name descname"><span class="pre">Property</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'property'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentField.Property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentField.PropertyType">
+<span class="sig-name descname"><span class="pre">PropertyType</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'property_type'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentField.PropertyType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyAttributeURI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.components.</span></span><span class="sig-name descname"><span class="pre">ComponentPropertyAttributeURI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyAttributeURI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>The uris of component attributes.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyAttributeURI.MeasureType">
+<span class="sig-name descname"><span class="pre">MeasureType</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/linked-data/cube#measureType'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyAttributeURI.MeasureType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyAttributeURI.UnitMeasure">
+<span class="sig-name descname"><span class="pre">UnitMeasure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyAttributeURI.UnitMeasure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.components.</span></span><span class="sig-name descname"><span class="pre">ComponentPropertyType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>The type of component properties.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyType.Attribute">
+<span class="sig-name descname"><span class="pre">Attribute</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Attribute'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyType.Attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The component is of type qb:Attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyType.Dimension">
+<span class="sig-name descname"><span class="pre">Dimension</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Dimension'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyType.Dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>The component is of type qb:Dimension.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyType.Measure">
+<span class="sig-name descname"><span class="pre">Measure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Measure'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyType.Measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>The component is of type qb:Measure.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyTypeURI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.components.</span></span><span class="sig-name descname"><span class="pre">ComponentPropertyTypeURI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyTypeURI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>The type uris of component properties.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyTypeURI.Attribute">
+<span class="sig-name descname"><span class="pre">Attribute</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/linked-data/cube#AttributeProperty'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyTypeURI.Attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The component is of type qb:Attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyTypeURI.Dimension">
+<span class="sig-name descname"><span class="pre">Dimension</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/linked-data/cube#DimensionProperty'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyTypeURI.Dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>The component is of type qb:Dimension.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.ComponentPropertyTypeURI.Measure">
+<span class="sig-name descname"><span class="pre">Measure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/linked-data/cube#MeasureProperty'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.ComponentPropertyTypeURI.Measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>The component is of type qb:Measure.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.EndUserColumnType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.components.</span></span><span class="sig-name descname"><span class="pre">EndUserColumnType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.utils.qb.components.EndUserColumnType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>These are the column types tha a User is familiar form the qube-config.json</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.EndUserColumnType.Attribute">
+<span class="sig-name descname"><span class="pre">Attribute</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Attribute'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.EndUserColumnType.Attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The column holds values for an Attribute</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.EndUserColumnType.Dimension">
+<span class="sig-name descname"><span class="pre">Dimension</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Dimension'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.EndUserColumnType.Dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>The column holds values for a Dimension</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.EndUserColumnType.Measures">
+<span class="sig-name descname"><span class="pre">Measures</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Measures'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.EndUserColumnType.Measures" title="Permalink to this definition">¶</a></dt>
+<dd><p>The column holds the measure for each Observation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.EndUserColumnType.Observations">
+<span class="sig-name descname"><span class="pre">Observations</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Observations'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.EndUserColumnType.Observations" title="Permalink to this definition">¶</a></dt>
+<dd><p>The column holds the Observed values</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.EndUserColumnType.Suppressed">
+<span class="sig-name descname"><span class="pre">Suppressed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Suppressed'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.EndUserColumnType.Suppressed" title="Permalink to this definition">¶</a></dt>
+<dd><p>The column holds values which are not part of the cube</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.EndUserColumnType.Units">
+<span class="sig-name descname"><span class="pre">Units</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Units'</span></em><a class="headerlink" href="#csvcubed.utils.qb.components.EndUserColumnType.Units" title="Permalink to this definition">¶</a></dt>
+<dd><p>The column holds the unit for each Observation</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.get_component_property_as_relative_path">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.components.</span></span><span class="sig-name descname"><span class="pre">get_component_property_as_relative_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.utils.qb.components.get_component_property_as_relative_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces the user-friendly property of the component property.</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./utils/qb/components.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - url or relative path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="csvcubed.utils.qb.components.get_component_property_type">
+<span class="sig-prename descclassname"><span class="pre">csvcubed.utils.qb.components.</span></span><span class="sig-name descname"><span class="pre">get_component_property_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.utils.qb.components.get_component_property_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces the user-friendly name of component property type.</p>
+<p>Member of <code class="file docutils literal notranslate"><span class="pre">./utils/qb/components.py</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite> - user-friendly name of component property type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.utils.qb.html">csvcubed.utils.qb</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.validation.html">csvcubed.utils.qb.validation</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.utils.qb.components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.cube.html">csvcubed.utils.qb.cube</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.utils.qb.standardise.html">csvcubed.utils.qb.standardise</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.skos.html">csvcubed.utils.skos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.sparql_handler.html">csvcubed.utils.sparql_handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.validators.html">csvcubed.utils.validators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.cache.html">csvcubed.utils.cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.cli.html">csvcubed.utils.cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.createlocalcopyresponse.html">csvcubed.utils.createlocalcopyresponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.csvdataset.html">csvcubed.utils.csvdataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.csvw.html">csvcubed.utils.csvw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.datetime.html">csvcubed.utils.datetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.dict.html">csvcubed.utils.dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.file.html">csvcubed.utils.file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.iterables.html">csvcubed.utils.iterables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.json.html">csvcubed.utils.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.log.html">csvcubed.utils.log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.pandas.html">csvcubed.utils.pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.printable.html">csvcubed.utils.printable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.rdf.html">csvcubed.utils.rdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.tableschema.html">csvcubed.utils.tableschema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.text.html">csvcubed.utils.text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.uri.html">csvcubed.utils.uri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.validations.html">csvcubed.utils.validations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.utils.version.html">csvcubed.utils.version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.utils.qb.components.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.qb.cube.html" title="csvcubed.utils.qb.cube"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.qb.validation.uri_safe.html" title="csvcubed.utils.qb.validation.uri_safe"
+             >previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.utils.html" >csvcubed.utils</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.utils.qb.html" >csvcubed.utils.qb</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.utils.qb.components</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
+    </div>
+  </body>
+</html>

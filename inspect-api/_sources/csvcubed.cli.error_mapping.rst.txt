@@ -1,0 +1,12 @@
+csvcubed.cli.error\_mapping 
+============================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.cli.error_mapping
+   :members:
+   :undoc-members:
+   :show-inheritance:

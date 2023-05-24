@@ -1,0 +1,12 @@
+csvcubed.readers.catalogmetadata.v1.catalog\_metadata\_reader 
+==============================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader
+   :members:
+   :undoc-members:
+   :show-inheritance:

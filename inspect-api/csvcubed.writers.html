@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>csvcubed.writers &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.writers.helpers" href="csvcubed.writers.helpers.html" />
+    <link rel="prev" title="csvcubed.utils.version" href="csvcubed.utils.version.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.writers.helpers.html" title="csvcubed.writers.helpers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.version.html" title="csvcubed.utils.version"
+             accesskey="P">previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" accesskey="U">csvcubed</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.writers</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-writers">
+<h1>csvcubed.writers<a class="headerlink" href="#csvcubed-writers" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.writers.helpers.html">csvcubed.writers.helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.html">csvcubed.writers.helpers.qbwriter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.html">csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.html#qb-dsd-helper">QB DSD Helper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.html#csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.DsdToRdfModelsHelper"><code class="docutils literal notranslate"><span class="pre">DsdToRdfModelsHelper</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.html#csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.DsdToRdfModelsHelper.cube"><code class="docutils literal notranslate"><span class="pre">DsdToRdfModelsHelper.cube</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.html#csvcubed.writers.helpers.qbwriter.dsdtordfmodelshelper.DsdToRdfModelsHelper.generate_data_structure_definitions"><code class="docutils literal notranslate"><span class="pre">DsdToRdfModelsHelper.generate_data_structure_definitions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html">csvcubed.writers.helpers.qbwriter.newresourceurigenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#qbcube">QbCube</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.cube"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.cube</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_attribute_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_attribute_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_attribute_value_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_attribute_value_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_build_activity_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_build_activity_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_class_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_class_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_component_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_component_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_dataset_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_dataset_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_dimension_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_dimension_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_identifier_for_document"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_identifier_for_document()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_measure_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_measure_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_observation_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_observation_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_slice_across_measures_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_slice_across_measures_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_slice_key_across_measures_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_slice_key_across_measures_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_slice_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_slice_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_structure_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_structure_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_unit_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_unit_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.newresourceurigenerator.html#csvcubed.writers.helpers.qbwriter.newresourceurigenerator.NewResourceUriGenerator.get_void_dataset_dependency_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_void_dataset_dependency_uri()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html">csvcubed.writers.helpers.qbwriter.urihelper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper"><code class="docutils literal notranslate"><span class="pre">UriHelper</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.cube"><code class="docutils literal notranslate"><span class="pre">UriHelper.cube</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_about_url"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_about_url()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_about_url_for_csvw_col_in_pivoted_shape_cube"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_about_url_for_csvw_col_in_pivoted_shape_cube()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_attribute_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_attribute_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_build_activity_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_build_activity_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_class_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_class_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_component_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_component_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_dataset_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_dataset_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_default_property_value_uris_for_column"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_default_property_value_uris_for_column()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_dimension_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_dimension_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_measure_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_measure_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_new_attribute_value_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_new_attribute_value_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_observation_uri_for_pivoted_shape_data_set"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_observation_uri_for_pivoted_shape_data_set()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_slice_key_across_measures_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_slice_key_across_measures_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_structure_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_structure_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_unit_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_unit_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.qbwriter.urihelper.html#csvcubed.writers.helpers.qbwriter.urihelper.UriHelper.get_void_dataset_dependency_uri"><code class="docutils literal notranslate"><span class="pre">UriHelper.get_void_dataset_dependency_uri()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.html">csvcubed.writers.helpers.skoscodelistwriter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.constants.html">csvcubed.writers.helpers.skoscodelistwriter.constants</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.constants.html#skos-code-list-constants">SKOS Code-List Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html">csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#skoscodelist">SkosCodeList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.NewResourceUriGenerator"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.NewResourceUriGenerator.code_list"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.code_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.NewResourceUriGenerator.default_uri_style"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.default_uri_style</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.NewResourceUriGenerator.get_activity_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_activity_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.NewResourceUriGenerator.get_concept_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_concept_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.NewResourceUriGenerator.get_scheme_uri"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_scheme_uri()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.html#csvcubed.writers.helpers.skoscodelistwriter.newresourceurigenerator.NewResourceUriGenerator.get_uri_prefix_for_doc"><code class="docutils literal notranslate"><span class="pre">NewResourceUriGenerator.get_uri_prefix_for_doc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a class="reference internal" href="csvcubed.writers.helpers.html#module-csvcubed.writers.helpers" title="csvcubed.writers.helpers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.writers.helpers</span></code></a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.writers.qbwriter.html">csvcubed.writers.qbwriter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.qbwriter.html#csv-qb-writer">CSV-qb Writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.qbwriter.html#csvcubed.writers.qbwriter.QbWriter"><code class="docutils literal notranslate"><span class="pre">QbWriter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.qbwriter.html#csvcubed.writers.qbwriter.QbWriter.csv_file_name"><code class="docutils literal notranslate"><span class="pre">QbWriter.csv_file_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.qbwriter.html#csvcubed.writers.qbwriter.QbWriter.csv_metadata_file_name"><code class="docutils literal notranslate"><span class="pre">QbWriter.csv_metadata_file_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.qbwriter.html#csvcubed.writers.qbwriter.QbWriter.cube"><code class="docutils literal notranslate"><span class="pre">QbWriter.cube</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.qbwriter.html#csvcubed.writers.qbwriter.QbWriter.raise_missing_uri_safe_value_exceptions"><code class="docutils literal notranslate"><span class="pre">QbWriter.raise_missing_uri_safe_value_exceptions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.qbwriter.html#csvcubed.writers.qbwriter.QbWriter.write"><code class="docutils literal notranslate"><span class="pre">QbWriter.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html">csvcubed.writers.skoscodelistwriter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#codelist-writer">CodeList Writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.csv_file_name"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.csv_file_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.csv_metadata_file_name"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.csv_metadata_file_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.default_uri_style"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.default_uri_style</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.has_duplicated_qb_concepts"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.has_duplicated_qb_concepts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.new_code_list"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.new_code_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.uri_helper"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.uri_helper</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#csvcubed.writers.skoscodelistwriter.SkosCodeListWriter.write"><code class="docutils literal notranslate"><span class="pre">SkosCodeListWriter.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.writers.writerbase.html">csvcubed.writers.writerbase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.writerbase.html#writer-base">Writer Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.writerbase.html#csvcubed.writers.writerbase.WriterBase"><code class="docutils literal notranslate"><span class="pre">WriterBase</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.writerbase.html#csvcubed.writers.writerbase.WriterBase.write"><code class="docutils literal notranslate"><span class="pre">WriterBase.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a class="reference internal" href="csvcubed.writers.qbwriter.html#module-csvcubed.writers.qbwriter" title="csvcubed.writers.qbwriter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.writers.qbwriter</span></code></a></p>
+<p><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html#module-csvcubed.writers.skoscodelistwriter" title="csvcubed.writers.skoscodelistwriter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.writers.skoscodelistwriter</span></code></a></p>
+<p><a class="reference internal" href="csvcubed.writers.writerbase.html#module-csvcubed.writers.writerbase" title="csvcubed.writers.writerbase"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.writers.writerbase</span></code></a></p>
+<span class="target" id="module-csvcubed.writers"></span><section id="writers">
+<h2>Writers<a class="headerlink" href="#writers" title="Permalink to this heading">¶</a></h2>
+<p>Write to output formats like CSV-qb.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">csvcubed.writers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.helpers.html">csvcubed.writers.helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.qbwriter.html">csvcubed.writers.qbwriter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.skoscodelistwriter.html">csvcubed.writers.skoscodelistwriter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.writers.writerbase.html">csvcubed.writers.writerbase</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.writers.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.writers.helpers.html" title="csvcubed.writers.helpers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.utils.version.html" title="csvcubed.utils.version"
+             >previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.writers</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
+    </div>
+  </body>
+</html>

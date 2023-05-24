@@ -1,7 +1,6 @@
 csvcubed.cli.inspectcsvw 
 =========================
 
-
 .. toctree::
    :maxdepth: 20
 
@@ -10,8 +9,16 @@ csvcubed.cli.inspectcsvw
    csvcubed.cli.inspectcsvw.metadatainputvalidator
    csvcubed.cli.inspectcsvw.metadataprinter
 
-Module contents
----------------
+:py:mod:`csvcubed.cli.inspectcsvw.inspect`
+
+:py:mod:`csvcubed.cli.inspectcsvw.inspectdatasetmanager`
+
+:py:mod:`csvcubed.cli.inspectcsvw.metadatainputvalidator`
+
+:py:mod:`csvcubed.cli.inspectcsvw.metadataprinter`
+
+
+
 
 .. automodule:: csvcubed.cli.inspectcsvw
    :members:

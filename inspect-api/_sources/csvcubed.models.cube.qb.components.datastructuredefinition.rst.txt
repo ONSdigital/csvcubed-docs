@@ -1,0 +1,12 @@
+csvcubed.models.cube.qb.components.datastructuredefinition 
+===========================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.cube.qb.components.datastructuredefinition
+   :members:
+   :undoc-members:
+   :show-inheritance:

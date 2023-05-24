@@ -1,0 +1,29 @@
+csvcubed.models.rdf 
+====================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.models.rdf.conceptschemeincatalog
+   csvcubed.models.rdf.newattributevalueresource
+   csvcubed.models.rdf.newunitresource
+   csvcubed.models.rdf.prov
+   csvcubed.models.rdf.qbdatasetincatalog
+
+:py:mod:`csvcubed.models.rdf.conceptschemeincatalog`
+
+:py:mod:`csvcubed.models.rdf.newattributevalueresource`
+
+:py:mod:`csvcubed.models.rdf.newunitresource`
+
+:py:mod:`csvcubed.models.rdf.prov`
+
+:py:mod:`csvcubed.models.rdf.qbdatasetincatalog`
+
+
+
+
+.. automodule:: csvcubed.models.rdf
+   :members:
+   :undoc-members:
+   :show-inheritance:

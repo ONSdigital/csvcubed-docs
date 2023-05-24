@@ -1,6 +1,11 @@
 csvcubed.cli.inspectcsvw.inspect 
 =================================
 
+
+.. toctree::
+   :maxdepth: 
+
+
 .. automodule:: csvcubed.cli.inspectcsvw.inspect
    :members:
    :undoc-members:

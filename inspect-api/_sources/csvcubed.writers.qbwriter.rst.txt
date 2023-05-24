@@ -1,0 +1,12 @@
+csvcubed.writers.qbwriter 
+==========================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.writers.qbwriter
+   :members:
+   :undoc-members:
+   :show-inheritance:

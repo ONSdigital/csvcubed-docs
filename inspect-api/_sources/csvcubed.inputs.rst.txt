@@ -1,0 +1,12 @@
+csvcubed.inputs 
+================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.inputs
+   :members:
+   :undoc-members:
+   :show-inheritance:

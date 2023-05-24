@@ -1,0 +1,12 @@
+csvcubed.models.cube.qb.components.arbitraryrdf 
+================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.cube.qb.components.arbitraryrdf
+   :members:
+   :undoc-members:
+   :show-inheritance:

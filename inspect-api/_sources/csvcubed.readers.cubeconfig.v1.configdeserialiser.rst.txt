@@ -1,0 +1,12 @@
+csvcubed.readers.cubeconfig.v1.configdeserialiser 
+==================================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.readers.cubeconfig.v1.configdeserialiser
+   :members:
+   :undoc-members:
+   :show-inheritance:

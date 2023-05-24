@@ -1,0 +1,58 @@
+csvcubed.models 
+================
+
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.models.codelistconfig
+   csvcubed.models.cube
+   csvcubed.models.rdf
+   csvcubed.models.sparql
+:py:mod:`csvcubed.models.codelistconfig`
+
+:py:mod:`csvcubed.models.cube`
+
+:py:mod:`csvcubed.models.rdf`
+
+:py:mod:`csvcubed.models.sparql`
+
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.models.csvcubedexception
+   csvcubed.models.csvwtype
+   csvcubed.models.errorurl
+   csvcubed.models.inspectdataframeresults
+   csvcubed.models.jsonvalidationerrors
+   csvcubed.models.sparqlresults
+   csvcubed.models.uriidentifiable
+   csvcubed.models.validatedmodel
+   csvcubed.models.validationerror
+
+:py:mod:`csvcubed.models.csvcubedexception`
+
+:py:mod:`csvcubed.models.csvwtype`
+
+:py:mod:`csvcubed.models.errorurl`
+
+:py:mod:`csvcubed.models.inspectdataframeresults`
+
+:py:mod:`csvcubed.models.jsonvalidationerrors`
+
+:py:mod:`csvcubed.models.sparqlresults`
+
+:py:mod:`csvcubed.models.uriidentifiable`
+
+:py:mod:`csvcubed.models.validatedmodel`
+
+:py:mod:`csvcubed.models.validationerror`
+
+
+
+
+.. automodule:: csvcubed.models
+   :members:
+   :undoc-members:
+   :show-inheritance:

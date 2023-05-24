@@ -1,0 +1,12 @@
+csvcubed.models.rdf.newunitresource 
+====================================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.rdf.newunitresource
+   :members:
+   :undoc-members:
+   :show-inheritance:

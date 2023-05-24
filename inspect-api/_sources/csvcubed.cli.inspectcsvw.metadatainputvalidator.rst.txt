@@ -1,6 +1,11 @@
 csvcubed.cli.inspectcsvw.metadatainputvalidator 
 ================================================
 
+
+.. toctree::
+   :maxdepth: 
+
+
 .. automodule:: csvcubed.cli.inspectcsvw.metadatainputvalidator
    :members:
    :undoc-members:

@@ -1,6 +1,11 @@
 csvcubed.cli.inspectcsvw.metadataprinter 
 =========================================
 
+
+.. toctree::
+   :maxdepth: 
+
+
 .. automodule:: csvcubed.cli.inspectcsvw.metadataprinter
    :members:
    :undoc-members:

@@ -9,6 +9,13 @@ csvcubed.utils
    csvcubed.utils.skos
    csvcubed.utils.sparql_handler
    csvcubed.utils.validators
+:py:mod:`csvcubed.utils.qb`
+
+:py:mod:`csvcubed.utils.skos`
+
+:py:mod:`csvcubed.utils.sparql_handler`
+
+:py:mod:`csvcubed.utils.validators`
 
 
 .. toctree::
@@ -34,8 +41,46 @@ csvcubed.utils
    csvcubed.utils.validations
    csvcubed.utils.version
 
-Module contents
----------------
+:py:mod:`csvcubed.utils.cache`
+
+:py:mod:`csvcubed.utils.cli`
+
+:py:mod:`csvcubed.utils.createlocalcopyresponse`
+
+:py:mod:`csvcubed.utils.csvdataset`
+
+:py:mod:`csvcubed.utils.csvw`
+
+:py:mod:`csvcubed.utils.datetime`
+
+:py:mod:`csvcubed.utils.dict`
+
+:py:mod:`csvcubed.utils.file`
+
+:py:mod:`csvcubed.utils.iterables`
+
+:py:mod:`csvcubed.utils.json`
+
+:py:mod:`csvcubed.utils.log`
+
+:py:mod:`csvcubed.utils.pandas`
+
+:py:mod:`csvcubed.utils.printable`
+
+:py:mod:`csvcubed.utils.rdf`
+
+:py:mod:`csvcubed.utils.tableschema`
+
+:py:mod:`csvcubed.utils.text`
+
+:py:mod:`csvcubed.utils.uri`
+
+:py:mod:`csvcubed.utils.validations`
+
+:py:mod:`csvcubed.utils.version`
+
+
+
 
 .. automodule:: csvcubed.utils
    :members:

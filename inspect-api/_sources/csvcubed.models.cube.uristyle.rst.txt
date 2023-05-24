@@ -1,0 +1,12 @@
+csvcubed.models.cube.uristyle 
+==============================
+
+
+.. toctree::
+   :maxdepth: 
+
+
+.. automodule:: csvcubed.models.cube.uristyle
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>csvcubed.models.csvcubedexception &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.models.csvwtype" href="csvcubed.models.csvwtype.html" />
+    <link rel="prev" title="csvcubed.models.sparql.valuesbinding" href="csvcubed.models.sparql.valuesbinding.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.csvwtype.html" title="csvcubed.models.csvwtype"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.sparql.valuesbinding.html" title="csvcubed.models.sparql.valuesbinding"
+             accesskey="P">previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.models.html" accesskey="U">csvcubed.models</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.models.csvcubedexception</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-models-csvcubedexception">
+<h1>csvcubed.models.csvcubedexception<a class="headerlink" href="#csvcubed-models-csvcubedexception" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-csvcubed.models.csvcubedexception"></span><dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvToDataFrameLoadFailedException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">CsvToDataFrameLoadFailedException</span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvToDataFrameLoadFailedException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the CsvToDataFrameLoadFailedException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvToDataFrameLoadFailedException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvToDataFrameLoadFailedException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">CsvcubedException</span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>, <a class="reference internal" href="csvcubed.models.errorurl.html#csvcubed.models.errorurl.HasErrorUrl" title="csvcubed.models.errorurl.HasErrorUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">HasErrorUrl</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract class representing csvcubed exception model.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">CsvcubedExceptionMsges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Error messages for the exceptions thrown in csvcubed.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.CsvToDataFrameLoadFailed">
+<span class="sig-name descname"><span class="pre">CsvToDataFrameLoadFailed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Failed</span> <span class="pre">to</span> <span class="pre">load</span> <span class="pre">CSV</span> <span class="pre">dataset</span> <span class="pre">to</span> <span class="pre">dataframe'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.CsvToDataFrameLoadFailed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.ErrorProcessingDataFrame">
+<span class="sig-name descname"><span class="pre">ErrorProcessingDataFrame</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'An</span> <span class="pre">error</span> <span class="pre">occurred</span> <span class="pre">when</span> <span class="pre">performing</span> <span class="pre">{operation}</span> <span class="pre">operation</span> <span class="pre">on</span> <span class="pre">dataframe'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.ErrorProcessingDataFrame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToConvertDataFrameToString">
+<span class="sig-name descname"><span class="pre">FailedToConvertDataFrameToString</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Failed</span> <span class="pre">to</span> <span class="pre">convert</span> <span class="pre">dataframe</span> <span class="pre">to</span> <span class="pre">string'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToConvertDataFrameToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToLoadRDFGraph">
+<span class="sig-name descname"><span class="pre">FailedToLoadRDFGraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Failed</span> <span class="pre">to</span> <span class="pre">load</span> <span class="pre">the</span> <span class="pre">RDF</span> <span class="pre">graph</span> <span class="pre">from</span> <span class="pre">input:</span> <span class="pre">{csvw_metadata_file_path}'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToLoadRDFGraph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToLoadTableSchemaIntoRdfGraph">
+<span class="sig-name descname"><span class="pre">FailedToLoadTableSchemaIntoRdfGraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Failed</span> <span class="pre">to</span> <span class="pre">load</span> <span class="pre">table</span> <span class="pre">schema</span> <span class="pre">'{table_schema_file}'</span> <span class="pre">into</span> <span class="pre">RDF</span> <span class="pre">graph&quot;</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToLoadTableSchemaIntoRdfGraph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToReadCsvwFileContent">
+<span class="sig-name descname"><span class="pre">FailedToReadCsvwFileContent</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'An</span> <span class="pre">error</span> <span class="pre">occured</span> <span class="pre">while</span> <span class="pre">reading</span> <span class="pre">CSV-W</span> <span class="pre">content</span> <span class="pre">from</span> <span class="pre">file</span> <span class="pre">at</span> <span class="pre">{csvw_metadata_file_path}'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToReadCsvwFileContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToReadSparqlQuery">
+<span class="sig-name descname"><span class="pre">FailedToReadSparqlQuery</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Failed</span> <span class="pre">to</span> <span class="pre">read</span> <span class="pre">sparql</span> <span class="pre">query</span> <span class="pre">from</span> <span class="pre">file</span> <span class="pre">at</span> <span class="pre">{sparql_file_path}'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FailedToReadSparqlQuery" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FeatureNotSupported">
+<span class="sig-name descname"><span class="pre">FeatureNotSupported</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'This</span> <span class="pre">feature</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">yet</span> <span class="pre">supported:</span> <span class="pre">{explanation}'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.FeatureNotSupported" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InputNotSupported">
+<span class="sig-name descname"><span class="pre">InputNotSupported</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">input</span> <span class="pre">CSV-W</span> <span class="pre">json-ld</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">supported.</span> <span class="pre">The</span> <span class="pre">input</span> <span class="pre">should</span> <span class="pre">be</span> <span class="pre">a</span> <span class="pre">data</span> <span class="pre">cube</span> <span class="pre">or</span> <span class="pre">code</span> <span class="pre">list</span> <span class="pre">generated</span> <span class="pre">by</span> <span class="pre">csvcubed.'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InputNotSupported" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidCsvwFileContent">
+<span class="sig-name descname"><span class="pre">InvalidCsvwFileContent</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CSV-W</span> <span class="pre">file</span> <span class="pre">content</span> <span class="pre">is</span> <span class="pre">invalid.'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidCsvwFileContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfDSDComponentsForObsValColTitle">
+<span class="sig-name descname"><span class="pre">InvalidNumOfDSDComponentsForObsValColTitle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;There</span> <span class="pre">should</span> <span class="pre">be</span> <span class="pre">only</span> <span class="pre">1</span> <span class="pre">component</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">observation</span> <span class="pre">value</span> <span class="pre">column</span> <span class="pre">with</span> <span class="pre">title</span> <span class="pre">'{obs_val_col_title}',</span> <span class="pre">but</span> <span class="pre">found</span> <span class="pre">{num_of_components}.&quot;</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfDSDComponentsForObsValColTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfUnitColsForObsValColTitle">
+<span class="sig-name descname"><span class="pre">InvalidNumOfUnitColsForObsValColTitle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Could</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">observed</span> <span class="pre">value</span> <span class="pre">column</span> <span class="pre">representing</span> <span class="pre">'{obs_val_col_title}'&quot;</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfUnitColsForObsValColTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfValUrlsForAboutUrl">
+<span class="sig-name descname"><span class="pre">InvalidNumOfValUrlsForAboutUrl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;There</span> <span class="pre">should</span> <span class="pre">be</span> <span class="pre">only</span> <span class="pre">1</span> <span class="pre">value</span> <span class="pre">url</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">about</span> <span class="pre">url</span> <span class="pre">'{about_url}',</span> <span class="pre">but</span> <span class="pre">found</span> <span class="pre">{num_of_value_urls}.&quot;</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumOfValUrlsForAboutUrl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumberOfRecords">
+<span class="sig-name descname"><span class="pre">InvalidNumberOfRecords</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Expected</span> <span class="pre">{excepted_num_of_records}</span> <span class="pre">{record_description},</span> <span class="pre">but</span> <span class="pre">found</span> <span class="pre">{num_of_records}'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidNumberOfRecords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.PrimaryKeyColumnTitleCannotBeNone">
+<span class="sig-name descname"><span class="pre">PrimaryKeyColumnTitleCannotBeNone</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">column</span> <span class="pre">associated</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">primary</span> <span class="pre">key</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">contain</span> <span class="pre">the</span> <span class="pre">title.'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.PrimaryKeyColumnTitleCannotBeNone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnexpectedSparqlAskQueryResponseType">
+<span class="sig-name descname"><span class="pre">UnexpectedSparqlAskQueryResponseType</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Unexpected</span> <span class="pre">ASK</span> <span class="pre">sparql</span> <span class="pre">query</span> <span class="pre">({query_name})</span> <span class="pre">response</span> <span class="pre">type:</span> <span class="pre">{response_type}'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnexpectedSparqlAskQueryResponseType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnexpectedSparqlAskQueryResults">
+<span class="sig-name descname"><span class="pre">UnexpectedSparqlAskQueryResults</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Unexpected</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">results</span> <span class="pre">({num_of_results})</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">{query_name}</span> <span class="pre">ASK</span> <span class="pre">sparql</span> <span class="pre">query'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnexpectedSparqlAskQueryResults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedColumnDefinition">
+<span class="sig-name descname"><span class="pre">UnsupportedColumnDefinition</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">definition</span> <span class="pre">for</span> <span class="pre">column</span> <span class="pre">with</span> <span class="pre">name</span> <span class="pre">{column_title}</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">supported.'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedColumnDefinition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedComponentPropertyType">
+<span class="sig-name descname"><span class="pre">UnsupportedComponentPropertyType</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DSD</span> <span class="pre">component</span> <span class="pre">property</span> <span class="pre">type</span> <span class="pre">{property_type}</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">supported'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedComponentPropertyType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedNumberOfPrimaryKeyColNames">
+<span class="sig-name descname"><span class="pre">UnsupportedNumberOfPrimaryKeyColNames</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Only</span> <span class="pre">1</span> <span class="pre">primary</span> <span class="pre">key</span> <span class="pre">column</span> <span class="pre">name</span> <span class="pre">is</span> <span class="pre">supported</span> <span class="pre">but</span> <span class="pre">found</span> <span class="pre">{num_of_primary_key_col_names}</span> <span class="pre">primary</span> <span class="pre">key</span> <span class="pre">column</span> <span class="pre">names</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">table</span> <span class="pre">with</span> <span class="pre">url</span> <span class="pre">{table_url}.'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.UnsupportedNumberOfPrimaryKeyColNames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">CsvcubedExceptionUrls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Urls for the exceptions thrown in csvcubed.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.CsvToDataFrameLoadFailed">
+<span class="sig-name descname"><span class="pre">CsvToDataFrameLoadFailed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/dataframe-load'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.CsvToDataFrameLoadFailed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.ErrorProcessingDataFrame">
+<span class="sig-name descname"><span class="pre">ErrorProcessingDataFrame</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/dataframe-process'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.ErrorProcessingDataFrame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToConvertDataFrameToString">
+<span class="sig-name descname"><span class="pre">FailedToConvertDataFrameToString</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/dataframe-string'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToConvertDataFrameToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToLoadRDFGraph">
+<span class="sig-name descname"><span class="pre">FailedToLoadRDFGraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/rdf-load'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToLoadRDFGraph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToLoadTableSchemaIntoRdfGraph">
+<span class="sig-name descname"><span class="pre">FailedToLoadTableSchemaIntoRdfGraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/tbl-schema-load'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToLoadTableSchemaIntoRdfGraph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToReadCsvwFileContent">
+<span class="sig-name descname"><span class="pre">FailedToReadCsvwFileContent</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/csvw-read'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToReadCsvwFileContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToReadSparqlQuery">
+<span class="sig-name descname"><span class="pre">FailedToReadSparqlQuery</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/sparql-query-read'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FailedToReadSparqlQuery" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FeatureNotSupported">
+<span class="sig-name descname"><span class="pre">FeatureNotSupported</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/feature-not-supported'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.FeatureNotSupported" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InputNotSupported">
+<span class="sig-name descname"><span class="pre">InputNotSupported</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/invalid-input'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InputNotSupported" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidCsvwFileContent">
+<span class="sig-name descname"><span class="pre">InvalidCsvwFileContent</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/csvw-content'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidCsvwFileContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfDSDComponentsForObsValColTitle">
+<span class="sig-name descname"><span class="pre">InvalidNumOfDSDComponentsForObsValColTitle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/invalid-num-of-dsd-comps-for-obs-val-col'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfDSDComponentsForObsValColTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfUnitColsForObsValColTitle">
+<span class="sig-name descname"><span class="pre">InvalidNumOfUnitColsForObsValColTitle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/invalid-num-of-unit-cols-for-obs-val-col-title'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfUnitColsForObsValColTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfValUrlsForAboutUrl">
+<span class="sig-name descname"><span class="pre">InvalidNumOfValUrlsForAboutUrl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/invalid-num-of-value-urls-for-about-url'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumOfValUrlsForAboutUrl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumberOfRecords">
+<span class="sig-name descname"><span class="pre">InvalidNumberOfRecords</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/num-records'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumberOfRecords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.PrimaryKeyColumnTitleCannotBeNone">
+<span class="sig-name descname"><span class="pre">PrimaryKeyColumnTitleCannotBeNone</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/invalid-pk-col-title'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.PrimaryKeyColumnTitleCannotBeNone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnexpectedSparqlAskQueryResponseType">
+<span class="sig-name descname"><span class="pre">UnexpectedSparqlAskQueryResponseType</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/ask-response'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnexpectedSparqlAskQueryResponseType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnexpectedSparqlAskQueryResults">
+<span class="sig-name descname"><span class="pre">UnexpectedSparqlAskQueryResults</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/ask-result'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnexpectedSparqlAskQueryResults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedColumnDefinition">
+<span class="sig-name descname"><span class="pre">UnsupportedColumnDefinition</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/column-definition-not-supported'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedColumnDefinition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedComponentPropertyType">
+<span class="sig-name descname"><span class="pre">UnsupportedComponentPropertyType</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/component-type'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedComponentPropertyType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedNumberOfPrimaryKeyColNames">
+<span class="sig-name descname"><span class="pre">UnsupportedNumberOfPrimaryKeyColNames</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/unsupported-num-of-primary-keys'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.UnsupportedNumberOfPrimaryKeyColNames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.ErrorProcessingDataFrameException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">ErrorProcessingDataFrameException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.ErrorProcessingDataFrameException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the ErrorProcessingDataFrameException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.ErrorProcessingDataFrameException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.ErrorProcessingDataFrameException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToConvertDataFrameToStringException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">FailedToConvertDataFrameToStringException</span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToConvertDataFrameToStringException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the FailedToConvertDataFrameToStringException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToConvertDataFrameToStringException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToConvertDataFrameToStringException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToLoadRDFGraphException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">FailedToLoadRDFGraphException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csvw_metadata_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToLoadRDFGraphException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the FailedToLoadRDFGraphException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToLoadRDFGraphException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToLoadRDFGraphException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToLoadTableSchemaIntoRdfGraphException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">FailedToLoadTableSchemaIntoRdfGraphException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_schema_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToLoadTableSchemaIntoRdfGraphException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the FailedToLoadTableSchemaIntoRdfGraphException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToLoadTableSchemaIntoRdfGraphException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToLoadTableSchemaIntoRdfGraphException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToReadCsvwFileContentException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">FailedToReadCsvwFileContentException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csvw_metadata_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToReadCsvwFileContentException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the FailedToReadCsvwFileContentException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToReadCsvwFileContentException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToReadCsvwFileContentException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToReadSparqlQueryException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">FailedToReadSparqlQueryException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sparql_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToReadSparqlQueryException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the FailedToReadSparqlQueryException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FailedToReadSparqlQueryException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FailedToReadSparqlQueryException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FeatureNotSupportedException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">FeatureNotSupportedException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">explanation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FeatureNotSupportedException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the FeatureNotSupportedException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.FeatureNotSupportedException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.FeatureNotSupportedException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InputNotSupportedException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">InputNotSupportedException</span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InputNotSupportedException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the InputNotSupportedException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InputNotSupportedException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InputNotSupportedException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidCsvwFileContentException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">InvalidCsvwFileContentException</span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidCsvwFileContentException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the InvalidCsvwFileContentException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidCsvwFileContentException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidCsvwFileContentException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidNumOfDSDComponentsForObsValColTitleException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">InvalidNumOfDSDComponentsForObsValColTitleException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs_val_col_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidNumOfDSDComponentsForObsValColTitleException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the InvalidNumOfDSDComponentsForObsValColTitleException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidNumOfDSDComponentsForObsValColTitleException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidNumOfDSDComponentsForObsValColTitleException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidNumberOfRecordsException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">InvalidNumberOfRecordsException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record_description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excepted_num_of_records</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_records</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidNumberOfRecordsException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the InvalidNumberOfRecordsException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidNumberOfRecordsException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidNumberOfRecordsException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidObservationColumnTitle">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">InvalidObservationColumnTitle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs_val_col_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidObservationColumnTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the InvalidNumOfUnitColsForObsValColTitleException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidObservationColumnTitle.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidObservationColumnTitle.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidUnitColumnDefinition">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">InvalidUnitColumnDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">about_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_value_urls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidUnitColumnDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the InvalidNumOfValUrlsForAboutUrlException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidUnitColumnDefinition.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidUnitColumnDefinition.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.PrimaryKeyColumnTitleCannotBeNoneException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">PrimaryKeyColumnTitleCannotBeNoneException</span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.PrimaryKeyColumnTitleCannotBeNoneException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the PrimaryKeyColumnTitleCannotBeNoneException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.PrimaryKeyColumnTitleCannotBeNoneException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.PrimaryKeyColumnTitleCannotBeNoneException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResponseTypeException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">UnexpectedSparqlAskQueryResponseTypeException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResponseTypeException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the UnexpectedSparqlAskQueryResponseTypeException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResponseTypeException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResponseTypeException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResultsException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">UnexpectedSparqlAskQueryResultsException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResultsException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the UnexpectedSparqlAskQueryResultsException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResultsException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnexpectedSparqlAskQueryResultsException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnsupportedColumnDefinitionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">UnsupportedColumnDefinitionException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnsupportedColumnDefinitionException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the UnsupportedColumnDefinitionException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnsupportedColumnDefinitionException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnsupportedColumnDefinitionException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnsupportedComponentPropertyTypeException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">UnsupportedComponentPropertyTypeException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnsupportedComponentPropertyTypeException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the UnsupportedComponentPropertyType model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnsupportedComponentPropertyTypeException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnsupportedComponentPropertyTypeException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnsupportedNumOfPrimaryKeyColNamesException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">UnsupportedNumOfPrimaryKeyColNamesException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_primary_key_col_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnsupportedNumOfPrimaryKeyColNamesException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the UnsupportedNumOfPrimaryKeyColNamesException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.UnsupportedNumOfPrimaryKeyColNamesException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.UnsupportedNumOfPrimaryKeyColNamesException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.codelistconfig.html">csvcubed.models.codelistconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.html">csvcubed.models.cube</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.rdf.html">csvcubed.models.rdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.sparql.html">csvcubed.models.sparql</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubed.models.csvcubedexception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.csvwtype.html">csvcubed.models.csvwtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.errorurl.html">csvcubed.models.errorurl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.inspectdataframeresults.html">csvcubed.models.inspectdataframeresults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.jsonvalidationerrors.html">csvcubed.models.jsonvalidationerrors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.sparqlresults.html">csvcubed.models.sparqlresults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.uriidentifiable.html">csvcubed.models.uriidentifiable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.validatedmodel.html">csvcubed.models.validatedmodel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.validationerror.html">csvcubed.models.validationerror</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.models.csvcubedexception.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.csvwtype.html" title="csvcubed.models.csvwtype"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.sparql.valuesbinding.html" title="csvcubed.models.sparql.valuesbinding"
+             >previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.models.html" >csvcubed.models</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.models.csvcubedexception</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
+    </div>
+  </body>
+</html>

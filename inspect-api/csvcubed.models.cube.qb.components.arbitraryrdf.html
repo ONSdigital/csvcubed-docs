@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>csvcubed.models.cube.qb.components.arbitraryrdf &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.models.cube.qb.components.attribute" href="csvcubed.models.cube.qb.components.attribute.html" />
+    <link rel="prev" title="csvcubed.models.cube.qb.components" href="csvcubed.models.cube.qb.components.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.cube.qb.components.attribute.html" title="csvcubed.models.cube.qb.components.attribute"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.cube.qb.components.html" title="csvcubed.models.cube.qb.components"
+             accesskey="P">previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.models.html" >csvcubed.models</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.models.cube.html" >csvcubed.models.cube</a> &#187;</li>
+          <li class="nav-item nav-item-4"><a href="csvcubed.models.cube.qb.html" >csvcubed.models.cube.qb</a> &#187;</li>
+          <li class="nav-item nav-item-5"><a href="csvcubed.models.cube.qb.components.html" accesskey="U">csvcubed.models.cube.qb.components</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.models.cube.qb.components.arbitraryrdf</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-models-cube-qb-components-arbitraryrdf">
+<h1>csvcubed.models.cube.qb.components.arbitraryrdf<a class="headerlink" href="#csvcubed-models-cube-qb-components-arbitraryrdf" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-csvcubed.models.cube.qb.components.arbitraryrdf"></span><section id="arbitrary-rdf-container">
+<h2>Arbitrary RDF Container<a class="headerlink" href="#arbitrary-rdf-container" title="Permalink to this heading">¶</a></h2>
+<p>Defines a mixin permitting arbitrary RDF to be added to a qb component.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.components.arbitraryrdf.</span></span><span class="sig-name descname"><span class="pre">ArbitraryRdf</span></span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>A mixin permitting arbitrary RDF to be added to a qb component.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf.copy_arbitrary_triple_fragments_to_resources">
+<span class="sig-name descname"><span class="pre">copy_arbitrary_triple_fragments_to_resources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_target_hint_to_resource</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint" title="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint"><span class="pre">RdfSerialisationHint</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NewResource</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf.copy_arbitrary_triple_fragments_to_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies the arbitrary RDF defined against this object to <cite>NewResource</cite> s defined in the
+<cite>map_target_hint_to_resource</cite> dict. Takes account of the subject/object hints to place the triple against
+the anticipated RDF resource.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf.get_arbitrary_rdf_fragments">
+<span class="sig-name descname"><span class="pre">get_arbitrary_rdf_fragments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase" title="csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase"><span class="pre">TripleFragmentBase</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf.get_arbitrary_rdf_fragments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf.get_default_node_serialisation_hint">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_default_node_serialisation_hint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint" title="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint"><span class="pre">RdfSerialisationHint</span></a></span></span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf.get_default_node_serialisation_hint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the <cite>RdfSerialisationHint</cite> that <cite>RdfSerialisationHint.DefaultNode</cite> maps to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf.get_permitted_rdf_fragment_hints">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_permitted_rdf_fragment_hints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint" title="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint"><span class="pre">RdfSerialisationHint</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.ArbitraryRdf.get_permitted_rdf_fragment_hints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the set of <cite>RdfSerialisationHint</cite> types which this class can be mapped to.</p>
+<p><cite>ResourceSerialisationHint.DefaultNode</cite> is permitted by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.InverseTripleFragment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.components.arbitraryrdf.</span></span><span class="sig-name descname"><span class="pre">InverseTripleFragment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">URIRef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_hint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint" title="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint"><span class="pre">RdfSerialisationHint</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RdfSerialisationHint.DefaultNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.InverseTripleFragment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase" title="csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TripleFragmentBase</span></code></a></p>
+<p>Part of an arbitrary RDF triple. Defines the subject and a predicate.
+The object is implicitly defined externally to this class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.InverseTripleFragment.object_hint">
+<span class="sig-name descname"><span class="pre">object_hint</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint" title="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint"><span class="pre">RdfSerialisationHint</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.InverseTripleFragment.object_hint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.InverseTripleFragment.subject">
+<span class="sig-name descname"><span class="pre">subject</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Identifier</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.InverseTripleFragment.subject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.components.arbitraryrdf.</span></span><span class="sig-name descname"><span class="pre">RdfSerialisationHint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Provides a hint as to which RDF resource to serialise the triple fragment against.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.AttributeValue">
+<span class="sig-name descname"><span class="pre">AttributeValue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.AttributeValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>The attribute value that the class generates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.CatalogDataset">
+<span class="sig-name descname"><span class="pre">CatalogDataset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.CatalogDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <cite>dcat:Dataset</cite> that the class generates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.Component">
+<span class="sig-name descname"><span class="pre">Component</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.Component" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <cite>qb:ComponentSpecification</cite> that the class generates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.ConceptScheme">
+<span class="sig-name descname"><span class="pre">ConceptScheme</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.ConceptScheme" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <cite>skos:ConceptScheme</cite> that the class generates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.DefaultNode">
+<span class="sig-name descname"><span class="pre">DefaultNode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.DefaultNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The primary RDF node that the class generates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.Property">
+<span class="sig-name descname"><span class="pre">Property</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.Property" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <cite>rdf:Property</cite> that the class generates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.Unit">
+<span class="sig-name descname"><span class="pre">Unit</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint.Unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unit that the class generates.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.components.arbitraryrdf.</span></span><span class="sig-name descname"><span class="pre">TripleFragment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">URIRef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject_hint</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint" title="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint"><span class="pre">RdfSerialisationHint</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">RdfSerialisationHint.DefaultNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase" title="csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">TripleFragmentBase</span></code></a></p>
+<p>Part of an arbitrary RDF triple. Defines the predicate and an object.
+The subject is implicitly defined externally to this class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragment.object">
+<span class="sig-name descname"><span class="pre">object</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Identifier</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragment.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragment.subject_hint">
+<span class="sig-name descname"><span class="pre">subject_hint</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint" title="csvcubed.models.cube.qb.components.arbitraryrdf.RdfSerialisationHint"><span class="pre">RdfSerialisationHint</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragment.subject_hint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.cube.qb.components.arbitraryrdf.</span></span><span class="sig-name descname"><span class="pre">TripleFragmentBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">URIRef</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="csvcubed.models.validatedmodel.html#csvcubed.models.validatedmodel.ValidatedModel" title="csvcubed.models.validatedmodel.ValidatedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidatedModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Represents part of an RDF triple.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase.predicate">
+<span class="sig-name descname"><span class="pre">predicate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">URIRef</span></em><a class="headerlink" href="#csvcubed.models.cube.qb.components.arbitraryrdf.TripleFragmentBase.predicate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.codelistconfig.html">csvcubed.models.codelistconfig</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.models.cube.html">csvcubed.models.cube</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="csvcubed.models.cube.qb.html">csvcubed.models.cube.qb</a><ul class="current">
+<li class="toctree-l5 current"><a class="reference internal" href="csvcubed.models.cube.qb.components.html">csvcubed.models.cube.qb.components</a><ul class="current">
+<li class="toctree-l6 current"><a class="current reference internal" href="#">csvcubed.models.cube.qb.components.arbitraryrdf</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.attribute.html">csvcubed.models.cube.qb.components.attribute</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.attributevalue.html">csvcubed.models.cube.qb.components.attributevalue</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.codelist.html">csvcubed.models.cube.qb.components.codelist</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.concept.html">csvcubed.models.cube.qb.components.concept</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.constants.html">csvcubed.models.cube.qb.components.constants</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.datastructuredefinition.html">csvcubed.models.cube.qb.components.datastructuredefinition</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.dimension.html">csvcubed.models.cube.qb.components.dimension</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.measure.html">csvcubed.models.cube.qb.components.measure</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.measuresdimension.html">csvcubed.models.cube.qb.components.measuresdimension</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.observedvalue.html">csvcubed.models.cube.qb.components.observedvalue</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.unit.html">csvcubed.models.cube.qb.components.unit</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.unitscolumn.html">csvcubed.models.cube.qb.components.unitscolumn</a></li>
+<li class="toctree-l6"><a class="reference internal" href="csvcubed.models.cube.qb.components.validationerrors.html">csvcubed.models.cube.qb.components.validationerrors</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.models.cube.qb.catalog.html">csvcubed.models.cube.qb.catalog</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.models.cube.qb.columns.html">csvcubed.models.cube.qb.columns</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csvcubed.models.cube.qb.validationerrors.html">csvcubed.models.cube.qb.validationerrors</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.catalog.html">csvcubed.models.cube.catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.columns.html">csvcubed.models.cube.columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.cube.html">csvcubed.models.cube.cube</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.cube_shape.html">csvcubed.models.cube.cube_shape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.uristyle.html">csvcubed.models.cube.uristyle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.cube.validationerrors.html">csvcubed.models.cube.validationerrors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.rdf.html">csvcubed.models.rdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.sparql.html">csvcubed.models.sparql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.csvcubedexception.html">csvcubed.models.csvcubedexception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.csvwtype.html">csvcubed.models.csvwtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.errorurl.html">csvcubed.models.errorurl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.inspectdataframeresults.html">csvcubed.models.inspectdataframeresults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.jsonvalidationerrors.html">csvcubed.models.jsonvalidationerrors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.sparqlresults.html">csvcubed.models.sparqlresults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.uriidentifiable.html">csvcubed.models.uriidentifiable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.validatedmodel.html">csvcubed.models.validatedmodel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.validationerror.html">csvcubed.models.validationerror</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.models.cube.qb.components.arbitraryrdf.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.cube.qb.components.attribute.html" title="csvcubed.models.cube.qb.components.attribute"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.cube.qb.components.html" title="csvcubed.models.cube.qb.components"
+             >previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.models.html" >csvcubed.models</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.models.cube.html" >csvcubed.models.cube</a> &#187;</li>
+          <li class="nav-item nav-item-4"><a href="csvcubed.models.cube.qb.html" >csvcubed.models.cube.qb</a> &#187;</li>
+          <li class="nav-item nav-item-5"><a href="csvcubed.models.cube.qb.components.html" >csvcubed.models.cube.qb.components</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.models.cube.qb.components.arbitraryrdf</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>csvcubed.readers.cubeconfig &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.readers.cubeconfig.v1" href="csvcubed.readers.cubeconfig.v1.html" />
+    <link rel="prev" title="csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader" href="csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.readers.cubeconfig.v1.html" title="csvcubed.readers.cubeconfig.v1"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader.html" title="csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader"
+             accesskey="P">previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.readers.html" accesskey="U">csvcubed.readers</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.readers.cubeconfig</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-readers-cubeconfig">
+<h1>csvcubed.readers.cubeconfig<a class="headerlink" href="#csvcubed-readers-cubeconfig" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.html">csvcubed.readers.cubeconfig.v1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html">csvcubed.readers.cubeconfig.v1.columnschema</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#models">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue"><code class="docutils literal notranslate"><span class="pre">AttributeValue</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.definition_uri"><code class="docutils literal notranslate"><span class="pre">AttributeValue.definition_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.description"><code class="docutils literal notranslate"><span class="pre">AttributeValue.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.from_existing"><code class="docutils literal notranslate"><span class="pre">AttributeValue.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.AttributeValue.label"><code class="docutils literal notranslate"><span class="pre">AttributeValue.label</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.data_type"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.data_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.describes_observations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.map_to_existing_qb_attribute"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.map_to_existing_qb_attribute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeLiteral.required"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeLiteral.required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.cell_uri_template</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.describes_observations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.map_to_existing_qb_attribute"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.map_to_existing_qb_attribute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.required"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingAttributeResource.values"><code class="docutils literal notranslate"><span class="pre">ExistingAttributeResource.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension"><code class="docutils literal notranslate"><span class="pre">ExistingDimension</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.cell_uri_template</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.from_existing"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingDimension.map_to_existing_qb_dimension"><code class="docutils literal notranslate"><span class="pre">ExistingDimension.map_to_existing_qb_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures.cell_uri_template</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingMeasures.map_to_existing_multi_measure_dimension"><code class="docutils literal notranslate"><span class="pre">ExistingMeasures.map_to_existing_multi_measure_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits"><code class="docutils literal notranslate"><span class="pre">ExistingUnits</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.cell_uri_template</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.describes_observations"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.describes_observations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ExistingUnits.map_to_existing_qb_multi_units"><code class="docutils literal notranslate"><span class="pre">ExistingUnits.map_to_existing_qb_multi_units()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Measure"><code class="docutils literal notranslate"><span class="pre">Measure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Measure.definition_uri"><code class="docutils literal notranslate"><span class="pre">Measure.definition_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Measure.description"><code class="docutils literal notranslate"><span class="pre">Measure.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Measure.from_existing"><code class="docutils literal notranslate"><span class="pre">Measure.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Measure.label"><code class="docutils literal notranslate"><span class="pre">Measure.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Measure.map_to_measure"><code class="docutils literal notranslate"><span class="pre">Measure.map_to_measure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.data_type"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.data_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.definition_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.describes_observations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.description"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.from_existing"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.label"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.map_to_new_qb_attribute"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.map_to_new_qb_attribute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeLiteral.required"><code class="docutils literal notranslate"><span class="pre">NewAttributeLiteral.required</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.cell_uri_template</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.definition_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.describes_observations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.description"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.from_existing"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.label"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.map_to_new_qb_attribute"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.map_to_new_qb_attribute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.required"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.required</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewAttributeResource.values"><code class="docutils literal notranslate"><span class="pre">NewAttributeResource.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension"><code class="docutils literal notranslate"><span class="pre">NewDimension</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.cell_uri_template"><code class="docutils literal notranslate"><span class="pre">NewDimension.cell_uri_template</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.code_list"><code class="docutils literal notranslate"><span class="pre">NewDimension.code_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.definition_uri"><code class="docutils literal notranslate"><span class="pre">NewDimension.definition_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.description"><code class="docutils literal notranslate"><span class="pre">NewDimension.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.from_existing"><code class="docutils literal notranslate"><span class="pre">NewDimension.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.label"><code class="docutils literal notranslate"><span class="pre">NewDimension.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewDimension.map_to_new_qb_dimension"><code class="docutils literal notranslate"><span class="pre">NewDimension.map_to_new_qb_dimension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures"><code class="docutils literal notranslate"><span class="pre">NewMeasures</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.map_to_new_multi_measure_dimension"><code class="docutils literal notranslate"><span class="pre">NewMeasures.map_to_new_multi_measure_dimension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewMeasures.values"><code class="docutils literal notranslate"><span class="pre">NewMeasures.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits"><code class="docutils literal notranslate"><span class="pre">NewUnits</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.describes_observations"><code class="docutils literal notranslate"><span class="pre">NewUnits.describes_observations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.map_to_new_qb_multi_units"><code class="docutils literal notranslate"><span class="pre">NewUnits.map_to_new_qb_multi_units()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.NewUnits.values"><code class="docutils literal notranslate"><span class="pre">NewUnits.values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue"><code class="docutils literal notranslate"><span class="pre">ObservationValue</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.data_type"><code class="docutils literal notranslate"><span class="pre">ObservationValue.data_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.map_to_qb_observation"><code class="docutils literal notranslate"><span class="pre">ObservationValue.map_to_qb_observation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.measure"><code class="docutils literal notranslate"><span class="pre">ObservationValue.measure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.ObservationValue.unit"><code class="docutils literal notranslate"><span class="pre">ObservationValue.unit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.SchemaBaseClass"><code class="docutils literal notranslate"><span class="pre">SchemaBaseClass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Unit"><code class="docutils literal notranslate"><span class="pre">Unit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Unit.definition_uri"><code class="docutils literal notranslate"><span class="pre">Unit.definition_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Unit.description"><code class="docutils literal notranslate"><span class="pre">Unit.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Unit.from_existing"><code class="docutils literal notranslate"><span class="pre">Unit.from_existing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Unit.label"><code class="docutils literal notranslate"><span class="pre">Unit.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Unit.quantity_kind"><code class="docutils literal notranslate"><span class="pre">Unit.quantity_kind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Unit.scaling_factor"><code class="docutils literal notranslate"><span class="pre">Unit.scaling_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.columnschema.html#csvcubed.readers.cubeconfig.v1.columnschema.Unit.si_scaling_factor"><code class="docutils literal notranslate"><span class="pre">Unit.si_scaling_factor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.configdeserialiser.html">csvcubed.readers.cubeconfig.v1.configdeserialiser</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.configdeserialiser.html#config-json-loader">Config.json Loader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.configdeserialiser.html#csvcubed.readers.cubeconfig.v1.configdeserialiser.get_deserialiser"><code class="docutils literal notranslate"><span class="pre">get_deserialiser()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.constants.html">csvcubed.readers.cubeconfig.v1.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.datatypes.html">csvcubed.readers.cubeconfig.v1.datatypes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.datatypes.html#csvcubed.readers.cubeconfig.v1.datatypes.get_pandas_datatypes"><code class="docutils literal notranslate"><span class="pre">get_pandas_datatypes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.datatypes.html#csvcubed.readers.cubeconfig.v1.datatypes.pandas_datatypes_from_columns_config"><code class="docutils literal notranslate"><span class="pre">pandas_datatypes_from_columns_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.datatypes.html#csvcubed.readers.cubeconfig.v1.datatypes.pandas_dtype_from_schema"><code class="docutils literal notranslate"><span class="pre">pandas_dtype_from_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.html">csvcubed.readers.cubeconfig.v1.mapcolumntocomponent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.html#mapping">Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.html#csvcubed.readers.cubeconfig.v1.mapcolumntocomponent.map_column_to_qb_component"><code class="docutils literal notranslate"><span class="pre">map_column_to_qb_component()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.html#module-csvcubed.readers.cubeconfig.v1" title="csvcubed.readers.cubeconfig.v1"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.readers.cubeconfig.v1</span></code></a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html">csvcubed.readers.cubeconfig.schema_versions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#schema-versions">Schema Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigDeserialiser"><code class="docutils literal notranslate"><span class="pre">QubeConfigDeserialiser</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigJsonSchemaMajorVersion"><code class="docutils literal notranslate"><span class="pre">QubeConfigJsonSchemaMajorVersion</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigJsonSchemaMajorVersion.v1"><code class="docutils literal notranslate"><span class="pre">QubeConfigJsonSchemaMajorVersion.v1</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigJsonSchemaMinorVersion"><code class="docutils literal notranslate"><span class="pre">QubeConfigJsonSchemaMinorVersion</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigJsonSchemaMinorVersion.v0"><code class="docutils literal notranslate"><span class="pre">QubeConfigJsonSchemaMinorVersion.v0</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigJsonSchemaMinorVersion.v1"><code class="docutils literal notranslate"><span class="pre">QubeConfigJsonSchemaMinorVersion.v1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigJsonSchemaMinorVersion.v2"><code class="docutils literal notranslate"><span class="pre">QubeConfigJsonSchemaMinorVersion.v2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigJsonSchemaMinorVersion.v3"><code class="docutils literal notranslate"><span class="pre">QubeConfigJsonSchemaMinorVersion.v3</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.QubeConfigJsonSchemaMinorVersion.v4"><code class="docutils literal notranslate"><span class="pre">QubeConfigJsonSchemaMinorVersion.v4</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#csvcubed.readers.cubeconfig.schema_versions.get_deserialiser_for_schema"><code class="docutils literal notranslate"><span class="pre">get_deserialiser_for_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvcubed.readers.cubeconfig.utils.html">csvcubed.readers.cubeconfig.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.utils.html#csvcubed.readers.cubeconfig.utils.generate_title_from_file_name"><code class="docutils literal notranslate"><span class="pre">generate_title_from_file_name()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.utils.html#csvcubed.readers.cubeconfig.utils.load_resource"><code class="docutils literal notranslate"><span class="pre">load_resource()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.cubeconfig.utils.html#csvcubed.readers.cubeconfig.utils.read_and_check_csv"><code class="docutils literal notranslate"><span class="pre">read_and_check_csv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html#module-csvcubed.readers.cubeconfig.schema_versions" title="csvcubed.readers.cubeconfig.schema_versions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.readers.cubeconfig.schema_versions</span></code></a></p>
+<p><a class="reference internal" href="csvcubed.readers.cubeconfig.utils.html#module-csvcubed.readers.cubeconfig.utils" title="csvcubed.readers.cubeconfig.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">csvcubed.readers.cubeconfig.utils</span></code></a></p>
+<span class="target" id="module-csvcubed.readers.cubeconfig"></span></section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.catalogmetadata.html">csvcubed.readers.catalogmetadata</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">csvcubed.readers.cubeconfig</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.v1.html">csvcubed.readers.cubeconfig.v1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.schema_versions.html">csvcubed.readers.cubeconfig.schema_versions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.readers.cubeconfig.utils.html">csvcubed.readers.cubeconfig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.readers.preconfiguredtemplates.html">csvcubed.readers.preconfiguredtemplates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.readers.cubeconfig.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.readers.cubeconfig.v1.html" title="csvcubed.readers.cubeconfig.v1"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader.html" title="csvcubed.readers.catalogmetadata.v1.catalog_metadata_reader"
+             >previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.readers.html" >csvcubed.readers</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.readers.cubeconfig</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2023, ONS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
+    </div>
+  </body>
+</html>

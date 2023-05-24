@@ -1,0 +1,17 @@
+csvcubed.cli.pullcsvw 
+======================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.cli.pullcsvw.pull
+
+:py:mod:`csvcubed.cli.pullcsvw.pull`
+
+
+
+
+.. automodule:: csvcubed.cli.pullcsvw
+   :members:
+   :undoc-members:
+   :show-inheritance:
