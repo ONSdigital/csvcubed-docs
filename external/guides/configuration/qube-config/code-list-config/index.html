@@ -1024,8 +1024,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-same_as" class="md-nav__link">
-    Using same_as
+  <a href="#using-exact_match" class="md-nav__link">
+    Using exact_match
   </a>
   
 </li>
@@ -1527,8 +1527,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-same_as" class="md-nav__link">
-    Using same_as
+  <a href="#using-exact_match" class="md-nav__link">
+    Using exact_match
   </a>
   
 </li>
@@ -1649,7 +1649,7 @@ structure of a <em>code list configuration file</em>:</p>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
 <span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://purl.org/csv-cubed/code-list-config/v1&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://purl.org/csv-cubed/code-list-config/v2&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Biscuit Varieties&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Common biscuit varieties.&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A code list of common generic biscuit varieties available in supermarkets across the UK.&quot;</span><span class="p">,</span>
@@ -1829,7 +1829,7 @@ structure of a <em>code list configuration file</em>:</p>
 <td><em>none</em></td>
 </tr>
 <tr>
-<td><code>same_as</code></td>
+<td><code>exact_match</code></td>
 <td>A link to a concept defined elsewhere</td>
 <td><em>none</em></td>
 </tr>
@@ -1843,8 +1843,8 @@ structure of a <em>code list configuration file</em>:</p>
 <h4 id="using-sort_order">Using <code>sort_order</code></h4>
 <p>The <code>sort_order</code> field allows sorting a code list on per concept basis.</p>
 <p><em>If both the aforementioned <code>sort</code> field and the concept's <code>sort_order</code> are defined, csvcubed first sorts the concepts with <code>sort_order</code>, and then sorts the rest of the concepts according to the <code>sort</code> field. In other words, the concept's <code>sort_order</code> field has priority over the code list's <code>sort</code> field.</em></p>
-<h4 id="using-same_as">Using <code>same_as</code></h4>
-<p>The <code>same_as</code> field allows using a concept defined elsewhere in the internet (e.g. <a href="http://statistics.data.gov.uk/id/statistical-geography/E92000001">E92 concept in Geography Linked Data</a>).</p>
+<h4 id="using-exact_match">Using <code>exact_match</code></h4>
+<p>The <code>exact_match</code> field allows using a concept defined elsewhere on the internet (e.g. the <a href="http://statistics.data.gov.uk/id/statistical-geography/E92000001">E92 concept in Geography Linked Data</a>).</p>
 <h3 id="referencing-a-code-list-configuration-file">Referencing a code list configuration file</h3>
 <p>This new code list can be referenced in a <a href="../">qube-config.json</a> file using the <code>code_list</code> field in <a href="../#dimension-configuration">dimension configuration</a>, e.g.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
