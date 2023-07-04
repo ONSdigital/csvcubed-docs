@@ -1,0 +1,1846 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gss-cogs.github.io/csvcubed-docs/external/guides/inspect-api/example3/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../missing-observed-values/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Worked example 3 - csvcubed</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#worked-example-3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="csvcubed" class="md-header__button md-logo" aria-label="csvcubed" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csvcubed
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Worked example 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GSS-Cogs/csvcubed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSS-Cogs/csvcubed
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csvcubed" class="md-nav__button md-logo" aria-label="csvcubed" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    csvcubed
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GSS-Cogs/csvcubed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSS-Cogs/csvcubed
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Home</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../quick-start/">Quick start</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Quick start
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/designing-csv/" class="md-nav__link">
+        Designing a CSV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/build/" class="md-nav__link">
+        Building a CSV-W
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/describing-csv/" class="md-nav__link">
+        Describing your CSV
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/linking-data/" class="md-nav__link">
+        Linking data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/inspect/" class="md-nav__link">
+        Inspecting a CSV-W
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Guides</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Commands
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../command-line/build-command/" class="md-nav__link">
+        build
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../command-line/code-list-build-command/" class="md-nav__link">
+        code list build
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../command-line/inspect-command/" class="md-nav__link">
+        inspect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../command-line/logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/">Configuration</a>
+          
+            <label for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/convention/" class="md-nav__link">
+        By convention
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/qube-config/">Explicit configuration</a>
+          
+            <label for="__nav_3_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Explicit configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/metadata/" class="md-nav__link">
+        Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/qube-config/columns/">Column definitions</a>
+          
+            <label for="__nav_3_3_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Column definitions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/columns/dimensions/" class="md-nav__link">
+        Dimension columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/columns/observations/" class="md-nav__link">
+        Observations columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/columns/measures/" class="md-nav__link">
+        Measures columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/columns/units/" class="md-nav__link">
+        Units columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3_3_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../configuration/qube-config/columns/attributes/">Attribute columns</a>
+          
+            <label for="__nav_3_3_3_3_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_3_3_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3_3_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Attribute columns
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/columns/attributes/attribute-resources/" class="md-nav__link">
+        Resource attributes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/columns/attributes/attribute-literals/" class="md-nav__link">
+        Literal attributes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/columns/attributes/attribute-values/" class="md-nav__link">
+        Attribute values
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/templates/" class="md-nav__link">
+        Using templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/measure-definitions/" class="md-nav__link">
+        Measure definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/unit-definitions/" class="md-nav__link">
+        Unit definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/qube-config/code-list-config/" class="md-nav__link">
+        Code Lists
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../shape-data/">Shape your data</a>
+          
+            <label for="__nav_3_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Shape your data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shape-data/standard-shape/" class="md-nav__link">
+        Standard shape
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shape-data/pivoted-shape/" class="md-nav__link">
+        Pivoted shape
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shape-data/shape-conversion/" class="md-nav__link">
+        Shape conversion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Inspect API</a>
+          
+            <label for="__nav_3_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Inspect API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Worked example 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Worked example 3
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-data" class="md-nav__link">
+    Loading the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploring-the-data" class="md-nav__link">
+    Exploring the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting-the-data" class="md-nav__link">
+    Formatting the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysing-the-data-factor-analysis" class="md-nav__link">
+    Analysing the data (Factor Analysis)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#another-example-generalised-linear-model" class="md-nav__link">
+    Another example: Generalised Linear Model
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../missing-observed-values/" class="md-nav__link">
+        Handling missing observed values
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../errors/">Errors</a>
+          
+            <label for="__nav_3_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Errors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/build-command-errors/" class="md-nav__link">
+        build command errors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/inspect-command-errors/" class="md-nav__link">
+        inspect command errors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+          Linked Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linked Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/licenses/" class="md-nav__link">
+        Licenses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/organisations/" class="md-nav__link">
+        Organisations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-data/units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../raise-issue/" class="md-nav__link">
+        Raise an issue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uris/" class="md-nav__link">
+        Working with URIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csv-to-csvw-github-action/" class="md-nav__link">
+        Build with GitHub
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../glossary/">Glossary</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Glossary
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-data" class="md-nav__link">
+    Loading the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploring-the-data" class="md-nav__link">
+    Exploring the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting-the-data" class="md-nav__link">
+    Formatting the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysing-the-data-factor-analysis" class="md-nav__link">
+    Analysing the data (Factor Analysis)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#another-example-generalised-linear-model" class="md-nav__link">
+    Another example: Generalised Linear Model
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="worked-example-3">Worked example 3</h1>
+<p>The Inspect API facilitates statistical analysis of CSV-Ws by leveraging the formal structure of a data cube to identify the data set's components and pass this information into an existing statistical model. These models can therefore be generalised and applied to multiple data cubes simply by providing the file path to the metadata JSON file.</p>
+<h2 id="loading-the-data">Loading the data</h2>
+<p>The first step in the process is to load the CSV-W into csvcubed and create the Inspector object:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">csvcubed.inspect.inspectortable</span> <span class="kn">import</span> <span class="n">Inspector</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">eurovision_inspector</span> <span class="o">=</span> <span class="n">Inspector</span><span class="p">(</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv-metadata.json&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="exploring-the-data">Exploring the data</h2>
+<p>You can then explore the structure of the data set:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">eurovision</span><span class="o">.</span><span class="n">tables</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">[</span><span class="n">DataCubeTable</span><span class="p">(</span><span class="n">csv_url</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sweden at Eurovision Complete Dataset&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=&lt;</span><span class="n">CubeShape</span><span class="o">.</span><span class="n">Standard</span><span class="p">:</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">data_set_uri</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv#dataset&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a> <span class="n">CodeListTable</span><span class="p">(</span><span class="n">csv_url</span><span class="o">=</span><span class="s1">&#39;entrant.csv&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Entrant&#39;</span><span class="p">,</span> <span class="n">concept_scheme_uri</span><span class="o">=</span><span class="s1">&#39;entrant.csv#code-list&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a> <span class="n">CodeListTable</span><span class="p">(</span><span class="n">csv_url</span><span class="o">=</span><span class="s1">&#39;language.csv&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Language&#39;</span><span class="p">,</span> <span class="n">concept_scheme_uri</span><span class="o">=</span><span class="s1">&#39;language.csv#code-list&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a> <span class="n">CodeListTable</span><span class="p">(</span><span class="n">csv_url</span><span class="o">=</span><span class="s1">&#39;song.csv&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Song&#39;</span><span class="p">,</span> <span class="n">concept_scheme_uri</span><span class="o">=</span><span class="s1">&#39;song.csv#code-list&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a> <span class="n">CodeListTable</span><span class="p">(</span><span class="n">csv_url</span><span class="o">=</span><span class="s1">&#39;year.csv&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">concept_scheme_uri</span><span class="o">=</span><span class="s1">&#39;year.csv#code-list&#39;</span><span class="p">)]</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">primary_table</span> <span class="o">=</span> <span class="n">eurovision_inspector</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">primary_table</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">DataCubeTable</span><span class="p">(</span><span class="n">csv_url</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sweden at Eurovision Complete Dataset&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=&lt;</span><span class="n">CubeShape</span><span class="o">.</span><span class="n">Standard</span><span class="p">:</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">data_set_uri</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv#dataset&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">csv_url</span> <span class="o">=</span> <span class="n">primary_table</span><span class="o">.</span><span class="n">csv_url</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">csv_url</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv&#39;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">primary_table_columns</span> <span class="o">=</span> <span class="n">primary_table</span><span class="o">.</span><span class="n">columns</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">primary_table_columns</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>              <span class="n">DimensionColumn</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="n">LocalDimension</span><span class="p">(</span><span class="n">dimension_uri</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv#dimension/year&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">))),</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>             <span class="p">(</span><span class="s1">&#39;Entrant&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>              <span class="n">DimensionColumn</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="n">LocalDimension</span><span class="p">(</span><span class="n">dimension_uri</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv#dimension/entrant&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Entrant&#39;</span><span class="p">))),</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>             <span class="p">(</span><span class="s1">&#39;Song&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>              <span class="n">DimensionColumn</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="n">LocalDimension</span><span class="p">(</span><span class="n">dimension_uri</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv#dimension/song&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Song&#39;</span><span class="p">))),</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>             <span class="p">(</span><span class="s1">&#39;Language&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>              <span class="n">DimensionColumn</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="n">LocalDimension</span><span class="p">(</span><span class="n">dimension_uri</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv#dimension/language&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Language&#39;</span><span class="p">))),</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>             <span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>              <span class="n">StandardShapeObservationsColumn</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">UnitsColumn</span><span class="p">(),</span> <span class="n">measures_column</span><span class="o">=</span><span class="n">MeasuresColumn</span><span class="p">())),</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>             <span class="p">(</span><span class="s1">&#39;Measure&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>              <span class="n">MeasuresColumn</span><span class="p">()),</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>             <span class="p">(</span><span class="s1">&#39;Unit&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>              <span class="n">UnitsColumn</span><span class="p">()),</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a>             <span class="p">(</span><span class="s1">&#39;Marker&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a>              <span class="n">AttributeColumn</span><span class="p">(</span><span class="n">attribute</span><span class="o">=</span><span class="n">LocalAttribute</span><span class="p">(</span><span class="n">attribute_uri</span><span class="o">=</span><span class="s1">&#39;sweden-at-eurovision-complete-dataset.csv#attribute/observation-status&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observation Status&#39;</span><span class="p">),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">))])</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="formatting-the-data">Formatting the data</h2>
+<p>You can also load the CSV as a pandas DataFrame:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">data_cube_repository</span> <span class="o">=</span> <span class="n">primary_table</span><span class="o">.</span><span class="n">data_cube_repository</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">data_cube_repository</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">csv_url</span><span class="o">=</span><span class="n">csv_url</span><span class="p">,</span> <span class="n">include_suppressed_cols</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dereference_uris</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="o">|</span>   <span class="o">|</span> <span class="n">Year</span> <span class="o">|</span> <span class="n">Entrant</span>    <span class="o">|</span> <span class="n">Song</span>          <span class="o">|</span> <span class="n">Language</span> <span class="o">|</span> <span class="n">Value</span> <span class="o">|</span>         <span class="n">Measure</span> <span class="o">|</span>     <span class="n">Unit</span> <span class="o">|</span> <span class="n">Marker</span> <span class="o">|</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="o">|</span> <span class="mi">0</span> <span class="o">|</span> <span class="mi">1958</span> <span class="o">|</span> <span class="n">Alice</span> <span class="n">Babs</span> <span class="o">|</span> <span class="n">Lilla</span> <span class="n">stjärna</span> <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>   <span class="mf">4.0</span> <span class="o">|</span>      <span class="n">Final</span> <span class="n">Rank</span> <span class="o">|</span> <span class="n">Unitless</span> <span class="o">|</span>    <span class="n">NaN</span> <span class="o">|</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">1958</span> <span class="o">|</span> <span class="n">Alice</span> <span class="n">Babs</span> <span class="o">|</span> <span class="n">Lilla</span> <span class="n">stjärna</span> <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>  <span class="mf">10.0</span> <span class="o">|</span>    <span class="n">Final</span> <span class="n">Points</span> <span class="o">|</span> <span class="n">Unitless</span> <span class="o">|</span>    <span class="n">NaN</span> <span class="o">|</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">1958</span> <span class="o">|</span> <span class="n">Alice</span> <span class="n">Babs</span> <span class="o">|</span> <span class="n">Lilla</span> <span class="n">stjärna</span> <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>   <span class="mf">1.0</span> <span class="o">|</span> <span class="n">People</span> <span class="n">on</span> <span class="n">Stage</span> <span class="o">|</span>   <span class="n">Number</span> <span class="o">|</span>    <span class="n">NaN</span> <span class="o">|</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="mi">1959</span> <span class="o">|</span> <span class="n">Brita</span> <span class="n">Borg</span> <span class="o">|</span> <span class="n">Augustin</span>      <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>   <span class="mf">9.0</span> <span class="o">|</span>      <span class="n">Final</span> <span class="n">Rank</span> <span class="o">|</span> <span class="n">Unitless</span> <span class="o">|</span>    <span class="n">NaN</span> <span class="o">|</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="o">|</span> <span class="mi">4</span> <span class="o">|</span> <span class="mi">1959</span> <span class="o">|</span> <span class="n">Brita</span> <span class="n">Borg</span> <span class="o">|</span> <span class="n">Augustin</span>      <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>   <span class="mf">4.0</span> <span class="o">|</span>    <span class="n">Final</span> <span class="n">Points</span> <span class="o">|</span> <span class="n">Unitless</span> <span class="o">|</span>    <span class="n">NaN</span> <span class="o">|</span>
+</code></pre></div></td></tr></table></div>
+<p>In this example, the data set is in the <a href="../../shape-data/standard-shape/">standard shape</a>. Some statistical methods will need the dataframe to be in the <a href="../../shape-data/pivoted-shape/">pivoted shape</a>, and this can be achieved by accessing the column types and passing this information to the pandas <code>DataFrame.pivot</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">csvcubed.inspect.inspectorcolumns</span> <span class="kn">import</span> <span class="n">DimensionColumn</span><span class="p">,</span> <span class="n">MeasuresColumn</span><span class="p">,</span> <span class="n">ObservationsColumn</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dimension_col_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">primary_table_columns</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">DimensionColumn</span><span class="p">)]</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">measure_col_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">primary_table_columns</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">MeasuresColumn</span><span class="p">)]</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">value_col_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">primary_table_columns</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">ObservationsColumn</span><span class="p">)]</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">pivoted_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">dimension_col_titles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">measure_col_titles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="n">value_col_titles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">pivoted_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="o">|</span> <span class="n">Year</span> <span class="o">|</span> <span class="n">Entrant</span>        <span class="o">|</span> <span class="n">Song</span>                  <span class="o">|</span> <span class="n">Language</span> <span class="o">|</span> <span class="n">Final</span> <span class="n">Rank</span> <span class="o">|</span> <span class="n">Final</span> <span class="n">Points</span> <span class="o">|</span> <span class="n">People</span> <span class="n">on</span> <span class="n">Stage</span> <span class="o">|</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="o">|</span> <span class="mi">1958</span> <span class="o">|</span> <span class="n">Alice</span> <span class="n">Babs</span>     <span class="o">|</span> <span class="n">Lilla</span> <span class="n">stjärna</span>         <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>        <span class="mf">4.0</span> <span class="o">|</span>         <span class="mf">10.0</span> <span class="o">|</span>             <span class="mf">1.0</span> <span class="o">|</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="o">|</span> <span class="mi">1959</span> <span class="o">|</span> <span class="n">Brita</span> <span class="n">Borg</span>     <span class="o">|</span> <span class="n">Augustin</span>              <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>        <span class="mf">9.0</span> <span class="o">|</span>          <span class="mf">4.0</span> <span class="o">|</span>             <span class="mf">1.0</span> <span class="o">|</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="o">|</span> <span class="mi">1960</span> <span class="o">|</span> <span class="n">Siw</span> <span class="n">Malmkvist</span>  <span class="o">|</span> <span class="n">Alla</span> <span class="n">andra</span> <span class="n">får</span> <span class="n">varann</span> <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>       <span class="mf">10.0</span> <span class="o">|</span>          <span class="mf">4.0</span> <span class="o">|</span>             <span class="mf">1.0</span> <span class="o">|</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="o">|</span> <span class="mi">1961</span> <span class="o">|</span> <span class="n">Lill</span><span class="o">-</span><span class="n">Babs</span>      <span class="o">|</span> <span class="n">April</span><span class="p">,</span><span class="n">april</span>           <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>       <span class="mf">14.0</span> <span class="o">|</span>          <span class="mf">2.0</span> <span class="o">|</span>             <span class="mf">1.0</span> <span class="o">|</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="o">|</span> <span class="mi">1962</span> <span class="o">|</span> <span class="n">Inger</span> <span class="n">Berggren</span> <span class="o">|</span> <span class="n">Sol</span> <span class="n">och</span> <span class="n">vår</span>           <span class="o">|</span> <span class="n">Swedish</span>  <span class="o">|</span>        <span class="mf">7.0</span> <span class="o">|</span>          <span class="mf">4.0</span> <span class="o">|</span>             <span class="mf">1.0</span> <span class="o">|</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="analysing-the-data-factor-analysis">Analysing the data (Factor Analysis)</h2>
+<p>With the data set available as a DataFrame, you can apply any appropriate statistical analysis - for example, imagine that you want to visualise how the three observed variables (<code>Final Rank</code>, <code>Final Points</code> and <code>People on Stage</code>) are correlated with each other:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">pivoted_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;Correlation&quot;</span><span class="p">))</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Correlation heatmap" src="../../images/heatmap.png" /></p>
+<p>You could also undertake a Factor Analysis to explore how the observed variables are inter-related. Firstly, you would want to check whether Factor Analysis is an appropriate technique for this data set by performing some suitability tests:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">factor_analyzer</span> <span class="kn">import</span> <span class="n">calculate_bartlett_sphericity</span><span class="p">,</span> <span class="n">calculate_kmo</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">chi_sq</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">calculate_bartlett_sphericity</span><span class="p">(</span><span class="n">pivoted_df</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">kmo_all</span><span class="p">,</span> <span class="n">kmo_model</span> <span class="o">=</span> <span class="n">calculate_kmo</span><span class="p">(</span><span class="n">pivoted_df</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bartlett Test of Sphericity results:&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chi-squared: </span><span class="si">{</span><span class="n">chi_sq</span><span class="si">}</span><span class="s2">, p-value: </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kaiser-Meyer-Olkin (KMO) results:&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KMO score per item: </span><span class="si">{</span><span class="n">kmo_all</span><span class="si">}</span><span class="s2">, Overall KMO score: </span><span class="si">{</span><span class="n">kmo_model</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">Bartlett</span> <span class="n">Test</span> <span class="n">of</span> <span class="n">Sphericity</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">Chi</span><span class="o">-</span><span class="n">squared</span><span class="p">:</span> <span class="mf">33.351</span><span class="p">,</span> <span class="n">p</span><span class="o">-</span><span class="n">value</span><span class="p">:</span> <span class="mf">0.0000003</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="n">Kaiser</span><span class="o">-</span><span class="n">Meyer</span><span class="o">-</span><span class="n">Olkin</span> <span class="p">(</span><span class="n">KMO</span><span class="p">)</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="n">KMO</span> <span class="n">score</span> <span class="n">per</span> <span class="n">item</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.498</span> <span class="mf">0.497</span>  <span class="mf">0.496</span><span class="p">],</span> <span class="n">Overall</span> <span class="n">KMO</span> <span class="n">score</span><span class="p">:</span> <span class="mf">0.497</span>
+</code></pre></div></td></tr></table></div>
+<p>Once you have reviewed the results of the suitability tests, you can perform the Factor Analysis:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">factor_analyzer</span> <span class="kn">import</span> <span class="n">FactorAnalyzer</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">fa</span> <span class="o">=</span> <span class="n">FactorAnalyzer</span><span class="p">(</span><span class="n">n_factors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">fa</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pivoted_df</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">ev</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">fa</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">ev</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">array</span><span class="p">([</span><span class="mf">1.77598209</span><span class="p">,</span> <span class="mf">0.86422349</span><span class="p">,</span> <span class="mf">0.35979442</span><span class="p">])</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pivoted_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">ev</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Eigenvalue plot" src="../../images/eigenvalues.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">loadings</span> <span class="o">=</span> <span class="n">fa</span><span class="o">.</span><span class="n">loadings_</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">loadings</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">array</span><span class="p">([[</span> <span class="mf">0.89912209</span><span class="p">,</span>  <span class="mf">0.02503715</span><span class="p">,</span>  <span class="mf">0.</span>        <span class="p">],</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>       <span class="p">[</span><span class="o">-</span><span class="mf">0.60131768</span><span class="p">,</span>  <span class="mf">0.39154271</span><span class="p">,</span>  <span class="mf">0.</span>        <span class="p">],</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>       <span class="p">[</span> <span class="mf">0.5034576</span> <span class="p">,</span>  <span class="mf">0.42293552</span><span class="p">,</span>  <span class="mf">0.</span>        <span class="p">]])</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="another-example-generalised-linear-model">Another example: Generalised Linear Model</h2>
+<p>This is another example of how information can be retrieved from a CSVW with the help of the Inspect API. The purpose of this example is to highlight how Inspector objects and the information they give access to can streamline exploration of data and avoid the requirement of any thorough knowledge of the data set or its details in order to retrieve information to use in analysis.</p>
+<p>Here, we will be using the Inspect API to acquire all the information we need to then create a basic GLM (Generalised Linear Model) using the statsmodels library.</p>
+<p>Say we want to make a model on a data set where we want the response variable to be modelled on the observation values from our input data set, and we want it to depend on the values contained within a time period column, i.e. dimension column.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">gross_pay_inspector</span> <span class="o">=</span> <span class="n">Inspector</span><span class="p">(</span><span class="s1">&#39;gross-median-weekly-pay.csv-metadata.json&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">gross_pay_table</span> <span class="o">=</span> <span class="n">gross_pay_inspector</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">gross_pay_columns</span> <span class="o">=</span> <span class="n">gross_pay_table</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div></td></tr></table></div>
+<p>After loading the Inspector object, we can get the information we need from it. Refer to the previous example <a href="./example3.md/#exploring-the-data">Exploring data</a> for accessing information using an Inspector, e.g. the data set's primary table and then the columns. It will work the same way, all we need to do is provide a valid input file.</p>
+<p>Then we can get the dimensions columns from the data set. Note for an analysis like this, we assume there is only one observations column in the data set with an associated dimension. Otherwise, you would obviously need to know which set of observations you want to analyse and specify it.</p>
+<p>The previous example's <a href="./example3.md/#formatting-the-data">Formatting data</a> section shows how to acquire columns of a specific type using the Inspector object. We can do the same here to get the observation and dimension column titles.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dimension_col_title</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">gross_pay_columns</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">DimensionColumn</span><span class="p">)]</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">value_col_title</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">gross_pay_columns</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">ObservationColumn</span><span class="p">)]</span>
+</code></pre></div></td></tr></table></div>
+<p>We have acquired the titles of the observations column and the dimensions column from our data set. Now, we can input this information into the GLM creation functions. The rest of the code is just the creation of a basic GLM.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">glm_formula</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value_col_title</span><span class="si">}</span><span class="s2"> ~ </span><span class="si">{</span><span class="n">dimension_col_title</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>Without the functionality from the Inspect API, we would have to do something like figuring out the exact titles of the data set's columns, and hard coded them into
+a script that would only ever work for this data set, which would look something like this:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">glm_formula</span> <span class="o">=</span> <span class="s2">&quot;Value ~ Period&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>The rest of the GLM creation code:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">distribution_family</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Gaussian</span><span class="p">()</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">glm_model</span> <span class="o">=</span> <span class="n">glm</span><span class="p">(</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="o">&gt;&gt;&gt;</span>     <span class="n">formula</span><span class="o">=</span><span class="n">glm_formula</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">my_dataframe</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">distribution_family</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">glm_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.instant", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
