@@ -7,13 +7,10 @@ csvcubed.utils
 
    csvcubed.utils.qb
    csvcubed.utils.skos
-   csvcubed.utils.sparql_handler
    csvcubed.utils.validators
 :py:mod:`csvcubed.utils.qb`
 
 :py:mod:`csvcubed.utils.skos`
-
-:py:mod:`csvcubed.utils.sparql_handler`
 
 :py:mod:`csvcubed.utils.validators`
 
@@ -35,7 +32,6 @@ csvcubed.utils
    csvcubed.utils.pandas
    csvcubed.utils.printable
    csvcubed.utils.rdf
-   csvcubed.utils.tableschema
    csvcubed.utils.text
    csvcubed.utils.uri
    csvcubed.utils.validations
@@ -68,8 +64,6 @@ csvcubed.utils
 :py:mod:`csvcubed.utils.printable`
 
 :py:mod:`csvcubed.utils.rdf`
-
-:py:mod:`csvcubed.utils.tableschema`
 
 :py:mod:`csvcubed.utils.text`
 

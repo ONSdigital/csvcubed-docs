@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>csvcubed.cli.inspectcsvw.metadataprinter &#8212; csvcubed 0.3.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csvcubed.cli.inspectcsvw.metadataprinter &#8212; csvcubed 0.1.0.dev483190574249874690302564199211672092564516363017 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
@@ -65,7 +65,7 @@
           </li>
           <li>
               
-              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              <a href="index.html">csvcubed 0.1.0.dev483190574249874690302564199211672092564516363017 documentation</a> &#187;
               
           </li>
           <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
@@ -109,7 +109,7 @@
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.cli.inspectcsvw.metadataprinter.</span></span><span class="sig-name descname"><span class="pre">MetadataPrinter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_repository.html#csvcubed.utils.sparql_handler.data_cube_repository.DataCubeRepository" title="csvcubed.utils.sparql_handler.data_cube_repository.DataCubeRepository"><span class="pre">DataCubeRepository</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_repository.html#csvcubed.utils.sparql_handler.code_list_repository.CodeListRepository" title="csvcubed.utils.sparql_handler.code_list_repository.CodeListRepository"><span class="pre">CodeListRepository</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.cli.inspectcsvw.metadataprinter.</span></span><span class="sig-name descname"><span class="pre">MetadataPrinter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataCubeRepository</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">CodeListRepository</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class produces the printables necessary for producing outputs to the CLI.</p>
 <dl class="py property">
@@ -219,7 +219,7 @@ E.g. ‘data cube’ or ‘code list’.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_parent_label_unique_id_col_titles">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_parent_label_unique_id_col_titles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.sparqlresults.html#csvcubed.models.sparqlresults.ColumnDefinition" title="csvcubed.models.sparqlresults.ColumnDefinition"><span class="pre">ColumnDefinition</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_key_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_parent_label_unique_id_col_titles" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_parent_label_unique_id_col_titles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.inspect.sparqlresults.html#csvcubed.models.inspect.sparqlresults.ColumnDefinition" title="csvcubed.models.inspect.sparqlresults.ColumnDefinition"><span class="pre">ColumnDefinition</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primary_key_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.get_parent_label_unique_id_col_titles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a tuple containing the parent, label and unique id column titles
 in a code list.</p>
 </dd></dl>
@@ -232,7 +232,7 @@ in a code list.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_csv_column_definitions">
-<span class="sig-name descname"><span class="pre">primary_csv_column_definitions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.sparqlresults.html#csvcubed.models.sparqlresults.ColumnDefinition" title="csvcubed.models.sparqlresults.ColumnDefinition"><span class="pre">ColumnDefinition</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_csv_column_definitions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">primary_csv_column_definitions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.inspect.sparqlresults.html#csvcubed.models.inspect.sparqlresults.ColumnDefinition" title="csvcubed.models.inspect.sparqlresults.ColumnDefinition"><span class="pre">ColumnDefinition</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_csv_column_definitions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -242,47 +242,47 @@ in a code list.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_cube_table_identifiers">
-<span class="sig-name descname"><span class="pre">primary_cube_table_identifiers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.sparqlresults.html#csvcubed.models.sparqlresults.CubeTableIdentifiers" title="csvcubed.models.sparqlresults.CubeTableIdentifiers"><span class="pre">CubeTableIdentifiers</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_cube_table_identifiers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">primary_cube_table_identifiers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspect.sparqlresults.html#csvcubed.models.inspect.sparqlresults.CubeTableIdentifiers" title="csvcubed.models.inspect.sparqlresults.CubeTableIdentifiers"><span class="pre">CubeTableIdentifiers</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.primary_cube_table_identifiers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_catalog_metadata">
-<span class="sig-name descname"><span class="pre">result_catalog_metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.sparqlresults.html#csvcubed.models.sparqlresults.CatalogMetadataResult" title="csvcubed.models.sparqlresults.CatalogMetadataResult"><span class="pre">CatalogMetadataResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_catalog_metadata" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result_catalog_metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspect.sparqlresults.html#csvcubed.models.inspect.sparqlresults.CatalogMetadataResult" title="csvcubed.models.inspect.sparqlresults.CatalogMetadataResult"><span class="pre">CatalogMetadataResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_catalog_metadata" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_code_list_cols">
-<span class="sig-name descname"><span class="pre">result_code_list_cols</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.sparqlresults.html#csvcubed.models.sparqlresults.ColumnDefinition" title="csvcubed.models.sparqlresults.ColumnDefinition"><span class="pre">ColumnDefinition</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_code_list_cols" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result_code_list_cols</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.inspect.sparqlresults.html#csvcubed.models.inspect.sparqlresults.ColumnDefinition" title="csvcubed.models.inspect.sparqlresults.ColumnDefinition"><span class="pre">ColumnDefinition</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_code_list_cols" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_column_component_infos">
-<span class="sig-name descname"><span class="pre">result_column_component_infos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.utils.sparql_handler.column_component_info.html#csvcubed.utils.sparql_handler.column_component_info.ColumnComponentInfo" title="csvcubed.utils.sparql_handler.column_component_info.ColumnComponentInfo"><span class="pre">ColumnComponentInfo</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_column_component_infos" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result_column_component_infos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="csvcubed.models.inspect.column_component_info.html#csvcubed.models.inspect.column_component_info.ColumnComponentInfo" title="csvcubed.models.inspect.column_component_info.ColumnComponentInfo"><span class="pre">ColumnComponentInfo</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_column_component_infos" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_concepts_hierachy_info">
-<span class="sig-name descname"><span class="pre">result_concepts_hierachy_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspectdataframeresults.html#csvcubed.models.inspectdataframeresults.CodelistHierarchyInfoResult" title="csvcubed.models.inspectdataframeresults.CodelistHierarchyInfoResult"><span class="pre">CodelistHierarchyInfoResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_concepts_hierachy_info" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result_concepts_hierachy_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspect.inspectdataframeresults.html#csvcubed.models.inspect.inspectdataframeresults.CodelistHierarchyInfoResult" title="csvcubed.models.inspect.inspectdataframeresults.CodelistHierarchyInfoResult"><span class="pre">CodelistHierarchyInfoResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_concepts_hierachy_info" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_observations_info">
-<span class="sig-name descname"><span class="pre">result_dataset_observations_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspectdataframeresults.html#csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult" title="csvcubed.models.inspectdataframeresults.DatasetObservationsInfoResult"><span class="pre">DatasetObservationsInfoResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_observations_info" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result_dataset_observations_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspect.inspectdataframeresults.html#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult" title="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult"><span class="pre">DatasetObservationsInfoResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_observations_info" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_value_counts">
-<span class="sig-name descname"><span class="pre">result_dataset_value_counts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspectdataframeresults.html#csvcubed.models.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult" title="csvcubed.models.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult"><span class="pre">DatasetObservationsByMeasureUnitInfoResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_value_counts" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result_dataset_value_counts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspect.inspectdataframeresults.html#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult" title="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult"><span class="pre">DatasetObservationsByMeasureUnitInfoResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_dataset_value_counts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_primary_csv_code_lists">
-<span class="sig-name descname"><span class="pre">result_primary_csv_code_lists</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.sparqlresults.html#csvcubed.models.sparqlresults.CodelistsResult" title="csvcubed.models.sparqlresults.CodelistsResult"><span class="pre">CodelistsResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_primary_csv_code_lists" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result_primary_csv_code_lists</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.inspect.sparqlresults.html#csvcubed.models.inspect.sparqlresults.CodelistsResult" title="csvcubed.models.inspect.sparqlresults.CodelistsResult"><span class="pre">CodelistsResult</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.result_primary_csv_code_lists" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.state">
-<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.utils.sparql_handler.data_cube_repository.html#csvcubed.utils.sparql_handler.data_cube_repository.DataCubeRepository" title="csvcubed.utils.sparql_handler.data_cube_repository.DataCubeRepository"><span class="pre">DataCubeRepository</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.utils.sparql_handler.code_list_repository.html#csvcubed.utils.sparql_handler.code_list_repository.CodeListRepository" title="csvcubed.utils.sparql_handler.code_list_repository.CodeListRepository"><span class="pre">CodeListRepository</span></a></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.state" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataCubeRepository</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">CodeListRepository</span></em><a class="headerlink" href="#csvcubed.cli.inspectcsvw.metadataprinter.MetadataPrinter.state" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -317,7 +317,6 @@ in a code list.</p>
 <li class="toctree-l3"><a class="reference internal" href="csvcubed.cli.codelist.html">csvcubed.cli.codelist</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="csvcubed.cli.inspectcsvw.html">csvcubed.cli.inspectcsvw</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspect.html">csvcubed.cli.inspectcsvw.inspect</a></li>
-<li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.inspectdatasetmanager.html">csvcubed.cli.inspectcsvw.inspectdatasetmanager</a></li>
 <li class="toctree-l4"><a class="reference internal" href="csvcubed.cli.inspectcsvw.metadatainputvalidator.html">csvcubed.cli.inspectcsvw.metadatainputvalidator</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.cli.inspectcsvw.metadataprinter</a></li>
 </ul>
@@ -379,7 +378,7 @@ in a code list.</p>
           </li>
           <li>
               
-              <a href="index.html">csvcubed 0.3.5 documentation</a> &#187;
+              <a href="index.html">csvcubed 0.1.0.dev483190574249874690302564199211672092564516363017 documentation</a> &#187;
               
           </li>
           <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
@@ -410,7 +409,7 @@ in a code list.</p>
       </ul>
     </div>  
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2023, ONS.
+        &copy; Copyright .
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
     </div>
   </body>

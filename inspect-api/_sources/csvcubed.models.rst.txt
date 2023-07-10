@@ -7,11 +7,14 @@ csvcubed.models
 
    csvcubed.models.codelistconfig
    csvcubed.models.cube
+   csvcubed.models.inspect
    csvcubed.models.rdf
    csvcubed.models.sparql
 :py:mod:`csvcubed.models.codelistconfig`
 
 :py:mod:`csvcubed.models.cube`
+
+:py:mod:`csvcubed.models.inspect`
 
 :py:mod:`csvcubed.models.rdf`
 
@@ -24,9 +27,7 @@ csvcubed.models
    csvcubed.models.csvcubedexception
    csvcubed.models.csvwtype
    csvcubed.models.errorurl
-   csvcubed.models.inspectdataframeresults
    csvcubed.models.jsonvalidationerrors
-   csvcubed.models.sparqlresults
    csvcubed.models.uriidentifiable
    csvcubed.models.validatedmodel
    csvcubed.models.validationerror
@@ -37,11 +38,7 @@ csvcubed.models
 
 :py:mod:`csvcubed.models.errorurl`
 
-:py:mod:`csvcubed.models.inspectdataframeresults`
-
 :py:mod:`csvcubed.models.jsonvalidationerrors`
-
-:py:mod:`csvcubed.models.sparqlresults`
 
 :py:mod:`csvcubed.models.uriidentifiable`
 

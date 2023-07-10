@@ -1,0 +1,23 @@
+csvcubed.models.inspect 
+========================
+
+.. toctree::
+   :maxdepth: 20
+
+   csvcubed.models.inspect.column_component_info
+   csvcubed.models.inspect.inspectdataframeresults
+   csvcubed.models.inspect.sparqlresults
+
+:py:mod:`csvcubed.models.inspect.column_component_info`
+
+:py:mod:`csvcubed.models.inspect.inspectdataframeresults`
+
+:py:mod:`csvcubed.models.inspect.sparqlresults`
+
+
+
+
+.. automodule:: csvcubed.models.inspect
+   :members:
+   :undoc-members:
+   :show-inheritance:

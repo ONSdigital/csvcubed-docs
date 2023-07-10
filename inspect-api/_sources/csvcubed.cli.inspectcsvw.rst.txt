@@ -5,13 +5,10 @@ csvcubed.cli.inspectcsvw
    :maxdepth: 20
 
    csvcubed.cli.inspectcsvw.inspect
-   csvcubed.cli.inspectcsvw.inspectdatasetmanager
    csvcubed.cli.inspectcsvw.metadatainputvalidator
    csvcubed.cli.inspectcsvw.metadataprinter
 
 :py:mod:`csvcubed.cli.inspectcsvw.inspect`
-
-:py:mod:`csvcubed.cli.inspectcsvw.inspectdatasetmanager`
 
 :py:mod:`csvcubed.cli.inspectcsvw.metadatainputvalidator`
 

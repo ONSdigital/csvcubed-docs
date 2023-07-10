@@ -1,4 +1,4 @@
-csvcubed.utils.sparql\_handler.sparql 
+csvcubed.models.inspect.sparqlresults 
 ======================================
 
 
@@ -6,7 +6,7 @@ csvcubed.utils.sparql\_handler.sparql
    :maxdepth: 
 
 
-.. automodule:: csvcubed.utils.sparql_handler.sparql
+.. automodule:: csvcubed.models.inspect.sparqlresults
    :members:
    :undoc-members:
    :show-inheritance:

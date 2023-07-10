@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>csvcubed.models.inspect.inspectdataframeresults &#8212; csvcubed 0.1.0.dev483190574249874690302564199211672092564516363017 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="csvcubed.models.inspect.sparqlresults" href="csvcubed.models.inspect.sparqlresults.html" />
+    <link rel="prev" title="csvcubed.models.inspect.column_component_info" href="csvcubed.models.inspect.column_component_info.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <!-- Acquired favicon from https://www.favicon.cc/?action=icon&file_id=178839 under CC no attribution -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AADgBwAA7/cAAOgXAADv9wAA6BcAAO/3AADodwAA7/cAAOkHAADvdwAA6W8AAO9fAADgPwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        </label>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.inspect.sparqlresults.html" title="csvcubed.models.inspect.sparqlresults"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.inspect.column_component_info.html" title="csvcubed.models.inspect.column_component_info"
+             accesskey="P">previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.1.0.dev483190574249874690302564199211672092564516363017 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.models.html" >csvcubed.models</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.models.inspect.html" accesskey="U">csvcubed.models.inspect</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.models.inspect.inspectdataframeresults</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="csvcubed-models-inspect-inspectdataframeresults">
+<h1>csvcubed.models.inspect.inspectdataframeresults<a class="headerlink" href="#csvcubed-models-inspect-inspectdataframeresults" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-csvcubed.models.inspect.inspectdataframeresults"></span><section id="inspect-dataframe-query-results">
+<h2>Inspect Dataframe query results<a class="headerlink" href="#inspect-dataframe-query-results" title="Permalink to this heading">¶</a></h2>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.CodelistHierarchyInfoResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.inspect.inspectdataframeresults.</span></span><span class="sig-name descname"><span class="pre">CodelistHierarchyInfoResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.CodelistHierarchyInfoResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Model to represent codelist hierarchy tree.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.CodelistHierarchyInfoResult.output_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.CodelistHierarchyInfoResult.output_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.CodelistHierarchyInfoResult.tree">
+<span class="sig-name descname"><span class="pre">tree</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tree</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.CodelistHierarchyInfoResult.tree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.inspect.inspectdataframeresults.</span></span><span class="sig-name descname"><span class="pre">DatasetObservationsByMeasureUnitInfoResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">by_measure_and_unit_val_counts_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Model to represent get value counts of dataset observations broken-down by measure and unit.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult.by_measure_and_unit_val_counts_df">
+<span class="sig-name descname"><span class="pre">by_measure_and_unit_val_counts_df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult.by_measure_and_unit_val_counts_df" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult.output_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsByMeasureUnitInfoResult.output_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.inspect.inspectdataframeresults.</span></span><span class="sig-name descname"><span class="pre">DatasetObservationsInfoResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csvw_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="csvcubed.models.csvwtype.html#csvcubed.models.csvwtype.CSVWType" title="csvcubed.models.csvwtype.CSVWType"><span class="pre">CSVWType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="csvcubed.models.cube.cube_shape.html#csvcubed.models.cube.cube_shape.CubeShape" title="csvcubed.models.cube.cube_shape.CubeShape"><span class="pre">CubeShape</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_duplicates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_head</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_tail</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Model to represent get dataset observation info dataframe operation result.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.csvw_type">
+<span class="sig-name descname"><span class="pre">csvw_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.csvwtype.html#csvcubed.models.csvwtype.CSVWType" title="csvcubed.models.csvwtype.CSVWType"><span class="pre">CSVWType</span></a></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.csvw_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.cube_shape">
+<span class="sig-name descname"><span class="pre">cube_shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="csvcubed.models.cube.cube_shape.html#csvcubed.models.cube.cube_shape.CubeShape" title="csvcubed.models.cube.cube_shape.CubeShape"><span class="pre">CubeShape</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.cube_shape" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.dataset_head">
+<span class="sig-name descname"><span class="pre">dataset_head</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.dataset_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.dataset_tail">
+<span class="sig-name descname"><span class="pre">dataset_tail</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.dataset_tail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.num_of_duplicates">
+<span class="sig-name descname"><span class="pre">num_of_duplicates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.num_of_duplicates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.num_of_observations">
+<span class="sig-name descname"><span class="pre">num_of_observations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.num_of_observations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.output_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetObservationsInfoResult.output_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetSingleMeasureResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.inspect.inspectdataframeresults.</span></span><span class="sig-name descname"><span class="pre">DatasetSingleMeasureResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measure_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetSingleMeasureResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetSingleMeasureResult.measure_label">
+<span class="sig-name descname"><span class="pre">measure_label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetSingleMeasureResult.measure_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.inspect.inspectdataframeresults.DatasetSingleMeasureResult.measure_uri">
+<span class="sig-name descname"><span class="pre">measure_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#csvcubed.models.inspect.inspectdataframeresults.DatasetSingleMeasureResult.measure_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csvcubed.html">csvcubed</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.cli.html">csvcubed.cli</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="csvcubed.models.html">csvcubed.models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.codelistconfig.html">csvcubed.models.codelistconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.cube.html">csvcubed.models.cube</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="csvcubed.models.inspect.html">csvcubed.models.inspect</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.inspect.column_component_info.html">csvcubed.models.inspect.column_component_info</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">csvcubed.models.inspect.inspectdataframeresults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csvcubed.models.inspect.sparqlresults.html">csvcubed.models.inspect.sparqlresults</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.rdf.html">csvcubed.models.rdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.sparql.html">csvcubed.models.sparql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.csvcubedexception.html">csvcubed.models.csvcubedexception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.csvwtype.html">csvcubed.models.csvwtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.errorurl.html">csvcubed.models.errorurl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.jsonvalidationerrors.html">csvcubed.models.jsonvalidationerrors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.uriidentifiable.html">csvcubed.models.uriidentifiable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.validatedmodel.html">csvcubed.models.validatedmodel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="csvcubed.models.validationerror.html">csvcubed.models.validationerror</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.readers.html">csvcubed.readers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.utils.html">csvcubed.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.writers.html">csvcubed.writers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.definitions.html">csvcubed.definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvcubed.inputs.html">csvcubed.inputs</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/csvcubed.models.inspect.inspectdataframeresults.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.inspect.sparqlresults.html" title="csvcubed.models.inspect.sparqlresults"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="csvcubed.models.inspect.column_component_info.html" title="csvcubed.models.inspect.column_component_info"
+             >previous</a> |</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">csvcubed 0.1.0.dev483190574249874690302564199211672092564516363017 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="csvcubed.models.html" >csvcubed.models</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="csvcubed.models.inspect.html" >csvcubed.models.inspect</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">csvcubed.models.inspect.inspectdataframeresults</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer" role="contentinfo">
+        &copy; Copyright .
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 6.2.1, powered by python-docs-theme python software foundaton license version 2.
+    </div>
+  </body>
+</html>
