@@ -25,9 +25,12 @@ csvcubed
    :maxdepth: 20
 
    csvcubed.definitions
+   csvcubed.feature_flags
    csvcubed.inputs
 
 :py:mod:`csvcubed.definitions`
+
+:py:mod:`csvcubed.feature_flags`
 
 :py:mod:`csvcubed.inputs`
 
