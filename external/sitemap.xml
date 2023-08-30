@@ -396,6 +396,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/invalid-obs-val-col-entitled-value/</loc>
+         <lastmod>2023-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://gss-cogs.github.io/csvcubed-docs/external/guides/errors/inspect-command-errors/invalid-pk-col-title/</loc>
          <lastmod>2023-08-30</lastmod>
          <changefreq>daily</changefreq>

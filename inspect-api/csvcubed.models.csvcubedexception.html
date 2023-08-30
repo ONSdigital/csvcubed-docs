@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>csvcubed.models.csvcubedexception &#8212; csvcubed 0.4.8 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csvcubed.models.csvcubedexception &#8212; csvcubed 0.1.0.dev491559530938185649550529290662214051622604778817 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?digest=845a48175c3935ba0d7ff16b8ed0072d62fd099f" />
@@ -65,7 +65,7 @@
           </li>
           <li>
               
-              <a href="index.html">csvcubed 0.4.8 documentation</a> &#187;
+              <a href="index.html">csvcubed 0.1.0.dev491559530938185649550529290662214051622604778817 documentation</a> &#187;
               
           </li>
           <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>
@@ -197,6 +197,11 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidObsValColTitle">
+<span class="sig-name descname"><span class="pre">InvalidObsValColTitle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;The</span> <span class="pre">title</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">observation</span> <span class="pre">value</span> <span class="pre">column</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">pivoted</span> <span class="pre">shape</span> <span class="pre">cube</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">'Value'.</span> <span class="pre">Please</span> <span class="pre">rename</span> <span class="pre">the</span> <span class="pre">column.&quot;</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.InvalidObsValColTitle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.PrimaryKeyColumnTitleCannotBeNone">
 <span class="sig-name descname"><span class="pre">PrimaryKeyColumnTitleCannotBeNone</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">column</span> <span class="pre">associated</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">primary</span> <span class="pre">key</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">contain</span> <span class="pre">the</span> <span class="pre">title.'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionMsges.PrimaryKeyColumnTitleCannotBeNone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -301,6 +306,11 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumberOfRecords">
 <span class="sig-name descname"><span class="pre">InvalidNumberOfRecords</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/num-records'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidNumberOfRecords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidObsValColTitle">
+<span class="sig-name descname"><span class="pre">InvalidObsValColTitle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://purl.org/csv-cubed/err/obs-val-col-entitled-value'</span></em><a class="headerlink" href="#csvcubed.models.csvcubedexception.CsvcubedExceptionUrls.InvalidObsValColTitle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -463,6 +473,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidNumberOfRecordsException.get_error_url">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidNumberOfRecordsException.get_error_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidObsValColTitleException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">csvcubed.models.csvcubedexception.</span></span><span class="sig-name descname"><span class="pre">InvalidObsValColTitleException</span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidObsValColTitleException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#csvcubed.models.csvcubedexception.CsvcubedException" title="csvcubed.models.csvcubedexception.CsvcubedException"><code class="xref py py-class docutils literal notranslate"><span class="pre">CsvcubedException</span></code></a></p>
+<p>Class representing the InvalidObsValColTitleException model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="csvcubed.models.csvcubedexception.InvalidObsValColTitleException.get_error_url">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_error_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#csvcubed.models.csvcubedexception.InvalidObsValColTitleException.get_error_url" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -644,7 +666,7 @@
           </li>
           <li>
               
-              <a href="index.html">csvcubed 0.4.8 documentation</a> &#187;
+              <a href="index.html">csvcubed 0.1.0.dev491559530938185649550529290662214051622604778817 documentation</a> &#187;
               
           </li>
           <li class="nav-item nav-item-1"><a href="csvcubed.html" >csvcubed</a> &#187;</li>

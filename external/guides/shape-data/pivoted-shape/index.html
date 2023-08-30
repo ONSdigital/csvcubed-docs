@@ -1076,6 +1076,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#observation-value-column-titles" class="md-nav__link">
+    Observation value column titles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#single-measure" class="md-nav__link">
     Single Measure
   </a>
@@ -1487,6 +1494,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#observation-value-column-titles" class="md-nav__link">
+    Observation value column titles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#single-measure" class="md-nav__link">
     Single Measure
   </a>
@@ -1523,6 +1537,8 @@
 <p>This page describes how to build and configure a pivoted shape data cube. For more information about the data shapes supported by csvcubed, see <a href="../">Shaping your data</a>. The instructions below assume a basic understanding of writing a <a href="../../configuration/qube-config/">qube-config.json file</a>.</p>
 </blockquote>
 <p>See <a href="../shape-conversion/#converting-to-the-pivoted-shape">Converting to pivoted shape</a> for instructions on how to convert the shape of your data in Python and R.</p>
+<h2 id="observation-value-column-titles">Observation value column titles</h2>
+<p>In a pivoted shape data set, the observation value column titles must not be entitled "Value". If you attempt to inspect a data cube built using csvcubed where one or more observation columns are entitled "Value", this will raise an <a href="../../errors/inspect-command-errors/invalid-obs-val-col-entitled-value/">error</a>.</p>
 <h2 id="single-measure">Single Measure</h2>
 <p>The <a href="../standard-shape/">standard shape</a> is flexible but has a lot of redundancy which can often be removed by using the more concise pivoted form. Our data set on the distribution of the number of Arthur's Bakes stores can be expressed in the pivoted shape as follows:</p>
 <table>
